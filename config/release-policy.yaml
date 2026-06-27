@@ -1,0 +1,37 @@
+version: 1
+knowledge:
+  require_catalog_status: [reviewed, qualified, verified, published]
+  require_visibility: [public]
+  require_concept_file: true
+  exclude_markdown_sections_containing:
+    - Internal Notes
+    - Private Source
+  excluded_frontmatter_keys:
+    - commercial_context
+    - private_notes
+    - internal_notes
+    - raw_source
+
+itinerary_core:
+  allowed_projection_fields:
+    - package_catalog
+    - location_aliases
+    - route_nodes
+    - route_legs
+    - package_route_map
+    - operational_context
+    - pickup_contexts
+    - dropoff_contexts
+    - time_window_rules
+    - route_source_gaps
+    - operational_context_gaps
+  prohibited_runtime_uses:
+    - final_price_calculation
+    - payment_confirmation
+    - availability_confirmation
+    - raw_cost_disclosure
+    - raw_customer_pii
+
+release:
+  default_customer_traffic_ready: false
+  require_manual_deployment_approval: true

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/decision-envelope-v1.json",
+  "type": "object",
+  "required": [
+    "schema_version", "decision_id", "release_id", "intent", "intent_status",
+    "entities", "knowledge", "feasibility", "live_tool_plan", "response_constraints",
+    "handoff", "audit"
+  ],
+  "properties": {
+    "schema_version": {"const": "decision-envelope-v1"},
+    "decision_id": {"type": "string", "minLength": 8},
+    "release_id": {"type": "string", "minLength": 1},
+    "intent": {"type": "string", "minLength": 1},
+    "intent_status": {"enum": ["ready", "needs_information", "handoff_required", "unsupported"]},
+    "entities": {"type": "object"},
+    "knowledge": {
+      "type": "object",
+      "required": ["candidate_ids", "retrieval_status"],
+      "properties": {
+        "candidate_ids": {"type": "array", "items": {"type": "string"}},
+        "retrieval_status": {"enum": ["not_required", "found", "none_found"]}
+      }
+    },
+    "feasibility": {
+      "type": "object",
+      "required": ["required", "status"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "status": {"enum": ["not_required", "not_evaluated", "feasible", "conditional", "not_feasible", "unavailable"]}
+      }
+    },
+    "live_tool_plan": {"type": "array", "items": {"type": "string"}},
+    "response_constraints": {"type": "array", "items": {"type": "string"}},
+    "handoff": {
+      "type": "object",
+      "required": ["required", "reasons"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "audit": {
+      "type": "object",
+      "required": ["knowledge_release", "core_release", "created_at"],
+      "properties": {
+        "knowledge_release": {"type": "string"},
+        "core_release": {"type": "string"},
+        "created_at": {"type": "string"}
+      }
+    }
+  },
+  "additionalProperties": false
+}

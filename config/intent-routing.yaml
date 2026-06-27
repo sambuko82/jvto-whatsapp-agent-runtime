@@ -1,0 +1,96 @@
+version: 1
+intents:
+  general_greeting:
+    knowledge_required: false
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+
+  query_package_details:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+
+  query_destination_details:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+
+  query_policy:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+
+  plan_itinerary:
+    knowledge_required: true
+    feasibility_required: true
+    live_tools: []
+    required_entities:
+      - pickup_location
+      - dropoff_location
+      - requested_destinations
+      - travel_date
+      - number_of_guests
+      - pickup_time
+      - duration_days
+
+  check_availability:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools:
+      - availability
+    required_entities:
+      - package_key
+      - travel_date
+      - number_of_guests
+
+  check_price:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools:
+      - pricing
+    required_entities:
+      - package_key
+      - travel_date
+      - number_of_guests
+
+  get_booking_status:
+    knowledge_required: false
+    feasibility_required: false
+    live_tools:
+      - booking_status
+    required_entities:
+      - booking_reference
+
+  get_payment_status:
+    knowledge_required: false
+    feasibility_required: false
+    live_tools:
+      - payment_status
+    required_entities:
+      - booking_reference
+
+  query_operational_notice:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools:
+      - operational_notice
+    required_entities:
+      - travel_date
+
+  complaint_or_refund:
+    knowledge_required: true
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+    force_handoff: true
+
+  human_handoff_request:
+    knowledge_required: false
+    feasibility_required: false
+    live_tools: []
+    required_entities: []
+    force_handoff: true

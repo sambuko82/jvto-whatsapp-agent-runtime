@@ -1,0 +1,36 @@
+version: 1
+claims:
+  static_knowledge:
+    allowed_only_when: approved_concept_in_release
+    source_required: true
+  feasibility:
+    allowed_only_when: itinerary_core_response_present
+    must_include: [status, source_release_id, known_gaps]
+  live_fact:
+    allowed_only_when: live_tool_response_present
+    must_include: [checked_at, source_system, status]
+
+prohibited_claims:
+  - Guarantee Blue Fire visibility or access
+  - Guarantee weather, sunrise, waterfall conditions, or road access
+  - Quote a price from historical cost data or static knowledge
+  - Confirm availability without a live availability response
+  - Confirm booking, payment, hotel, or refund state without a live authenticated response
+  - Invent a package, policy exception, inclusion, route, or add-on
+  - Treat a semantic retrieval match as source evidence
+
+required_disclosures:
+  blue_fire:
+    triggers: [blue fire, ijen]
+    text: Blue Fire access and visibility are subject to authority access policies and current safety conditions and cannot be guaranteed.
+  live_information:
+    triggers: [price, availability, booking, payment, hotel, closure]
+    text: Live information is subject to the latest system confirmation.
+
+handoff:
+  when:
+    - intent confidence below configured threshold
+    - required source is unavailable
+    - itinerary-core reports conditional or not_feasible without approved alternative
+    - customer requests a guarantee or policy exception
+    - complaint, refund dispute, legal issue, or sensitive medical scenario

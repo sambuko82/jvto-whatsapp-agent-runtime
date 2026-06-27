@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/itinerary-core-response-v1.json",
+  "type": "object",
+  "required": ["schema_version", "status", "source_release_id", "known_gaps", "recommended_package_ids", "handoff_required"],
+  "properties": {
+    "schema_version": {"const": "itinerary-core-response-v1"},
+    "status": {"enum": ["feasible", "conditional", "not_feasible", "unavailable"]},
+    "source_release_id": {"type": "string"},
+    "known_gaps": {"type": "array", "items": {"type": "string"}},
+    "recommended_package_ids": {"type": "array", "items": {"type": "string"}},
+    "alternative_package_ids": {"type": "array", "items": {"type": "string"}},
+    "customer_visible_reasons": {"type": "array", "items": {"type": "string"}},
+    "handoff_required": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

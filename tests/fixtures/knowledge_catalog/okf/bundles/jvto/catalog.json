@@ -1,0 +1,45 @@
+{
+  "bundle": "jvto",
+  "concept_count": 3,
+  "concepts": [
+    {
+      "id": "tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n",
+      "type": "Tour Package",
+      "title": "4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali",
+      "description": "Private 4D3N route from Surabaya to Bali.",
+      "status": "reviewed",
+      "visibility": "public",
+      "last_verified": "2026-06-23",
+      "tags": ["tumpak-sewu", "bromo", "ijen", "surabaya", "bali"],
+      "citations": [],
+      "links_to": [],
+      "path": "tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+    },
+    {
+      "id": "policies/ijen-health-screening",
+      "type": "Policy",
+      "title": "Ijen Health Screening",
+      "description": "Health screening information for Ijen visitors.",
+      "status": "verified",
+      "visibility": "public",
+      "last_verified": "2026-06-23",
+      "tags": ["ijen", "safety", "health"],
+      "citations": ["https://example.test/authority"],
+      "links_to": [],
+      "path": "policies/ijen-health-screening.md"
+    },
+    {
+      "id": "drafts/should-not-appear",
+      "type": "Policy",
+      "title": "Draft only",
+      "description": "Must be excluded.",
+      "status": "draft",
+      "visibility": "public",
+      "last_verified": "",
+      "tags": [],
+      "citations": [],
+      "links_to": [],
+      "path": "policies/draft.md"
+    }
+  ]
+}

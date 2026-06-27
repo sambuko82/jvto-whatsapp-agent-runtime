@@ -1,0 +1,67 @@
+version: 1
+upstreams:
+  knowledge_catalog:
+    repo: sambuko82/knowledge-catalog-jvto-bootstrap
+    default_ref: main
+    local_root_required: true
+    role: approved_public_knowledge
+    bundle_root: okf/bundles/jvto
+    required_files:
+      - okf/bundles/jvto/catalog.json
+    concept_status_allowlist:
+      - reviewed
+      - qualified
+      - verified
+      - published
+    visibility_allowlist:
+      - public
+    excluded_prefixes:
+      - okf/jvto/sources/
+      - okf/jvto/build/
+      - okf/jvto/curation/
+      - .git/
+    release_rule: catalog_concepts_only
+
+  itinerary_core:
+    repo: sambuko82/jvto-itinerary-core
+    default_ref: main
+    local_root_required: true
+    role: deterministic_operational_intelligence
+    required_files:
+      - generated/itinerary-intelligence/manifest.json
+      - generated/itinerary-intelligence/data-readiness-report.json
+    artifact_candidates:
+      package_catalog:
+        - generated/itinerary-intelligence/package-catalog-index.json
+      location_aliases:
+        - generated/itinerary-intelligence/location-alias-registry.json
+      route_nodes:
+        - generated/itinerary-intelligence/route-node-index.json
+      route_legs:
+        - generated/itinerary-intelligence/route-leg-index.json
+        - generated/itinerary-intelligence/04-route-leg-index.json
+      package_route_map:
+        - generated/itinerary-intelligence/package-route-map.json
+        - generated/itinerary-intelligence/11-package-route-map.json
+      operational_context:
+        - generated/itinerary-intelligence/operational-context-index.json
+      pickup_contexts:
+        - generated/itinerary-intelligence/pickup-contexts.json
+        - generated/itinerary-intelligence/01-pickup-contexts.json
+      dropoff_contexts:
+        - generated/itinerary-intelligence/dropoff-contexts.json
+        - generated/itinerary-intelligence/02-dropoff-contexts.json
+      time_window_rules:
+        - generated/itinerary-intelligence/time-window-rules.json
+        - generated/itinerary-intelligence/03-time-window-rules.json
+      route_source_gaps:
+        - generated/itinerary-intelligence/route-source-gap-report.json
+      operational_context_gaps:
+        - generated/itinerary-intelligence/operational-context-gap-report.json
+    excluded_prefixes:
+      - input/
+      - seed/
+      - .git/
+      - node_modules/
+      - secrets/
+    runtime_rule: contract_and_projection_only

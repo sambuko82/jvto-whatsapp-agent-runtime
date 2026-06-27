@@ -1,0 +1,26 @@
+version: 1
+live_tools:
+  pricing:
+    allowed_intents: [check_price]
+    confirmation_required: true
+    output_must_include: [checked_at, valid_until, source_system, status]
+    prohibited_output_claims: [final_quote_without_source]
+  availability:
+    allowed_intents: [check_availability]
+    confirmation_required: true
+    output_must_include: [checked_at, valid_until, source_system, status]
+  booking_status:
+    allowed_intents: [get_booking_status]
+    confirmation_required: true
+    require_authenticated_customer_context: true
+  payment_status:
+    allowed_intents: [get_payment_status]
+    confirmation_required: true
+    require_authenticated_customer_context: true
+  hotel:
+    allowed_intents: []
+    confirmation_required: true
+  operational_notice:
+    allowed_intents: [query_operational_notice]
+    confirmation_required: true
+    output_must_include: [checked_at, source_system, status]

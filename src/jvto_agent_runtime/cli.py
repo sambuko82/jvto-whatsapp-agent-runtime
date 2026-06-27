@@ -1,0 +1,64 @@
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+from .decision_engine import build_decision
+from .release_builder import build_release
+from .utils import write_json
+from .validator import validate_release, validate_repo
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(prog="jvto-agent")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("validate-repo")
+
+    build = sub.add_parser("build-release")
+    build.add_argument("--knowledge-root", required=True)
+    build.add_argument("--core-root", required=True)
+    build.add_argument("--release-id", required=True)
+    build.add_argument("--overwrite", action="store_true")
+
+    release = sub.add_parser("validate-release")
+    release.add_argument("--release-dir", required=True)
+
+    decide = sub.add_parser("decide")
+    decide.add_argument("--release-dir", required=True)
+    decide.add_argument("--intent", required=True)
+    decide.add_argument("--query", default="")
+    decide.add_argument("--entities", default="{}")
+    decide.add_argument("--intent-confidence", type=float, default=1.0)
+    decide.add_argument("--output")
+
+    args = parser.parse_args()
+    root = _repo_root()
+    if args.command == "validate-repo":
+        result = validate_repo(root)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        raise SystemExit(0 if result["status"] == "pass" else 1)
+    if args.command == "build-release":
+        release_dir = build_release(root, Path(args.knowledge_root), Path(args.core_root), args.release_id, args.overwrite)
+        print(str(release_dir))
+        return
+    if args.command == "validate-release":
+        result = validate_release(root, Path(args.release_dir))
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        raise SystemExit(0 if result["status"] == "pass" else 1)
+    if args.command == "decide":
+        entities = json.loads(args.entities)
+        result = build_decision(Path(args.release_dir), args.intent, args.query, entities, args.intent_confidence)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
+
+if __name__ == "__main__":
+    main()

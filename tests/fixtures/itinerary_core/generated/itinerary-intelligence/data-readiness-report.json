@@ -1,0 +1,10 @@
+{
+  "schema_version": "itinerary-intelligence/data-readiness-report-v1",
+  "ok": false,
+  "groups": {
+    "packages": {"status": "covered"},
+    "route_legs": {"status": "partial"},
+    "pickup_dropoff_contexts": {"status": "covered"},
+    "operational_contexts": {"status": "partial"}
+  }
+}

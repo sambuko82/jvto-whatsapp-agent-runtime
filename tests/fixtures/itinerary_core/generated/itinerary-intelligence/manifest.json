@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "source_mode": "source_connected",
+  "legacy_dataset_mode": "manual_seed_mvp",
+  "status": "mvp_seed_outputs_ready",
+  "warnings": ["Some source evidence remains inferred."],
+  "missing_data": ["One route leg requires further verification."]
+}

@@ -1,0 +1,46 @@
+version: 1
+owners:
+  approved_public_knowledge:
+    owner: knowledge-catalog-jvto-bootstrap
+    runtime_access: released_projection_only
+    examples:
+      - public package concepts
+      - destination explanations
+      - approved policies
+      - public safety guidance
+      - trust evidence
+  operational_feasibility:
+    owner: jvto-itinerary-core
+    runtime_access: deterministic_contract_or_projection
+    examples:
+      - package route mapping
+      - location aliases
+      - pickup and dropoff context
+      - time-window constraints
+      - scenario feasibility
+  pricing:
+    owner: transactional_pricing_service
+    runtime_access: live_tool_only
+    never_store_in:
+      - knowledge_bundle
+      - semantic_index
+  availability:
+    owner: booking_inventory_service
+    runtime_access: live_tool_only
+    never_store_in:
+      - knowledge_bundle
+      - semantic_index
+  booking_payment_hotel_status:
+    owner: transactional_backoffice
+    runtime_access: authenticated_live_tool_only
+    never_store_in:
+      - knowledge_bundle
+      - semantic_index
+  customer_pii:
+    owner: transactional_crm
+    runtime_access: minimum_necessary_authenticated_lookup
+    forbidden_in:
+      - git_repository
+      - source_cache
+      - embedding_index
+      - release_bundle

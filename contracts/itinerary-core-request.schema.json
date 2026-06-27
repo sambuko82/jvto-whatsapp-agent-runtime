@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/itinerary-core-request-v1.json",
+  "type": "object",
+  "required": ["schema_version", "pickup_location", "dropoff_location", "requested_destinations", "travel_date", "number_of_guests", "pickup_time", "duration_days"],
+  "properties": {
+    "schema_version": {"const": "itinerary-core-request-v1"},
+    "pickup_location": {"type": "string", "minLength": 1},
+    "dropoff_location": {"type": "string", "minLength": 1},
+    "requested_destinations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "travel_date": {"type": "string", "format": "date"},
+    "number_of_guests": {"type": "integer", "minimum": 1},
+    "pickup_time": {"type": "string", "minLength": 1},
+    "duration_days": {"type": "integer", "minimum": 1},
+    "package_key": {"type": "string"},
+    "arrival_context": {"type": "object"}
+  },
+  "additionalProperties": false
+}

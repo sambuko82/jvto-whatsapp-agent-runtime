@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Local upstream clones and fetched snapshots
+data/cache/upstreams/
+data/cache/snapshots/
+
+# Generated releases; only release manifests may be committed if explicitly approved
+dist/releases/
+!dist/releases/.gitkeep
+
+# Audit events and runtime secrets
+data/audit/
+.env
+.env.*
+*.pem
+*.key
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

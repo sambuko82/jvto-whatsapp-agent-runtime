@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/live-tool-response-v1.json",
+  "type": "object",
+  "required": ["tool", "status", "checked_at", "source_system"],
+  "properties": {
+    "tool": {"enum": ["pricing", "availability", "booking_status", "payment_status", "hotel", "operational_notice"]},
+    "status": {"enum": ["available", "unavailable", "not_found", "error", "pending"]},
+    "checked_at": {"type": "string"},
+    "valid_until": {"type": "string"},
+    "source_system": {"type": "string"},
+    "data": {"type": "object"}
+  },
+  "additionalProperties": false
+}

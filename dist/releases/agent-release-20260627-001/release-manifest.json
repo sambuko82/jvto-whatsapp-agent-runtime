@@ -1,0 +1,21 @@
+{
+  "blocking_conditions": [
+    "Live transactional adapters are not part of this static release.",
+    "Manual deployment approval is required before customer traffic.",
+    "Itinerary Core dataset status is not production_ready; respect recorded gaps and handoff rules."
+  ],
+  "core_dataset_status": "mvp_seed_outputs_ready",
+  "created_at": "2026-06-27T21:22:32Z",
+  "customer_traffic_ready": false,
+  "knowledge_record_count": 71,
+  "package_crosswalk": {
+    "core_only_count": 33,
+    "knowledge_only": 0,
+    "matched": 16,
+    "needs_review": 0
+  },
+  "release_id": "agent-release-20260627-001",
+  "schema_version": "agent-release-manifest-v1",
+  "status": "integration_candidate",
+  "warnings": []
+}

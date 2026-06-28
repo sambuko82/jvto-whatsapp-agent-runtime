@@ -6,6 +6,7 @@ upstreams:
     local_root_required: true
     role: approved_public_knowledge
     bundle_root: okf/bundles/jvto
+    customer_sales_release_root: okf/customer-sales-release/jvto
     required_files:
       - okf/bundles/jvto/catalog.json
     concept_status_allowlist:

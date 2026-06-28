@@ -1,0 +1,15 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/inclusions-exclusions",
+    "title": "What's Included",
+    "description": "JVTO tours are all-inclusive of transport, crew, entrance fees, water, and stated meals; flights, insurance, tips, and personal expenses are excluded.",
+    "body": "# Overview\n\nEvery JVTO package includes private transport, a dedicated driver and\nguide(s), all entrance fees and permits, drinking water, full pick-up to\ndrop-off assistance, and meals as stated (at least breakfast). Bromo tours\nadd the private 4WD jeep; Ijen tours add gas masks and trekking poles (and\nhealth-screening coordination where BBKSDA requires it); Bali-origin tours\nadd the ferry crossing.\n\nTypical exclusions: flights, visas, travel insurance, tips, and personal\nexpenses. See the inclusions/exclusions page for the full list.\n\n# Related Concepts\n\n- [All tours](/tours/index.md)",
+    "source_evidence": [
+      "knowledge:policies/inclusions-exclusions.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  }
+]

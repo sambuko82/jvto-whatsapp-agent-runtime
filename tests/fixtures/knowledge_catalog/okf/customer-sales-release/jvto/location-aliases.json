@@ -1,0 +1,80 @@
+[
+  {
+    "node_id": "bali",
+    "aliases": [
+      "bali",
+      "from-bali"
+    ]
+  },
+  {
+    "node_id": "bromo",
+    "aliases": [
+      "Bromo",
+      "Bromo Area",
+      "Bromo Hotel",
+      "Bromo Transit",
+      "Bromo area",
+      "Mount Bromo",
+      "Mount Bromo area",
+      "bromo",
+      "mount bromo"
+    ]
+  },
+  {
+    "node_id": "ijen",
+    "aliases": [
+      "Ijen Crater",
+      "Ijen area",
+      "ijen",
+      "ijen crater"
+    ]
+  },
+  {
+    "node_id": "madakaripura",
+    "aliases": [
+      "Madakaripura",
+      "Madakaripura Waterfall",
+      "madakaripura"
+    ]
+  },
+  {
+    "node_id": "malang",
+    "aliases": [
+      "Hotel in Malang",
+      "Malang",
+      "Malang City",
+      "malang"
+    ]
+  },
+  {
+    "node_id": "papuma",
+    "aliases": [
+      "Papuma Beach",
+      "papuma"
+    ]
+  },
+  {
+    "node_id": "surabaya",
+    "aliases": [
+      "from-surabaya",
+      "surabaya"
+    ]
+  },
+  {
+    "node_id": "taman_safari_prigen",
+    "aliases": [
+      "Taman Safari Prigen",
+      "taman safari prigen"
+    ]
+  },
+  {
+    "node_id": "tumpak_sewu",
+    "aliases": [
+      "Tumpak Sewu",
+      "Tumpak Sewu Waterfall",
+      "Tumpak Sewu area",
+      "tumpak sewu",
+      "tumpak sewu waterfall"
+    ]
+  }
+]

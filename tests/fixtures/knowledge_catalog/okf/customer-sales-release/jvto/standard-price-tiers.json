@@ -1,0 +1,96 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 1550000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 4,
+        "idr_per_person": 1400000
+      },
+      {
+        "min_pax": 5,
+        "max_pax": 7,
+        "idr_per_person": 1250000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 1050000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 1000000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 8050000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4550000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4350000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3750000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3275000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3125000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  }
+]

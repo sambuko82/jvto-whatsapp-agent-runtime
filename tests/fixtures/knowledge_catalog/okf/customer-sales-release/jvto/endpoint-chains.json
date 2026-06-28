@@ -1,0 +1,89 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Ketapang Harbor",
+      "Bali with additional transfer"
+    ],
+    "finish_details": [
+      {
+        "id": "ketapang_harbor_dropoff",
+        "label": "Ketapang Harbor dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_customer_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ]
+      },
+      {
+        "id": "bali_hotel_dropoff",
+        "label": "Bali hotel dropoff",
+        "type": "bali_area",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_name",
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  }
+]

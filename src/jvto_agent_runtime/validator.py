@@ -45,6 +45,10 @@ def validate_release(repo_root: Path, release_dir: Path) -> dict[str, Any]:
     for name in required:
         if not (release_dir / name).exists():
             findings.append({"severity": "error", "message": f"Missing release file: {name}"})
+    # Customer Sales Release subset (Milestone 1): catalog + price + manifest must be projected.
+    for name in ("customer-sales/package-profiles.json", "customer-sales/standard-price-tiers.json", "customer-sales/release-manifest.json"):
+        if not (release_dir / name).exists():
+            findings.append({"severity": "error", "message": f"Missing release file: {name}"})
     manifest = None
     if not findings:
         try:

@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
+from .customer_sales_executor import CustomerSalesExecutor
 from .decision_engine import build_decision
 from .deployment import deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
@@ -68,6 +69,22 @@ def response_plan(request: ResponsePlanRequest) -> dict[str, Any]:
     return derive_response_plan(
         request.decision_envelope, request.trip_brief, config, query=request.query, signals=request.signals
     )
+
+
+class ResolvedContextRequest(BaseModel):
+    release_dir: str = Field(..., description="Absolute or service-configured local release path")
+    response_plan: dict[str, Any]
+    trip_brief: dict[str, Any] | None = None
+
+
+@app.post("/v1/resolved-context")
+def resolved_context(request: ResolvedContextRequest) -> dict[str, Any]:
+    # Consume the projected Customer Sales Release to resolve catalog + standard price into a
+    # contract-valid ResolvedCustomerContext. Authors nothing; degrades safely; emits no live truth.
+    release_dir = Path(request.release_dir)
+    if not (release_dir / "customer-sales" / "release-manifest.json").exists():
+        raise HTTPException(status_code=404, detail="Customer Sales Release not found in release dir")
+    return CustomerSalesExecutor(release_dir).resolve(request.response_plan, request.trip_brief)
 
 
 @app.post("/v1/feasibility")

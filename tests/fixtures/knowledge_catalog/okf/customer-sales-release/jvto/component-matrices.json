@@ -1,0 +1,64 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "included": [
+      "private transport (dedicated vehicle)",
+      "dedicated private driver and guide(s)",
+      "all entrance fees and permits",
+      "drinking water",
+      "meals as stated in the itinerary",
+      "full pick-up to drop-off assistance",
+      "private 4WD jeep for Bromo"
+    ],
+    "excluded": [
+      "international/domestic flights",
+      "visas",
+      "travel insurance",
+      "tips",
+      "personal expenses"
+    ],
+    "conditional": [
+      "meals not marked B/L/D on a given day",
+      "optional add-ons outside the standard route"
+    ],
+    "source_evidence": [
+      "knowledge:policies/inclusions-exclusions"
+    ],
+    "readiness": {
+      "inclusions": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "included": [
+      "private transport (dedicated vehicle)",
+      "dedicated private driver and guide(s)",
+      "all entrance fees and permits",
+      "drinking water",
+      "meals as stated in the itinerary",
+      "full pick-up to drop-off assistance",
+      "private 4WD jeep for Bromo",
+      "gas masks and trekking poles for Ijen",
+      "Ijen health-screening coordination where required"
+    ],
+    "excluded": [
+      "international/domestic flights",
+      "visas",
+      "travel insurance",
+      "tips",
+      "personal expenses"
+    ],
+    "conditional": [
+      "meals not marked B/L/D on a given day",
+      "optional add-ons outside the standard route"
+    ],
+    "source_evidence": [
+      "knowledge:policies/inclusions-exclusions"
+    ],
+    "readiness": {
+      "inclusions": "available"
+    }
+  }
+]

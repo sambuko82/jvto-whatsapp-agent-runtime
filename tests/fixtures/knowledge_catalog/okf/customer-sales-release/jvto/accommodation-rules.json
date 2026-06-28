@@ -1,0 +1,30 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "overnights": [],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md"
+    ],
+    "readiness": {
+      "rooming": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "overnights": [
+      "Artha Cottage",
+      "Joglo Kecombrang Bromo",
+      "Riverside Homestay"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  }
+]

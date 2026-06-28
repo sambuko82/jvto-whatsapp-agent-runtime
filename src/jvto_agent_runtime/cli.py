@@ -9,6 +9,7 @@ from .deployment import create_approval, deployment_gate, verify_deployment_appr
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
 from .release_builder import build_release
+from .sales_intelligence import derive_response_plan, load_customer_sales_config, merge_trip_brief
 from .utils import read_json, utc_now, write_json
 from .validator import validate_release, validate_repo
 
@@ -66,6 +67,17 @@ def main() -> None:
     verify_deploy.add_argument("--approval", required=True)
     verify_deploy.add_argument("--output")
 
+    response_plan = sub.add_parser("build-response-plan")
+    response_plan.add_argument("--decision-envelope", required=True)
+    response_plan.add_argument("--trip-brief")
+    response_plan.add_argument("--query", default="")
+    response_plan.add_argument("--output")
+
+    merge_brief = sub.add_parser("merge-trip-brief")
+    merge_brief.add_argument("--base")
+    merge_brief.add_argument("--update", required=True)
+    merge_brief.add_argument("--output")
+
     args = parser.parse_args()
     root = _repo_root()
     if args.command == "validate-repo":
@@ -122,6 +134,23 @@ def main() -> None:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         raise SystemExit(0 if result["customer_traffic_ready"] else 1)
+    if args.command == "build-response-plan":
+        config = load_customer_sales_config(root)
+        envelope = read_json(Path(args.decision_envelope))
+        trip_brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
+        result = derive_response_plan(envelope, trip_brief, config, query=args.query)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "merge-trip-brief":
+        config = load_customer_sales_config(root)
+        base = read_json(Path(args.base)) if args.base else None
+        result = merge_trip_brief(base, read_json(Path(args.update)), config)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
 
 
 if __name__ == "__main__":

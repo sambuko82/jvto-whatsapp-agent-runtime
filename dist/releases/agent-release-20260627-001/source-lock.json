@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-06-27T21:22:32Z",
+  "itinerary_core": {
+    "manifest_path": "generated/itinerary-intelligence/manifest.json",
+    "manifest_sha256": "08b3da4390b5feff690074bc17e27b8df9184e9d10967f2e5cb2211c5abc6cd4",
+    "readiness_path": "generated/itinerary-intelligence/data-readiness-report.json",
+    "readiness_sha256": "fbc493c0cd8cff23595abb77ffe66e973654c17f41118e7013f8d21e30d509e7",
+    "repo": "sambuko82/jvto-itinerary-core",
+    "revision": "1e8f12087b1ea650b17f91eae335215b1dbf484f"
+  },
+  "knowledge_catalog": {
+    "catalog_path": "okf/bundles/jvto/catalog.json",
+    "catalog_sha256": "9b45a6f051007f62a2d708951cbfdb7b98c61e12567107540845b42b38d79e58",
+    "concept_count_in_catalog": 71,
+    "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
+    "revision": "06db28d5b4a183a7835dc8e3d86873a19e2be00a"
+  },
+  "schema_version": "source-lock-v1"
+}

@@ -57,6 +57,12 @@ def test_verify_signature_rejects_malformed_header():
     assert verify_signature(body, None, app_secret=SECRET) is False
 
 
+def test_verify_signature_rejects_non_ascii_header_without_raising():
+    # A non-ASCII signature must fail closed (False), not raise.
+    body = b"{}"
+    assert verify_signature(body, "sha256=café", app_secret=SECRET) is False
+
+
 # --- privacy-safe reference ------------------------------------------------
 
 

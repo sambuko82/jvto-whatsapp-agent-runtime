@@ -58,7 +58,9 @@ def verify_signature(payload: bytes, signature_header: str | None, *, app_secret
         return False
     provided = signature_header.split("=", 1)[1]
     expected = hmac.new(secret.encode("utf-8"), payload, hashlib.sha256).hexdigest()
-    return hmac.compare_digest(provided, expected)
+    # Compare as bytes: hmac.compare_digest on str raises TypeError for non-ASCII input,
+    # which would turn a malformed header into a 500 instead of a clean rejection.
+    return hmac.compare_digest(provided.encode("utf-8", "ignore"), expected.encode("ascii"))
 
 
 def privacy_safe_ref(raw_id: str, *, salt: str | None = None) -> str:

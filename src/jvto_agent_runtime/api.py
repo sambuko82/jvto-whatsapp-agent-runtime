@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field
 
 from .decision_engine import build_decision
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
+from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
 from .validator import validate_release
 
 app = FastAPI(title="JVTO WhatsApp Agent Runtime", version="0.1.0")
@@ -26,6 +27,13 @@ class DecisionRequest(BaseModel):
 class FeasibilityRequest(BaseModel):
     release_dir: str = Field(..., description="Absolute or service-configured local release path")
     entities: dict[str, Any] = Field(default_factory=dict)
+
+
+class LiveToolRequest(BaseModel):
+    release_dir: str = Field(..., description="Absolute or service-configured local release path")
+    tool: str
+    params: dict[str, Any] = Field(default_factory=dict)
+    intent: str | None = None
 
 
 @app.get("/health")
@@ -51,6 +59,22 @@ def feasibility(request: FeasibilityRequest) -> dict[str, Any]:
     if not release_dir.exists():
         raise HTTPException(status_code=404, detail="Release directory not found")
     return evaluate_feasibility(release_dir, request.entities, NotConnectedEvaluator())
+
+
+@app.post("/v1/live-tools")
+def live_tool(request: LiveToolRequest) -> dict[str, Any]:
+    # Returns a live-tool-response (contracts/live-tool-response.schema.json). The default
+    # NotConnectedLiveToolAdapter yields `unavailable` until a real adapter is wired in;
+    # the runtime must never source live truth from static knowledge.
+    release_dir = Path(request.release_dir)
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    try:
+        return execute_live_tool(
+            release_dir, request.tool, request.params, intent=request.intent, adapter=NotConnectedLiveToolAdapter()
+        )
+    except UnknownToolError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
 
 
 @app.post("/v1/releases/validate")

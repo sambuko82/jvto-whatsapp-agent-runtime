@@ -21,7 +21,7 @@ Surfaces: `POST /v1/feasibility`, the `feasibility` CLI command, and
 `build_decision(..., evaluator=...)`. **To finish Phase 2:** stand up the
 itinerary-core feasibility service and connect `HttpItineraryCoreEvaluator` to it.
 
-## Phase 3 — Live adapters
+## Phase 3 — Live adapters  *(scaffolded)*
 
 Implement explicit authenticated adapters for:
 
@@ -33,6 +33,13 @@ Implement explicit authenticated adapters for:
 6. hotel confirmation, if a reliable source exists.
 
 Each adapter must return `contracts/live-tool-response.schema.json`. The agent may state live facts only when the adapter returns a current, successful response.
+
+**Status:** the runtime-side boundary is scaffolded — see `docs/live-tools-api.md`.
+`src/jvto_agent_runtime/live_tools.py` provides a `LiveToolAdapter` interface, the safe
+default `NotConnectedLiveToolAdapter`, tool-policy enforcement, and the `execute_live_tool`
+orchestrator (validated against the contract). Surfaces: `POST /v1/live-tools` and the
+`live-tool` CLI command. **To finish Phase 3:** implement one authenticated adapter per
+tool against the real transactional systems (requires external credentials).
 
 ## Phase 4 — Meta webhook
 

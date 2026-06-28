@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .decision_engine import build_decision
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
+from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
 from .release_builder import build_release
 from .utils import write_json
 from .validator import validate_release, validate_repo
@@ -43,6 +44,13 @@ def main() -> None:
     feasibility.add_argument("--entities", default="{}")
     feasibility.add_argument("--output")
 
+    live_tool = sub.add_parser("live-tool")
+    live_tool.add_argument("--release-dir", required=True)
+    live_tool.add_argument("--tool", required=True)
+    live_tool.add_argument("--params", default="{}")
+    live_tool.add_argument("--intent")
+    live_tool.add_argument("--output")
+
     args = parser.parse_args()
     root = _repo_root()
     if args.command == "validate-repo":
@@ -67,6 +75,15 @@ def main() -> None:
     if args.command == "feasibility":
         entities = json.loads(args.entities)
         result = evaluate_feasibility(Path(args.release_dir), entities, NotConnectedEvaluator())
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "live-tool":
+        params = json.loads(args.params)
+        result = execute_live_tool(
+            Path(args.release_dir), args.tool, params, intent=args.intent, adapter=NotConnectedLiveToolAdapter()
+        )
         if args.output:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))

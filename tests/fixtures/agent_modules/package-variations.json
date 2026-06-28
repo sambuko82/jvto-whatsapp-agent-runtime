@@ -36,18 +36,13 @@
     ],
     "package_variations": {
       "route_sequence": [
-        "Bali Hotel Area",
-        "Banyuwangi / Ijen Area",
-        "Ijen Crater",
-        "Bromo Area",
-        "Surabaya"
+        "Bali",
+        "Bromo",
+        "Ijen"
       ],
-      "route_leg_refs": [
-        "route_leg_bali_hotel_area_to_banyuwangi_ijen_area",
-        "route_leg_banyuwangi_to_ijen_base",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/bromo-ijen-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_bromo",
         "destination_ijen"
@@ -92,6 +87,15 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "bromo-ijen-3d2n-bali",
+      "published_route_order": [
+        "bromo",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -136,29 +140,23 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
+      "destination_bromo",
       "destination_madakaripura"
     ],
     "package_variations": {
       "route_sequence": [
-        "Bali Hotel Area",
-        "Banyuwangi / Ijen Area",
-        "Ijen Crater",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Surabaya"
+        "Bali",
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
       ],
-      "route_leg_refs": [
-        "route_leg_bali_hotel_area_to_banyuwangi_ijen_area",
-        "route_leg_banyuwangi_to_ijen_base",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
+        "destination_bromo",
         "destination_madakaripura"
       ],
       "staging_refs": [
@@ -199,6 +197,17 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-bromo-madakaripura-3d2n-bali",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -245,32 +254,27 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
       "destination_papuma",
-      "destination_tumpak_sewu"
+      "destination_tumpak_sewu",
+      "destination_bromo"
     ],
     "package_variations": {
       "route_sequence": [
-        "Bali Hotel Area",
-        "Banyuwangi / Ijen Area",
-        "Ijen Crater",
-        "Tumpak Sewu Area",
-        "Bromo Area",
-        "Surabaya"
+        "Bali",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
       ],
-      "route_leg_refs": [
-        "route_leg_bali_hotel_area_to_banyuwangi_ijen_area",
-        "route_leg_banyuwangi_to_ijen_base",
-        "route_leg_surabaya_to_tumpak_sewu",
-        "route_leg_tumpak_sewu_to_bromo_area",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
         "destination_papuma",
-        "destination_tumpak_sewu"
+        "destination_tumpak_sewu",
+        "destination_bromo"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -313,6 +317,18 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-4d3n-bali",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -359,19 +375,27 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
       "destination_papuma",
-      "destination_tumpak_sewu"
+      "destination_tumpak_sewu",
+      "destination_bromo"
     ],
     "package_variations": {
-      "route_sequence": [],
-      "route_leg_refs": [],
+      "route_sequence": [
+        "Bali",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
         "destination_papuma",
-        "destination_tumpak_sewu"
+        "destination_tumpak_sewu",
+        "destination_bromo"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -409,6 +433,14 @@
     "variation_evidence": {
       "composition_match": "slug_only",
       "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": null,
+      "core_order_matches_published": null,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -453,14 +485,11 @@
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bromo Area",
-        "Surabaya"
+        "Bromo"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_airport_to_bromo_area",
-        "route_leg_bromo_area_to_malang",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-1d1n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_bromo"
       ],
@@ -495,6 +524,13 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "bromo-1d1n",
+      "published_route_order": [
+        "bromo"
+      ],
+      "core_visit_order": [
+        "bromo"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -540,14 +576,11 @@
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bromo Area",
-        "Surabaya"
+        "Bromo"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_hotel_to_bromo_area",
-        "route_leg_bromo_area_to_malang",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-2d1n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_bromo"
       ],
@@ -584,6 +617,13 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "bromo-2d1n",
+      "published_route_order": [
+        "bromo"
+      ],
+      "core_visit_order": [
+        "bromo"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -629,29 +669,23 @@
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
       "destination_bromo",
-      "destination_ijen",
-      "destination_madakaripura"
+      "destination_madakaripura",
+      "destination_ijen"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Ketapang Harbor"
+        "Bromo",
+        "Madakaripura",
+        "Ijen"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_airport_to_bromo_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_ijen_base_to_ketapang_harbor"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-madakaripura-ijen-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_bromo",
-        "destination_ijen",
-        "destination_madakaripura"
+        "destination_madakaripura",
+        "destination_ijen"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -691,6 +725,17 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "bromo-madakaripura-ijen-3d2n",
+      "published_route_order": [
+        "bromo",
+        "madakaripura",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "bromo",
+        "madakaripura",
+        "ijen"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -738,15 +783,11 @@
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Surabaya"
+        "Ijen"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-2d1n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_ijen"
       ],
@@ -786,6 +827,13 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-2d1n",
+      "published_route_order": [
+        "ijen"
+      ],
+      "core_visit_order": [
+        "ijen"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -830,29 +878,23 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
+      "destination_bromo",
       "destination_madakaripura"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Surabaya"
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
+        "destination_bromo",
         "destination_madakaripura"
       ],
       "staging_refs": [
@@ -892,6 +934,17 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-bromo-madakaripura-3d2n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -936,29 +989,23 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
+      "destination_bromo",
       "destination_madakaripura"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Surabaya"
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
+        "destination_bromo",
         "destination_madakaripura"
       ],
       "staging_refs": [
@@ -999,6 +1046,17 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-bromo-madakaripura-4d3n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1044,31 +1102,24 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
+      "destination_bromo",
       "destination_madakaripura"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Malang",
-        "Surabaya"
+        "Ijen",
+        "Bromo",
+        "Madakaripura",
+        "Malang"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_bromo_area_to_malang",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-malang-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
+        "destination_bromo",
         "destination_madakaripura"
       ],
       "staging_refs": [
@@ -1113,6 +1164,19 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-bromo-madakaripura-malang-5d4n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura",
+        "malang"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura",
+        "malang"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1159,32 +1223,27 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
       "destination_papuma",
-      "destination_tumpak_sewu"
+      "destination_tumpak_sewu",
+      "destination_bromo"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Tumpak Sewu Area",
-        "Bromo Area",
-        "Surabaya"
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_surabaya_to_tumpak_sewu",
-        "route_leg_tumpak_sewu_to_bromo_area",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
         "destination_papuma",
-        "destination_tumpak_sewu"
+        "destination_tumpak_sewu",
+        "destination_bromo"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -1226,6 +1285,18 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1272,32 +1343,27 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
       "destination_papuma",
-      "destination_tumpak_sewu"
+      "destination_tumpak_sewu",
+      "destination_bromo"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Tumpak Sewu Area",
-        "Bromo Area",
-        "Surabaya"
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_surabaya_to_tumpak_sewu",
-        "route_leg_tumpak_sewu_to_bromo_area",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
         "destination_papuma",
-        "destination_tumpak_sewu"
+        "destination_tumpak_sewu",
+        "destination_bromo"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -1340,6 +1406,18 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1387,34 +1465,28 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
-      "destination_bromo",
       "destination_ijen",
       "destination_papuma",
-      "destination_tumpak_sewu"
+      "destination_tumpak_sewu",
+      "destination_bromo"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Tumpak Sewu Area",
-        "Bromo Area",
-        "Malang",
-        "Surabaya"
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo",
+        "Malang"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_surabaya_to_tumpak_sewu",
-        "route_leg_tumpak_sewu_to_bromo_area",
-        "route_leg_bromo_area_to_malang",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
-        "destination_bromo",
         "destination_ijen",
         "destination_papuma",
-        "destination_tumpak_sewu"
+        "destination_tumpak_sewu",
+        "destination_bromo"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -1461,6 +1533,20 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo",
+        "malang"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo",
+        "malang"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1511,15 +1597,13 @@
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Bromo Area",
-        "Madakaripura Waterfall",
-        "Surabaya"
+        "Taman Safari Prigen",
+        "Bromo",
+        "Madakaripura"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_airport_to_bromo_area",
-        "route_leg_bromo_area_to_madakaripura",
-        "route_leg_malang_to_surabaya"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#taman-safari-prigen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
         "destination_bromo",
         "destination_madakaripura"
@@ -1558,6 +1642,16 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "taman-safari-prigen-bromo-madakaripura-3d2n",
+      "published_route_order": [
+        "taman_safari_prigen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": false,
       "unmapped_inclusions": []
     },
     "source_evidence": [
@@ -1603,30 +1697,24 @@
       "policy_ijen_health_screening",
       "policy_ijen_monthly_closure",
       "service_standard_rooming",
+      "destination_tumpak_sewu",
       "destination_bromo",
-      "destination_ijen",
-      "destination_tumpak_sewu"
+      "destination_ijen"
     ],
     "package_variations": {
       "route_sequence": [
         "Surabaya",
-        "Tumpak Sewu Area",
-        "Bromo Area",
-        "Bondowoso / Ijen Area",
-        "Ijen Crater",
-        "Ketapang Harbor"
+        "Tumpak Sewu",
+        "Bromo",
+        "Ijen"
       ],
-      "route_leg_refs": [
-        "route_leg_surabaya_to_tumpak_sewu",
-        "route_leg_tumpak_sewu_to_bromo_area",
-        "route_leg_bromo_area_to_bondowoso_ijen_area",
-        "route_leg_bondowoso_to_ijen_base",
-        "route_leg_ijen_base_to_ketapang_harbor"
-      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#tumpak-sewu-bromo-ijen-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
       "destination_refs": [
+        "destination_tumpak_sewu",
         "destination_bromo",
-        "destination_ijen",
-        "destination_tumpak_sewu"
+        "destination_ijen"
       ],
       "staging_refs": [
         "staging_bromo_area_sunrise",
@@ -1667,6 +1755,17 @@
     "variation_evidence": {
       "composition_match": "exact",
       "matched_core_route_id": "tumpak-sewu-bromo-ijen-4d3n",
+      "published_route_order": [
+        "tumpak_sewu",
+        "bromo",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "tumpak_sewu",
+        "bromo",
+        "ijen"
+      ],
+      "core_order_matches_published": true,
       "unmapped_inclusions": []
     },
     "source_evidence": [

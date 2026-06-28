@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from .customer_sales_executor import CustomerSalesExecutor
 from .decision_engine import build_decision
 from .deployment import create_approval, deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
@@ -78,6 +79,18 @@ def main() -> None:
     merge_brief.add_argument("--update", required=True)
     merge_brief.add_argument("--output")
 
+    resolve_ctx = sub.add_parser("resolve-customer-context")
+    resolve_ctx.add_argument("--release-dir", required=True)
+    resolve_ctx.add_argument("--response-plan", required=True)
+    resolve_ctx.add_argument("--trip-brief")
+    resolve_ctx.add_argument("--output")
+
+    std_price = sub.add_parser("standard-price")
+    std_price.add_argument("--release-dir", required=True)
+    std_price.add_argument("--package-key", required=True)
+    std_price.add_argument("--pax", type=int, required=True)
+    std_price.add_argument("--output")
+
     args = parser.parse_args()
     root = _repo_root()
     if args.command == "validate-repo":
@@ -147,6 +160,22 @@ def main() -> None:
         config = load_customer_sales_config(root)
         base = read_json(Path(args.base)) if args.base else None
         result = merge_trip_brief(base, read_json(Path(args.update)), config)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "resolve-customer-context":
+        executor = CustomerSalesExecutor(Path(args.release_dir))
+        plan = read_json(Path(args.response_plan))
+        brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
+        result = executor.resolve(plan, brief)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "standard-price":
+        executor = CustomerSalesExecutor(Path(args.release_dir))
+        result = executor.standard_price_lookup(args.package_key, args.pax)
         if args.output:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))

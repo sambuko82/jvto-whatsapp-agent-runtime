@@ -1,0 +1,21 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/kawah-ijen",
+    "title": "Kawah Ijen",
+    "description": "Active East Java volcano known for its turquoise acidic crater lake, pre-dawn \"blue fire\", and active sulfur mining, reached by a guided night hike.",
+    "typical_schedule": "Hotel departure around midnight; the crater rim is reached near dawn for the blue fire and sunrise; finish mid-morning.",
+    "effort": "hard",
+    "access_requirements": [
+      "BBKSDA health screening and certificate when their regulations are in effect",
+      "gas mask and trekking poles (provided by JVTO)",
+      "licensed local guide"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/kawah-ijen.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  }
+]

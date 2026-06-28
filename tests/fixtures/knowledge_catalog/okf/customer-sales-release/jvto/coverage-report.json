@@ -1,0 +1,14 @@
+{
+  "release_id": "customer-sales-release-20260628-001",
+  "package_count": 2,
+  "object_counts": {
+    "package-profiles.json": 2,
+    "standard-price-tiers.json": 2,
+    "component-matrices.json": 2,
+    "endpoint-chains.json": 2,
+    "accommodation-rules.json": 2,
+    "vehicle-and-luggage-rules.json": 2,
+    "guide-support-rules.json": 2
+  },
+  "note": "fixture subset"
+}

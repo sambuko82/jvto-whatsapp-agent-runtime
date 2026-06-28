@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/resolved-customer-context-v1.json",
+  "type": "object",
+  "required": [
+    "schema_version", "release_id", "source_decision_id", "trip_brief_status",
+    "selected_package_key", "catalog_resolved", "pricing_resolved",
+    "required_disclosures", "handoff", "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "resolved-customer-context-v1"},
+    "release_id": {"type": "string", "minLength": 1},
+    "source_decision_id": {"type": "string"},
+    "selected_package_key": {"type": ["string", "null"]},
+    "trip_brief_status": {"type": "string"},
+    "catalog_resolved": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["resolved", "not_found", "incomplete"]},
+        "package_key": {"type": ["string", "null"]},
+        "itinerary_core_package_id": {"type": ["string", "null"]},
+        "title": {"type": ["string", "null"]},
+        "description": {"type": ["string", "null"]},
+        "day_titles": {"type": "array"},
+        "inclusions": {"type": ["object", "null"]},
+        "endpoint": {"type": ["object", "null"]},
+        "rooming": {"type": ["object", "null"]},
+        "vehicle": {"type": ["object", "null"]},
+        "guide_support": {"type": ["object", "null"]},
+        "sourced_from": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "pricing_resolved": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["priced", "custom_quote_required", "unavailable"]},
+        "currency": {"type": ["string", "null"]},
+        "per_person": {"type": ["integer", "null"]},
+        "group_total": {"type": ["integer", "null"]},
+        "pax": {"type": ["integer", "null"]},
+        "matched_tier": {"type": ["object", "null"]},
+        "price_type": {"type": ["string", "null"]},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "reason": {"type": ["string", "null"]},
+        "sourced_from": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "required_disclosures": {"type": "array", "items": {"type": "string"}},
+    "handoff": {
+      "type": "object",
+      "required": ["required", "reason"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "created_at": {"type": "string"}
+  },
+  "additionalProperties": false
+}

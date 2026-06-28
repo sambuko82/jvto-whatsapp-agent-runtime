@@ -1,0 +1,106 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "itinerary_core_package_id": "bromo-1d1n",
+    "slug": "bromo-1d1n",
+    "title": "1 Day Bromo Midnight Experience from Surabaya",
+    "description": "A 1D1N private tour from Surabaya: 1 Day Bromo Midnight Experience from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "1D1N",
+    "day_count": 1,
+    "private": true,
+    "destination_tokens": [
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-1d1n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Midnight Departure from Surabaya for Bromo Sunrise",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "itinerary_core_package_id": "tumpak-sewu-bromo-ijen-4d3n",
+    "slug": "tumpak-sewu-bromo-ijen-4d3n",
+    "title": "4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali",
+    "description": "A 4D3N private tour from Surabaya: 4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali.",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "tumpak",
+      "sewu",
+      "bromo",
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to the Tumpak Sewu Side",
+        "meals": []
+      },
+      {
+        "day": 2,
+        "title": "Tumpak Sewu and Continue Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise and Transfer to the Ijen Side",
+        "meals": [
+          "B",
+          "D"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Ijen Climb and Finish into Bali",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "vehicle_category": "AC MPV for 1-3 guests; Hiace for 4-9 guests",
+    "luggage_rule": null,
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md"
+    ],
+    "readiness": {
+      "vehicle_luggage": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "vehicle_category": "AC MPV for 1-3 guests; Hiace for 4-9 guests",
+    "luggage_rule": null,
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+    ],
+    "readiness": {
+      "vehicle_luggage": "available"
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "schema_version": "customer-sales-release-v1",
+  "release_id": "customer-sales-release-20260628-001",
+  "created_at": "2026-06-28T07:41:07+00:00",
+  "customer_traffic_ready": false,
+  "package_count": 16,
+  "object_counts": {
+    "package-profiles.json": 16,
+    "standard-price-tiers.json": 16,
+    "component-matrices.json": 16,
+    "endpoint-chains.json": 16,
+    "accommodation-rules.json": 16,
+    "vehicle-and-luggage-rules.json": 16,
+    "guide-support-rules.json": 16,
+    "policy-cards.json": 10,
+    "destination-guidance.json": 5,
+    "location-aliases.json": 9
+  },
+  "capability_readiness": {
+    "package_overview": "available",
+    "standard_price": "available",
+    "inclusions": "available",
+    "endpoint_chain": "available",
+    "rooming": "available",
+    "vehicle_luggage": "partial",
+    "guide_support": "available",
+    "policy": "available",
+    "destination_guidance": "available"
+  },
+  "price_published": true,
+  "price_note": "Exact per-pax standard price tiers are published (business-approved). Availability still requires live confirmation.",
+  "excluded": [
+    "supplier rates",
+    "internal costs",
+    "margin",
+    "vendor allocation",
+    "PII"
+  ]
+}

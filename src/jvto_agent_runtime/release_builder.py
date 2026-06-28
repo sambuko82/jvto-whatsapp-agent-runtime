@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .source_loader import aliases_from_core, core_package_ids, load_core_projection, load_public_knowledge, load_upstream_config
-from .utils import git_revision, read_yaml, sha256_file, utc_now, write_json
+from .utils import git_revision, read_json, read_yaml, sha256_file, utc_now, write_json
 
 
 def _write_ndjson(path: Path, records: list[dict[str, Any]]) -> None:
@@ -139,6 +139,32 @@ def _copy_runtime_config(repo_root: Path, release_dir: Path) -> None:
         write_json(destination, read_yaml(source))
 
 
+def _project_customer_sales(knowledge_root: Path, config: dict[str, Any], release_dir: Path) -> dict[str, Any]:
+    """Project the published Customer Sales Release into the source-locked agent release.
+
+    The runtime authors nothing here: it copies the upstream-published release subset verbatim
+    into <release_dir>/customer-sales/ so the executor consumes a source-locked snapshot.
+    """
+    rel = config["upstreams"]["knowledge_catalog"].get("customer_sales_release_root", "okf/customer-sales-release/jvto")
+    src = knowledge_root / rel
+    if not src.exists():
+        return {"present": False}
+    dest = release_dir / "customer-sales"
+    dest.mkdir(parents=True, exist_ok=True)
+    files = sorted(src.glob("*.json"))
+    for path in files:
+        shutil.copyfile(path, dest / path.name)
+    manifest_path = dest / "release-manifest.json"
+    manifest = read_json(manifest_path) if manifest_path.exists() else {}
+    return {
+        "present": True,
+        "source_path": rel,
+        "release_id": manifest.get("release_id"),
+        "object_count": len(files),
+        "manifest_sha256": sha256_file(manifest_path) if manifest_path.exists() else None,
+    }
+
+
 def build_release(repo_root: Path, knowledge_root: Path, core_root: Path, release_id: str, overwrite: bool = False) -> Path:
     config = load_upstream_config(repo_root)
     concepts, catalog, knowledge_warnings = load_public_knowledge(knowledge_root, config)
@@ -162,6 +188,7 @@ def build_release(repo_root: Path, knowledge_root: Path, core_root: Path, releas
     core_capabilities = _core_capabilities(artifacts, artifact_paths, core_revision)
     write_json(release_dir / "core-capabilities.json", core_capabilities)
     _copy_runtime_config(repo_root, release_dir)
+    customer_sales = _project_customer_sales(knowledge_root, config, release_dir)
 
     source_lock = {
         "schema_version": "source-lock-v1",
@@ -173,6 +200,7 @@ def build_release(repo_root: Path, knowledge_root: Path, core_root: Path, releas
             "catalog_sha256": sha256_file(knowledge_root / "okf/bundles/jvto/catalog.json"),
             "concept_count_in_catalog": catalog.get("concept_count"),
         },
+        "customer_sales_release": customer_sales,
         "itinerary_core": {
             "repo": config["upstreams"]["itinerary_core"]["repo"],
             "revision": core_revision,
@@ -195,6 +223,8 @@ def build_release(repo_root: Path, knowledge_root: Path, core_root: Path, releas
         blocking_conditions.append("Some public package concepts have no matching Itinerary Core package ID.")
     if core_capabilities["dataset_status"] != "production_ready":
         blocking_conditions.append("Itinerary Core dataset status is not production_ready; respect recorded gaps and handoff rules.")
+    if not customer_sales.get("present"):
+        blocking_conditions.append("Customer Sales Release not found in knowledge upstream; catalog/price lookups unavailable.")
 
     release_manifest = {
         "schema_version": "agent-release-manifest-v1",
@@ -205,6 +235,7 @@ def build_release(repo_root: Path, knowledge_root: Path, core_root: Path, releas
         "knowledge_record_count": len(knowledge_records),
         "package_crosswalk": crosswalk["summary"],
         "core_dataset_status": core_capabilities["dataset_status"],
+        "customer_sales_release": customer_sales,
         "blocking_conditions": blocking_conditions,
         "warnings": sorted(knowledge_warnings + core_warnings),
     }

@@ -1,7 +1,8 @@
 version: 1
 
-# Default customer job per intent. One intent can serve several jobs, so this is a
-# DEFAULT that the override rules below may shift based on topic / conversation stage.
+# --- Customer job: a GROUPING LABEL only (sets ResponsePlan.customer_job). ---
+# Required fields, actions, and disclosures are driven by the requirement profile below,
+# NOT by the job. One intent can serve several jobs, so this is a default + overrides.
 default_job_by_intent:
   general_greeting: greeting
   query_package_details: J1_package_discovery
@@ -16,7 +17,6 @@ default_job_by_intent:
   complaint_or_refund: J5_exception_and_handoff
   human_handoff_request: J5_exception_and_handoff
 
-# Applied in order; first match wins. Match on query keywords or customer_stage.
 job_overrides:
   - when_intent: query_package_details
     if_query_contains: ["price", "cost", "how much", "included", "inclusion", "include"]
@@ -34,39 +34,71 @@ job_overrides:
     if_query_contains: ["deposit", "tax", "pay", "payment", "fee"]
     then_job: J2_price_and_value
 
-# Per-job defaults. required_trip_brief_fields use dotted leaf paths resolved against TripBrief.
-jobs:
-  greeting:
-    required_trip_brief_fields: []
+# --- Requirement profile: the FUNCTIONAL driver of clarification + actions + disclosures. ---
+default_profile_by_intent:
+  general_greeting: general_information
+  query_package_details: package_recommendation
+  query_destination_details: general_information
+  query_policy: policy_explanation
+  plan_itinerary: route_validation
+  check_price: standard_price
+  check_availability: availability_check
+  query_operational_notice: general_information
+  get_booking_status: general_information
+  get_payment_status: general_information
+  complaint_or_refund: general_information
+  human_handoff_request: general_information
+
+# Applied in order; first match wins. selected_package_key flips package questions to "information".
+profile_overrides:
+  - when_intent: query_package_details
+    if_query_contains: ["included", "inclusion", "include", "what is included", "what's included"]
+    then_profile: package_information
+  - when_intent: query_package_details
+    if_query_contains: ["price", "cost", "how much", "total"]
+    then_profile: standard_price
+  - when_intent: query_package_details
+    if_selected_package_key: true
+    then_profile: package_information
+
+# required/optional/conditional leaf paths resolved against TripBrief; plus per-profile
+# default_actions and default_disclosures (disclosures reference guardrails keys).
+requirement_profiles:
+  general_information:
+    required: []
     default_actions: []
     default_disclosures: []
-  J1_package_discovery:
-    required_trip_brief_fields: ["travel_dates.start", "pax.confirmed", "pickup.location", "dropoff.location", "destinations"]
+  policy_explanation:
+    required: []
+    default_actions: []
+    default_disclosures: []
+  package_information:
+    required: ["selected_package_key"]
     default_actions: ["catalog_lookup"]
     default_disclosures: []
-  J2_price_and_value:
-    required_trip_brief_fields: ["pax.confirmed", "pickup.location", "dropoff.location"]
+  package_recommendation:
+    required: ["destinations", "pickup.location", "dropoff.location"]
+    optional: ["travel_dates.start", "pax.confirmed"]
+    default_actions: ["catalog_lookup"]
+    default_disclosures: []
+  standard_price:
+    required: ["selected_package_key", "pax.confirmed"]
+    optional: ["travel_dates.start"]
     default_actions: ["catalog_lookup", "price_quote"]
     default_disclosures: ["availability_not_confirmed"]
-  J3_route_and_timing:
-    required_trip_brief_fields: ["travel_dates.start", "pax.confirmed", "pickup.location", "dropoff.location", "destinations"]
+  route_validation:
+    required: ["travel_dates.start", "pax.confirmed", "pickup.location", "dropoff.location", "destinations"]
+    conditional: ["connection_time"]
     default_actions: ["itinerary_core"]
     default_disclosures: ["route_feasibility_pending"]
-  J4_live_confirmation:
-    required_trip_brief_fields: ["travel_dates.start"]
+  availability_check:
+    required: ["selected_package_key", "travel_dates.start", "pax.confirmed"]
     default_actions: ["live_check"]
     default_disclosures: ["live_subject_to_confirmation"]
-  J5_exception_and_handoff:
-    required_trip_brief_fields: []
-    default_actions: []
-    default_disclosures: []
-  unsupported:
-    required_trip_brief_fields: []
-    default_actions: []
-    default_disclosures: []
 
-# Minimal clarifying questions keyed by missing TripBrief leaf path (adapt to customer language).
+# Minimal clarifying questions keyed by missing TripBrief leaf path.
 clarification_questions:
+  "selected_package_key": "Which package are you asking about (or which destinations and how many days)?"
   "travel_dates.start": "What are your travel dates (start and end)?"
   "pax.confirmed": "How many travelers are confirmed, and are any still tentative?"
   "pickup.location": "Where would you like to start — which city, airport, or hotel?"

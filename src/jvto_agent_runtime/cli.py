@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .decision_engine import build_decision
+from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .release_builder import build_release
 from .utils import write_json
 from .validator import validate_release, validate_repo
@@ -37,6 +38,11 @@ def main() -> None:
     decide.add_argument("--intent-confidence", type=float, default=1.0)
     decide.add_argument("--output")
 
+    feasibility = sub.add_parser("feasibility")
+    feasibility.add_argument("--release-dir", required=True)
+    feasibility.add_argument("--entities", default="{}")
+    feasibility.add_argument("--output")
+
     args = parser.parse_args()
     root = _repo_root()
     if args.command == "validate-repo":
@@ -54,6 +60,13 @@ def main() -> None:
     if args.command == "decide":
         entities = json.loads(args.entities)
         result = build_decision(Path(args.release_dir), args.intent, args.query, entities, args.intent_confidence)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "feasibility":
+        entities = json.loads(args.entities)
+        result = evaluate_feasibility(Path(args.release_dir), entities, NotConnectedEvaluator())
         if args.output:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))

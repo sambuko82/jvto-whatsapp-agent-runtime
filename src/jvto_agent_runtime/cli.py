@@ -5,10 +5,11 @@ import json
 from pathlib import Path
 
 from .decision_engine import build_decision
+from .deployment import create_approval, deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
 from .release_builder import build_release
-from .utils import write_json
+from .utils import read_json, utc_now, write_json
 from .validator import validate_release, validate_repo
 
 
@@ -51,6 +52,20 @@ def main() -> None:
     live_tool.add_argument("--intent")
     live_tool.add_argument("--output")
 
+    gate = sub.add_parser("deployment-gate")
+    gate.add_argument("--release-dir", required=True)
+    gate.add_argument("--output")
+
+    approve = sub.add_parser("create-deployment-approval")
+    approve.add_argument("--release-dir", required=True)
+    approve.add_argument("--approved-by", required=True)
+    approve.add_argument("--output")
+
+    verify_deploy = sub.add_parser("verify-deployment")
+    verify_deploy.add_argument("--release-dir", required=True)
+    verify_deploy.add_argument("--approval", required=True)
+    verify_deploy.add_argument("--output")
+
     args = parser.parse_args()
     root = _repo_root()
     if args.command == "validate-repo":
@@ -88,6 +103,25 @@ def main() -> None:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
+    if args.command == "deployment-gate":
+        result = deployment_gate(root, Path(args.release_dir))
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        raise SystemExit(0 if result["ready_for_approval"] else 1)
+    if args.command == "create-deployment-approval":
+        result = create_approval(root, Path(args.release_dir), args.approved_by, utc_now())
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "verify-deployment":
+        approval = read_json(Path(args.approval))
+        result = verify_deployment_approval(root, Path(args.release_dir), approval)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        raise SystemExit(0 if result["customer_traffic_ready"] else 1)
 
 
 if __name__ == "__main__":

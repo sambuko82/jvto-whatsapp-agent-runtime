@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/deployment-approval-v1.json",
+  "type": "object",
+  "required": ["schema_version", "release_id", "release_fingerprint", "approved_by", "approved_at", "signature"],
+  "properties": {
+    "schema_version": {"const": "deployment-approval-v1"},
+    "release_id": {"type": "string", "minLength": 1},
+    "release_fingerprint": {"type": "string", "minLength": 1},
+    "approved_by": {"type": "string", "minLength": 1},
+    "approved_at": {"type": "string", "minLength": 1},
+    "signature": {"type": "string", "minLength": 1},
+    "checks_acknowledged": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

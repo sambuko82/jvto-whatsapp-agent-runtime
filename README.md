@@ -88,7 +88,7 @@ validation-report.json           Build and validation findings
 
 ## Release safety rules
 
-A build may be generated even when it is not safe for customer traffic. Every release is marked `customer_traffic_ready: false` unless an explicit deployment approval step is later implemented.
+A build may be generated even when it is not safe for customer traffic. Every release is marked `customer_traffic_ready: false`. Customer traffic is authorized only by an external, operator-signed deployment-approval record that also passes the deployment gate (Phase 5) — the release file itself is never self-marked. See `docs/deployment-approval.md`.
 
 The runtime must not:
 

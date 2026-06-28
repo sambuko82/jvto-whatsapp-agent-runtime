@@ -143,6 +143,21 @@ python -m jvto_agent_runtime live-tool \
 `POST /v1/live-tools` returns a `live-tool-response`. The boundary enforces tool-access
 policy and degrades safely. See `docs/live-tools-api.md`.
 
+## Customer Sales decision layer
+
+A pure decision layer turns a `DecisionEnvelope` (+ an optional `TripBrief` conversation state)
+into a small customer-facing `ResponsePlan` — classifying the customer job (J1–J5), deciding
+what is missing, which source is needed (knowledge / price / Itinerary Core / live check), and
+when to hand off. It calls no tool and authors no catalog/price/customer data.
+
+```bash
+python -m jvto_agent_runtime build-response-plan \
+  --decision-envelope envelope.json --trip-brief trip-brief.json \
+  --query "How much is the Bromo and Ijen package for 4 people?"
+```
+
+`POST /v1/response-plan` returns a `response-plan`. See `docs/customer-sales-decision-layer.md`.
+
 ## Meta integration boundary
 
 `POST /v1/decisions` accepts a pre-classified intent, a customer query, and extracted entities. It returns a decision envelope. The response-generation model receives only the decision envelope; it never receives arbitrary repository files or free-form database access.

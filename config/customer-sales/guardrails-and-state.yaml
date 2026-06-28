@@ -1,0 +1,86 @@
+version: 1
+
+# An attraction named as the trip's main reason is a booking gate, not an FAQ.
+# Hard dependency => mandatory live status check + strict no-guarantee disclosure.
+# It does NOT automatically force a handoff (see handoff_when).
+attraction_hard_dependency:
+  trigger_phrases:
+    - "main reason"
+    - "must see"
+    - "definitely want"
+    - "otherwise we go elsewhere"
+    - "otherwise we will go elsewhere"
+    - "blue lava is why"
+    - "why we are coming"
+  guarantee_phrases:
+    - "guarantee"
+    - "guaranteed"
+    - "100%"
+    - "certain"
+    - "will it reopen"
+    - "definitely be open"
+  required_action:
+    type: live_check
+    detail: operational_notice
+  required_disclosures: ["no_guarantee_access"]
+  # Escalate to handoff only for these conditions:
+  handoff_when:
+    - guarantee_demanded
+    - access_unconfirmable
+    - attraction_inaccessible
+    - redesign_outside_standard
+
+# Conditions that make itinerary-core validation mandatory (feasibility-changing only).
+route_validation_triggers:
+  - onward_connection_deadline
+  - non_standard_pickup
+  - non_standard_dropoff
+  - unspecified_endpoint
+  - changed_sequence
+  - extra_destination
+  - shorter_duration
+  - own_hotel_changes_staging
+  - partial_service_changes_chain
+  - changed_core_constraint
+connection_keywords: ["flight", "train", "ferry", "airport", "harbour", "harbor", "station", "depart", "catch"]
+
+handoff_rules:
+  # Intents that always route to a human.
+  mandatory_intents: ["complaint_or_refund", "human_handoff_request"]
+  # Signal labels that must escalate to handoff if present (passed in by the caller).
+  mandatory_signals:
+    - payment_discrepancy
+    - medical_or_fitness
+    - cancellation_refund_ota
+    - custom_route_outside_catalog
+    - third_party_commitment
+    - post_booking_change
+    - special_guide_or_transport
+    - price_or_policy_exception
+    - attraction_guarantee_demanded
+  # Stay agent-resolvable when catalog data is complete (do NOT handoff by default).
+  do_not_handoff_defaults:
+    - standard_package_recommendation
+    - standard_price_explanation
+    - standard_inclusion_explanation
+    - standard_private_tour_explanation
+    - standard_packing_guidance
+    - standard_booking_process
+    - general_tax_and_fee_explanation
+
+# Any change to these TripBrief fields invalidates prior price/feasibility assumptions.
+invalidation:
+  trigger_fields: ["travel_dates", "pax", "pickup", "dropoff", "destinations"]
+  status_label: superseded_pending_revalidation
+
+# Absence of a customer reply is not resolution or churn.
+no_response_rule:
+  outcome_label: outcome_unobserved
+  note: "No visible reply only means the outcome is unobserved in this session."
+
+# Canonical customer-facing disclosure strings (referenced by key above).
+required_disclosures:
+  availability_not_confirmed: "Availability is not yet confirmed for the requested date."
+  no_guarantee_access: "Attraction access such as Blue Fire, along with weather and sunrise, cannot be guaranteed; it depends on current conditions and the authorities."
+  live_subject_to_confirmation: "Live price, availability, booking, and payment status are time-sensitive and subject to system confirmation."
+  route_feasibility_pending: "Route feasibility must be confirmed by Itinerary Core before any commitment."

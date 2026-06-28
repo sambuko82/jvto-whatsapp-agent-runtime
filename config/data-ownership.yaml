@@ -44,3 +44,17 @@ owners:
       - source_cache
       - embedding_index
       - release_bundle
+  conversation_state:
+    owner: external_conversation_service
+    runtime_access: opaque_no_pii
+    key: context_ref
+    note: >-
+      TripBrief may be received, merged, validated, and patched at runtime, but is never
+      persisted here as a customer database. No raw chat, name, email, phone, booking, or
+      payment data; the durable store lives in an external service keyed by context_ref.
+  customer_sales_catalog_and_price:
+    owner: knowledge-catalog-jvto-bootstrap_and_standard_price_calculator
+    runtime_access: projection_or_calculator_or_live_only
+    note: >-
+      The Customer Sales Decision Layer routes to these sources but never authors package
+      catalog, price matrix, discount, hotel rate, add-on, or availability data in this repo.

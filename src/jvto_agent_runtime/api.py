@@ -14,6 +14,7 @@ from .deployment import deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
 from .meta_webhook import normalize_payload, verify_signature, verify_subscription
+from .sales_intelligence import derive_response_plan, load_customer_sales_config
 from .validator import validate_release
 
 app = FastAPI(title="JVTO WhatsApp Agent Runtime", version="0.1.0")
@@ -50,6 +51,23 @@ def decision(request: DecisionRequest) -> dict[str, Any]:
     if not release_dir.exists():
         raise HTTPException(status_code=404, detail="Release directory not found")
     return build_decision(release_dir, request.intent, request.query, request.entities, request.intent_confidence)
+
+
+class ResponsePlanRequest(BaseModel):
+    decision_envelope: dict[str, Any]
+    trip_brief: dict[str, Any] | None = None
+    query: str = ""
+    signals: list[str] = Field(default_factory=list)
+
+
+@app.post("/v1/response-plan")
+def response_plan(request: ResponsePlanRequest) -> dict[str, Any]:
+    # Pure planner: turns a DecisionEnvelope (+ optional TripBrief) into a customer-facing
+    # ResponsePlan. It calls no tool/adapter and authors no catalog/price/customer data.
+    config = load_customer_sales_config(_repo_root())
+    return derive_response_plan(
+        request.decision_envelope, request.trip_brief, config, query=request.query, signals=request.signals
+    )
 
 
 @app.post("/v1/feasibility")

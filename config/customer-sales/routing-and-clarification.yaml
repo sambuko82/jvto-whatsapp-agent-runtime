@@ -1,0 +1,77 @@
+version: 1
+
+# Default customer job per intent. One intent can serve several jobs, so this is a
+# DEFAULT that the override rules below may shift based on topic / conversation stage.
+default_job_by_intent:
+  general_greeting: greeting
+  query_package_details: J1_package_discovery
+  query_destination_details: J1_package_discovery
+  query_policy: J1_package_discovery        # cross-job; overrides move it to J2 or J5
+  plan_itinerary: J3_route_and_timing
+  check_price: J2_price_and_value
+  check_availability: J4_live_confirmation
+  query_operational_notice: J4_live_confirmation
+  get_booking_status: J5_exception_and_handoff
+  get_payment_status: J5_exception_and_handoff
+  complaint_or_refund: J5_exception_and_handoff
+  human_handoff_request: J5_exception_and_handoff
+
+# Applied in order; first match wins. Match on query keywords or customer_stage.
+job_overrides:
+  - when_intent: query_package_details
+    if_query_contains: ["price", "cost", "how much", "included", "inclusion", "include"]
+    then_job: J2_price_and_value
+  - when_intent: query_package_details
+    if_query_contains: ["finish", "drop", "endpoint", "flight", "ferry", "train", "airport", "start in", "pickup"]
+    then_job: J3_route_and_timing
+  - when_intent: query_policy
+    if_stage_in: ["paid", "pre_trip"]
+    then_job: J5_exception_and_handoff
+  - when_intent: query_policy
+    if_query_contains: ["cancel", "refund", "reschedule", "change my", "amend"]
+    then_job: J5_exception_and_handoff
+  - when_intent: query_policy
+    if_query_contains: ["deposit", "tax", "pay", "payment", "fee"]
+    then_job: J2_price_and_value
+
+# Per-job defaults. required_trip_brief_fields use dotted leaf paths resolved against TripBrief.
+jobs:
+  greeting:
+    required_trip_brief_fields: []
+    default_actions: []
+    default_disclosures: []
+  J1_package_discovery:
+    required_trip_brief_fields: ["travel_dates.start", "pax.confirmed", "pickup.location", "dropoff.location", "destinations"]
+    default_actions: ["catalog_lookup"]
+    default_disclosures: []
+  J2_price_and_value:
+    required_trip_brief_fields: ["pax.confirmed", "pickup.location", "dropoff.location"]
+    default_actions: ["catalog_lookup", "price_quote"]
+    default_disclosures: ["availability_not_confirmed"]
+  J3_route_and_timing:
+    required_trip_brief_fields: ["travel_dates.start", "pax.confirmed", "pickup.location", "dropoff.location", "destinations"]
+    default_actions: ["itinerary_core"]
+    default_disclosures: ["route_feasibility_pending"]
+  J4_live_confirmation:
+    required_trip_brief_fields: ["travel_dates.start"]
+    default_actions: ["live_check"]
+    default_disclosures: ["live_subject_to_confirmation"]
+  J5_exception_and_handoff:
+    required_trip_brief_fields: []
+    default_actions: []
+    default_disclosures: []
+  unsupported:
+    required_trip_brief_fields: []
+    default_actions: []
+    default_disclosures: []
+
+# Minimal clarifying questions keyed by missing TripBrief leaf path (adapt to customer language).
+clarification_questions:
+  "travel_dates.start": "What are your travel dates (start and end)?"
+  "pax.confirmed": "How many travelers are confirmed, and are any still tentative?"
+  "pickup.location": "Where would you like to start — which city, airport, or hotel?"
+  "dropoff.location": "After the tour, would you like to finish in Surabaya, Banyuwangi/Ketapang, or Bali?"
+  "destinations": "Which destinations are essential for you, and which are optional?"
+  "pickup.arrival_time": "What time and date do you arrive, and on which flight, train, or ferry?"
+  "dropoff.required_by": "By what time and from which airport, station, or harbour do you need to depart?"
+  _default: "Could you share a few more trip details so I can help accurately?"

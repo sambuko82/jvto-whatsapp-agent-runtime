@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/response-plan-v1.json",
+  "type": "object",
+  "required": [
+    "schema_version", "source_decision_id", "release_id", "customer_job", "mode",
+    "trip_brief_status", "approved_knowledge_ids", "required_actions",
+    "required_disclosures", "handoff"
+  ],
+  "properties": {
+    "schema_version": {"const": "response-plan-v1"},
+    "source_decision_id": {"type": "string", "minLength": 1},
+    "release_id": {"type": "string", "minLength": 1},
+    "customer_job": {
+      "enum": [
+        "J1_package_discovery", "J2_price_and_value", "J3_route_and_timing",
+        "J4_live_confirmation", "J5_exception_and_handoff", "greeting", "unsupported"
+      ]
+    },
+    "mode": {"enum": ["answer", "clarify", "execute_tool", "handoff"]},
+    "trip_brief_status": {"enum": ["complete", "incomplete", "superseded_pending_revalidation", "not_applicable"]},
+    "approved_knowledge_ids": {"type": "array", "items": {"type": "string"}},
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "required", "reason"],
+        "properties": {
+          "type": {"enum": ["catalog_lookup", "price_quote", "itinerary_core", "live_check"]},
+          "required": {"type": "boolean"},
+          "reason": {"type": "string"},
+          "detail": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "clarifying_question": {"type": ["string", "null"]},
+    "required_disclosures": {"type": "array", "items": {"type": "string"}},
+    "handoff": {
+      "type": "object",
+      "required": ["required", "reason"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

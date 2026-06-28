@@ -128,6 +128,21 @@ python -m jvto_agent_runtime feasibility \
 evaluator=...)` folds the result into the decision envelope's `feasibility` block.
 See `docs/feasibility-api.md` for how to connect a real evaluator.
 
+## Live tools boundary (Phase 3)
+
+Live truth (price, availability, booking, payment, hotel, operational notice) comes only
+from a current, successful live-tool response — never from static knowledge:
+
+```bash
+# Default adapter returns `unavailable` until a real authenticated adapter is connected
+python -m jvto_agent_runtime live-tool \
+  --release-dir dist/releases/agent-release-YYYYMMDD-001 \
+  --tool pricing --intent check_price --params '{"package_key":"ijen-bromo-madakaripura-3d2n"}'
+```
+
+`POST /v1/live-tools` returns a `live-tool-response`. The boundary enforces tool-access
+policy and degrades safely. See `docs/live-tools-api.md`.
+
 ## Meta integration boundary
 
 `POST /v1/decisions` accepts a pre-classified intent, a customer query, and extracted entities. It returns a decision envelope. A separate Meta webhook adapter should authenticate Meta, normalize message payloads, call the intent/entity classifier, then invoke this endpoint. The response-generation model receives only the decision envelope; it never receives arbitrary repository files or free-form database access.

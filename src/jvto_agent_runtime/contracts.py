@@ -43,7 +43,10 @@ def load_contract(name: str) -> dict[str, Any]:
 
 @lru_cache(maxsize=None)
 def _validator(name: str) -> Draft202012Validator:
-    return Draft202012Validator(load_contract(name))
+    # FORMAT_CHECKER enforces `format` keywords (e.g. travel_date `format: "date"`),
+    # which draft 2020-12 treats as annotation-only by default. The `date` checker is
+    # stdlib-backed, so this adds no dependency.
+    return Draft202012Validator(load_contract(name), format_checker=Draft202012Validator.FORMAT_CHECKER)
 
 
 def iter_contract_errors(name: str, instance: Any) -> list[str]:

@@ -98,19 +98,30 @@ def build_decision(release_dir: Path, intent: str, query: str, entities: dict[st
     feasibility: dict[str, Any] = {"required": bool(route.get("feasibility_required")), "status": "not_required"}
     if route.get("feasibility_required"):
         capability_available = FEASIBILITY_CAPABILITY in core.get("available_capabilities", [])
-        feasibility["status"] = "not_evaluated" if not missing else "unavailable"
-        # Phase 2 seam: when an itinerary-core evaluator is supplied and the request is
-        # complete and the capability is present, evaluate route feasibility now. Without
-        # an evaluator the envelope stays at "not_evaluated" (the pre-Phase-2 behavior).
-        if evaluator is not None and not missing and capability_available:
-            result = evaluate_feasibility(release_dir, entities, evaluator)
-            feasibility["status"] = result["status"]
-            feasibility["recommended_package_ids"] = result.get("recommended_package_ids", [])
-            feasibility["alternative_package_ids"] = result.get("alternative_package_ids", [])
-            feasibility["customer_visible_reasons"] = result.get("customer_visible_reasons", [])
-            feasibility["source_release_id"] = result.get("source_release_id")
-            if result.get("handoff_required"):
-                handoff_reasons.append("itinerary_core_handoff_required")
+        if missing:
+            # Incomplete request -> ask for fields (intent_status stays needs_information).
+            feasibility["status"] = "unavailable"
+        elif not capability_available:
+            # Capability genuinely absent -> reflect it (a handoff reason was already added above).
+            feasibility["status"] = "unavailable"
+        else:
+            # Phase 2 seam: with a complete request and the capability present, evaluate now if an
+            # evaluator is supplied. Without one the envelope stays at "not_evaluated" (pre-Phase-2).
+            feasibility["status"] = "not_evaluated"
+            if evaluator is not None:
+                result = evaluate_feasibility(release_dir, entities, evaluator)
+                feasibility["status"] = result["status"]
+                feasibility["recommended_package_ids"] = result.get("recommended_package_ids", [])
+                feasibility["alternative_package_ids"] = result.get("alternative_package_ids", [])
+                feasibility["customer_visible_reasons"] = result.get("customer_visible_reasons", [])
+                feasibility["source_release_id"] = result.get("source_release_id")
+                # Never let an unconfirmable route be presented as "ready": couple a not_feasible /
+                # unavailable verdict to handoff even if the evaluator did not flag it. "conditional"
+                # is a valid ready-with-caveats answer (surfaced via customer_visible_reasons).
+                if result.get("handoff_required"):
+                    handoff_reasons.append("itinerary_core_handoff_required")
+                elif feasibility["status"] in {"not_feasible", "unavailable"}:
+                    handoff_reasons.append("itinerary_core_route_not_confirmable")
 
     if handoff_reasons:
         status = "handoff_required"

@@ -51,6 +51,19 @@ in-process adapter) into `build_decision(..., evaluator=...)` / `evaluate_feasib
   `source_release_id` to the envelope's `feasibility` block. Without an evaluator the
   envelope stays at `not_evaluated` (the pre-Phase-2 behavior).
 
+### Status → handoff coupling in the decision envelope
+
+The runtime never presents an unconfirmable route as `ready`:
+
+- `feasible` → `intent_status: ready`.
+- `conditional` → `ready` with caveats (surfaced via `customer_visible_reasons`).
+- `not_feasible` or `unavailable` → handoff is forced even if the evaluator did not set
+  `handoff_required` (reason `itinerary_core_route_not_confirmable`); an explicit
+  `handoff_required` uses `itinerary_core_handoff_required`.
+- Missing required entities → `needs_information` (status `unavailable`), not handoff.
+- Capability absent on the release → status `unavailable` + handoff reason
+  `itinerary_core_feasibility_capability_unavailable`.
+
 ## Customer vs internal
 
 The response contract separates `customer_visible_reasons` (safe to surface to the

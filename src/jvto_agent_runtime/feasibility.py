@@ -27,7 +27,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any, Protocol, runtime_checkable
 
-from .contracts import iter_contract_errors, validate_or_raise
+from .contracts import ContractValidationError, iter_contract_errors, validate_or_raise
 from .utils import read_json
 
 REQUEST_CONTRACT = "itinerary-core-request"
@@ -216,6 +216,13 @@ def evaluate_feasibility(
             source_release_id,
             known_gaps=[f"missing_entity:{field}" for field in error.missing],
             customer_visible_reasons=["I need a few more trip details before I can check this route."],
+        )
+    except ContractValidationError as error:
+        # e.g. a malformed travel_date from upstream classification — degrade, don't raise.
+        return unavailable_response(
+            source_release_id,
+            known_gaps=["request_contract_violation", *error.errors],
+            customer_visible_reasons=["Some trip details look off — let me have our team confirm this route."],
         )
 
     evaluator = evaluator or NotConnectedEvaluator()

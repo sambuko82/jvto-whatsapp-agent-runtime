@@ -145,4 +145,6 @@ policy and degrades safely. See `docs/live-tools-api.md`.
 
 ## Meta integration boundary
 
-`POST /v1/decisions` accepts a pre-classified intent, a customer query, and extracted entities. It returns a decision envelope. A separate Meta webhook adapter should authenticate Meta, normalize message payloads, call the intent/entity classifier, then invoke this endpoint. The response-generation model receives only the decision envelope; it never receives arbitrary repository files or free-form database access.
+`POST /v1/decisions` accepts a pre-classified intent, a customer query, and extracted entities. It returns a decision envelope. The response-generation model receives only the decision envelope; it never receives arbitrary repository files or free-form database access.
+
+The Meta webhook edge (`GET`/`POST /webhooks/meta`) is scaffolded: it verifies the Meta subscription handshake and the `X-Hub-Signature-256` HMAC (fail-closed), then normalizes the payload into PII-safe inbound messages (raw sender id → opaque `context_ref`). It does **not** classify intent/entities or send replies — a downstream classifier calls `/v1/decisions`, and replies use the Meta Send API. Config: `JVTO_META_VERIFY_TOKEN`, `JVTO_META_APP_SECRET`, `JVTO_META_CONTEXT_SALT` (environment only). See `docs/meta-webhook.md`.

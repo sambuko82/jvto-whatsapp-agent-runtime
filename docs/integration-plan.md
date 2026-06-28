@@ -41,7 +41,7 @@ orchestrator (validated against the contract). Surfaces: `POST /v1/live-tools` a
 `live-tool` CLI command. **To finish Phase 3:** implement one authenticated adapter per
 tool against the real transactional systems (requires external credentials).
 
-## Phase 4 — Meta webhook
+## Phase 4 — Meta webhook  *(edge scaffolded)*
 
 Implement Meta verification and signature checking in a dedicated edge adapter. It should:
 
@@ -52,6 +52,14 @@ Implement Meta verification and signature checking in a dedicated edge adapter. 
 - call only allowed tools;
 - send the final response;
 - write audit metadata.
+
+**Status:** the security edge is scaffolded — see `docs/meta-webhook.md`.
+`src/jvto_agent_runtime/meta_webhook.py` + the `GET`/`POST /webhooks/meta` endpoints handle
+subscription verification, fail-closed HMAC signature checking, and PII-safe payload
+normalization (raw sender id → opaque `context_ref`). **Still external/out of scope** (per
+the ownership boundary): intent/entity classification, the Send API reply path, and durable
+conversation state. Config via `JVTO_META_VERIFY_TOKEN` / `JVTO_META_APP_SECRET` /
+`JVTO_META_CONTEXT_SALT` (environment only).
 
 ## Phase 5 — Deployment approval
 

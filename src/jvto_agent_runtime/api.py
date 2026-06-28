@@ -5,12 +5,14 @@ import os
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
 from .decision_engine import build_decision
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
+from .meta_webhook import normalize_payload, verify_signature, verify_subscription
 from .validator import validate_release
 
 app = FastAPI(title="JVTO WhatsApp Agent Runtime", version="0.1.0")
@@ -84,12 +86,32 @@ def validate(request: dict[str, str]) -> dict[str, Any]:
     return validate_release(repo_root, release_dir)
 
 
+@app.get("/webhooks/meta")
+def meta_verify(request: Request) -> PlainTextResponse:
+    # Meta GET subscription handshake. Token comes from JVTO_META_VERIFY_TOKEN.
+    params = request.query_params
+    challenge = verify_subscription(params.get("hub.mode"), params.get("hub.verify_token"), params.get("hub.challenge"))
+    if challenge is None:
+        raise HTTPException(status_code=403, detail="Meta webhook verification failed")
+    return PlainTextResponse(challenge)
+
+
 @app.post("/webhooks/meta")
-def meta_webhook_placeholder(payload: dict[str, Any]) -> dict[str, Any]:
-    # Deliberately non-functional. Authentication, signature validation, conversation lookup,
-    # and intent/entity classification must be implemented before production use.
+async def meta_webhook(request: Request) -> dict[str, Any]:
+    # Edge boundary: verify the HMAC signature (fail-closed) then normalize the payload.
+    # It does NOT classify intent/entities or send replies — a downstream classifier must
+    # call /v1/decisions, and replies go via the Meta Send API (out of scope, needs creds).
+    raw = await request.body()
+    if not verify_signature(raw, request.headers.get("x-hub-signature-256")):
+        raise HTTPException(status_code=403, detail="Invalid or missing webhook signature")
+    try:
+        payload = json.loads(raw.decode("utf-8")) if raw else {}
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail="Invalid JSON payload") from error
+    messages = normalize_payload(payload)
     return {
-        "status": "accepted_not_processed",
-        "message": "Meta webhook adapter is intentionally a placeholder; route normalized payload to /v1/decisions after signature verification and intent/entity extraction.",
-        "received_top_level_keys": sorted(payload.keys()),
+        "status": "accepted",
+        "normalized_message_count": len(messages),
+        "messages": messages,
+        "next": "classify intent/entities (upstream of this repo), then POST /v1/decisions; replies go via the Meta Send API (out of scope).",
     }

@@ -66,6 +66,27 @@ def derive_default_customer_job(intent: str, trip_brief: dict[str, Any] | None, 
     return (routing.get("default_job_by_intent", {}) or {}).get(intent, "unsupported")
 
 
+# --- requirement profile (the functional driver of required fields/actions) -
+
+
+def _profile_cfg(profile: str, config: dict[str, Any]) -> dict[str, Any]:
+    return (config.get("routing", {}).get("requirement_profiles", {}) or {}).get(profile, {}) or {}
+
+
+def derive_requirement_profile(intent: str, trip_brief: dict[str, Any] | None, config: dict[str, Any], query: str = "") -> str:
+    routing = config.get("routing", {})
+    trip_brief = trip_brief or {}
+    has_package = trip_brief.get("selected_package_key") not in _EMPTY
+    for rule in routing.get("profile_overrides", []) or []:
+        if rule.get("when_intent") != intent:
+            continue
+        if rule.get("if_query_contains") and _contains_any(query, rule["if_query_contains"]):
+            return rule["then_profile"]
+        if rule.get("if_selected_package_key") and has_package:
+            return rule["then_profile"]
+    return (routing.get("default_profile_by_intent", {}) or {}).get(intent, "general_information")
+
+
 # --- trip brief ------------------------------------------------------------
 
 
@@ -109,22 +130,20 @@ def merge_trip_brief(base: dict[str, Any] | None, update: dict[str, Any], config
     return merged
 
 
-def _missing_required_fields(trip_brief: dict[str, Any], job: str, config: dict[str, Any]) -> list[str]:
-    jobs = (config.get("routing", {}).get("jobs", {}) or {})
-    required = (jobs.get(job, {}) or {}).get("required_trip_brief_fields", []) or []
+def _missing_required_fields(trip_brief: dict[str, Any], profile: str, config: dict[str, Any]) -> list[str]:
+    required = _profile_cfg(profile, config).get("required", []) or []
     return [path for path in required if _get_path(trip_brief, path) in _EMPTY]
 
 
-def derive_trip_brief_status(trip_brief: dict[str, Any] | None, job: str, config: dict[str, Any]) -> str:
+def derive_trip_brief_status(trip_brief: dict[str, Any] | None, profile: str, config: dict[str, Any]) -> str:
     trip_brief = trip_brief or {}
     status_label = (config.get("guardrails", {}).get("invalidation", {}) or {}).get("status_label", "superseded_pending_revalidation")
     if status_label in (trip_brief.get("active_blockers", []) or []):
         return "superseded_pending_revalidation"
-    if job in {"greeting", "J5_exception_and_handoff", "unsupported"}:
+    # A profile that requires nothing (general_information / policy_explanation) needs no brief.
+    if not (_profile_cfg(profile, config).get("required", []) or []):
         return "not_applicable"
-    if not trip_brief:
-        return "incomplete"
-    return "complete" if not _missing_required_fields(trip_brief, job, config) else "incomplete"
+    return "complete" if not _missing_required_fields(trip_brief, profile, config) else "incomplete"
 
 
 # --- response plan ---------------------------------------------------------
@@ -138,7 +157,10 @@ def _attraction_hard_dependency(trip_brief: dict[str, Any], query: str, guardrai
     return _contains_any(query, cfg.get("trigger_phrases", []) or [])
 
 
-def _needs_itinerary_core(envelope: dict[str, Any], trip_brief: dict[str, Any], query: str, guardrails: dict[str, Any]) -> bool:
+def _needs_itinerary_core(envelope: dict[str, Any], trip_brief: dict[str, Any], query: str, guardrails: dict[str, Any], route_signals: list[str] | None = None) -> bool:
+    triggers = set(guardrails.get("route_validation_triggers", []) or [])
+    if any(signal in triggers for signal in (route_signals or [])):
+        return True
     if envelope.get("feasibility", {}).get("required"):
         return True
     if _contains_any(query, guardrails.get("connection_keywords", []) or []):
@@ -160,10 +182,12 @@ def _add_action(actions: list[dict[str, Any]], type_: str, reason: str, *, requi
     actions.append({"type": type_, "required": required, "reason": reason, "detail": detail})
 
 
-def derive_response_plan(decision_envelope: dict[str, Any], trip_brief: dict[str, Any] | None, config: dict[str, Any], query: str = "", signals: list[str] | None = None) -> dict[str, Any]:
+def derive_response_plan(decision_envelope: dict[str, Any], trip_brief: dict[str, Any] | None, config: dict[str, Any], query: str = "", signals: list[str] | None = None, route_signals: list[str] | None = None) -> dict[str, Any]:
     """Build a contract-valid ResponsePlan from a DecisionEnvelope (+ optional TripBrief).
 
-    Pure and deterministic: no tool calls, no I/O beyond the supplied config.
+    Pure and deterministic: no tool calls, no I/O beyond the supplied config. The customer
+    job is a grouping label; the requirement profile drives required fields, actions, and
+    disclosures.
     """
     trip_brief = trip_brief or {}
     signals = signals or []
@@ -173,34 +197,49 @@ def derive_response_plan(decision_envelope: dict[str, Any], trip_brief: dict[str
 
     intent = decision_envelope.get("intent", "")
     job = derive_default_customer_job(intent, trip_brief, config, query=query)
-    job_cfg = (routing.get("jobs", {}) or {}).get(job, {}) or {}
-    brief_status = derive_trip_brief_status(trip_brief, job, config)
+    profile = derive_requirement_profile(intent, trip_brief, config, query=query)
+    profile_cfg = _profile_cfg(profile, config)
+    brief_status = derive_trip_brief_status(trip_brief, profile, config)
 
-    # --- required actions (collapsed routing; no duplication of the envelope) ---
+    # --- required actions (from the requirement profile; no duplication of the envelope) ---
     actions: list[dict[str, Any]] = []
-    for action_type in job_cfg.get("default_actions", []) or []:
-        _add_action(actions, action_type, f"job_default:{job}")
-    needs_core = _needs_itinerary_core(decision_envelope, trip_brief, query, guardrails)
+    for action_type in profile_cfg.get("default_actions", []) or []:
+        _add_action(actions, action_type, f"profile_default:{profile}")
+    needs_core = _needs_itinerary_core(decision_envelope, trip_brief, query, guardrails, route_signals)
     if needs_core:
         _add_action(actions, "itinerary_core", "route_feasibility_required")
     for tool in decision_envelope.get("live_tool_plan", []) or []:
         _add_action(actions, "live_check", "intent_live_tool_plan", detail=tool)
 
-    # --- disclosures ---
-    disclosure_keys: list[str] = list(job_cfg.get("default_disclosures", []) or [])
+    # --- disclosures (from the requirement profile) ---
+    disclosure_keys: list[str] = list(profile_cfg.get("default_disclosures", []) or [])
+    hd = guardrails.get("attraction_hard_dependency", {}) or {}
 
-    # --- attraction hard dependency: live-check + no-guarantee disclosure (NOT auto-handoff) ---
-    handoff_escalation: str | None = None
-    if _attraction_hard_dependency(trip_brief, query, guardrails):
-        hd = guardrails.get("attraction_hard_dependency", {}) or {}
+    def _flag_live_check(reason: str) -> None:
         ra = hd.get("required_action", {}) or {}
         if ra:
-            _add_action(actions, ra.get("type", "live_check"), "attraction_hard_dependency", detail=ra.get("detail"))
+            _add_action(actions, ra.get("type", "live_check"), reason, detail=ra.get("detail"))
         for key in hd.get("required_disclosures", []) or []:
             if key not in disclosure_keys:
                 disclosure_keys.append(key)
-        if _contains_any(query, hd.get("guarantee_phrases", []) or []):
-            handoff_escalation = "attraction_guarantee_demanded"
+
+    # Hard dependency (e.g. Blue Fire as the main reason): live-check + no-guarantee, NOT handoff.
+    handoff_escalation: str | None = None
+    if _attraction_hard_dependency(trip_brief, query, guardrails):
+        _flag_live_check("attraction_hard_dependency")
+    # A guarantee demand IS a handoff (independent of whether a hard dependency was recorded).
+    if _contains_any(query, hd.get("guarantee_phrases", []) or []):
+        _flag_live_check("attraction_guarantee_demanded")
+        handoff_escalation = "attraction_guarantee_demanded"
+    # A status query ("will it reopen?") is a live check + disclosure, never a handoff.
+    osq = guardrails.get("operational_status_query", {}) or {}
+    if osq and _contains_any(query, osq.get("phrases", []) or []):
+        ra = osq.get("required_action", {}) or {}
+        if ra:
+            _add_action(actions, ra.get("type", "live_check"), "operational_status_query", detail=ra.get("detail"))
+        for key in osq.get("required_disclosures", []) or []:
+            if key not in disclosure_keys:
+                disclosure_keys.append(key)
 
     disclosures = [disclosure_text.get(key, key) for key in disclosure_keys]
 
@@ -208,7 +247,7 @@ def derive_response_plan(decision_envelope: dict[str, Any], trip_brief: dict[str
     questions = routing.get("clarification_questions", {}) or {}
     clarifying_question: str | None = None
     if brief_status == "incomplete":
-        missing = _missing_required_fields(trip_brief, job, config)
+        missing = _missing_required_fields(trip_brief, profile, config)
         if missing:
             clarifying_question = questions.get(missing[0], questions.get("_default"))
     # Connection-time rule: a flight/train/ferry mentioned without an exact time must be asked.

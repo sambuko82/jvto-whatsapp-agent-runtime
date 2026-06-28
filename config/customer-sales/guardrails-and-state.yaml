@@ -17,7 +17,6 @@ attraction_hard_dependency:
     - "guaranteed"
     - "100%"
     - "certain"
-    - "will it reopen"
     - "definitely be open"
   required_action:
     type: live_check
@@ -29,6 +28,20 @@ attraction_hard_dependency:
     - access_unconfirmable
     - attraction_inaccessible
     - redesign_outside_standard
+
+# A status question ("will it reopen?") is NOT a guarantee demand: it triggers a live
+# operational-notice check + a no-guarantee disclosure, but never an automatic handoff.
+operational_status_query:
+  phrases:
+    - "will it reopen"
+    - "when will it reopen"
+    - "is it open"
+    - "reopen"
+    - "current status"
+  required_action:
+    type: live_check
+    detail: operational_notice
+  required_disclosures: ["no_guarantee_access"]
 
 # Conditions that make itinerary-core validation mandatory (feasibility-changing only).
 route_validation_triggers:

@@ -10,6 +10,7 @@ from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
 from .decision_engine import build_decision
+from .deployment import deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
 from .meta_webhook import normalize_payload, verify_signature, verify_subscription
@@ -84,6 +85,33 @@ def validate(request: dict[str, str]) -> dict[str, Any]:
     release_dir = Path(request["release_dir"])
     repo_root = Path(os.environ.get("JVTO_AGENT_REPO_ROOT", Path.cwd()))
     return validate_release(repo_root, release_dir)
+
+
+def _repo_root() -> Path:
+    return Path(os.environ.get("JVTO_AGENT_REPO_ROOT", Path.cwd()))
+
+
+@app.post("/v1/deployment/gate")
+def deployment_gate_endpoint(request: dict[str, str]) -> dict[str, Any]:
+    release_dir = Path(request["release_dir"])
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    return deployment_gate(_repo_root(), release_dir)
+
+
+class DeploymentVerifyRequest(BaseModel):
+    release_dir: str
+    approval: dict[str, Any]
+
+
+@app.post("/v1/deployment/verify")
+def deployment_verify_endpoint(request: DeploymentVerifyRequest) -> dict[str, Any]:
+    # Determines customer_traffic_ready from an external signed approval. The release file
+    # is never mutated; true requires a valid signature AND a passing deployment gate.
+    release_dir = Path(request.release_dir)
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    return verify_deployment_approval(_repo_root(), release_dir, request.approval)
 
 
 @app.get("/webhooks/meta")

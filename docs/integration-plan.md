@@ -61,6 +61,17 @@ the ownership boundary): intent/entity classification, the Send API reply path, 
 conversation state. Config via `JVTO_META_VERIFY_TOKEN` / `JVTO_META_APP_SECRET` /
 `JVTO_META_CONTEXT_SALT` (environment only).
 
-## Phase 5 — Deployment approval
+## Phase 5 — Deployment approval  *(scaffolded)*
 
 Add an explicit release approval record external to this repository. No static build should set itself customer-ready. Deployment must be a separate operator decision after crosswalk, source, guardrail, and tool integration checks pass.
+
+**Status:** scaffolded — see `docs/deployment-approval.md`.
+`src/jvto_agent_runtime/deployment.py` provides the deployment gate, an external
+signed-approval record (`contracts/deployment-approval.schema.json`, HMAC with the
+operator-held `JVTO_DEPLOYMENT_APPROVAL_KEY`), and `verify_deployment_approval` —
+the only path to `customer_traffic_ready: true`, requiring a valid signature AND a passing
+gate AND a matching release fingerprint. The release file is never mutated. Surfaces:
+`deployment-gate` / `create-deployment-approval` / `verify-deployment` CLI commands and
+`POST /v1/deployment/{gate,verify}`. With the current upstreams the gate blocks on
+`core_dataset_not_production_ready`, so traffic stays disabled until itinerary-core reaches
+`production_ready`.

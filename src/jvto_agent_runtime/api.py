@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from .decision_engine import build_decision
+from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .validator import validate_release
 
 app = FastAPI(title="JVTO WhatsApp Agent Runtime", version="0.1.0")
@@ -22,6 +23,11 @@ class DecisionRequest(BaseModel):
     intent_confidence: float = 1.0
 
 
+class FeasibilityRequest(BaseModel):
+    release_dir: str = Field(..., description="Absolute or service-configured local release path")
+    entities: dict[str, Any] = Field(default_factory=dict)
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "jvto-whatsapp-agent-runtime"}
@@ -33,6 +39,18 @@ def decision(request: DecisionRequest) -> dict[str, Any]:
     if not release_dir.exists():
         raise HTTPException(status_code=404, detail="Release directory not found")
     return build_decision(release_dir, request.intent, request.query, request.entities, request.intent_confidence)
+
+
+@app.post("/v1/feasibility")
+def feasibility(request: FeasibilityRequest) -> dict[str, Any]:
+    # Returns an itinerary-core-response (contracts/itinerary-core-response.schema.json).
+    # The response separates customer_visible_reasons (safe to surface) from
+    # known_gaps (internal diagnostics). The default NotConnectedEvaluator yields
+    # an `unavailable` + handoff response until a real evaluator is wired in.
+    release_dir = Path(request.release_dir)
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    return evaluate_feasibility(release_dir, request.entities, NotConnectedEvaluator())
 
 
 @app.post("/v1/releases/validate")

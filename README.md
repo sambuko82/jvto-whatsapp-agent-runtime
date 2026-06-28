@@ -112,6 +112,22 @@ data/                    Gitignored local caches, audit logs, and generated sour
 dist/releases/           Generated agent releases (gitignored)
 ```
 
+## Feasibility boundary (Phase 2)
+
+Route feasibility flows through the itinerary-core contracts, not static knowledge:
+
+```bash
+# Evaluate feasibility for a release (default adapter returns unavailable + handoff
+# until a real itinerary-core evaluator is connected)
+python -m jvto_agent_runtime feasibility \
+  --release-dir dist/releases/agent-release-YYYYMMDD-001 \
+  --entities '{"pickup_location":"Surabaya","dropoff_location":"Bali","requested_destinations":["Tumpak Sewu","Bromo","Ijen"],"travel_date":"2026-08-10","number_of_guests":4,"pickup_time":"08:00","duration_days":4}'
+```
+
+`POST /v1/feasibility` returns an `itinerary-core-response`. `build_decision(...,
+evaluator=...)` folds the result into the decision envelope's `feasibility` block.
+See `docs/feasibility-api.md` for how to connect a real evaluator.
+
 ## Meta integration boundary
 
 `POST /v1/decisions` accepts a pre-classified intent, a customer query, and extracted entities. It returns a decision envelope. A separate Meta webhook adapter should authenticate Meta, normalize message payloads, call the intent/entity classifier, then invoke this endpoint. The response-generation model receives only the decision envelope; it never receives arbitrary repository files or free-form database access.

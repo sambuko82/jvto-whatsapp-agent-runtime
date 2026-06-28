@@ -5,6 +5,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from .feasibility import FEASIBILITY_CAPABILITY, ItineraryCoreEvaluator, evaluate_feasibility
 from .utils import read_json, utc_now
 
 
@@ -35,7 +36,7 @@ def _required_missing(route: dict[str, Any], entities: dict[str, Any]) -> list[s
     return missing
 
 
-def build_decision(release_dir: Path, intent: str, query: str, entities: dict[str, Any], intent_confidence: float = 1.0) -> dict[str, Any]:
+def build_decision(release_dir: Path, intent: str, query: str, entities: dict[str, Any], intent_confidence: float = 1.0, evaluator: ItineraryCoreEvaluator | None = None) -> dict[str, Any]:
     manifest = read_json(release_dir / "release-manifest.json")
     source_lock = read_json(release_dir / "source-lock.json")
     routes = read_json(release_dir / "intent-routing.json")["intents"]
@@ -83,9 +84,6 @@ def build_decision(release_dir: Path, intent: str, query: str, entities: dict[st
     if route.get("feasibility_required") and "scenario_feasibility_contract" not in core.get("available_capabilities", []):
         handoff_reasons.append("itinerary_core_feasibility_capability_unavailable")
 
-    if handoff_reasons:
-        status = "handoff_required"
-
     constraints = [
         "Use only the supplied approved knowledge candidates for factual customer-facing claims.",
         "Do not quote price, availability, booking, payment, or hotel status without a valid live-tool response.",
@@ -97,9 +95,25 @@ def build_decision(release_dir: Path, intent: str, query: str, entities: dict[st
     if route.get("feasibility_required"):
         constraints.append("Submit a schema-valid itinerary-core request before recommending a custom route.")
 
-    feasibility_status = "not_required"
+    feasibility: dict[str, Any] = {"required": bool(route.get("feasibility_required")), "status": "not_required"}
     if route.get("feasibility_required"):
-        feasibility_status = "not_evaluated" if not missing else "unavailable"
+        capability_available = FEASIBILITY_CAPABILITY in core.get("available_capabilities", [])
+        feasibility["status"] = "not_evaluated" if not missing else "unavailable"
+        # Phase 2 seam: when an itinerary-core evaluator is supplied and the request is
+        # complete and the capability is present, evaluate route feasibility now. Without
+        # an evaluator the envelope stays at "not_evaluated" (the pre-Phase-2 behavior).
+        if evaluator is not None and not missing and capability_available:
+            result = evaluate_feasibility(release_dir, entities, evaluator)
+            feasibility["status"] = result["status"]
+            feasibility["recommended_package_ids"] = result.get("recommended_package_ids", [])
+            feasibility["alternative_package_ids"] = result.get("alternative_package_ids", [])
+            feasibility["customer_visible_reasons"] = result.get("customer_visible_reasons", [])
+            feasibility["source_release_id"] = result.get("source_release_id")
+            if result.get("handoff_required"):
+                handoff_reasons.append("itinerary_core_handoff_required")
+
+    if handoff_reasons:
+        status = "handoff_required"
 
     return {
         "schema_version": "decision-envelope-v1",
@@ -109,7 +123,7 @@ def build_decision(release_dir: Path, intent: str, query: str, entities: dict[st
         "intent_status": status,
         "entities": entities,
         "knowledge": {"candidate_ids": candidate_ids, "retrieval_status": retrieval_status},
-        "feasibility": {"required": bool(route.get("feasibility_required")), "status": feasibility_status},
+        "feasibility": feasibility,
         "live_tool_plan": route.get("live_tools", []) if not missing else [],
         "response_constraints": constraints,
         "handoff": {"required": bool(handoff_reasons), "reasons": handoff_reasons},

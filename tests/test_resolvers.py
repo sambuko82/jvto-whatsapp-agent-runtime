@@ -287,3 +287,21 @@ def test_unknown_package_fails_safe_to_handoff(layer, links, media, gate):
     )
     assert plan["handoff"]["required"] is True  # unknown -> fail safe
     assert is_valid("delivery-plan", plan)
+
+
+def test_plain_dict_gate_missing_key_fails_safe(layer, links, media):
+    # A gate dict is supplied but the package isn't in it -> fail safe to handoff.
+    plan = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key=BALI_PKG, customer_context={"pax": 2},
+        route_gate={"some/other-package": {"integrity": "clean", "effective_instant_book_eligible": True}},
+    )
+    assert plan["handoff"]["required"] is True
+    assert plan["route_integrity"]["status"] == "unknown"
+    assert is_valid("delivery-plan", plan)
+
+
+def test_resolve_delivery_plan_requires_core_gate():
+    import pytest as _pytest
+    with _pytest.raises(TypeError):
+        resolve_delivery_plan(FIX, FIX, customer_job="J2_price_and_value", query="x", package_key=BALI_PKG)  # type: ignore[call-arg]

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/delivery-plan-v1.json",
+  "title": "DeliveryPlan",
+  "description": "Presentation-layer output of the WhatsApp agent runtime: a short answer plan with reusable module refs, one resolved link, an optional resolved visual, and one next action. Authors no content; only selects and resolves.",
+  "type": "object",
+  "required": [
+    "schema_version", "message_mode", "short_facts", "general_module_refs",
+    "package_variation_refs", "required_disclosures", "quote_eligibility",
+    "handoff", "max_text_lines"
+  ],
+  "properties": {
+    "schema_version": {"const": "delivery-plan-v1"},
+    "message_mode": {
+      "enum": [
+        "quick_answer", "package_option", "standard_price", "inclusion_explanation",
+        "private_tour_explanation", "vehicle_explanation", "rooming_explanation",
+        "hotel_overview", "route_endpoint_explanation", "destination_readiness",
+        "live_status", "booking_start", "handoff"
+      ]
+    },
+    "topic": {"type": ["string", "null"]},
+    "package_key": {"type": ["string", "null"]},
+    "short_facts": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
+    "general_module_refs": {"type": "array", "items": {"type": "string"}},
+    "package_variation_refs": {"type": "array", "items": {"type": "string"}},
+    "primary_link_intent": {"type": ["string", "null"]},
+    "secondary_link_intent": {"type": ["string", "null"]},
+    "resolved_primary_link": {"$ref": "#/$defs/linkResolution"},
+    "resolved_secondary_link": {"$ref": "#/$defs/linkResolution"},
+    "visual_intent": {"type": ["string", "null"]},
+    "resolved_visual": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["asset_id", "url", "status", "sendable"],
+          "properties": {
+            "asset_id": {"type": "string"},
+            "url": {"type": ["string", "null"]},
+            "status": {"type": "string"},
+            "sendable": {"type": "boolean"},
+            "tier": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "follow_up_question": {"type": ["string", "null"]},
+    "required_disclosures": {"type": "array", "items": {"type": "string"}},
+    "quote_eligibility": {
+      "type": "object",
+      "required": ["status", "reasons", "required_disclosure"],
+      "properties": {
+        "status": {"enum": ["standard_price_eligible", "custom_quote_required", "not_a_price_request"]},
+        "reasons": {"type": "array", "items": {"type": "string"}},
+        "required_disclosure": {"type": "array", "items": {"type": "string"}},
+        "next_action": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "handoff": {
+      "type": "object",
+      "required": ["required", "reason"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "max_text_lines": {"type": "integer", "minimum": 1, "maximum": 8}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "linkResolution": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["link_key", "url", "status", "sendable"],
+          "properties": {
+            "link_key": {"type": "string"},
+            "url": {"type": ["string", "null"]},
+            "status": {"type": "string"},
+            "content_type": {"type": ["string", "null"]},
+            "sendable": {"type": "boolean"},
+            "fallback_url": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

@@ -26,7 +26,7 @@
         "leg_ref": "bromo__to__madakaripura",
         "from": "Bromo",
         "to": "Madakaripura",
-        "alignment": "transit"
+        "alignment": "off_sequence"
       }
     ],
     "destination_refs": [
@@ -45,10 +45,14 @@
     "ijen_relevant": true,
     "visits_madakaripura": false,
     "is_specialty": false,
-    "route_integrity": "clean",
-    "route_review_flags": {},
+    "route_integrity": "needs_review",
+    "route_review_flags": {
+      "off_sequence_legs": [
+        "bromo__to__madakaripura"
+      ]
+    },
     "operational_movements_pending": 4,
-    "composition_confidence": "high",
+    "composition_confidence": "needs_review",
     "route_source_strength": "confirmed",
     "source_refs": [
       "package-route-map.json (derived, source-backed)",
@@ -337,7 +341,7 @@
         "leg_ref": "madakaripura__to__surabaya",
         "from": "Madakaripura",
         "to": "Surabaya",
-        "alignment": "transit"
+        "alignment": "off_sequence"
       }
     ],
     "destination_refs": [
@@ -353,10 +357,14 @@
     "ijen_relevant": false,
     "visits_madakaripura": false,
     "is_specialty": false,
-    "route_integrity": "clean",
-    "route_review_flags": {},
+    "route_integrity": "needs_review",
+    "route_review_flags": {
+      "off_sequence_legs": [
+        "madakaripura__to__surabaya"
+      ]
+    },
     "operational_movements_pending": 0,
-    "composition_confidence": "high",
+    "composition_confidence": "needs_review",
     "route_source_strength": "confirmed",
     "source_refs": [
       "package-route-map.json (derived, source-backed)",

@@ -189,12 +189,16 @@ def gate():
     return load_route_gate(FIX)
 
 
-def test_route_gate_loads_and_5d4n_is_routable_after_p1(gate):
+def test_route_gate_loads_after_p1(gate):
+    from collections import Counter
     assert len(gate.by_key) == 16
-    assert all(e.integrity == "clean" for e in gate.by_key.values())
-    assert all(e.effective_instant_book_eligible for e in gate.by_key.values())
-    # 5D4N graduated from gap (legacy) to routable (derived map)
-    assert gate.get(PKG_5D4N).integrity == "clean"
+    counts = Counter(e.integrity for e in gate.by_key.values())
+    assert counts.get("gap", 0) == 0
+    assert counts["needs_review"] == 2  # the 2 off-sequence packages
+    # 5D4N graduated from gap to route-clean, but has no endpoint data -> not instant-bookable
+    e = gate.get(PKG_5D4N)
+    assert e.integrity == "clean"
+    assert e.effective_instant_book_eligible is False
 
 
 def test_gap_forces_handoff_no_price_no_cta(layer, links, media):
@@ -240,13 +244,29 @@ def test_option_a_core_eligibility_overrides_bootstrap(layer, links, media):
     assert is_valid("delivery-plan", plan)
 
 
-def test_real_gate_5d4n_gets_normal_plan(layer, links, media, gate):
+def test_real_gate_5d4n_no_endpoints_hands_off(layer, links, media, gate):
+    # 5D4N route is clean, but it has no standard-endpoint boundary data -> Core gates
+    # instant-book -> runtime hands off (Option A booking authority, real data).
     plan = build_delivery_plan(
         layer, links, media, customer_job="J2_price_and_value", query="how much",
         package_key=PKG_5D4N, customer_context={"pax": 2}, route_gate=gate,
     )
-    assert plan["message_mode"] != "handoff"
-    assert plan["route_integrity"]["status"] == "clean"
+    assert plan["handoff"]["required"] is True
+    assert plan["handoff"]["reason"] == "instant_book_gated_by_core"
+    assert plan["secondary_link_intent"] is None
+    assert plan["route_integrity"]["status"] == "clean"  # route clean; booking gated
+    assert is_valid("delivery-plan", plan)
+
+
+def test_real_gate_needs_review_adds_validation_disclosure(layer, links, media, gate):
+    # bromo-2d1n is needs_review (off-sequence leg) but has endpoints -> priced + disclosed.
+    plan = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="bromo-2d1n", customer_context={"pax": 2}, route_gate=gate,
+    )
+    assert plan["route_integrity"]["status"] == "needs_review"
+    assert plan["handoff"]["required"] is False
+    assert ROUTE_VALIDATION_DISCLOSURE in plan["required_disclosures"]
     assert is_valid("delivery-plan", plan)
 
 
@@ -256,7 +276,8 @@ def test_resolve_delivery_plan_end_to_end_with_gate():
         package_key=BALI_PKG, customer_context={"pax": 4}, core_agent_contract_root=FIX,
     )
     assert is_valid("delivery-plan", plan)
-    assert plan["route_integrity"]["status"] == "clean"
+    # BALI_PKG carries an off-sequence leg in the real contract -> needs_review
+    assert plan["route_integrity"]["status"] == "needs_review"
 
 
 def test_unknown_package_fails_safe_to_handoff(layer, links, media, gate):

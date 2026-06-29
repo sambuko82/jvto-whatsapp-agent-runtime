@@ -7,6 +7,12 @@ upstreams:
     role: approved_public_knowledge
     bundle_root: okf/bundles/jvto
     customer_sales_release_root: okf/customer-sales-release/jvto
+    # Reusable module layer (general modules + package variations) lives flat in the
+    # customer_sales_release_root; the build vendors these into the release agent-catalog.
+    module_layer_files:
+      - general-modules.json
+      - package-variations.json
+      - module-compatibility.json
     required_files:
       - okf/bundles/jvto/catalog.json
     concept_status_allowlist:
@@ -28,6 +34,9 @@ upstreams:
     default_ref: main
     local_root_required: true
     role: deterministic_operational_intelligence
+    # Agent-safe operational projection vendored verbatim into the release agent-catalog
+    # (the runtime route gate reads its boundary/composition files at chat time).
+    agent_contract_root: generated/itinerary-intelligence/agent-contract
     required_files:
       - generated/itinerary-intelligence/manifest.json
       - generated/itinerary-intelligence/data-readiness-report.json
@@ -70,3 +79,15 @@ upstreams:
       - node_modules/
       - secrets/
     runtime_rule: contract_and_projection_only
+
+  web_experience:
+    repo: jvto-devteam/jvto-web
+    default_ref: main
+    # Optional at build time: a release without it carries no sendable link/visual
+    # capability (recorded as a warning, not a failure).
+    local_root_required: false
+    role: customer_experience_capability_registry
+    public_root: public
+    link_registry: customer-link-registry.json
+    media_registry: customer-media-registry.json
+    runtime_rule: capability_registry_only

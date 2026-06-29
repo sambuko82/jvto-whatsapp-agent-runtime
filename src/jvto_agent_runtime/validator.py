@@ -49,8 +49,41 @@ def validate_release(repo_root: Path, release_dir: Path) -> dict[str, Any]:
     for name in ("customer-sales/package-profiles.json", "customer-sales/standard-price-tiers.json", "customer-sales/release-manifest.json"):
         if not (release_dir / name).exists():
             findings.append({"severity": "error", "message": f"Missing release file: {name}"})
+    # Agent catalog (self-contained chat-time read): module layer + Core agent-contract +
+    # the catalog manifest must be vendored so delivery-time resolvers need no upstream clone.
+    for name in (
+        "agent-catalog/general-modules.json",
+        "agent-catalog/package-variations.json",
+        "agent-catalog/module-compatibility.json",
+        "agent-catalog/agent-contract/package-customization-boundaries.json",
+        "agent-catalog/agent-contract/package-operational-composition.json",
+        "agent-catalog/catalog-manifest.json",
+    ):
+        if not (release_dir / name).exists():
+            findings.append({"severity": "error", "message": f"Missing release file: {name}"})
+    # Crosswalk integrity + web capability presence (read only if the manifest exists).
+    catalog_manifest_path = release_dir / "agent-catalog/catalog-manifest.json"
+    if catalog_manifest_path.exists():
+        try:
+            catalog_manifest = read_json(catalog_manifest_path)
+            integrity = catalog_manifest.get("crosswalk_integrity", {})
+            if integrity.get("status") != "aligned":
+                findings.append({
+                    "severity": "warning",
+                    "message": "Agent catalog crosswalk not aligned: "
+                    f"module_only={integrity.get('module_only')} core_only={integrity.get('core_only')}",
+                })
+            web = catalog_manifest.get("web_experience", {})
+            if web.get("present"):
+                for name in ("agent-catalog/customer-link-registry.json", "agent-catalog/customer-media-registry.json"):
+                    if not (release_dir / name).exists():
+                        findings.append({"severity": "error", "message": f"Manifest reports web present but missing: {name}"})
+            else:
+                findings.append({"severity": "warning", "message": "No web experience registry vendored; link/visual capabilities unavailable."})
+        except Exception as error:
+            findings.append({"severity": "error", "message": f"Agent catalog manifest parse failure: {error}"})
     manifest = None
-    if not findings:
+    if not any(f["severity"] == "error" for f in findings):
         try:
             manifest = read_json(release_dir / "release-manifest.json")
             if manifest.get("customer_traffic_ready") is not False:
@@ -69,6 +102,7 @@ def validate_release(repo_root: Path, release_dir: Path) -> dict[str, Any]:
                         findings.append({"severity": "error", "message": f"Non-public knowledge record: {record.get('runtime_knowledge_id')}"})
         except Exception as error:
             findings.append({"severity": "error", "message": f"Release parse failure: {error}"})
-    result = {"status": "pass" if not findings else "fail", "findings": findings, "release_id": manifest.get("release_id") if manifest else None}
+    has_error = any(f["severity"] == "error" for f in findings)
+    result = {"status": "pass" if not has_error else "fail", "findings": findings, "release_id": manifest.get("release_id") if manifest else None}
     write_json(release_dir / "validation-report.json", result)
     return result

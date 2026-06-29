@@ -28,6 +28,7 @@ def main() -> None:
     build = sub.add_parser("build-release")
     build.add_argument("--knowledge-root", required=True)
     build.add_argument("--core-root", required=True)
+    build.add_argument("--web-root", help="jvto-web checkout root; vendors the link/media capability registries into the release agent-catalog")
     build.add_argument("--release-id", required=True)
     build.add_argument("--overwrite", action="store_true")
 
@@ -98,7 +99,10 @@ def main() -> None:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         raise SystemExit(0 if result["status"] == "pass" else 1)
     if args.command == "build-release":
-        release_dir = build_release(root, Path(args.knowledge_root), Path(args.core_root), args.release_id, args.overwrite)
+        web_root = Path(args.web_root) if args.web_root else None
+        release_dir = build_release(
+            root, Path(args.knowledge_root), Path(args.core_root), args.release_id, args.overwrite, web_root=web_root
+        )
         print(str(release_dir))
         return
     if args.command == "validate-release":

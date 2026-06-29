@@ -270,10 +270,11 @@ def test_real_gate_needs_review_adds_validation_disclosure(layer, links, media, 
     assert is_valid("delivery-plan", plan)
 
 
-def test_resolve_delivery_plan_end_to_end_with_gate():
+def test_resolve_delivery_plan_end_to_end_single_root():
+    # PR-2: ONE root (the agent-catalog) carries module layer + web registries + route gate.
     plan = resolve_delivery_plan(
-        FIX, FIX, customer_job="J2_price_and_value", query="how much for 4 guests?",
-        package_key=BALI_PKG, customer_context={"pax": 4}, core_agent_contract_root=FIX,
+        FIX, customer_job="J2_price_and_value", query="how much for 4 guests?",
+        package_key=BALI_PKG, customer_context={"pax": 4},
     )
     assert is_valid("delivery-plan", plan)
     # BALI_PKG carries an off-sequence leg in the real contract -> needs_review
@@ -301,7 +302,9 @@ def test_plain_dict_gate_missing_key_fails_safe(layer, links, media):
     assert is_valid("delivery-plan", plan)
 
 
-def test_resolve_delivery_plan_requires_core_gate():
+def test_resolve_delivery_plan_takes_only_the_release_root():
+    # PR-2: the three-root signature is gone. Passing a second positional root (the old
+    # web_public_root) must now be a TypeError — proving no web/core root is accepted.
     import pytest as _pytest
     with _pytest.raises(TypeError):
         resolve_delivery_plan(FIX, FIX, customer_job="J2_price_and_value", query="x", package_key=BALI_PKG)  # type: ignore[call-arg]

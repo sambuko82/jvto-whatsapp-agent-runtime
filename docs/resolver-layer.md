@@ -26,12 +26,22 @@ customer_job + query + package_key + context
 
 ## Inputs (data contracts it consumes)
 
-- Module layer (knowledge-catalog `customer-sales-release`): `general-modules.json`,
-  `package-variations.json`, `module-compatibility.json`.
-- Website registries (`jvto-web/public`): `customer-link-registry.json`,
-  `customer-media-registry.json`.
+At chat time the resolver reads **one** vendored directory, `<release>/agent-catalog/`,
+not three live upstream roots (Runtime Monolith / PR-1 + PR-2). The build
+(`build_release --web-root …`) vendors into that directory:
 
-For offline tests these are vendored under `tests/fixtures/agent_modules/`.
+- Module layer (from knowledge-catalog `customer-sales-release`): `general-modules.json`,
+  `package-variations.json`, `module-compatibility.json`.
+- Core route gate (from jvto-itinerary-core): `agent-contract/package-customization-boundaries.json`,
+  `agent-contract/package-operational-composition.json` (+ the rest of the agent-contract).
+- Website capability registries (from `jvto-web/public`): `customer-link-registry.json`,
+  `customer-media-registry.json`.
+- `catalog-manifest.json`: counts + the module↔core crosswalk-integrity verdict.
+
+`monolith_catalog.load_monolith_catalog(release_root)` is the single reader that loads
+all of these into a `MonolithCatalogContext`. For offline unit tests the same files are
+also vendored flat under `tests/fixtures/agent_modules/`, and the loaders accept either
+a release root (with `agent-catalog/`) or that flat directory.
 
 ## Acceptance criteria enforced (blueprint §3.F)
 
@@ -47,9 +57,7 @@ For offline tests these are vendored under `tests/fixtures/agent_modules/`.
 from jvto_agent_runtime.presentation_resolver import resolve_delivery_plan
 
 plan = resolve_delivery_plan(
-    release_root=".../okf/customer-sales-release/jvto",
-    web_public_root=".../jvto-web/public",
-    core_agent_contract_root=".../itinerary-core/generated/itinerary-intelligence",  # REQUIRED (fail-safe)
+    "dist/releases/<id>",        # ONE compiled release — reads <id>/agent-catalog/ only
     customer_job="J2_price_and_value",
     query="How much for 4 guests?",
     package_key="bali/bromo-ijen-3d2n",
@@ -57,11 +65,11 @@ plan = resolve_delivery_plan(
 )
 ```
 
-`core_agent_contract_root` is **required** on the end-to-end path: the policy is to fail
-safe rather than price/booking without Core's route authority. An unknown/mismatched
-`package_key` (even when a gate dict is supplied) resolves to `integrity=unknown` →
-handoff. To use the ungated planner deliberately, call `build_delivery_plan(...,
-route_gate=None)` directly.
+The end-to-end path takes **only the release root** — no jvto-web or jvto-itinerary-core
+clone is read during a chat. The Core route gate is always vendored into the release, and
+the policy is to fail safe rather than price/booking without it: an unknown/mismatched
+`package_key` resolves to `integrity=unknown` → handoff. To use the ungated planner
+deliberately, call `build_delivery_plan(..., route_gate=None)` directly.
 
 Note: this layer adds presentation on top of the existing `ResponsePlan`/`DecisionEnvelope`;
 it does not replace system routing, which stays the DecisionEnvelope's job.

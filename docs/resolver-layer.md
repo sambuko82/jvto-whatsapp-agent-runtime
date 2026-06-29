@@ -58,3 +58,23 @@ plan = resolve_delivery_plan(
 
 Note: this layer adds presentation on top of the existing `ResponsePlan`/`DecisionEnvelope`;
 it does not replace system routing, which stays the DecisionEnvelope's job.
+
+## Route-integrity gate + booking authority (P0)
+
+`route_gate.py` loads jvto-itinerary-core's agent-contract
+(`package-customization-boundaries.json` + `package-operational-composition.json`) and,
+per `package_key`, exposes `route_integrity` + `effective_instant_book_eligible`.
+`build_delivery_plan(..., route_gate=...)` applies:
+
+| Core signal | DeliveryPlan effect |
+|---|---|
+| `route_integrity == gap` / unknown package | `message_mode=handoff`, no standard price (price facts dropped), no booking CTA (`secondary_link_intent=None`), `quote_eligibility=custom_quote_required`, route-gap disclosure. |
+| `effective_instant_book_eligible == false` | Same handoff/no-CTA (reason `instant_book_gated_by_core`). |
+| `route_integrity == needs_review` | Standard price still allowed, but a route-validation disclosure is added and `route_integrity.requires_feasibility=true` (no "route confirmed" claim). |
+| `route_integrity == clean` | Normal plan. |
+
+**Booking authority = Core (Option A).** Core's `effective_instant_book_eligible` is the
+single authoritative booking-eligibility contract; it **overrides** Bootstrap's advisory
+`booking_mode.instant_book`. If Core says false, the runtime gives no booking CTA and
+hands off even when Bootstrap says `instant_book: true`. Bootstrap keeps its value as
+business-intent only. Unknown packages fail safe to handoff.

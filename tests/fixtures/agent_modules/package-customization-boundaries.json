@@ -1,0 +1,529 @@
+[
+  {
+    "package_key": "bali/bromo-ijen-3d2n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Airport",
+      "Surabaya Hotel",
+      "Malang"
+    ],
+    "documented_customizations": [
+      "Malang dropoff",
+      "add Madakaripura spur from Bromo"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "documented_customizations": [
+      "Malang dropoff",
+      "skip Madakaripura for tighter schedule"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "documented_customizations": [
+      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
+      "Malang dropoff"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [],
+    "documented_customizations": [],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bromo-1d1n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "hotel pickup instead of airport",
+      "skip return leg for Malang dropoff"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bromo-2d1n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "airport pickup",
+      "add Madakaripura as spur from Bromo"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Ketapang Harbor",
+      "Bali with additional transfer",
+      "Surabaya with route adjustment"
+    ],
+    "documented_customizations": [
+      "Bali hotel dropoff",
+      "skip Madakaripura",
+      "reverse to Surabaya"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-2d1n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport",
+      "Ketapang Harbor"
+    ],
+    "documented_customizations": [
+      "Ketapang dropoff instead of Surabaya return",
+      "airport pickup in Surabaya"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "Ketapang dropoff instead of Surabaya return",
+      "skip Madakaripura for shorter route"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "Ketapang dropoff",
+      "add Tumpak Sewu with one extra day"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Malang Hotel",
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "documented_customizations": [
+      "Malang dropoff instead of Surabaya return",
+      "skip Malang for shorter route"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "Papuma beach stop between Ijen and Tumpak Sewu; requires dedicated Papuma leg not yet in index",
+      "skip Papuma for cleaner 4D route"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
+      "Malang city stop on return"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Malang Hotel",
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "documented_customizations": [
+      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
+      "Malang dropoff instead of Surabaya return"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "documented_customizations": [
+      "Taman Safari / Prigen stop on day 1 before Bromo; requires additional leg not in current index"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  },
+  {
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "instant_book_eligible": true,
+    "whatsapp_assisted_eligible": true,
+    "route_integrity": "clean",
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Ketapang Harbor",
+      "Bali with additional transfer"
+    ],
+    "documented_customizations": [
+      "Surabaya return instead of Ketapang dropoff",
+      "add Madakaripura spur from Bromo"
+    ],
+    "handoff_or_quote_triggers": [
+      "own_hotel",
+      "non_standard_rooming",
+      "special_or_oversized_luggage",
+      "custom_route_outside_standard",
+      "non_standard_add_on",
+      "date_specific_availability_request",
+      "group_discount_exception"
+    ],
+    "boundary_note": "Honor effective_instant_book_eligible, not the raw catalog instant_book_eligible: a composition gap (unroutable) forces WhatsApp-assisted handoff. route_integrity=needs_review means route order is confirmed but a source/coverage signal needs validation; explain with care and prefer feasibility validation.",
+    "source_refs": [
+      "package-route-map.json (derived)",
+      "11-package-route-map.json",
+      "package-catalog-index.json",
+      "agent-contract/package-operational-composition.json"
+    ]
+  }
+]

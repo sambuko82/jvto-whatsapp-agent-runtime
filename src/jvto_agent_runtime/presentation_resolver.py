@@ -21,8 +21,12 @@ from .asset_resolver import MediaRegistry, load_media_registry, resolve_first_se
 from .contracts import validate_or_raise
 from .link_resolver import LinkRegistry, load_link_registry, resolve_first_sendable as resolve_link_first, resolve_link
 from .module_resolver import ModuleLayer, ResolvedModules, load_module_layer, resolve_modules
+from .route_gate import RouteGate, load_route_gate
 
 DELIVERY_PLAN_CONTRACT = "delivery-plan"
+
+ROUTE_GAP_DISCLOSURE = "This route needs WhatsApp-assisted validation before we can confirm or price it."
+ROUTE_VALIDATION_DISCLOSURE = "The exact route timing for your dates is confirmed with a quick feasibility check before booking."
 
 TOPIC_TO_MODE = {
     "inclusions": "inclusion_explanation",
@@ -113,6 +117,26 @@ def _link_intents(rm: ResolvedModules) -> tuple[str | None, str | None]:
     return primary, secondary
 
 
+def _gate_entry(route_gate: Any, package_key: str | None) -> dict[str, Any] | None:
+    """Normalize a RouteGate or plain dict into {integrity, effective_instant_book_eligible, flags}."""
+    if route_gate is None or not package_key:
+        return None
+    e = route_gate.get(package_key)
+    if e is None:
+        return None
+    if isinstance(e, dict):
+        return {
+            "integrity": e.get("integrity", "unknown"),
+            "effective_instant_book_eligible": bool(e.get("effective_instant_book_eligible", False)),
+            "flags": e.get("flags", {}),
+        }
+    return {  # RouteGateEntry
+        "integrity": e.integrity,
+        "effective_instant_book_eligible": e.effective_instant_book_eligible,
+        "flags": e.flags,
+    }
+
+
 def build_delivery_plan(
     layer: ModuleLayer,
     link_registry: LinkRegistry,
@@ -122,6 +146,7 @@ def build_delivery_plan(
     query: str = "",
     package_key: str | None = None,
     customer_context: dict[str, Any] | None = None,
+    route_gate: RouteGate | dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     rm = resolve_modules(layer, customer_job=customer_job, query=query, package_key=package_key, customer_context=customer_context)
     ctx = customer_context or {}
@@ -129,6 +154,22 @@ def build_delivery_plan(
 
     quote = evaluate_quote_eligibility(rm.topic, customer_context)
     handoff_required = quote["status"] == "custom_quote_required"
+    handoff_reason = "custom_quote_required" if handoff_required else None
+
+    # --- route-integrity gate (Core is authoritative; Option A booking override) ----
+    gate = _gate_entry(route_gate, package_key)
+    route_gap = gate is not None and gate["integrity"] in ("gap", "unknown")
+    booking_blocked = gate is not None and not gate["effective_instant_book_eligible"]
+    needs_review = gate is not None and gate["integrity"] == "needs_review"
+    if route_gap or booking_blocked:
+        handoff_required = True
+        handoff_reason = "route_gap" if route_gap else "instant_book_gated_by_core"
+        quote = {
+            "status": "custom_quote_required",
+            "reasons": [handoff_reason],
+            "required_disclosure": [ROUTE_GAP_DISCLOSURE],
+            "next_action": "handoff_or_live_quote",
+        }
 
     mode = "handoff" if handoff_required else TOPIC_TO_MODE.get(rm.topic, "quick_answer")
     if rm.topic == "general" and rm.variation and not handoff_required:
@@ -159,6 +200,24 @@ def build_delivery_plan(
     for d in quote["required_disclosure"]:
         if d not in disclosures:
             disclosures.append(d)
+    # needs_review: no "route confirmed" claim; surface a route-validation disclosure.
+    if needs_review and not handoff_required and ROUTE_VALIDATION_DISCLOSURE not in disclosures:
+        disclosures.append(ROUTE_VALIDATION_DISCLOSURE)
+
+    # A route gap / booking block must not present a standard price (drop price facts).
+    short_facts = _short_facts(rm, layer, pax)
+    if route_gap or booking_blocked:
+        short_facts = [f for f in short_facts if "price" not in f.lower()]
+
+    route_integrity = None
+    if gate is not None:
+        route_integrity = {
+            "status": gate["integrity"],
+            "effective_instant_book_eligible": gate["effective_instant_book_eligible"],
+            "requires_feasibility": gate["integrity"] in ("needs_review", "gap", "unknown"),
+            "flags": gate["flags"],
+            "source": "itinerary-core:agent-contract",
+        }
 
     def link_dict(lr):
         if lr is None:
@@ -171,7 +230,7 @@ def build_delivery_plan(
         "message_mode": mode,
         "topic": rm.topic,
         "package_key": package_key,
-        "short_facts": _short_facts(rm, layer, pax),
+        "short_facts": short_facts,
         "general_module_refs": rm.general_module_refs,
         "package_variation_refs": rm.package_variation_refs,
         "primary_link_intent": primary_intent,
@@ -187,7 +246,8 @@ def build_delivery_plan(
         "follow_up_question": follow_up,
         "required_disclosures": disclosures,
         "quote_eligibility": quote,
-        "handoff": {"required": handoff_required, "reason": "custom_quote_required" if handoff_required else None},
+        "route_integrity": route_integrity,
+        "handoff": {"required": handoff_required, "reason": handoff_reason},
         "max_text_lines": MODE_MAX_LINES.get(mode, 3),
     }
     validate_or_raise(DELIVERY_PLAN_CONTRACT, plan)
@@ -202,10 +262,13 @@ def resolve_delivery_plan(
     query: str = "",
     package_key: str | None = None,
     customer_context: dict[str, Any] | None = None,
+    core_agent_contract_root: Path | str | None = None,
 ) -> dict[str, Any]:
-    """End-to-end convenience: load the module layer + registries from disk and build a plan."""
+    """End-to-end convenience: load the module layer + registries (+ optional Core route
+    gate) from disk and build a plan."""
     layer = load_module_layer(release_root)
     links = load_link_registry(web_public_root)
     media = load_media_registry(web_public_root)
+    gate = load_route_gate(core_agent_contract_root) if core_agent_contract_root else None
     return build_delivery_plan(layer, links, media, customer_job=customer_job, query=query,
-                               package_key=package_key, customer_context=customer_context)
+                               package_key=package_key, customer_context=customer_context, route_gate=gate)

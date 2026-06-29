@@ -105,6 +105,27 @@ def test_unknown_link_key_is_not_sendable(links):
     assert r.status == "unknown" and not r.sendable and r.url is None
 
 
+def test_duplicate_link_key_with_conflicting_url_is_not_sendable(links):
+    # package_ijen_bromo_madakaripura_3d2n exists for both /from-bali/ and /from-surabaya/
+    # under one key -> cannot disambiguate by key alone -> ambiguous, never sent.
+    r = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n")
+    assert r.status == "ambiguous"
+    assert not r.sendable and r.url is None
+
+
+def test_collision_packages_never_emit_a_wrong_origin_link(layer, links, media, gate):
+    # A Bali customer asking about the colliding package must NOT be handed the Surabaya
+    # URL; the primary link is simply omitted (non-sendable) rather than wrong.
+    plan = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="bali/ijen-bromo-madakaripura-3d2n", customer_context={"pax": 2}, route_gate=gate,
+    )
+    pl = plan["resolved_primary_link"]
+    if pl is not None and pl["url"] is not None:
+        assert "from-surabaya" not in pl["url"]
+    assert is_valid("delivery-plan", plan)
+
+
 # --- asset resolver (never invent a visual) --------------------------------
 
 def test_all_assets_not_sendable_today(media):

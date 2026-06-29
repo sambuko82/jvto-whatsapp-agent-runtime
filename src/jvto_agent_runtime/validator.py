@@ -78,6 +78,13 @@ def validate_release(repo_root: Path, release_dir: Path) -> dict[str, Any]:
                 for name in ("agent-catalog/customer-link-registry.json", "agent-catalog/customer-media-registry.json"):
                     if not (release_dir / name).exists():
                         findings.append({"severity": "error", "message": f"Manifest reports web present but missing: {name}"})
+                collisions = web.get("link_key_collisions") or []
+                if collisions:
+                    findings.append({
+                        "severity": "warning",
+                        "message": "Link registry has duplicate keys with conflicting URLs "
+                        f"(resolved non-sendable to avoid wrong-origin links): {collisions}",
+                    })
             else:
                 findings.append({"severity": "warning", "message": "No web experience registry vendored; link/visual capabilities unavailable."})
         except Exception as error:

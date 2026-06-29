@@ -222,6 +222,7 @@ def _vendor_agent_catalog(
     web_present = False
     web_link_keys: set[str] = set()
     web_links = web_assets = 0
+    link_collisions: list[str] = []
     if web_root is not None:
         public_root = web_root / web_cfg.get("public_root", "public")
         link_name = web_cfg.get("link_registry", "customer-link-registry.json")
@@ -236,6 +237,20 @@ def _vendor_agent_catalog(
             web_link_keys = {l.get("link_key") for l in link_data.get("links", []) if l.get("link_key")}
             web_links = len(link_data.get("links", []))
             web_assets = len(media_data.get("assets", []))
+            # link_keys that repeat with a CONFLICTING url cannot be disambiguated by key
+            # alone (origin-specific URLs sharing a public_page_key); the resolver marks
+            # these non-sendable, so record them as a capability gap, not a silent drop.
+            url_by_key: dict[str, str | None] = {}
+            collisions: set[str] = set()
+            for l in link_data.get("links", []):
+                k = l.get("link_key")
+                if not k:
+                    continue
+                if k in url_by_key and url_by_key[k] != l.get("url"):
+                    collisions.add(k)
+                else:
+                    url_by_key.setdefault(k, l.get("url"))
+            link_collisions = sorted(collisions)
             web_present = True
 
     # 4) Crosswalk integrity: module variations vs Core agent-contract boundaries must
@@ -271,6 +286,7 @@ def _vendor_agent_catalog(
             "asset_count": web_assets,
             "package_page_links_resolved": web_resolved,
             "package_page_links_missing": web_missing,
+            "link_key_collisions": link_collisions,
         },
         "crosswalk_integrity": {
             "status": "aligned" if aligned else "needs_review",

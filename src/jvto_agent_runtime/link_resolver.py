@@ -26,12 +26,29 @@ class LinkRegistry:
 
 
 def load_link_registry(path: Path | str) -> LinkRegistry:
-    """Load customer-link-registry.json (file path or directory containing it)."""
+    """Load customer-link-registry.json (file path or directory containing it).
+
+    Guards against duplicate link_keys: some packages share a public_page_key across
+    origins (e.g. `bali/…` and the Surabaya `…` variant both map to
+    `package_ijen_bromo_madakaripura_3d2n`) while the website carries an origin-specific
+    URL per origin (`/from-bali/…` vs `/from-surabaya/…`). A plain last-wins dict would
+    silently resolve the key to whichever record came last, so a Bali customer could be
+    sent the Surabaya URL. When a key repeats with a CONFLICTING url we mark it
+    `ambiguous` (url=None) so the resolver omits it rather than sending the wrong one.
+    Exact duplicates (same url) collapse harmlessly.
+    """
     p = Path(path)
     if p.is_dir():
         p = p / "customer-link-registry.json"
     data = read_json(p)
-    by_key = {link["link_key"]: link for link in data.get("links", [])}
+    by_key: dict[str, dict[str, Any]] = {}
+    for link in data.get("links", []):
+        key = link["link_key"]
+        existing = by_key.get(key)
+        if existing is None:
+            by_key[key] = link
+        elif existing.get("status") == "ambiguous" or existing.get("url") != link.get("url"):
+            by_key[key] = {**link, "url": None, "status": "ambiguous"}
     return LinkRegistry(base_url=data.get("base_url", ""), by_key=by_key)
 
 

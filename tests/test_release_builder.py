@@ -54,6 +54,8 @@ def test_build_release_vendors_self_contained_agent_catalog(tmp_path: Path):
     assert cm["crosswalk_integrity"]["status"] == "aligned"
     assert cm["crosswalk_integrity"]["module_variation_count"] == cm["crosswalk_integrity"]["core_boundary_count"] == 16
     assert cm["web_experience"]["present"] is True
+    # duplicate origin-sharing link keys are recorded (resolver marks them non-sendable)
+    assert "package_ijen_bromo_madakaripura_3d2n" in cm["web_experience"]["link_key_collisions"]
 
     # source-lock records the web revision + integrity verdict
     lock = read_json(release_dir / "source-lock.json")
@@ -81,6 +83,17 @@ def test_build_release_without_web_is_valid_but_warns(tmp_path: Path):
     report = validate_release(repo_root, release_dir)
     assert report["status"] == "pass"  # web absence is a warning, not an error
     assert any(f["severity"] == "warning" for f in report["findings"])
+
+    # A text-only release must still resolve a plan (empty registries, nothing sendable)
+    # rather than raising FileNotFoundError on the missing web registries.
+    ctx = load_monolith_catalog(release_dir)
+    assert ctx.link_registry.by_key == {} and ctx.media_registry.by_key == {}
+    plan = resolve_delivery_plan(
+        release_dir, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="bali/bromo-ijen-3d2n", customer_context={"pax": 2},
+    )
+    assert is_valid("delivery-plan", plan)
+    assert plan["resolved_primary_link"] is None or plan["resolved_primary_link"]["sendable"] is False
 
 
 def test_chat_reads_only_the_release_no_upstream_clone(tmp_path: Path):

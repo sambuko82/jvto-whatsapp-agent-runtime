@@ -63,12 +63,21 @@ def load_monolith_catalog(release_root: Path | str) -> MonolithCatalogContext:
     catalog = catalog_root_for(base)
     manifest_path = catalog / CATALOG_MANIFEST
     manifest = read_json(manifest_path) if manifest_path.exists() else {}
+
+    # Web is optional (a text-only release builds + validates with a warning, not an
+    # error). Degrade gracefully to empty registries when it was not vendored, so the
+    # resolvers simply find nothing sendable instead of raising FileNotFoundError.
+    link_path = catalog / "customer-link-registry.json"
+    media_path = catalog / "customer-media-registry.json"
+    link_registry = load_link_registry(catalog) if link_path.exists() else LinkRegistry(base_url="", by_key={})
+    media_registry = load_media_registry(catalog) if media_path.exists() else MediaRegistry(cdn_base="", by_key={})
+
     return MonolithCatalogContext(
         release_root=base,
         catalog_root=catalog,
         module_layer=load_module_layer(catalog),
-        link_registry=load_link_registry(catalog),
-        media_registry=load_media_registry(catalog),
+        link_registry=link_registry,
+        media_registry=media_registry,
         route_gate=load_route_gate(catalog),
         manifest=manifest,
     )

@@ -48,6 +48,23 @@
     },
     "follow_up_question": {"type": ["string", "null"]},
     "required_disclosures": {"type": "array", "items": {"type": "string"}},
+    "route_integrity": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["status", "effective_instant_book_eligible", "requires_feasibility", "source"],
+          "properties": {
+            "status": {"enum": ["clean", "needs_review", "gap", "unknown"]},
+            "effective_instant_book_eligible": {"type": "boolean"},
+            "requires_feasibility": {"type": "boolean"},
+            "flags": {"type": "object"},
+            "source": {"type": "string"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
     "quote_eligibility": {
       "type": "object",
       "required": ["status", "reasons", "required_disclosure"],

@@ -44,6 +44,10 @@ upstreams:
       package_route_map:
         - generated/itinerary-intelligence/package-route-map.json
         - generated/itinerary-intelligence/11-package-route-map.json
+      package_customization_boundaries:
+        - generated/itinerary-intelligence/agent-contract/package-customization-boundaries.json
+      package_operational_composition:
+        - generated/itinerary-intelligence/agent-contract/package-operational-composition.json
       operational_context:
         - generated/itinerary-intelligence/operational-context-index.json
       pickup_contexts:

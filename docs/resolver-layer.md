@@ -49,6 +49,7 @@ from jvto_agent_runtime.presentation_resolver import resolve_delivery_plan
 plan = resolve_delivery_plan(
     release_root=".../okf/customer-sales-release/jvto",
     web_public_root=".../jvto-web/public",
+    core_agent_contract_root=".../itinerary-core/generated/itinerary-intelligence",  # REQUIRED (fail-safe)
     customer_job="J2_price_and_value",
     query="How much for 4 guests?",
     package_key="bali/bromo-ijen-3d2n",
@@ -56,5 +57,31 @@ plan = resolve_delivery_plan(
 )
 ```
 
+`core_agent_contract_root` is **required** on the end-to-end path: the policy is to fail
+safe rather than price/booking without Core's route authority. An unknown/mismatched
+`package_key` (even when a gate dict is supplied) resolves to `integrity=unknown` →
+handoff. To use the ungated planner deliberately, call `build_delivery_plan(...,
+route_gate=None)` directly.
+
 Note: this layer adds presentation on top of the existing `ResponsePlan`/`DecisionEnvelope`;
 it does not replace system routing, which stays the DecisionEnvelope's job.
+
+## Route-integrity gate + booking authority (P0)
+
+`route_gate.py` loads jvto-itinerary-core's agent-contract
+(`package-customization-boundaries.json` + `package-operational-composition.json`) and,
+per `package_key`, exposes `route_integrity` + `effective_instant_book_eligible`.
+`build_delivery_plan(..., route_gate=...)` applies:
+
+| Core signal | DeliveryPlan effect |
+|---|---|
+| `route_integrity == gap` / unknown package | `message_mode=handoff`, no standard price (price facts dropped), no booking CTA (`secondary_link_intent=None`), `quote_eligibility=custom_quote_required`, route-gap disclosure. |
+| `effective_instant_book_eligible == false` | Same handoff/no-CTA (reason `instant_book_gated_by_core`). |
+| `route_integrity == needs_review` | Standard price still allowed, but a route-validation disclosure is added and `route_integrity.requires_feasibility=true` (no "route confirmed" claim). |
+| `route_integrity == clean` | Normal plan. |
+
+**Booking authority = Core (Option A).** Core's `effective_instant_book_eligible` is the
+single authoritative booking-eligibility contract; it **overrides** Bootstrap's advisory
+`booking_mode.instant_book`. If Core says false, the runtime gives no booking CTA and
+hands off even when Bootstrap says `instant_book: true`. Bootstrap keeps its value as
+business-intent only. Unknown packages fail safe to handoff.

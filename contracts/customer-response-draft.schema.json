@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jvto.local/contracts/customer-response-draft-v1.json",
+  "title": "CustomerResponseDraft",
+  "description": "One customer-ready package response composed from a single compiled release: package facts + published price + Core route/booking safety + a sendable Web link + disclosures + unified handoff, plus factual draft lines the WhatsApp model finalizes. Authors no marketing copy; only assembles resolved facts.",
+  "type": "object",
+  "required": [
+    "schema_version", "release_id", "source_decision_id", "message_mode",
+    "package", "price", "route_safety", "required_disclosures", "handoff",
+    "draft_lines", "max_text_lines"
+  ],
+  "properties": {
+    "schema_version": {"const": "customer-response-draft-v1"},
+    "release_id": {"type": "string", "minLength": 1},
+    "source_decision_id": {"type": "string"},
+    "package_key": {"type": ["string", "null"]},
+    "customer_job": {"type": ["string", "null"]},
+    "message_mode": {
+      "enum": [
+        "quick_answer", "package_option", "standard_price", "inclusion_explanation",
+        "private_tour_explanation", "vehicle_explanation", "rooming_explanation",
+        "hotel_overview", "route_endpoint_explanation", "destination_readiness",
+        "live_status", "booking_start", "handoff"
+      ]
+    },
+    "package": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {"status": {"enum": ["resolved", "not_found", "incomplete"]}},
+      "additionalProperties": true
+    },
+    "price": {
+      "type": "object",
+      "required": ["status", "surfaced"],
+      "properties": {
+        "status": {"enum": ["priced", "custom_quote_required", "unavailable"]},
+        "surfaced": {"type": "boolean", "description": "true only when a concrete price is shown in draft_lines (priced AND not handoff)"}
+      },
+      "additionalProperties": true
+    },
+    "route_safety": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["status", "effective_instant_book_eligible", "requires_feasibility"],
+          "properties": {
+            "status": {"type": "string"},
+            "effective_instant_book_eligible": {"type": "boolean"},
+            "requires_feasibility": {"type": "boolean"},
+            "source": {"type": ["string", "null"]}
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "link": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["link_key", "url", "status", "sendable"],
+          "additionalProperties": true
+        }
+      ]
+    },
+    "visual": {"type": ["object", "null"]},
+    "short_facts": {"type": "array", "items": {"type": "string"}},
+    "module_refs": {
+      "type": "object",
+      "properties": {
+        "general": {"type": "array", "items": {"type": "string"}},
+        "package": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "required_disclosures": {"type": "array", "items": {"type": "string"}},
+    "follow_up_question": {"type": ["string", "null"]},
+    "handoff": {
+      "type": "object",
+      "required": ["required", "reason"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "draft_lines": {"type": "array", "items": {"type": "string"}},
+    "draft_text": {"type": "string"},
+    "max_text_lines": {"type": "integer", "minimum": 1, "maximum": 8}
+  },
+  "additionalProperties": false
+}

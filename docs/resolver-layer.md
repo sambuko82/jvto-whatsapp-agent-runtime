@@ -99,6 +99,21 @@ The endpoint is a pure presentation read: it authors no copy, invents no URL/vis
 sources no live truth, and stays separate from `/v1/decisions` (routing/safety →
 DecisionEnvelope) and `/v1/response-plan` (response requirements → ResponsePlan).
 
+### Composed customer response (`/v1/customer-response`)
+
+`response_composer.compose_customer_response(release_dir, decision_envelope, …)` fuses the
+DeliveryPlan (presentation + Core route gate + sendable link) with the published catalog +
+per-pax price from `<release>/customer-sales/` (via `CustomerSalesExecutor`) into one
+contract-valid **CustomerResponseDraft** (`contracts/customer-response-draft.schema.json`) —
+package facts + real price + route/booking safety + sendable link + disclosures + factual
+`draft_lines`. Exposed as `POST /v1/customer-response` and `jvto-agent customer-response`.
+
+State discipline (preserved, never invented): a concrete price shows **only** when
+`message_mode != handoff` AND `price.status=priced`; `custom_quote_required` /
+unknown-package (`not_found`) / route-gap escalate to handoff with no number; `needs_review`
+surfaces the price WITH a route-validation disclosure; a surfaced price always carries an
+availability (live-confirmation) disclosure.
+
 Note: this layer adds presentation on top of the existing `ResponsePlan`/`DecisionEnvelope`;
 it does not replace system routing, which stays the DecisionEnvelope's job.
 

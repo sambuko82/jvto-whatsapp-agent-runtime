@@ -18,6 +18,7 @@ from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_l
 from .meta_webhook import normalize_payload, verify_signature, verify_subscription
 from .monolith_catalog import catalog_root_for
 from .presentation_resolver import resolve_delivery_plan
+from .response_composer import compose_customer_response
 from .sales_intelligence import derive_response_plan, load_customer_sales_config
 from .validator import validate_release
 
@@ -137,6 +138,25 @@ def delivery_plan_from_decision_endpoint(request: DeliveryPlanFromDecisionReques
         )
     except FileNotFoundError as error:
         raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
+
+
+@app.post("/v1/customer-response")
+def customer_response_endpoint(request: DeliveryPlanFromDecisionRequest) -> dict[str, Any]:
+    # One customer-ready draft from a single compiled release: package facts + published
+    # price + Core route/booking safety + sendable link, with all states preserved. Reads
+    # both agent-catalog/ (presentation+route gate) and customer-sales/ (catalog+price).
+    release_dir = Path(request.release_dir)
+    _require_built_release(release_dir)
+    if not (release_dir / "customer-sales" / "release-manifest.json").exists():
+        raise HTTPException(status_code=404, detail="Customer Sales Release not found in release dir; rebuild the release with build-release")
+    config = load_customer_sales_config(_repo_root())
+    try:
+        return compose_customer_response(
+            release_dir, request.decision_envelope,
+            trip_brief=request.trip_brief, query=request.query, config=config,
+        )
+    except FileNotFoundError as error:
+        raise HTTPException(status_code=404, detail=f"Incomplete release; rebuild the release with build-release ({error})") from error
 
 
 class ResolvedContextRequest(BaseModel):

@@ -53,6 +53,7 @@ python -m jvto_agent_runtime validate-release --release-dir dist/releases/smoke
 
 | PR | Milestone | Key outcome |
 |---|---|---|
+| customer-response | Composed customer-ready draft | `response_composer.compose_customer_response` + `POST /v1/customer-response` + CLI + `customer-response-draft` contract: fuses DeliveryPlan (facts/route gate/link) with published catalog+price into one draft; price surfaced only when not-handoff & priced; all states preserved. |
 | (data-map) | Physical data map + G7 | Documented the physical data layer (files/fields/join-keys/gaps); refreshed both stale link-registry fixtures to production (G7), preserving page_missing coverage via a synthetic entry. |
 | #15 | DecisionEnvelope→DeliveryPlan seam | `delivery_adapter.delivery_plan_from_decision` + `POST /v1/delivery-plan/from-decision` + CLI; maps envelope→presentation inputs; envelope floor (handoff + needs_information) escalate-only. |
 | #14 | Persistent context + completion loop | `docs/project-context.md` (this file) becomes the per-milestone context; `CLAUDE.md` points to it. |
@@ -95,8 +96,11 @@ web (#61 capability registry). Bootstrap module layer (#24).
 
 ## Next recommended milestone
 
-Formalize a **presentation-context contract** (`contracts/presentation-context.schema.json`)
-for the `customer_context` the seam projects (pax + quote-eligibility flags), and validate it
-in `_project_customer_context` / the `/v1/delivery-plan*` request models. Today
-`customer_context` is a free dict; a contract makes the whitelist explicit and contract-checked,
-bounded and in-repo (no orchestration, no external deps).
+Wire the **live-confirmation step** into the composed response: when a CustomerResponseDraft
+surfaces a price/availability, attach the `live_tool_plan` (availability/price re-check) from
+the DecisionEnvelope so the draft carries an explicit "confirm before booking" action — turning
+the static draft into a draft + the live checks it still needs. Bounded, in-repo; the live
+adapters themselves stay `NotConnected` (Phase 3 external) but the action surface is real.
+
+(Earlier candidate — a `presentation-context` contract for `customer_context` — remains a
+smaller optional cleanup.)

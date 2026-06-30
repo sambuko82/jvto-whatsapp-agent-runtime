@@ -12,6 +12,7 @@ from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
 from .delivery_adapter import delivery_plan_from_decision
 from .presentation_resolver import resolve_delivery_plan
 from .release_builder import build_release
+from .response_composer import compose_customer_response
 from .sales_intelligence import derive_response_plan, load_customer_sales_config, merge_trip_brief
 from .utils import read_json, utc_now, write_json
 from .validator import validate_release, validate_repo
@@ -108,6 +109,13 @@ def main() -> None:
     delivery_from.add_argument("--trip-brief", help="Optional path to a TripBrief JSON file")
     delivery_from.add_argument("--query", default="")
     delivery_from.add_argument("--output")
+
+    customer_resp = sub.add_parser("customer-response")
+    customer_resp.add_argument("--release-dir", required=True)
+    customer_resp.add_argument("--decision-envelope", required=True, help="Path to a DecisionEnvelope JSON file")
+    customer_resp.add_argument("--trip-brief", help="Optional path to a TripBrief JSON file")
+    customer_resp.add_argument("--query", default="")
+    customer_resp.add_argument("--output")
 
     args = parser.parse_args()
     root = _repo_root()
@@ -224,6 +232,17 @@ def main() -> None:
         trip_brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
         config = load_customer_sales_config(root)
         result = delivery_plan_from_decision(
+            Path(args.release_dir), envelope, trip_brief=trip_brief, query=args.query, config=config
+        )
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "customer-response":
+        envelope = read_json(Path(args.decision_envelope))
+        trip_brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
+        config = load_customer_sales_config(root)
+        result = compose_customer_response(
             Path(args.release_dir), envelope, trip_brief=trip_brief, query=args.query, config=config
         )
         if args.output:

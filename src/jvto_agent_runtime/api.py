@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from .customer_sales_executor import CustomerSalesExecutor
 from .decision_engine import build_decision
+from .delivery_adapter import delivery_plan_from_decision
 from .deployment import deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
@@ -73,6 +74,15 @@ def response_plan(request: ResponsePlanRequest) -> dict[str, Any]:
     )
 
 
+def _require_built_release(release_dir: Path) -> None:
+    """Shared 404 guard for the presentation endpoints: the path must exist and contain a
+    built agent-catalog module layer (not just any directory)."""
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    if not (catalog_root_for(release_dir) / "general-modules.json").exists():
+        raise HTTPException(status_code=404, detail="Release has no agent-catalog module layer; rebuild the release with build-release")
+
+
 class DeliveryPlanRequest(BaseModel):
     release_dir: str = Field(..., description="Local monolith release path (reads <release>/agent-catalog/ only)")
     customer_job: str | None = Field(None, description="Optional ResponsePlan job, e.g. J2_price_and_value")
@@ -89,10 +99,7 @@ def delivery_plan(request: DeliveryPlanRequest) -> dict[str, Any]:
     # The existing safety rules hold (route-gap/unknown -> handoff; needs_review -> route
     # validation disclosure; custom-quote -> no booking CTA; package-aware link origin).
     release_dir = Path(request.release_dir)
-    if not release_dir.exists():
-        raise HTTPException(status_code=404, detail="Release directory not found")
-    if not (catalog_root_for(release_dir) / "general-modules.json").exists():
-        raise HTTPException(status_code=404, detail="Release has no agent-catalog module layer; rebuild the release with build-release")
+    _require_built_release(release_dir)
     try:
         return resolve_delivery_plan(
             release_dir,
@@ -105,6 +112,30 @@ def delivery_plan(request: DeliveryPlanRequest) -> dict[str, Any]:
         # An incomplete agent-catalog (e.g. module layer present but package-variations,
         # module-compatibility, or the Core agent-contract files missing) is a not-a-built-
         # release condition: fail cleanly rather than surface a 500 from the loaders.
+        raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
+
+
+class DeliveryPlanFromDecisionRequest(BaseModel):
+    release_dir: str = Field(..., description="Local monolith release path (reads <release>/agent-catalog/ only)")
+    decision_envelope: dict[str, Any] = Field(..., description="An already-built DecisionEnvelope (from /v1/decisions)")
+    trip_brief: dict[str, Any] | None = None
+    query: str = ""
+
+
+@app.post("/v1/delivery-plan/from-decision")
+def delivery_plan_from_decision_endpoint(request: DeliveryPlanFromDecisionRequest) -> dict[str, Any]:
+    # Seam from /v1/decisions to presentation: maps a DecisionEnvelope (+ optional TripBrief)
+    # into presentation inputs and builds a DeliveryPlan from the one local release. The
+    # envelope stays authoritative for routing/safety; its handoff is honored as a hard floor.
+    release_dir = Path(request.release_dir)
+    _require_built_release(release_dir)
+    config = load_customer_sales_config(_repo_root())
+    try:
+        return delivery_plan_from_decision(
+            release_dir, request.decision_envelope,
+            trip_brief=request.trip_brief, query=request.query, config=config,
+        )
+    except FileNotFoundError as error:
         raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
 
 

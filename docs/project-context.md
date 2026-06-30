@@ -53,6 +53,8 @@ python -m jvto_agent_runtime validate-release --release-dir dist/releases/smoke
 
 | PR | Milestone | Key outcome |
 |---|---|---|
+| #15 | DecisionEnvelope→DeliveryPlan seam | `delivery_adapter.delivery_plan_from_decision` + `POST /v1/delivery-plan/from-decision` + CLI; maps envelope→presentation inputs; envelope floor (handoff + needs_information) escalate-only. |
+| #14 | Persistent context + completion loop | `docs/project-context.md` (this file) becomes the per-milestone context; `CLAUDE.md` points to it. |
 | #13 | DeliveryPlan API | `POST /v1/delivery-plan` + `jvto-agent delivery-plan` CLI; reads one local release; 404 on missing/incomplete release. |
 | #11 | Runtime Monolith | Vendor self-contained `agent-catalog/` (PR-1) + single-context reader, drop 3-root resolver (PR-2); package-aware link disambiguation + text-only safety. |
 | #10 | P0 route-integrity gate | `route_gate`; Core-authoritative booking (**Option A**); gap/unknown→handoff, needs_review→disclosure. |
@@ -71,8 +73,14 @@ web (#61 capability registry). Bootstrap module layer (#24).
 - **Package-aware link safety** — a `link_key` shared across origins resolves by the known
   `package_key` (correct origin URL); no/non-unique context → `ambiguous`, non-sendable.
   The vendored Web registry is the **only** URL authority (Bootstrap `public_url` is never sent).
-- **Dedicated presentation endpoint** — `DeliveryPlan` gets its own `/v1/delivery-plan`,
+- **Dedicated presentation endpoints** — `DeliveryPlan` gets its own `/v1/delivery-plan`
+  (raw presentation inputs) and `/v1/delivery-plan/from-decision` (DecisionEnvelope seam),
   separate from `/v1/decisions` (DecisionEnvelope) and `/v1/response-plan` (ResponsePlan).
+- **Envelope floor (seam)** — the DecisionEnvelope stays authoritative; the seam may only
+  ESCALATE: `handoff`/`unsupported`/`handoff_required` → handoff plan; `needs_information`
+  → downgrade a committal price/booking plan to a non-committal clarify. Never downgrades.
+- **Entities-win precedence (seam)** — per-message entities beat accumulated TripBrief for
+  both package selection and customer_context; TripBrief `pax` is an object (normalize it).
 - **Fail safe / fail clean** — unknown route integrity → handoff; missing/incomplete release → 404.
 
 ## Open / deferred items
@@ -86,6 +94,8 @@ web (#61 capability registry). Bootstrap module layer (#24).
 
 ## Next recommended milestone
 
-Emit a `DeliveryPlan` from a `DecisionEnvelope` seam — a thin adapter so `/v1/decisions`
-output can feed `/v1/delivery-plan` inputs, connecting routing/safety to presentation
-without building full orchestration.
+Formalize a **presentation-context contract** (`contracts/presentation-context.schema.json`)
+for the `customer_context` the seam projects (pax + quote-eligibility flags), and validate it
+in `_project_customer_context` / the `/v1/delivery-plan*` request models. Today
+`customer_context` is a free dict; a contract makes the whitelist explicit and contract-checked,
+bounded and in-repo (no orchestration, no external deps).

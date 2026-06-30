@@ -47,13 +47,40 @@ def _select_package_key(envelope: dict[str, Any], trip_brief: dict[str, Any] | N
     return None
 
 
+def _coerce_pax(value: Any) -> int | None:
+    """A guest count as an int. Accepts a plain int (entities) or a TripBrief `pax`
+    object {confirmed, tentative, adults, ...} (contracts/trip-brief.schema.json)."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, dict):
+        for key in ("confirmed", "tentative", "adults"):
+            inner = value.get(key)
+            if isinstance(inner, int) and not isinstance(inner, bool):
+                return inner
+    return None
+
+
+def _resolve_pax(entities: dict[str, Any], trip_brief: dict[str, Any] | None) -> int | None:
+    # Per-message entities take precedence over accumulated TripBrief state; the TripBrief
+    # `pax` is an object so it must be normalized, not read as a flat int.
+    tb = trip_brief or {}
+    for candidate in (entities.get("pax"), entities.get("number_of_guests"), tb.get("pax"), tb.get("number_of_guests")):
+        pax = _coerce_pax(candidate)
+        if pax is not None:
+            return pax
+    return None
+
+
 def _project_customer_context(envelope: dict[str, Any], trip_brief: dict[str, Any] | None) -> dict[str, Any]:
-    # trip_brief is accumulated state; the per-message entities take precedence.
-    src = {**(trip_brief or {}), **(envelope.get("entities") or {})}
+    entities = envelope.get("entities") or {}
     ctx: dict[str, Any] = {}
-    pax = src.get("pax", src.get("number_of_guests"))
-    if isinstance(pax, int) and not isinstance(pax, bool):
+    pax = _resolve_pax(entities, trip_brief)
+    if pax is not None:
         ctx["pax"] = pax
+    # Flags are flat booleans in both; per-message entities take precedence.
+    src = {**(trip_brief or {}), **entities}
     for flag in _CONTEXT_FLAGS:
         if src.get(flag):
             ctx[flag] = True
@@ -61,14 +88,23 @@ def _project_customer_context(envelope: dict[str, Any], trip_brief: dict[str, An
 
 
 def _apply_handoff_floor(plan: dict[str, Any], envelope: dict[str, Any]) -> dict[str, Any]:
-    """If the envelope decided handoff but the DeliveryPlan came back normal, escalate it to
-    handoff (never downgrade an existing handoff). Mirrors build_delivery_plan's handoff
-    shaping: handoff mode, drop the booking CTA, drop price facts, re-validate the contract."""
+    """Honor the envelope's handoff as a hard floor (escalate only, never downgrade).
+
+    Applied whenever the envelope requires handoff — including when the resolver ALREADY
+    returned a handoff for another reason (e.g. custom quote): build_delivery_plan only
+    strips price facts for route gaps, so an already-handoff plan can still carry a
+    standard-price fact and the resolver's reason. We re-apply the cleanup unconditionally:
+    handoff mode, no booking CTA, no price facts, and the envelope's reason takes precedence
+    (falling back to the plan's existing reason). Re-validates the contract."""
     env_handoff = envelope.get("handoff") or {}
     needs_handoff = bool(env_handoff.get("required")) or envelope.get("intent_status") in _ENVELOPE_HANDOFF_STATUSES
-    if not needs_handoff or plan["message_mode"] == "handoff":
+    if not needs_handoff:
         return plan
-    reason = (env_handoff.get("reasons") or [None])[0] or f"intent_{envelope.get('intent_status')}"
+    reason = (
+        (env_handoff.get("reasons") or [None])[0]
+        or (plan.get("handoff") or {}).get("reason")
+        or f"intent_{envelope.get('intent_status')}"
+    )
     floored = dict(plan)
     floored["message_mode"] = "handoff"
     floored["handoff"] = {"required": True, "reason": reason}

@@ -144,6 +144,47 @@ def test_seam_trip_brief_package_takes_precedence():
     assert plan["package_key"] == BALI_PKG  # trip_brief wins over entities
 
 
+def test_seam_entity_guest_count_preferred_over_tripbrief_pax_object():
+    # TripBrief pax is an OBJECT {confirmed: 4}; the per-message entity count must win and
+    # must not be shadowed by the object.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release, _envelope("check_price", entities={"package_key": BALI_PKG, "number_of_guests": 2}),
+        trip_brief={"selected_package_key": BALI_PKG, "pax": {"confirmed": 4}}, query="how much", config=CONFIG,
+    )
+    assert any("2 guests" in f for f in plan["short_facts"])
+    assert not any("4 guests" in f for f in plan["short_facts"])
+
+
+def test_seam_tripbrief_pax_object_normalized():
+    # No entity count -> normalize the TripBrief pax object (confirmed) to an int.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release, _envelope("check_price", entities={"package_key": BALI_PKG}),
+        trip_brief={"selected_package_key": BALI_PKG, "pax": {"confirmed": 5}}, query="how much", config=CONFIG,
+    )
+    assert any("5 guests" in f for f in plan["short_facts"])
+
+
+def test_seam_handoff_floor_cleans_existing_handoff_plan():
+    # Envelope requires handoff AND the resolver already handed off for a custom quote
+    # (own_hotel): the floor must still strip price facts and apply the envelope's reason,
+    # not early-return and leave a standard-price fact behind.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release,
+        _envelope("check_price", status="handoff_required",
+                  entities={"package_key": BALI_PKG, "pax": 2, "own_hotel": True},
+                  handoff={"required": True, "reasons": ["low_intent_confidence"]}),
+        query="how much", config=CONFIG,
+    )
+    assert plan["message_mode"] == "handoff"
+    assert plan["handoff"]["reason"] == "low_intent_confidence"  # envelope reason takes precedence
+    assert not any("price" in f.lower() for f in plan["short_facts"])  # no standard-price fact on handoff
+    assert plan["secondary_link_intent"] is None
+    assert is_valid("delivery-plan", plan)
+
+
 # --- API endpoint ----------------------------------------------------------
 
 def test_endpoint_from_decision_returns_valid_plan():

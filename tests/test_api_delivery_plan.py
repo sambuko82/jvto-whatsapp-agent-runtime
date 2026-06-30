@@ -108,6 +108,24 @@ def test_delivery_plan_endpoint_release_without_agent_catalog_404(tmp_path: Path
     assert exc.value.status_code == 404
 
 
+def test_delivery_plan_endpoint_incomplete_catalog_404():
+    # module layer file present but the rest of the catalog removed -> the loaders would
+    # raise FileNotFoundError; the endpoint must turn that into a clean 404, not a 500.
+    release = _release("test-api-dp-incomplete")
+    catalog = release / "agent-catalog"
+    (catalog / "package-variations.json").unlink()  # leave general-modules.json in place
+    with pytest.raises(HTTPException) as exc:
+        delivery_plan(DeliveryPlanRequest(release_dir=str(release), query="how much", package_key=BALI_PKG))
+    assert exc.value.status_code == 404
+
+    # also covers a missing Core agent-contract file (route gate)
+    release2 = _release("test-api-dp-incomplete2")
+    (release2 / "agent-catalog" / "agent-contract" / "package-customization-boundaries.json").unlink()
+    with pytest.raises(HTTPException) as exc2:
+        delivery_plan(DeliveryPlanRequest(release_dir=str(release2), query="how much", package_key=BALI_PKG))
+    assert exc2.value.status_code == 404
+
+
 def test_cli_delivery_plan_parity(capsys):
     import json
     release = _release("test-cli-dp")

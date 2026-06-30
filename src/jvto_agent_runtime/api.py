@@ -93,13 +93,19 @@ def delivery_plan(request: DeliveryPlanRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail="Release directory not found")
     if not (catalog_root_for(release_dir) / "general-modules.json").exists():
         raise HTTPException(status_code=404, detail="Release has no agent-catalog module layer; rebuild the release with build-release")
-    return resolve_delivery_plan(
-        release_dir,
-        customer_job=request.customer_job,
-        query=request.query,
-        package_key=request.package_key,
-        customer_context=request.customer_context,
-    )
+    try:
+        return resolve_delivery_plan(
+            release_dir,
+            customer_job=request.customer_job,
+            query=request.query,
+            package_key=request.package_key,
+            customer_context=request.customer_context,
+        )
+    except FileNotFoundError as error:
+        # An incomplete agent-catalog (e.g. module layer present but package-variations,
+        # module-compatibility, or the Core agent-contract files missing) is a not-a-built-
+        # release condition: fail cleanly rather than surface a 500 from the loaders.
+        raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
 
 
 class ResolvedContextRequest(BaseModel):

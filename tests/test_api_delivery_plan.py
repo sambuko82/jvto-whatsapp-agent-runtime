@@ -126,6 +126,26 @@ def test_delivery_plan_endpoint_incomplete_catalog_404():
     assert exc2.value.status_code == 404
 
 
+def test_delivery_plan_endpoint_empty_package_key_normalized_to_null():
+    release = _release("test-api-dp-emptypkg")
+    plan = delivery_plan(DeliveryPlanRequest(release_dir=str(release), query="how much", package_key=""))
+    assert plan["package_key"] is None  # "" normalized, not echoed verbatim
+    assert is_valid("delivery-plan", plan)
+
+
+def test_cli_delivery_plan_rejects_non_object_context():
+    import sys
+    release = _release("test-cli-dp-badctx")
+    old = sys.argv
+    sys.argv = ["jvto-agent", "delivery-plan", "--release-dir", str(release),
+                "--query", "x", "--customer-context", "[1,2,3]"]
+    try:
+        with pytest.raises(SystemExit):  # clean exit, not an AttributeError traceback
+            cli_main()
+    finally:
+        sys.argv = old
+
+
 def test_cli_delivery_plan_parity(capsys):
     import json
     release = _release("test-cli-dp")

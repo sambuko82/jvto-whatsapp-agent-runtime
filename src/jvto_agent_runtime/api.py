@@ -98,7 +98,7 @@ def delivery_plan(request: DeliveryPlanRequest) -> dict[str, Any]:
             release_dir,
             customer_job=request.customer_job,
             query=request.query,
-            package_key=request.package_key,
+            package_key=request.package_key or None,  # normalize "" -> None (no-package)
             customer_context=request.customer_context,
         )
     except FileNotFoundError as error:

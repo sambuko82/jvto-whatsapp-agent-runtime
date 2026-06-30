@@ -194,12 +194,17 @@ def main() -> None:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     if args.command == "delivery-plan":
-        customer_context = json.loads(args.customer_context)
+        try:
+            customer_context = json.loads(args.customer_context)
+        except json.JSONDecodeError as error:
+            raise SystemExit(f"--customer-context must be valid JSON: {error}") from error
+        if not isinstance(customer_context, dict):
+            raise SystemExit("--customer-context must be a JSON object, e.g. '{\"pax\": 4}'")
         result = resolve_delivery_plan(
             Path(args.release_dir),
             customer_job=args.customer_job,
             query=args.query,
-            package_key=args.package_key,
+            package_key=args.package_key or None,
             customer_context=customer_context,
         )
         if args.output:

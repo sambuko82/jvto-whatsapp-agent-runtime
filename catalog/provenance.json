@@ -1,0 +1,31 @@
+{
+  "agent_catalog": {
+    "core_boundaries": 16,
+    "crosswalk_integrity": "aligned",
+    "link_key_collisions": [
+      "package_ijen_bromo_madakaripura_3d2n",
+      "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "package_ijen_papuma_tumpak_sewu_bromo_5d4n"
+    ],
+    "module_variations": 16
+  },
+  "customer_sales": {
+    "object_count": 18,
+    "present": true
+  },
+  "itinerary_core": {
+    "repo": "sambuko82/jvto-itinerary-core",
+    "revision": "e3efa02f6cde641c978bf140e787954aea2df40a"
+  },
+  "knowledge_catalog": {
+    "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
+    "revision": "614e58586205556479b88bfe1a77e0c5e9a7d3dc"
+  },
+  "note": "Compact committed catalog: the chat-time read path (agent-catalog/ + customer-sales/) vendored from upstreams so one checkout serves responses without sibling repos. Regenerate with `jvto-agent build-local-catalog`.",
+  "schema_version": "local-catalog-provenance-v1",
+  "web_experience": {
+    "present": true,
+    "repo": "jvto-devteam/jvto-web",
+    "revision": "ebabf97eb5fbf56e9f82de65c18bbc169d7698b6"
+  }
+}

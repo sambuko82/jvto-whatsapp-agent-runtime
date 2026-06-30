@@ -53,6 +53,7 @@ python -m jvto_agent_runtime validate-release --release-dir dist/releases/smoke
 
 | PR | Milestone | Key outcome |
 |---|---|---|
+| local-catalog | Committed compact catalog | Real 16-package data (agent-catalog/ + customer-sales/) vendored into `catalog/`; `build-local-catalog` regenerator; `/v1/customer-response` + CLI default to it — one checkout generates responses with NO sibling repos / NO build. |
 | customer-response | Composed customer-ready draft | `response_composer.compose_customer_response` + `POST /v1/customer-response` + CLI + `customer-response-draft` contract: fuses DeliveryPlan (facts/route gate/link) with published catalog+price into one draft; price surfaced only when not-handoff & priced; all states preserved. |
 | (data-map) | Physical data map + G7 | Documented the physical data layer (files/fields/join-keys/gaps); refreshed both stale link-registry fixtures to production (G7), preserving page_missing coverage via a synthetic entry. |
 | #15 | DecisionEnvelope→DeliveryPlan seam | `delivery_adapter.delivery_plan_from_decision` + `POST /v1/delivery-plan/from-decision` + CLI; maps envelope→presentation inputs; envelope floor (handoff + needs_information) escalate-only. |

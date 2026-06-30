@@ -1,0 +1,1684 @@
+[
+  {
+    "module_id": "policy_anti_fraud",
+    "category": "policy",
+    "scope": "global",
+    "title": "Booking Safety & Anti-Fraud",
+    "short_answer": "Use only JVTO's official channels; JVTO never asks for full card numbers, CVV, banking passwords, or OTP codes.",
+    "detail_summary": "Book and pay only through JVTO's official channels — the website, the official WhatsApp number, the official email, and JVTO's listed payment links and accounts. JVTO never asks for your full card number, CVV, online banking password, or one-time codes by chat or email. If an account number, link, or contact looks different, pause and verify through an official channel.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/anti-fraud",
+    "link_key": "booking_safety_anti_fraud",
+    "visual_key": "payment_safety_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/anti-fraud.md"
+    ]
+  },
+  {
+    "module_id": "policy_booking_paths",
+    "category": "policy",
+    "scope": "global",
+    "title": "How to Book",
+    "short_answer": "JVTO's two official booking paths — website Instant Book and WhatsApp-assisted booking.",
+    "detail_summary": "JVTO offers two official ways to book:",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/booking-paths",
+    "link_key": "how_booking_works",
+    "visual_key": "booking_steps_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/booking-paths.md"
+    ]
+  },
+  {
+    "module_id": "policy_cancellation_travel_credit",
+    "category": "policy",
+    "scope": "global",
+    "title": "Cancellation & Lifetime Travel Credit",
+    "short_answer": "How JVTO handles guest-initiated cancellations — Travel Credit instead of cash refunds, on a 48-hour cut-off.",
+    "detail_summary": "For guest-initiated cancellations JVTO uses Travel Credit rather than cash refunds. The binding terms are in the published Booking, Payment & Cancellation policy; this is a summary — see that page for exact details.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/cancellation-travel-credit",
+    "link_key": "cancellation_travel_credit",
+    "visual_key": "cancellation_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/cancellation-travel-credit.md"
+    ]
+  },
+  {
+    "module_id": "policy_ijen_health_screening",
+    "category": "policy",
+    "scope": "ijen_scoped",
+    "title": "Ijen Health Screening",
+    "short_answer": "For Ijen crater hikes, JVTO coordinates a health screening with licensed medical staff when BBKSDA regulations require it.",
+    "detail_summary": "When the East Java conservation authority (BBKSDA) requires it, crater access at Kawah Ijen depends on a short health screening. For affected tours JVTO coordinates this screening with licensed medical staff, and a verified certificate is needed at the crater gate.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/ijen-health-screening",
+    "link_key": "ijen_readiness",
+    "visual_key": "ijen_readiness_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/ijen-health-screening.md"
+    ]
+  },
+  {
+    "module_id": "policy_ijen_monthly_closure",
+    "category": "policy",
+    "scope": "ijen_scoped",
+    "title": "Ijen Monthly Closure (Rijik Program)",
+    "short_answer": "Kawah Ijen closes to all visitors on the first Friday of each month for the Rijik ecosystem-cleaning program; JVTO schedules tours around it so guests are unaffected.",
+    "detail_summary": "Tourism Nature Park (TWA) Kawah Ijen closes completely to all tourism and mining activity on the **first Friday of every month** (00:00–23:59 WIB) for the **Rijik** ecosystem-cleaning program, which has run since March 2019.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/ijen-rijik-monthly-closure",
+    "link_key": "ijen_monthly_closure",
+    "visual_key": "ijen_readiness_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/ijen-rijik-monthly-closure.md"
+    ]
+  },
+  {
+    "module_id": "policy_inclusions_exclusions",
+    "category": "policy",
+    "scope": "global",
+    "title": "What's Included",
+    "short_answer": "JVTO tours are all-inclusive of transport, crew, entrance fees, water, and stated meals; flights, insurance, tips, and personal expenses are excluded.",
+    "detail_summary": "Every JVTO package includes private transport, a dedicated driver and guide(s), all entrance fees and permits, drinking water, full pick-up to drop-off assistance, and meals as stated (at least breakfast). Bromo tours add the private 4WD jeep; Ijen tours add gas masks and trekking poles (and health-screening coordination where BBKSDA requires it); Bali-origin tours add the ferry crossing.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/inclusions-exclusions",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/inclusions-exclusions.md"
+    ]
+  },
+  {
+    "module_id": "policy_isic_student",
+    "category": "policy",
+    "scope": "conditional_eligible",
+    "title": "ISIC Student Pricing",
+    "short_answer": "JVTO is an official ISIC provider offering student pricing on selected packages to verified ISIC cardholders.",
+    "detail_summary": "JVTO is an official ISIC (International Student Identity Card) provider — provider ID 259268, listed publicly on the ISIC website. Verified ISIC cardholders can receive student pricing on selected packages.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/isic-student",
+    "link_key": "isic_student_pricing",
+    "visual_key": "student_pricing_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/isic-student.md"
+    ]
+  },
+  {
+    "module_id": "policy_natural_phenomena",
+    "category": "policy",
+    "scope": "global",
+    "title": "Natural Phenomena Are Not Guaranteed",
+    "short_answer": "JVTO cannot guarantee weather-dependent sights such as sunrise or Ijen's blue fire; itineraries are planned to maximise the chance.",
+    "detail_summary": "Weather-dependent sights — a clear sunrise, or Ijen's blue fire — cannot be guaranteed, because cloud, weather, and volcanic gas are outside any operator's control. JVTO plans timing and routes to maximise the chance of good conditions, and may adjust timing or routing for safety.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/natural-phenomena",
+    "link_key": "natural_phenomena",
+    "visual_key": "blue_fire_status_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/natural-phenomena.md"
+    ]
+  },
+  {
+    "module_id": "policy_payment_deposit",
+    "category": "policy",
+    "scope": "global",
+    "title": "Payment & Deposit",
+    "short_answer": "A deposit secures the booking, with the balance due before the tour; exact amounts and deadlines are on the booking page.",
+    "detail_summary": "A deposit (standard 20% of the booking value) secures a booking, with the balance due before the tour starts; close-to-departure bookings may require fuller payment. Exact amounts, accepted methods, and deadlines are shown at checkout and on the booking information page.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/payment-rules",
+    "link_key": "payment_and_deposit",
+    "visual_key": "payment_safety_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/payment-rules.md"
+    ]
+  },
+  {
+    "module_id": "policy_police_escort",
+    "category": "policy",
+    "scope": "conditional_large_group",
+    "title": "Police Escort for Large Groups",
+    "short_answer": "For large groups, JVTO can coordinate an official traffic-police escort on some road segments, subject to authority approval.",
+    "detail_summary": "For large groups (typically around 18 or more travelers), JVTO can coordinate an official traffic-police escort on certain road segments where the relevant Traffic Police unit approves it. This is a coordination service subject to authority approval, not a default inclusion. See the travel-guide page for how it works and any group incentives.",
+    "customer_visible": true,
+    "reusable": true,
+    "detail_ref": "policies/police-escort",
+    "link_key": "police_escort_groups",
+    "visual_key": "police_escort_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:policies/police-escort.md"
+    ]
+  },
+  {
+    "module_id": "service_private_tour_standard",
+    "category": "service",
+    "scope": "global",
+    "title": "Private Tour Format",
+    "short_answer": "This is a private tour with your own dedicated driver and guide(s); you are never combined with another group.",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "private_tour",
+    "visual_key": "private_tour_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/guide-support-rules.json"
+    ]
+  },
+  {
+    "module_id": "service_crew_language_standard",
+    "category": "service",
+    "scope": "global",
+    "title": "Crew & Language Standard",
+    "short_answer": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "detail_summary": "private dedicated driver + guide (no shared groups)",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "private_tour",
+    "visual_key": "private_tour_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/guide-support-rules.json"
+    ]
+  },
+  {
+    "module_id": "service_vehicle_by_pax",
+    "category": "service",
+    "scope": "global",
+    "title": "Vehicle by Group Size",
+    "short_answer": "We use an AC MPV for 1–3 guests and a Hiace for 4–9 guests.",
+    "rules": [
+      {
+        "pax_min": 1,
+        "pax_max": 3,
+        "vehicle": "AC MPV"
+      },
+      {
+        "pax_min": 4,
+        "pax_max": 9,
+        "vehicle": "Hiace"
+      }
+    ],
+    "requires_live_check_when": [
+      "oversized_luggage",
+      "special_items",
+      "wheelchair",
+      "surfboard",
+      "golf_bag",
+      "stroller",
+      "diving_equipment"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "vehicle_and_luggage",
+    "visual_key": "vehicle_by_pax_card",
+    "approval_status": "approved_with_limitation",
+    "limitation": "Vehicle-by-pax is published; per-package luggage_rule is null in source (vehicle_luggage capability=partial). Oversized/special-item fit requires a live check, never a static promise.",
+    "source_evidence": [
+      "knowledge:customer-sales-release/vehicle-and-luggage-rules.json"
+    ]
+  },
+  {
+    "module_id": "service_standard_rooming",
+    "category": "service",
+    "scope": "global",
+    "title": "Standard Rooming",
+    "short_answer": "Standard rooming is arranged for the group; twin, double, separate rooms, or an extra room can be requested (subject to confirmation).",
+    "requires_quote_check_when": [
+      "separate_room",
+      "extra_room",
+      "room_upgrade",
+      "child_rooming",
+      "non_standard_group_composition"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_overnight_packages",
+    "link_key": "rooming_and_accommodation",
+    "visual_key": "rooming_options_card",
+    "approval_status": "approved_with_limitation",
+    "limitation": "Generic rooming policy only. Exact room counts, child rooming, upgrades, and date-specific availability require a quote/live check.",
+    "source_evidence": [
+      "knowledge:customer-sales-release/accommodation-rules.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_all_inclusive_baseline",
+    "category": "inclusion",
+    "scope": "global",
+    "title": "All-Inclusive Baseline",
+    "short_answer": "Every package includes private transport, a dedicated driver and guide(s), all entrance fees and permits, drinking water, meals as stated, and full pick-up to drop-off assistance.",
+    "included_baseline": [
+      "private transport (dedicated vehicle)",
+      "dedicated private driver and guide(s)",
+      "all entrance fees and permits",
+      "drinking water",
+      "meals as stated in the itinerary",
+      "full pick-up to drop-off assistance"
+    ],
+    "included_component_refs": [
+      "inclusion_private_transport",
+      "inclusion_dedicated_crew",
+      "inclusion_entrance_permits",
+      "inclusion_drinking_water",
+      "inclusion_stated_meals",
+      "inclusion_pickup_dropoff_assistance"
+    ],
+    "excluded": [
+      "international/domestic flights",
+      "visas",
+      "travel insurance",
+      "tips",
+      "personal expenses"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:policies/inclusions-exclusions"
+    ]
+  },
+  {
+    "module_id": "inclusion_private_transport",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "private transport (dedicated vehicle)",
+    "short_answer": "Private, dedicated vehicle for your group only.",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_dedicated_crew",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "dedicated private driver and guide(s)",
+    "short_answer": "Dedicated private driver and guide(s); no shared group.",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_entrance_permits",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "all entrance fees and permits",
+    "short_answer": "All entrance fees and permits for the stated route.",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_drinking_water",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "drinking water",
+    "short_answer": "Drinking water provided during the tour.",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_stated_meals",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "meals as stated in the itinerary",
+    "short_answer": "Meals as marked in the itinerary (at least breakfast).",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_pickup_dropoff_assistance",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "full pick-up to drop-off assistance",
+    "short_answer": "Full pick-up to drop-off assistance.",
+    "component_type": "baseline",
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_bromo_private_jeep",
+    "category": "inclusion_component",
+    "scope": "conditional_variation",
+    "title": "Private 4WD Jeep for Bromo",
+    "short_answer": "Private 4WD jeep for the Bromo Sea of Sand and sunrise viewpoint.",
+    "component_type": "variation",
+    "variation_trigger": "bromo",
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_ijen_equipment",
+    "category": "inclusion_component",
+    "scope": "conditional_variation",
+    "title": "Ijen Equipment (Gas Mask & Trekking Poles)",
+    "short_answer": "Gas masks and trekking poles for the Ijen crater hike.",
+    "component_type": "variation",
+    "variation_trigger": "ijen",
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "ijen_readiness",
+    "visual_key": "ijen_readiness_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_ijen_health_screening_coordination",
+    "category": "inclusion_component",
+    "scope": "conditional_variation",
+    "title": "Ijen Health-Screening Coordination",
+    "short_answer": "Coordination of the BBKSDA health screening where the authority requires it.",
+    "component_type": "variation",
+    "variation_trigger": "ijen",
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "ijen_readiness",
+    "visual_key": "ijen_readiness_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "inclusion_east_java_bali_ferry",
+    "category": "inclusion_component",
+    "scope": "conditional_variation",
+    "title": "East Java – Bali Ferry Crossing",
+    "short_answer": "Ketapang–Gilimanuk ferry crossing for Bali-linked packages.",
+    "component_type": "variation",
+    "variation_trigger": "ferry",
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "finish_in_bali",
+    "visual_key": "finish_in_bali_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json"
+    ]
+  },
+  {
+    "module_id": "exclusion_standard",
+    "category": "inclusion_component",
+    "scope": "global",
+    "title": "Standard Exclusions",
+    "short_answer": "Excluded: international/domestic flights, visas, travel insurance, tips, personal expenses.",
+    "component_type": "exclusion",
+    "excluded": [
+      "international/domestic flights",
+      "visas",
+      "travel insurance",
+      "tips",
+      "personal expenses"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "applies_to": "all_private_packages",
+    "link_key": "what_is_included",
+    "visual_key": "all_inclusive_card",
+    "approval_status": "approved",
+    "source_evidence": [
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:policies/inclusions-exclusions"
+    ]
+  },
+  {
+    "module_id": "destination_ijen",
+    "category": "destination",
+    "scope": "destination_scoped",
+    "title": "Kawah Ijen",
+    "short_answer": "Active East Java volcano known for its turquoise acidic crater lake, pre-dawn \"blue fire\", and active sulfur mining, reached by a guided night hike.",
+    "typical_schedule": "Hotel departure around midnight; the crater rim is reached near dawn for the blue fire and sunrise; finish mid-morning.",
+    "effort": "hard",
+    "access_requirements": [
+      "BBKSDA health screening and certificate when their regulations are in effect",
+      "gas mask and trekking poles (provided by JVTO)",
+      "licensed local guide"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "ijen_readiness",
+    "visual_key": "ijen_readiness_card",
+    "approval_status": "approved",
+    "core_overlay_ref": "destination_ijen_activity_profile",
+    "source_evidence": [
+      "knowledge:destinations/kawah-ijen.md"
+    ]
+  },
+  {
+    "module_id": "destination_madakaripura",
+    "category": "destination",
+    "scope": "destination_scoped",
+    "title": "Madakaripura Waterfall",
+    "short_answer": "Java's tallest waterfall, in a narrow Probolinggo canyon near Bromo, reached by a short gorge walk where visitors get wet from the spray.",
+    "typical_schedule": "Late-morning visit, often paired same-day with Bromo; a roughly 1.5 km gorge walk to the falls.",
+    "effort": "moderate",
+    "access_requirements": [
+      "local guide",
+      "raincoat recommended (spray on the gorge walk)"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "madakaripura_guide",
+    "visual_key": "madakaripura_card",
+    "approval_status": "approved",
+    "core_overlay_ref": "destination_madakaripura_activity_profile",
+    "source_evidence": [
+      "knowledge:destinations/madakaripura.md"
+    ]
+  },
+  {
+    "module_id": "destination_bromo",
+    "category": "destination",
+    "scope": "destination_scoped",
+    "title": "Mount Bromo",
+    "short_answer": "Active East Java volcano in the Tengger caldera \"Sea of Sand\", famous for its pre-dawn sunrise panorama reached by 4WD jeep.",
+    "typical_schedule": "Pre-dawn departure (around 03:00) by 4WD jeep for the sunrise viewpoint, then a crossing of the sand sea and a short ascent to the crater rim; finish mid-morning.",
+    "effort": "moderate",
+    "access_requirements": [
+      "TNBTS (Bromo Tengger Semeru National Park) ticket",
+      "4WD jeep for the sand sea"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "bromo_sunrise",
+    "visual_key": "bromo_sunrise_card",
+    "approval_status": "approved",
+    "core_overlay_ref": "destination_bromo_activity_profile",
+    "source_evidence": [
+      "knowledge:destinations/mount-bromo.md"
+    ]
+  },
+  {
+    "module_id": "destination_papuma",
+    "category": "destination",
+    "scope": "destination_scoped",
+    "title": "Papuma Beach",
+    "short_answer": "A white-sand beach with offshore rock formations and a headland viewpoint in Jember, East Java — the one coastal stop on JVTO's volcano circuits.",
+    "typical_schedule": "Flexible daytime stop; a short headland walk for the viewpoints, used as a change of pace between volcano and waterfall days.",
+    "effort": "easy",
+    "access_requirements": [
+      "none (no permits or health screening required)"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "papuma_guide",
+    "visual_key": "papuma_card",
+    "approval_status": "approved",
+    "core_overlay_ref": "destination_papuma_activity_profile",
+    "source_evidence": [
+      "knowledge:destinations/papuma-beach.md"
+    ]
+  },
+  {
+    "module_id": "destination_tumpak_sewu",
+    "category": "destination",
+    "scope": "destination_scoped",
+    "title": "Tumpak Sewu Waterfall",
+    "short_answer": "A wide multi-tiered \"curtain\" waterfall in Lumajang, East Java, often called \"Java's Niagara\", with an easy rim viewpoint and an optional steep canyon descent.",
+    "typical_schedule": "Morning visit; an easy rim viewpoint, then an optional steep canyon descent; finish around midday.",
+    "effort": "hard",
+    "access_requirements": [
+      "local guide",
+      "optional steep canyon descent with ropes (the guide assesses fitness; the descent decision stays with the guest)"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "tumpak_sewu_difficulty",
+    "visual_key": "tumpak_sewu_card",
+    "approval_status": "approved",
+    "core_overlay_ref": "destination_tumpak_sewu_activity_profile",
+    "source_evidence": [
+      "knowledge:destinations/tumpak-sewu.md"
+    ]
+  },
+  {
+    "module_id": "pickup_surabaya_airport",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Surabaya Airport pickup",
+    "location_group": "Surabaya",
+    "type": "airport",
+    "required_customer_fields": [
+      "flight_number",
+      "arrival_time",
+      "origin_city"
+    ],
+    "risk_factors": [
+      "flight_delay",
+      "baggage_delay",
+      "airport_exit_congestion"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_airport_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_surabaya_hotel",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Surabaya hotel pickup",
+    "location_group": "Surabaya",
+    "type": "hotel",
+    "required_customer_fields": [
+      "hotel_name",
+      "pickup_time"
+    ],
+    "risk_factors": [
+      "late_checkout",
+      "luggage_loading",
+      "city_traffic"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_hotel_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_surabaya_train_station",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Surabaya train station pickup",
+    "location_group": "Surabaya",
+    "type": "train_station",
+    "required_customer_fields": [
+      "train_number",
+      "arrival_time",
+      "station_name"
+    ],
+    "risk_factors": [
+      "train_delay",
+      "station_crowd",
+      "luggage_loading"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_train_station_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_ketapang_harbor",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Ketapang Harbor pickup",
+    "location_group": "Banyuwangi",
+    "type": "harbor",
+    "required_customer_fields": [
+      "arrival_time",
+      "ferry_or_boat_context"
+    ],
+    "risk_factors": [
+      "ferry_delay",
+      "harbor_queue",
+      "luggage_loading"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "ketapang_harbor_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_surabaya_city_point",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Surabaya city point pickup",
+    "location_group": "Surabaya",
+    "type": "city_point",
+    "required_customer_fields": [
+      "meeting_point",
+      "pickup_time"
+    ],
+    "risk_factors": [
+      "city_traffic",
+      "unclear_meeting_point",
+      "parking_access"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_city_point_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_custom_address",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Custom address pickup",
+    "location_group": "Custom",
+    "type": "custom_address",
+    "required_customer_fields": [
+      "address_area",
+      "pickup_time",
+      "vehicle_access_note"
+    ],
+    "risk_factors": [
+      "address_unclear",
+      "vehicle_access_restriction",
+      "local_traffic"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "custom_address_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "pickup_previous_tour_dropoff",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "pickup",
+    "title": "Previous tour dropoff as next pickup",
+    "location_group": "Previous route endpoint",
+    "type": "destination_area",
+    "required_customer_fields": [
+      "previous_dropoff_area",
+      "handoff_time"
+    ],
+    "risk_factors": [
+      "previous_tour_delay",
+      "crew_handoff_gap",
+      "unclear_luggage_plan"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "previous_tour_dropoff_pickup",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/01-pickup-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_ketapang_harbor",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Ketapang Harbor dropoff",
+    "location_group": "Banyuwangi",
+    "type": "harbor",
+    "connects_to": [
+      "Gilimanuk Harbor",
+      "Pemuteran",
+      "Lovina",
+      "Ubud",
+      "Canggu",
+      "Seminyak",
+      "Denpasar Airport"
+    ],
+    "required_customer_fields": [
+      "next_destination",
+      "ferry_or_bali_transfer_preference"
+    ],
+    "risk_factors": [
+      "ferry_queue",
+      "late_bali_arrival",
+      "bali_traffic"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "ketapang_harbor_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_surabaya_airport",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Surabaya Airport dropoff",
+    "location_group": "Surabaya",
+    "type": "airport",
+    "connects_to": [],
+    "required_customer_fields": [
+      "flight_number",
+      "departure_time"
+    ],
+    "risk_factors": [
+      "city_traffic",
+      "late_activity_finish",
+      "airport_buffer_risk"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_airport_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_bali_hotel",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Bali hotel dropoff",
+    "location_group": "Bali",
+    "type": "bali_area",
+    "connects_to": [],
+    "required_customer_fields": [
+      "hotel_name",
+      "hotel_area"
+    ],
+    "risk_factors": [
+      "ferry_queue",
+      "bali_traffic",
+      "late_hotel_arrival"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "bali_hotel_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_surabaya_hotel",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Surabaya hotel dropoff",
+    "location_group": "Surabaya",
+    "type": "hotel",
+    "connects_to": [],
+    "required_customer_fields": [
+      "hotel_area"
+    ],
+    "risk_factors": [
+      "city_traffic",
+      "late_arrival",
+      "hotel_access"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_hotel_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_surabaya_train_station",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Surabaya train station dropoff",
+    "location_group": "Surabaya",
+    "type": "train_station",
+    "connects_to": [],
+    "required_customer_fields": [
+      "train_departure_time",
+      "station_name"
+    ],
+    "risk_factors": [
+      "city_traffic",
+      "station_crowd",
+      "missed_train_risk"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "surabaya_train_station_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_malang",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Malang dropoff",
+    "location_group": "Malang",
+    "type": "city_point",
+    "connects_to": [],
+    "required_customer_fields": [
+      "dropoff_area"
+    ],
+    "risk_factors": [
+      "mountain_descent",
+      "city_traffic",
+      "late_arrival"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "malang_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "dropoff_custom_address",
+    "category": "location",
+    "scope": "endpoint_scoped",
+    "endpoint_role": "dropoff",
+    "title": "Custom address dropoff",
+    "location_group": "Custom",
+    "type": "custom_address",
+    "connects_to": [],
+    "required_customer_fields": [
+      "address_area",
+      "deadline_if_any",
+      "vehicle_access_note"
+    ],
+    "risk_factors": [
+      "address_unclear",
+      "vehicle_access_restriction",
+      "deadline_risk"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "clarification_routing",
+      "feasibility_trigger"
+    ],
+    "core_overlay_ref": "custom_address_dropoff",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_surabaya_airport_to_bromo_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Surabaya Airport to Bromo Area",
+    "from_location": "Surabaya Airport",
+    "to_location": "Bromo Area",
+    "duration_text": "±3.5–4.5 hours (operational)",
+    "risk_factors": [
+      "Surabaya traffic",
+      "weekend Bromo traffic",
+      "night mountain road"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "surabaya_airport_to_bromo_area",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bromo_area_to_madakaripura",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bromo Area to Madakaripura",
+    "from_location": "Bromo Area",
+    "to_location": "Madakaripura Waterfall",
+    "duration_text": "±45–60 min drive (+20–30 min canyon walk)",
+    "risk_factors": [
+      "rain",
+      "flash_flood_closure",
+      "local access control",
+      "waterfall crowd"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bromo_area_to_madakaripura",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bromo_area_to_bondowoso_ijen_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bromo Area to Bondowoso / Ijen Area",
+    "from_location": "Bromo Area",
+    "to_location": "Bondowoso / Ijen Area",
+    "duration_text": "±5–7 hours",
+    "risk_factors": [
+      "long drive fatigue",
+      "late hotel arrival",
+      "meal timing risk"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bromo_area_to_bondowoso_ijen_area",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bondowoso_ijen_area_to_ijen_crater",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bondowoso / Ijen Area to Ijen Crater",
+    "from_location": "Bondowoso / Ijen Area",
+    "to_location": "Ijen Crater",
+    "duration_text": "±1.5–2 hours before trekking",
+    "risk_factors": [
+      "midnight departure",
+      "fatigue",
+      "weather",
+      "health screening dependency"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bondowoso_ijen_area_to_ijen_crater",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_ijen_area_to_ketapang_harbor",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Ijen Area to Ketapang Harbor",
+    "from_location": "Ijen Area",
+    "to_location": "Ketapang Harbor",
+    "duration_text": "±1–2 hours after Ijen",
+    "risk_factors": [
+      "post-trek fatigue",
+      "harbor queue",
+      "late Bali connection"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "ijen_area_to_ketapang_harbor",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_surabaya_hotel_to_bromo_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Surabaya Hotel to Bromo Area",
+    "from_location": "Surabaya Hotel",
+    "to_location": "Bromo Area",
+    "duration_text": "+/-3-4 hours",
+    "risk_factors": [
+      "Surabaya traffic",
+      "hotel checkout delay",
+      "weekend Bromo traffic"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "surabaya_hotel_to_bromo_area",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_surabaya_to_bondowoso_ijen_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Surabaya to Bondowoso / Ijen Area",
+    "from_location": "Surabaya",
+    "to_location": "Bondowoso / Ijen Area",
+    "duration_text": "+/-6-8 hours",
+    "risk_factors": [
+      "long drive fatigue",
+      "late hotel arrival",
+      "Ijen rest reduction"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "surabaya_to_bondowoso_ijen_area",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_surabaya_to_tumpak_sewu",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Surabaya to Tumpak Sewu",
+    "from_location": "Surabaya",
+    "to_location": "Tumpak Sewu Area",
+    "duration_text": "+/-4-5 hours",
+    "risk_factors": [
+      "long drive fatigue",
+      "rain sensitive access",
+      "late waterfall start"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "surabaya_to_tumpak_sewu",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_tumpak_sewu_to_bromo_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Tumpak Sewu to Bromo Area",
+    "from_location": "Tumpak Sewu Area",
+    "to_location": "Bromo Area",
+    "duration_text": "+/-4-6 hours",
+    "risk_factors": [
+      "post-waterfall fatigue",
+      "late Bromo check-in",
+      "mountain access at night"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "tumpak_sewu_to_bromo_area",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bondowoso_to_ijen_base",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bondowoso to Ijen Base",
+    "from_location": "Bondowoso",
+    "to_location": "Ijen Base",
+    "duration_text": "+/-1.5-2 hours",
+    "risk_factors": [
+      "midnight departure",
+      "health screening dependency",
+      "weather"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bondowoso_to_ijen_base",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_banyuwangi_to_ijen_base",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Banyuwangi to Ijen Base",
+    "from_location": "Banyuwangi",
+    "to_location": "Ijen Base",
+    "duration_text": "+/-1.5-2 hours",
+    "risk_factors": [
+      "midnight departure",
+      "weather",
+      "post-ferry timing risk"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "banyuwangi_to_ijen_base",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_ketapang_harbor_to_gilimanuk_bali_side",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Ketapang Harbor to Gilimanuk / Bali side",
+    "from_location": "Ketapang Harbor",
+    "to_location": "Gilimanuk / Bali side",
+    "duration_text": "~45–60 min sailing (+ queue/berthing); 24h service",
+    "risk_factors": [
+      "ferry_queue",
+      "crossing_delay",
+      "handoff_timing",
+      "nyepi_full_closure",
+      "high_waves_suspension",
+      "must_prebook_ferizy"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "ketapang_harbor_to_gilimanuk_bali_side",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_ijen_base_to_ketapang_harbor",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Ijen Base to Ketapang Harbor",
+    "from_location": "Ijen Base",
+    "to_location": "Ketapang Harbor",
+    "duration_text": "+/-1-2 hours after Ijen",
+    "risk_factors": [
+      "post-trek fatigue",
+      "harbor queue",
+      "late Bali connection"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "ijen_base_to_ketapang_harbor",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bali_hotel_area_to_banyuwangi_ijen_area",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bali Hotel Area to Banyuwangi / Ijen Area",
+    "from_location": "Bali Hotel Area",
+    "to_location": "Banyuwangi / Ijen Area",
+    "duration_text": "Bali transfer + ferry + Banyuwangi/Ijen access requires verification",
+    "risk_factors": [
+      "Bali traffic",
+      "ferry queue",
+      "late Ijen preparation"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bali_hotel_area_to_banyuwangi_ijen_area",
+    "approval_status": "operational_reference",
+    "data_status": "partial",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_bromo_area_to_malang",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Bromo Area to Malang",
+    "from_location": "Bromo Area",
+    "to_location": "Malang",
+    "duration_text": "+/-2.5-4 hours",
+    "risk_factors": [
+      "mountain descent",
+      "weekend congestion",
+      "late city arrival"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "bromo_area_to_malang",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "route_leg_malang_to_surabaya",
+    "category": "route_leg",
+    "scope": "route_scoped",
+    "title": "Malang to Surabaya",
+    "from_location": "Malang",
+    "to_location": "Surabaya",
+    "duration_text": "+/-2-4 hours",
+    "risk_factors": [
+      "Malang city traffic",
+      "Surabaya city traffic",
+      "airport or train deadline"
+    ],
+    "customer_visible": false,
+    "reusable": true,
+    "used_for": [
+      "feasibility",
+      "route_map",
+      "fatigue_warning",
+      "staging_explanation"
+    ],
+    "core_overlay_ref": "malang_to_surabaya",
+    "approval_status": "operational_reference",
+    "data_status": "available",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/04-route-leg-index.json"
+    ]
+  },
+  {
+    "module_id": "staging_bondowoso_ijen",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Why We Stay Near Ijen",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. medical check can be arranged at hotel; dinner before Ijen preparation.",
+    "purpose": "overnight_before_ijen",
+    "operational_notes": [
+      "medical check can be arranged at hotel",
+      "dinner before Ijen preparation",
+      "midnight departure to Ijen"
+    ],
+    "risk_if_arrival_late": [
+      "less rest before Ijen",
+      "late dinner",
+      "late medical screening"
+    ],
+    "recommended_for": [
+      "Ijen from Surabaya",
+      "Bromo to Ijen route",
+      "Ijen before Ketapang/Bali dropoff"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "why_stay_near_ijen",
+    "visual_key": "ijen_staging_card",
+    "core_overlay_ref": "bondowoso_ijen_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  },
+  {
+    "module_id": "staging_bromo_area_sunrise",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Why We Stay Near Bromo Before Sunrise",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. early jeep pickup; takeaway breakfast possible.",
+    "purpose": "overnight_before_bromo_sunrise",
+    "operational_notes": [
+      "early jeep pickup",
+      "takeaway breakfast possible",
+      "cold-weather preparation"
+    ],
+    "risk_if_arrival_late": [
+      "less rest before sunrise",
+      "late check-in",
+      "higher fatigue"
+    ],
+    "recommended_for": [
+      "Bromo sunrise",
+      "Bromo + Madakaripura route",
+      "Bromo before Ijen transfer"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "why_stay_near_bromo",
+    "visual_key": "bromo_staging_card",
+    "core_overlay_ref": "bromo_area_sunrise_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  },
+  {
+    "module_id": "staging_tumpak_sewu",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Why We Stage Near Tumpak Sewu",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. Artha Cottage / Lumajang area is the closest base; early morning start recommended 07:00–08:00 for waterfall access.",
+    "purpose": "overnight_before_tumpak_sewu",
+    "operational_notes": [
+      "Artha Cottage / Lumajang area is the closest base",
+      "early morning start recommended 07:00–08:00 for waterfall access",
+      "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+      "local guide mandatory"
+    ],
+    "risk_if_arrival_late": [
+      "delayed waterfall start",
+      "fatigue before descent",
+      "rain risk increases with later start"
+    ],
+    "recommended_for": [
+      "Tumpak Sewu as first destination",
+      "Tumpak Sewu before Bromo route",
+      "extended waterfall packages"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "tumpak_sewu_difficulty",
+    "visual_key": "tumpak_sewu_staging_card",
+    "core_overlay_ref": "tumpak_sewu_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  },
+  {
+    "module_id": "staging_papuma",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Papuma Staging",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. Doho Homestay / Jember area is the closest base; Papuma best visited in morning before crowds.",
+    "purpose": "overnight_before_papuma_beach",
+    "operational_notes": [
+      "Doho Homestay / Jember area is the closest base",
+      "Papuma best visited in morning before crowds",
+      "coastal road is rain-sensitive; check weather",
+      "not suitable before a tight airport or train deadline"
+    ],
+    "risk_if_arrival_late": [
+      "limited beach time",
+      "tired during coastal hike",
+      "tight next-day transfer"
+    ],
+    "recommended_for": [
+      "Papuma beach visit",
+      "extended Ijen + Papuma route",
+      "packages including coastal stop"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "papuma_guide",
+    "visual_key": "papuma_staging_card",
+    "core_overlay_ref": "papuma_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  },
+  {
+    "module_id": "staging_banyuwangi",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Banyuwangi Staging Before Ijen",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. Luminor Hotel / Banyuwangi area used for Bali-origin packages; ferry from Gilimanuk requires Ferizy pre-booking.",
+    "purpose": "overnight_after_bali_ferry_before_ijen",
+    "operational_notes": [
+      "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+      "ferry from Gilimanuk requires Ferizy pre-booking",
+      "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+      "medical check and briefing arranged at hotel",
+      "midnight departure to Ijen from here"
+    ],
+    "risk_if_arrival_late": [
+      "reduced rest before midnight Ijen departure",
+      "late medical check",
+      "higher fatigue at crater"
+    ],
+    "recommended_for": [
+      "Bali-origin guests crossing via Ketapang/Gilimanuk",
+      "Ijen as first East Java stop",
+      "packages starting from Bali side"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "why_stay_near_ijen",
+    "visual_key": "ijen_staging_card",
+    "core_overlay_ref": "banyuwangi_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  },
+  {
+    "module_id": "staging_malang_batu",
+    "category": "staging",
+    "scope": "route_scoped",
+    "title": "Malang / Batu Staging",
+    "short_answer": "We stage here so guests can rest and prepare before the next activity. Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays; Malang city and Batu attractions accessible on day-use basis.",
+    "purpose": "overnight_for_malang_batu_city_stop",
+    "operational_notes": [
+      "Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays",
+      "Malang city and Batu attractions accessible on day-use basis",
+      "suitable for leisure day after highland activities",
+      "Surabaya airport accessible 2–4h from Malang depending on traffic"
+    ],
+    "risk_if_arrival_late": [
+      "late checkout reduces city time",
+      "Surabaya airport deadline risk if traffic"
+    ],
+    "recommended_for": [
+      "5D4N and 6D5N packages",
+      "guests requesting Malang city stop",
+      "Malang dropoff packages"
+    ],
+    "customer_visible": true,
+    "reusable": true,
+    "link_key": "malang_batu_guide",
+    "visual_key": "malang_staging_card",
+    "core_overlay_ref": "malang_batu_staging",
+    "approval_status": "approved",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/09-accommodation-logic.json"
+    ]
+  }
+]

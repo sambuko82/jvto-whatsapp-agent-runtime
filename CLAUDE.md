@@ -48,6 +48,19 @@ It does NOT own (do not implement these here):
   committed, and only with explicit approval, via `git add -f`. The data payload
   (`knowledge.ndjson`, retrieval index, crosswalks, capabilities) stays regenerable.
 
+## Committed local catalog (`catalog/`)
+
+- `catalog/` is the **committed compact catalog**: the chat-time read path
+  (`agent-catalog/` + the published `customer-sales/` subtree) vendored from the upstream
+  repos so a **single checkout serves responses without the sibling repositories**. It is
+  deliberately committed (unlike `dist/releases/`), holds the real 16-package data
+  (variations, price tiers, route integrity, web link status) + a `provenance.json`, and is
+  what `/v1/customer-response` and `jvto-agent customer-response` read by default.
+- It is **regenerable, not hand-edited**: refresh it with
+  `jvto-agent build-local-catalog --knowledge-root <kc> --core-root <core> --web-root <web>`
+  (deterministic, byte-stable). It vendors only the chat-time subset — no `knowledge.ndjson`
+  / retrieval index / crosswalks (those remain a full `build-release` concern).
+
 ## Required validation (before commit)
 
 ```bash

@@ -1,0 +1,671 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "origin": "Bali",
+    "ferry_included": true,
+    "standard_dropoff_options": [
+      "Surabaya Airport",
+      "Surabaya Hotel",
+      "Malang"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      },
+      {
+        "id": "malang_dropoff",
+        "label": "Malang dropoff",
+        "type": "city_point",
+        "connects_to": [],
+        "required_customer_fields": [
+          "dropoff_area"
+        ]
+      }
+    ],
+    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "origin": "Bali",
+    "ferry_included": true,
+    "standard_dropoff_options": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "origin": "Bali",
+    "ferry_included": true,
+    "standard_dropoff_options": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "origin": "Bali",
+    "ferry_included": true,
+    "standard_dropoff_options": [],
+    "finish_details": [],
+    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Ketapang Harbor",
+      "Bali with additional transfer",
+      "Surabaya with route adjustment"
+    ],
+    "finish_details": [
+      {
+        "id": "ketapang_harbor_dropoff",
+        "label": "Ketapang Harbor dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_customer_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ]
+      },
+      {
+        "id": "bali_hotel_dropoff",
+        "label": "Bali hotel dropoff",
+        "type": "bali_area",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_name",
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport",
+      "Ketapang Harbor"
+    ],
+    "finish_details": [
+      {
+        "id": "ketapang_harbor_dropoff",
+        "label": "Ketapang Harbor dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_customer_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ]
+      },
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Malang Hotel",
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      },
+      {
+        "id": "malang_dropoff",
+        "label": "Malang dropoff",
+        "type": "city_point",
+        "connects_to": [],
+        "required_customer_fields": [
+          "dropoff_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Malang Hotel",
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      },
+      {
+        "id": "malang_dropoff",
+        "label": "Malang dropoff",
+        "type": "city_point",
+        "connects_to": [],
+        "required_customer_fields": [
+          "dropoff_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Surabaya Hotel",
+      "Surabaya Airport"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "origin": "Surabaya",
+    "ferry_included": false,
+    "standard_dropoff_options": [
+      "Ketapang Harbor",
+      "Bali with additional transfer"
+    ],
+    "finish_details": [
+      {
+        "id": "ketapang_harbor_dropoff",
+        "label": "Ketapang Harbor dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_customer_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ]
+      },
+      {
+        "id": "bali_hotel_dropoff",
+        "label": "Bali hotel dropoff",
+        "type": "bali_area",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_name",
+          "hotel_area"
+        ]
+      }
+    ],
+    "note": null,
+    "source_evidence": [
+      "core:generated/itinerary-intelligence/11-package-route-map.json",
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+    ],
+    "readiness": {
+      "endpoint_chain": "available"
+    }
+  }
+]

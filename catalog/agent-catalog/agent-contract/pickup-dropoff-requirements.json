@@ -1,0 +1,333 @@
+{
+  "pickups": [
+    {
+      "location_ref": "surabaya_airport_pickup",
+      "label": "Surabaya Airport pickup",
+      "type": "airport",
+      "location_group": "Surabaya",
+      "required_fields": [
+        "flight_number",
+        "arrival_time",
+        "origin_city"
+      ],
+      "risk_factors": [
+        "flight_delay",
+        "baggage_delay",
+        "airport_exit_congestion"
+      ],
+      "default_ready_buffer_minutes": 45,
+      "requires_feasibility_when": [
+        "arrival_time_late",
+        "same_day_bromo_sunrise",
+        "same_day_ijen_transfer"
+      ],
+      "confidence": "inferred",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_hotel_pickup",
+      "label": "Surabaya hotel pickup",
+      "type": "hotel",
+      "location_group": "Surabaya",
+      "required_fields": [
+        "hotel_name",
+        "pickup_time"
+      ],
+      "risk_factors": [
+        "late_checkout",
+        "luggage_loading",
+        "city_traffic"
+      ],
+      "default_ready_buffer_minutes": 15,
+      "requires_feasibility_when": [
+        "arrival_time_late"
+      ],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_train_station_pickup",
+      "label": "Surabaya train station pickup",
+      "type": "train_station",
+      "location_group": "Surabaya",
+      "required_fields": [
+        "train_number",
+        "arrival_time",
+        "station_name"
+      ],
+      "risk_factors": [
+        "train_delay",
+        "station_crowd",
+        "luggage_loading"
+      ],
+      "default_ready_buffer_minutes": 20,
+      "requires_feasibility_when": [
+        "arrival_time_late"
+      ],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "ketapang_harbor_pickup",
+      "label": "Ketapang Harbor pickup",
+      "type": "harbor",
+      "location_group": "Banyuwangi",
+      "required_fields": [
+        "arrival_time",
+        "ferry_or_boat_context"
+      ],
+      "risk_factors": [
+        "ferry_delay",
+        "harbor_queue",
+        "luggage_loading"
+      ],
+      "default_ready_buffer_minutes": 30,
+      "requires_feasibility_when": [
+        "ferry_timing_dependency"
+      ],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_city_point_pickup",
+      "label": "Surabaya city point pickup",
+      "type": "city_point",
+      "location_group": "Surabaya",
+      "required_fields": [
+        "meeting_point",
+        "pickup_time"
+      ],
+      "risk_factors": [
+        "city_traffic",
+        "unclear_meeting_point",
+        "parking_access"
+      ],
+      "default_ready_buffer_minutes": 20,
+      "requires_feasibility_when": [
+        "arrival_time_late"
+      ],
+      "confidence": "inferred",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "custom_address_pickup",
+      "label": "Custom address pickup",
+      "type": "custom_address",
+      "location_group": "Custom",
+      "required_fields": [
+        "address_area",
+        "pickup_time",
+        "vehicle_access_note"
+      ],
+      "risk_factors": [
+        "address_unclear",
+        "vehicle_access_restriction",
+        "local_traffic"
+      ],
+      "default_ready_buffer_minutes": 30,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "previous_tour_dropoff_pickup",
+      "label": "Previous tour dropoff as next pickup",
+      "type": "destination_area",
+      "location_group": "Previous route endpoint",
+      "required_fields": [
+        "previous_dropoff_area",
+        "handoff_time"
+      ],
+      "risk_factors": [
+        "previous_tour_delay",
+        "crew_handoff_gap",
+        "unclear_luggage_plan"
+      ],
+      "default_ready_buffer_minutes": 45,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
+    }
+  ],
+  "dropoffs": [
+    {
+      "location_ref": "ketapang_harbor_dropoff",
+      "label": "Ketapang Harbor dropoff",
+      "type": "harbor",
+      "location_group": "Banyuwangi",
+      "connects_to": [
+        "Gilimanuk Harbor",
+        "Pemuteran",
+        "Lovina",
+        "Ubud",
+        "Canggu",
+        "Seminyak",
+        "Denpasar Airport"
+      ],
+      "required_fields": [
+        "next_destination",
+        "ferry_or_bali_transfer_preference"
+      ],
+      "risk_factors": [
+        "ferry_queue",
+        "late_bali_arrival",
+        "bali_traffic"
+      ],
+      "default_buffer_minutes": 45,
+      "requires_feasibility_when": [
+        "ferry_timing_dependency"
+      ],
+      "confidence": "inferred",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_airport_dropoff",
+      "label": "Surabaya Airport dropoff",
+      "type": "airport",
+      "location_group": "Surabaya",
+      "connects_to": [],
+      "required_fields": [
+        "flight_number",
+        "departure_time"
+      ],
+      "risk_factors": [
+        "city_traffic",
+        "late_activity_finish",
+        "airport_buffer_risk"
+      ],
+      "default_buffer_minutes": 180,
+      "requires_feasibility_when": [
+        "tight_flight_connection"
+      ],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "bali_hotel_dropoff",
+      "label": "Bali hotel dropoff",
+      "type": "bali_area",
+      "location_group": "Bali",
+      "connects_to": [],
+      "required_fields": [
+        "hotel_name",
+        "hotel_area"
+      ],
+      "risk_factors": [
+        "ferry_queue",
+        "bali_traffic",
+        "late_hotel_arrival"
+      ],
+      "default_buffer_minutes": 60,
+      "requires_feasibility_when": [],
+      "confidence": "inferred",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_hotel_dropoff",
+      "label": "Surabaya hotel dropoff",
+      "type": "hotel",
+      "location_group": "Surabaya",
+      "connects_to": [],
+      "required_fields": [
+        "hotel_area"
+      ],
+      "risk_factors": [
+        "city_traffic",
+        "late_arrival",
+        "hotel_access"
+      ],
+      "default_buffer_minutes": 30,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "surabaya_train_station_dropoff",
+      "label": "Surabaya train station dropoff",
+      "type": "train_station",
+      "location_group": "Surabaya",
+      "connects_to": [],
+      "required_fields": [
+        "train_departure_time",
+        "station_name"
+      ],
+      "risk_factors": [
+        "city_traffic",
+        "station_crowd",
+        "missed_train_risk"
+      ],
+      "default_buffer_minutes": 90,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "malang_dropoff",
+      "label": "Malang dropoff",
+      "type": "city_point",
+      "location_group": "Malang",
+      "connects_to": [],
+      "required_fields": [
+        "dropoff_area"
+      ],
+      "risk_factors": [
+        "mountain_descent",
+        "city_traffic",
+        "late_arrival"
+      ],
+      "default_buffer_minutes": 45,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    },
+    {
+      "location_ref": "custom_address_dropoff",
+      "label": "Custom address dropoff",
+      "type": "custom_address",
+      "location_group": "Custom",
+      "connects_to": [],
+      "required_fields": [
+        "address_area",
+        "deadline_if_any",
+        "vehicle_access_note"
+      ],
+      "risk_factors": [
+        "address_unclear",
+        "vehicle_access_restriction",
+        "deadline_risk"
+      ],
+      "default_buffer_minutes": 45,
+      "requires_feasibility_when": [],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "02-dropoff-contexts.json"
+      ]
+    }
+  ]
+}

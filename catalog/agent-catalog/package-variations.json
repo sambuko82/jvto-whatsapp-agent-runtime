@@ -1,0 +1,1780 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "slug": "bromo-ijen-3d2n",
+    "title": "3 Day Bromo & Ijen Volcano Discovery from Bali",
+    "origin": "Bali",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "bromo",
+      "ijen"
+    ],
+    "public_url": "/tours/from-bali/bromo-ijen-3d2n",
+    "public_page_key": "package_bromo_ijen_3d2n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_bromo",
+      "destination_ijen"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Bali",
+        "Bromo",
+        "Ijen"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/bromo-ijen-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_bromo",
+        "destination_ijen"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_banyuwangi"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination",
+        "inclusion_east_java_bali_ferry"
+      ],
+      "standard_overnights": [
+        "Joglo Kecombrang Bromo",
+        "Riverside Homestay"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Airport",
+        "Surabaya Hotel",
+        "Malang"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel",
+        "dropoff_malang"
+      ],
+      "ferry_included": true,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_bromo_ijen_3d2n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "bromo-ijen-3d2n-bali",
+      "published_route_order": [
+        "bromo",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "slug": "ijen-bromo-madakaripura-3d2n",
+    "title": "3 Day Ijen, Bromo & Madakaripura Waterfall Journey from Bali to Surabaya",
+    "origin": "Bali",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-bali/ijen-bromo-madakaripura-3d2n",
+    "public_page_key": "package_ijen_bromo_madakaripura_3d2n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_bromo",
+      "destination_madakaripura"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Bali",
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_bromo",
+        "destination_madakaripura"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_banyuwangi"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination",
+        "inclusion_east_java_bali_ferry"
+      ],
+      "standard_overnights": [
+        "Luminor Hotel",
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Airport",
+        "Surabaya Hotel"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": true,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_bromo_madakaripura_3d2n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-bromo-madakaripura-3d2n-bali",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "title": "4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Expedition from Bali to Surabaya",
+    "origin": "Bali",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "public_page_key": "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_papuma",
+      "destination_tumpak_sewu",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Bali",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_papuma",
+        "destination_tumpak_sewu",
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_banyuwangi",
+        "staging_tumpak_sewu",
+        "staging_papuma"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination",
+        "inclusion_east_java_bali_ferry"
+      ],
+      "standard_overnights": [
+        "Luminor Hotel",
+        "Doho Homestay",
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Airport",
+        "Surabaya Hotel"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": true,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-4d3n-bali",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "title": "5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Discovery from Bali to Surabaya",
+    "origin": "Bali",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "public_page_key": "package_ijen_papuma_tumpak_sewu_bromo_5d4n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_papuma",
+      "destination_tumpak_sewu",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Bali",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_papuma",
+        "destination_tumpak_sewu",
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_banyuwangi",
+        "staging_tumpak_sewu",
+        "staging_papuma"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination",
+        "inclusion_east_java_bali_ferry"
+      ],
+      "standard_overnights": [
+        "Luminor Hotel",
+        "Doho Homestay",
+        "Joglo Kecombrang Bromo",
+        "Holiday Inn Express Surabaya"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [],
+      "endpoint_finish_refs": [],
+      "ferry_included": true,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_papuma_tumpak_sewu_bromo_5d4n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "slug_only",
+      "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": null,
+      "core_order_matches_published": null,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "slug": "bromo-1d1n",
+    "title": "1 Day Bromo Midnight Experience from Surabaya",
+    "origin": "Surabaya",
+    "duration": "1D1N",
+    "day_count": 1,
+    "private": true,
+    "destination_tokens": [
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-1d1n",
+    "public_page_key": "package_bromo_1d1n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-1d1n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep"
+      ],
+      "standard_overnights": [],
+      "rooming_rule_ref": null,
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_bromo_1d1n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "bromo-1d1n",
+      "published_route_order": [
+        "bromo"
+      ],
+      "core_visit_order": [
+        "bromo"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "slug": "bromo-2d1n",
+    "title": "2 Day Bromo Sunrise Adventure from Surabaya",
+    "origin": "Surabaya",
+    "duration": "2D1N",
+    "day_count": 2,
+    "private": true,
+    "destination_tokens": [
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-2d1n",
+    "public_page_key": "package_bromo_2d1n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "service_standard_rooming",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-2d1n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep"
+      ],
+      "standard_overnights": [
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_bromo_2d1n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "bromo-2d1n",
+      "published_route_order": [
+        "bromo"
+      ],
+      "core_visit_order": [
+        "bromo"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "slug": "bromo-madakaripura-ijen-3d2n",
+    "title": "3 Day Bromo, Madakaripura & Ijen Overland from Surabaya to Bali",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "bromo",
+      "madakaripura",
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-madakaripura-ijen-3d2n",
+    "public_page_key": "package_bromo_madakaripura_ijen_3d2n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_bromo",
+      "destination_madakaripura",
+      "destination_ijen"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Bromo",
+        "Madakaripura",
+        "Ijen"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#bromo-madakaripura-ijen-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_bromo",
+        "destination_madakaripura",
+        "destination_ijen"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Joglo Kecombrang Bromo",
+        "Riverside Homestay"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Ketapang Harbor",
+        "Bali with additional transfer",
+        "Surabaya with route adjustment"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_ketapang_harbor",
+        "dropoff_bali_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_bromo_madakaripura_ijen_3d2n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "bromo-madakaripura-ijen-3d2n",
+      "published_route_order": [
+        "bromo",
+        "madakaripura",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "bromo",
+        "madakaripura",
+        "ijen"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "slug": "ijen-2d1n",
+    "title": "2 Day Ijen Blue Fire Expedition from Surabaya",
+    "origin": "Surabaya",
+    "duration": "2D1N",
+    "day_count": 2,
+    "private": true,
+    "destination_tokens": [
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-2d1n",
+    "public_page_key": "package_ijen_2d1n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-2d1n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen"
+      ],
+      "staging_refs": [
+        "staging_bondowoso_ijen"
+      ],
+      "inclusion_additions": [
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport",
+        "Ketapang Harbor"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_ketapang_harbor",
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_2d1n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-2d1n",
+      "published_route_order": [
+        "ijen"
+      ],
+      "core_visit_order": [
+        "ijen"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "slug": "ijen-bromo-madakaripura-3d2n",
+    "title": "3 Day Ijen, Bromo & Madakaripura Waterfall Discovery from Surabaya",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-3d2n",
+    "public_page_key": "package_ijen_bromo_madakaripura_3d2n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_bromo",
+      "destination_madakaripura"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_bromo",
+        "destination_madakaripura"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_bromo_madakaripura_3d2n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-bromo-madakaripura-3d2n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "slug": "ijen-bromo-madakaripura-4d3n",
+    "title": "4 Day Ijen, Bromo & Madakaripura Waterfall Expedition from Surabaya",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-4d3n",
+    "public_page_key": "package_ijen_bromo_madakaripura_4d3n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_bromo",
+      "destination_madakaripura"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Bromo",
+        "Madakaripura"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_bromo",
+        "destination_madakaripura"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Joglo Kecombrang Bromo",
+        "Holiday Inn Express Surabaya"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_bromo_madakaripura_4d3n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-bromo-madakaripura-4d3n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "slug": "ijen-bromo-madakaripura-malang-5d4n",
+    "title": "5 Day Ijen, Bromo, Madakaripura & Malang City Adventure from Surabaya",
+    "origin": "Surabaya",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura",
+      "malang"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n",
+    "public_page_key": "package_ijen_bromo_madakaripura_malang_5d4n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_bromo",
+      "destination_madakaripura"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Bromo",
+        "Madakaripura",
+        "Malang"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-bromo-madakaripura-malang-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_bromo",
+        "destination_madakaripura"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen",
+        "staging_malang_batu"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Joglo Kecombrang Bromo",
+        "Whiz Prime Malang",
+        "Holiday Inn Express Surabaya"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Malang Hotel",
+        "Surabaya Airport",
+        "Surabaya Hotel"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel",
+        "dropoff_malang"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_bromo_madakaripura_malang_5d4n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-bromo-madakaripura-malang-5d4n",
+      "published_route_order": [
+        "ijen",
+        "bromo",
+        "madakaripura",
+        "malang"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "bromo",
+        "madakaripura",
+        "malang"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "title": "4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Journey from Surabaya",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "public_page_key": "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_papuma",
+      "destination_tumpak_sewu",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_papuma",
+        "destination_tumpak_sewu",
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen",
+        "staging_tumpak_sewu",
+        "staging_papuma"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Doho Homestay",
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "title": "5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Nature Trip from Surabaya",
+    "origin": "Surabaya",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "public_page_key": "package_ijen_papuma_tumpak_sewu_bromo_5d4n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_papuma",
+      "destination_tumpak_sewu",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_papuma",
+        "destination_tumpak_sewu",
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen",
+        "staging_tumpak_sewu",
+        "staging_papuma"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Doho Homestay",
+        "Joglo Kecombrang Bromo",
+        "Holiday Inn Express Surabaya"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_papuma_tumpak_sewu_bromo_5d4n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "title": "6 Day Ijen, Papuma Beach, Tumpak Sewu, Bromo & Malang City Discovery from Surabaya",
+    "origin": "Surabaya",
+    "duration": "6D5N",
+    "day_count": 6,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo",
+      "malang"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "public_page_key": "package_ijen_papuma_tumpak_sewu_bromo_malang_6d5n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_ijen",
+      "destination_papuma",
+      "destination_tumpak_sewu",
+      "destination_bromo"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Ijen",
+        "Papuma",
+        "Tumpak Sewu",
+        "Bromo",
+        "Malang"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_ijen",
+        "destination_papuma",
+        "destination_tumpak_sewu",
+        "destination_bromo"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen",
+        "staging_tumpak_sewu",
+        "staging_papuma",
+        "staging_malang_batu"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Riverside Homestay",
+        "Doho Homestay",
+        "Joglo Kecombrang Bromo",
+        "Whiz Prime Malang",
+        "Holiday Inn Express Surabaya"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Malang Hotel",
+        "Surabaya Airport",
+        "Surabaya Hotel"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel",
+        "dropoff_malang"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_ijen_papuma_tumpak_sewu_bromo_malang_6d5n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "published_route_order": [
+        "ijen",
+        "papuma",
+        "tumpak_sewu",
+        "bromo",
+        "malang"
+      ],
+      "core_visit_order": [
+        "ijen",
+        "tumpak_sewu",
+        "bromo",
+        "malang"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "slug": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "title": "3 Day Taman Safari Prigen, Bromo & Madakaripura from Surabaya",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "taman",
+      "safari",
+      "prigen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n",
+    "public_page_key": "package_taman_safari_prigen_bromo_madakaripura_3d2n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "service_standard_rooming",
+      "destination_bromo",
+      "destination_madakaripura"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Taman Safari Prigen",
+        "Bromo",
+        "Madakaripura"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#taman-safari-prigen-bromo-madakaripura-3d2n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_bromo",
+        "destination_madakaripura"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep"
+      ],
+      "standard_overnights": [
+        "Joglo Kecombrang Bromo",
+        "Joglo Kecombrang Bromo"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Surabaya Hotel",
+        "Surabaya Airport"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_surabaya_airport",
+        "dropoff_surabaya_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_taman_safari_prigen_bromo_madakaripura_3d2n",
+      "pax_range": {
+        "min": 2,
+        "max": 10
+      },
+      "is_specialty": true
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "taman-safari-prigen-bromo-madakaripura-3d2n",
+      "published_route_order": [
+        "taman_safari_prigen",
+        "bromo",
+        "madakaripura"
+      ],
+      "core_visit_order": [
+        "bromo",
+        "madakaripura"
+      ],
+      "core_order_matches_published": false,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "slug": "tumpak-sewu-bromo-ijen-4d3n",
+    "title": "4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "tumpak",
+      "sewu",
+      "bromo",
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n",
+    "public_page_key": "package_tumpak_sewu_bromo_ijen_4d3n",
+    "general_module_refs": [
+      "policy_booking_paths",
+      "policy_payment_deposit",
+      "policy_anti_fraud",
+      "policy_cancellation_travel_credit",
+      "policy_natural_phenomena",
+      "policy_inclusions_exclusions",
+      "policy_isic_student",
+      "policy_police_escort",
+      "inclusion_all_inclusive_baseline",
+      "exclusion_standard",
+      "service_private_tour_standard",
+      "service_crew_language_standard",
+      "service_vehicle_by_pax",
+      "policy_ijen_health_screening",
+      "policy_ijen_monthly_closure",
+      "service_standard_rooming",
+      "destination_tumpak_sewu",
+      "destination_bromo",
+      "destination_ijen"
+    ],
+    "package_variations": {
+      "route_sequence": [
+        "Surabaya",
+        "Tumpak Sewu",
+        "Bromo",
+        "Ijen"
+      ],
+      "route_sequence_source": "published_itinerary_day_titles",
+      "operational_route_ref": "itinerary-core:agent-contract/package-operational-composition.json#tumpak-sewu-bromo-ijen-4d3n",
+      "route_truth_owner": "jvto-itinerary-core",
+      "destination_refs": [
+        "destination_tumpak_sewu",
+        "destination_bromo",
+        "destination_ijen"
+      ],
+      "staging_refs": [
+        "staging_bromo_area_sunrise",
+        "staging_bondowoso_ijen",
+        "staging_tumpak_sewu"
+      ],
+      "inclusion_additions": [
+        "inclusion_bromo_private_jeep",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination"
+      ],
+      "standard_overnights": [
+        "Artha Cottage",
+        "Joglo Kecombrang Bromo",
+        "Riverside Homestay"
+      ],
+      "rooming_rule_ref": "service_standard_rooming",
+      "standard_dropoff_options": [
+        "Ketapang Harbor",
+        "Bali with additional transfer"
+      ],
+      "endpoint_finish_refs": [
+        "dropoff_ketapang_harbor",
+        "dropoff_bali_hotel"
+      ],
+      "ferry_included": false,
+      "booking_mode": {
+        "instant_book": true,
+        "whatsapp_assisted": true
+      },
+      "price_tier_ref": "standard_price_tumpak_sewu_bromo_ijen_4d3n",
+      "pax_range": {
+        "min": 1,
+        "max": 10
+      },
+      "is_specialty": false
+    },
+    "variation_evidence": {
+      "composition_match": "exact",
+      "matched_core_route_id": "tumpak-sewu-bromo-ijen-4d3n",
+      "published_route_order": [
+        "tumpak_sewu",
+        "bromo",
+        "ijen"
+      ],
+      "core_visit_order": [
+        "tumpak_sewu",
+        "bromo",
+        "ijen"
+      ],
+      "core_order_matches_published": true,
+      "unmapped_inclusions": []
+    },
+    "source_evidence": [
+      "knowledge:customer-sales-release/package-profiles.json",
+      "knowledge:customer-sales-release/component-matrices.json",
+      "knowledge:customer-sales-release/accommodation-rules.json",
+      "knowledge:customer-sales-release/endpoint-chains.json",
+      "knowledge:customer-sales-release/standard-price-tiers.json",
+      "core:generated/itinerary-intelligence/11-package-route-map.json"
+    ]
+  }
+]

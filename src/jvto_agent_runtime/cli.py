@@ -11,7 +11,7 @@ from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
 from .delivery_adapter import delivery_plan_from_decision
 from .presentation_resolver import resolve_delivery_plan
-from .release_builder import build_release
+from .release_builder import build_local_catalog, build_release, local_catalog_root
 from .response_composer import compose_customer_response
 from .sales_intelligence import derive_response_plan, load_customer_sales_config, merge_trip_brief
 from .utils import read_json, utc_now, write_json
@@ -34,6 +34,12 @@ def main() -> None:
     build.add_argument("--web-root", help="jvto-web checkout root; vendors the link/media capability registries into the release agent-catalog")
     build.add_argument("--release-id", required=True)
     build.add_argument("--overwrite", action="store_true")
+
+    local_cat = sub.add_parser("build-local-catalog", help="Regenerate the committed compact catalog (catalog/) from upstreams")
+    local_cat.add_argument("--knowledge-root", required=True)
+    local_cat.add_argument("--core-root", required=True)
+    local_cat.add_argument("--web-root")
+    local_cat.add_argument("--out", help="output dir (default: <repo>/catalog)")
 
     release = sub.add_parser("validate-release")
     release.add_argument("--release-dir", required=True)
@@ -111,7 +117,7 @@ def main() -> None:
     delivery_from.add_argument("--output")
 
     customer_resp = sub.add_parser("customer-response")
-    customer_resp.add_argument("--release-dir", required=True)
+    customer_resp.add_argument("--release-dir", help="defaults to the committed local catalog (catalog/)")
     customer_resp.add_argument("--decision-envelope", required=True, help="Path to a DecisionEnvelope JSON file")
     customer_resp.add_argument("--trip-brief", help="Optional path to a TripBrief JSON file")
     customer_resp.add_argument("--query", default="")
@@ -129,6 +135,14 @@ def main() -> None:
             root, Path(args.knowledge_root), Path(args.core_root), args.release_id, args.overwrite, web_root=web_root
         )
         print(str(release_dir))
+        return
+    if args.command == "build-local-catalog":
+        out = build_local_catalog(
+            root, Path(args.knowledge_root), Path(args.core_root),
+            out_dir=Path(args.out) if args.out else None,
+            web_root=Path(args.web_root) if args.web_root else None,
+        )
+        print(str(out))
         return
     if args.command == "validate-release":
         result = validate_release(root, Path(args.release_dir))
@@ -242,8 +256,9 @@ def main() -> None:
         envelope = read_json(Path(args.decision_envelope))
         trip_brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
         config = load_customer_sales_config(root)
+        release_dir = Path(args.release_dir) if args.release_dir else local_catalog_root(root)
         result = compose_customer_response(
-            Path(args.release_dir), envelope, trip_brief=trip_brief, query=args.query, config=config
+            release_dir, envelope, trip_brief=trip_brief, query=args.query, config=config
         )
         if args.output:
             write_json(Path(args.output), result)

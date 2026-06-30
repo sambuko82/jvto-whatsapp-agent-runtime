@@ -1,0 +1,60 @@
+{
+  "core_agent_contract": {
+    "boundary_count": 16,
+    "files": [
+      "destination-operational-overlays.json",
+      "manifest.json",
+      "operational-readiness.json",
+      "package-customization-boundaries.json",
+      "package-operational-composition.json",
+      "pickup-dropoff-requirements.json",
+      "route-validation-rules.json",
+      "staging-logic.json"
+    ],
+    "present": true
+  },
+  "crosswalk_integrity": {
+    "aligned": true,
+    "core_boundary_count": 16,
+    "core_only": [],
+    "module_only": [],
+    "module_variation_count": 16,
+    "status": "aligned"
+  },
+  "module_layer": {
+    "compatibility_release_id": "customer-sales-release-20260628-001",
+    "general_modules": 67,
+    "package_variations": 16,
+    "present": true
+  },
+  "schema_version": "agent-catalog-manifest-v1",
+  "web_experience": {
+    "asset_count": 21,
+    "link_count": 53,
+    "link_key_collisions": [
+      "package_ijen_bromo_madakaripura_3d2n",
+      "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "package_ijen_papuma_tumpak_sewu_bromo_5d4n"
+    ],
+    "package_page_links_missing": [],
+    "package_page_links_resolved": [
+      "package_bromo_1d1n",
+      "package_bromo_2d1n",
+      "package_bromo_ijen_3d2n",
+      "package_bromo_madakaripura_ijen_3d2n",
+      "package_ijen_2d1n",
+      "package_ijen_bromo_madakaripura_3d2n",
+      "package_ijen_bromo_madakaripura_3d2n",
+      "package_ijen_bromo_madakaripura_4d3n",
+      "package_ijen_bromo_madakaripura_malang_5d4n",
+      "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "package_ijen_papuma_tumpak_sewu_bromo_4d3n",
+      "package_ijen_papuma_tumpak_sewu_bromo_5d4n",
+      "package_ijen_papuma_tumpak_sewu_bromo_5d4n",
+      "package_ijen_papuma_tumpak_sewu_bromo_malang_6d5n",
+      "package_taman_safari_prigen_bromo_madakaripura_3d2n",
+      "package_tumpak_sewu_bromo_ijen_4d3n"
+    ],
+    "present": true
+  }
+}

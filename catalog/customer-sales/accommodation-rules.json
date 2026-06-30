@@ -1,0 +1,250 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "overnights": [
+      "Joglo Kecombrang Bromo",
+      "Riverside Homestay"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-bali/bromo-ijen-3d2n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "overnights": [
+      "Luminor Hotel",
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "overnights": [
+      "Luminor Hotel",
+      "Doho Homestay",
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "overnights": [
+      "Luminor Hotel",
+      "Doho Homestay",
+      "Joglo Kecombrang Bromo",
+      "Holiday Inn Express Surabaya"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "overnights": [],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md"
+    ],
+    "readiness": {
+      "rooming": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "overnights": [
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-2d1n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "overnights": [
+      "Joglo Kecombrang Bromo",
+      "Riverside Homestay"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-madakaripura-ijen-3d2n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "overnights": [
+      "Riverside Homestay"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-2d1n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "overnights": [
+      "Riverside Homestay",
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "overnights": [
+      "Riverside Homestay",
+      "Joglo Kecombrang Bromo",
+      "Holiday Inn Express Surabaya"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-4d3n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "overnights": [
+      "Riverside Homestay",
+      "Joglo Kecombrang Bromo",
+      "Whiz Prime Malang",
+      "Holiday Inn Express Surabaya"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "overnights": [
+      "Riverside Homestay",
+      "Doho Homestay",
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "overnights": [
+      "Riverside Homestay",
+      "Doho Homestay",
+      "Joglo Kecombrang Bromo",
+      "Holiday Inn Express Surabaya"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "overnights": [
+      "Riverside Homestay",
+      "Doho Homestay",
+      "Joglo Kecombrang Bromo",
+      "Whiz Prime Malang",
+      "Holiday Inn Express Surabaya"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "overnights": [
+      "Joglo Kecombrang Bromo",
+      "Joglo Kecombrang Bromo"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "overnights": [
+      "Artha Cottage",
+      "Joglo Kecombrang Bromo",
+      "Riverside Homestay"
+    ],
+    "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+    ],
+    "readiness": {
+      "rooming": "available"
+    }
+  }
+]

@@ -9,6 +9,7 @@ from .decision_engine import build_decision
 from .deployment import create_approval, deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
+from .delivery_adapter import delivery_plan_from_decision
 from .presentation_resolver import resolve_delivery_plan
 from .release_builder import build_release
 from .sales_intelligence import derive_response_plan, load_customer_sales_config, merge_trip_brief
@@ -100,6 +101,13 @@ def main() -> None:
     delivery.add_argument("--package-key")
     delivery.add_argument("--customer-context", default="{}", help="JSON object of presentation context, e.g. '{\"pax\": 4}'")
     delivery.add_argument("--output")
+
+    delivery_from = sub.add_parser("delivery-plan-from-decision")
+    delivery_from.add_argument("--release-dir", required=True)
+    delivery_from.add_argument("--decision-envelope", required=True, help="Path to a DecisionEnvelope JSON file")
+    delivery_from.add_argument("--trip-brief", help="Optional path to a TripBrief JSON file")
+    delivery_from.add_argument("--query", default="")
+    delivery_from.add_argument("--output")
 
     args = parser.parse_args()
     root = _repo_root()
@@ -206,6 +214,17 @@ def main() -> None:
             query=args.query,
             package_key=args.package_key or None,
             customer_context=customer_context,
+        )
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "delivery-plan-from-decision":
+        envelope = read_json(Path(args.decision_envelope))
+        trip_brief = read_json(Path(args.trip_brief)) if args.trip_brief else None
+        config = load_customer_sales_config(root)
+        result = delivery_plan_from_decision(
+            Path(args.release_dir), envelope, trip_brief=trip_brief, query=args.query, config=config
         )
         if args.output:
             write_json(Path(args.output), result)

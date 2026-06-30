@@ -95,7 +95,9 @@ def test_link_existing_package_page(links):
 
 
 def test_link_missing_page_is_not_sendable(links):
-    r = resolve_link(links, "what_is_included")  # /guides/* page does not exist yet
+    # synthetic_missing_page is a curated page_missing entry in the fixture (the real
+    # /guides/* explainer pages now exist), kept to cover the page_missing resolver path.
+    r = resolve_link(links, "synthetic_missing_page")
     assert r.status == "page_missing"
     assert not r.sendable and r.url is None
 

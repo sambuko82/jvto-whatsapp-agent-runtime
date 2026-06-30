@@ -53,6 +53,7 @@ python -m jvto_agent_runtime validate-release --release-dir dist/releases/smoke
 
 | PR | Milestone | Key outcome |
 |---|---|---|
+| (data-map) | Physical data map + G7 | Documented the physical data layer (files/fields/join-keys/gaps); refreshed both stale link-registry fixtures to production (G7), preserving page_missing coverage via a synthetic entry. |
 | #15 | DecisionEnvelope→DeliveryPlan seam | `delivery_adapter.delivery_plan_from_decision` + `POST /v1/delivery-plan/from-decision` + CLI; maps envelope→presentation inputs; envelope floor (handoff + needs_information) escalate-only. |
 | #14 | Persistent context + completion loop | `docs/project-context.md` (this file) becomes the per-milestone context; `CLAUDE.md` points to it. |
 | #13 | DeliveryPlan API | `POST /v1/delivery-plan` + `jvto-agent delivery-plan` CLI; reads one local release; 404 on missing/incomplete release. |

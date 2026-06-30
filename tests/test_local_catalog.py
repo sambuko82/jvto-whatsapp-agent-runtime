@@ -80,3 +80,15 @@ def test_build_local_catalog_matches_committed(tmp_path):
                 "agent-catalog/agent-contract/package-customization-boundaries.json",
                 "customer-sales/standard-price-tiers.json"):
         assert (out / rel).read_bytes() == (CATALOG / rel).read_bytes(), rel
+
+
+@pytest.mark.skipif(not all(p.exists() for p in _REAL), reason="upstream sibling clones not present")
+def test_bad_upstream_path_does_not_destroy_existing_catalog(tmp_path):
+    # Build a good catalog, then a rebuild with a bogus knowledge path must FAIL before
+    # touching it — the existing catalog stays intact (no empty/degraded default read path).
+    out = build_local_catalog(REPO, _REAL[0], _REAL[1], out_dir=tmp_path / "catalog", web_root=_REAL[2])
+    before = (out / "agent-catalog/package-variations.json").read_bytes()
+    with pytest.raises(FileNotFoundError):
+        build_local_catalog(REPO, tmp_path / "nonexistent-knowledge", _REAL[1], out_dir=out, web_root=_REAL[2])
+    assert (out / "agent-catalog/package-variations.json").read_bytes() == before
+    assert not (out.parent / (out.name + ".staging")).exists()

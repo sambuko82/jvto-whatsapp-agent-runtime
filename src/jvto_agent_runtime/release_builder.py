@@ -310,6 +310,39 @@ def local_catalog_root(repo_root: Path | str) -> Path:
     return Path(repo_root) / LOCAL_CATALOG_DIRNAME
 
 
+def _require_catalog_inputs(
+    knowledge_root: Path, core_root: Path, web_root: Path | None, config: dict[str, Any]
+) -> None:
+    """Fail fast if an upstream input (typo / stale checkout) is missing, BEFORE the existing
+    committed catalog is touched — the vendoring helpers tolerate missing sources, so without
+    this a bad path would silently replace catalog/ with an empty/degraded read path."""
+    kc = config["upstreams"]["knowledge_catalog"]
+    core_cfg = config["upstreams"]["itinerary_core"]
+    web_cfg = config["upstreams"].get("web_experience", {})
+    sales_root = knowledge_root / kc.get("customer_sales_release_root", "okf/customer-sales-release/jvto")
+    contract_root = core_root / core_cfg.get("agent_contract_root", "generated/itinerary-intelligence/agent-contract")
+    missing: list[str] = []
+    for name in kc.get("module_layer_files", ["general-modules.json", "package-variations.json", "module-compatibility.json"]):
+        if not (sales_root / name).exists():
+            missing.append(f"knowledge module-layer: {name}")
+    for name in ("package-profiles.json", "standard-price-tiers.json", "release-manifest.json"):
+        if not (sales_root / name).exists():
+            missing.append(f"customer-sales: {name}")
+    for name in ("package-customization-boundaries.json", "package-operational-composition.json"):
+        if not (contract_root / name).exists():
+            missing.append(f"core agent-contract: {name}")
+    if web_root is not None:
+        public_root = web_root / web_cfg.get("public_root", "public")
+        for name in (web_cfg.get("link_registry", "customer-link-registry.json"),
+                     web_cfg.get("media_registry", "customer-media-registry.json")):
+            if not (public_root / name).exists():
+                missing.append(f"web: {name}")
+    if missing:
+        raise FileNotFoundError(
+            "build-local-catalog: missing upstream inputs (catalog NOT modified): " + "; ".join(missing)
+        )
+
+
 def build_local_catalog(
     repo_root: Path,
     knowledge_root: Path,
@@ -325,15 +358,22 @@ def build_local_catalog(
     full `build-release`). Deterministic + byte-stable (no timestamps) so re-running against
     unchanged upstreams produces no diff. Run at maintenance time (sibling repos present);
     the committed result needs no sibling repos to read.
+
+    Inputs are validated up front and the catalog is built into a staging dir then swapped in
+    only on success, so a bad/stale upstream path can never replace the committed catalog with
+    an empty or half-written one.
     """
     config = load_upstream_config(repo_root)
     out = Path(out_dir) if out_dir is not None else local_catalog_root(repo_root)
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
+    _require_catalog_inputs(knowledge_root, core_root, web_root, config)
 
-    agent_catalog = _vendor_agent_catalog(knowledge_root, core_root, web_root, config, out)
-    customer_sales = _project_customer_sales(knowledge_root, config, out)
+    staging = out.parent / (out.name + ".staging")
+    if staging.exists():
+        shutil.rmtree(staging)
+    staging.mkdir(parents=True)
+
+    agent_catalog = _vendor_agent_catalog(knowledge_root, core_root, web_root, config, staging)
+    customer_sales = _project_customer_sales(knowledge_root, config, staging)
 
     kc = config["upstreams"]["knowledge_catalog"]
     core_cfg = config["upstreams"]["itinerary_core"]
@@ -358,7 +398,12 @@ def build_local_catalog(
         },
         "customer_sales": {"present": customer_sales.get("present"), "object_count": customer_sales.get("object_count")},
     }
-    write_json(out / "provenance.json", provenance)
+    write_json(staging / "provenance.json", provenance)
+
+    # Swap in only after a fully successful build (never leave a half-written catalog).
+    if out.exists():
+        shutil.rmtree(out)
+    staging.rename(out)
     return out
 
 

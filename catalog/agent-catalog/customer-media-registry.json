@@ -1,0 +1,349 @@
+{
+  "schema_version": "customer-media-registry-v1",
+  "cdn_base": "https://javavolcano-touroperator.com/assets/agent-cards",
+  "generated_from": "knowledge-catalog general-modules.json (visual_key universe)",
+  "summary": {
+    "total_assets": 21,
+    "to_create": 21,
+    "master_reusable": 9,
+    "secondary_reusable": 12
+  },
+  "notes": [
+    "Per the audit, NO customer-ready media assets exist yet — all assets are status=to_create.",
+    "Build the 9 master_reusable cards first (priority order), then secondary/destination/package covers.",
+    "Runtime asset_resolver must never invent a URL: only assets with status!=to_create and a non-null url are sendable."
+  ],
+  "assets": [
+    {
+      "asset_id": "all_inclusive_card",
+      "type": "image",
+      "topic": "inclusions",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 1,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/all_inclusive-en.jpg",
+      "alt_text": "What every JVTO private tour includes",
+      "status": "to_create",
+      "used_by": [
+        "exclusion_standard",
+        "inclusion_all_inclusive_baseline",
+        "inclusion_bromo_private_jeep",
+        "inclusion_dedicated_crew",
+        "inclusion_drinking_water",
+        "inclusion_entrance_permits",
+        "inclusion_pickup_dropoff_assistance",
+        "inclusion_private_transport",
+        "inclusion_stated_meals",
+        "policy_inclusions_exclusions"
+      ]
+    },
+    {
+      "asset_id": "blue_fire_status_card",
+      "type": "image",
+      "topic": "blue_fire",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 6,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/blue_fire_status-en.jpg",
+      "alt_text": "Blue fire and sunrise cannot be guaranteed (natural phenomena)",
+      "status": "to_create",
+      "used_by": [
+        "policy_natural_phenomena"
+      ]
+    },
+    {
+      "asset_id": "booking_steps_card",
+      "type": "image",
+      "topic": "booking",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 8,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/booking_steps-en.jpg",
+      "alt_text": "How to book: website Instant Book or WhatsApp-assisted",
+      "status": "to_create",
+      "used_by": [
+        "policy_booking_paths"
+      ]
+    },
+    {
+      "asset_id": "bromo_staging_card",
+      "type": "image",
+      "topic": "staging",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/bromo_staging-en.jpg",
+      "alt_text": "bromo staging",
+      "status": "to_create",
+      "used_by": [
+        "staging_bromo_area_sunrise"
+      ]
+    },
+    {
+      "asset_id": "bromo_sunrise_card",
+      "type": "image",
+      "topic": "bromo",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/bromo_sunrise-en.jpg",
+      "alt_text": "bromo sunrise",
+      "status": "to_create",
+      "used_by": [
+        "destination_bromo"
+      ]
+    },
+    {
+      "asset_id": "cancellation_card",
+      "type": "image",
+      "topic": "policy",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/cancellation-en.jpg",
+      "alt_text": "cancellation",
+      "status": "to_create",
+      "used_by": [
+        "policy_cancellation_travel_credit"
+      ]
+    },
+    {
+      "asset_id": "finish_in_bali_card",
+      "type": "image",
+      "topic": "endpoint",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 7,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/finish_in_bali-en.jpg",
+      "alt_text": "Finish in Bali: Ketapang ferry, Gilimanuk crossing, optional Bali transfer",
+      "status": "to_create",
+      "used_by": [
+        "inclusion_east_java_bali_ferry"
+      ]
+    },
+    {
+      "asset_id": "ijen_readiness_card",
+      "type": "image",
+      "topic": "ijen_safety",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 5,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/ijen_readiness-en.jpg",
+      "alt_text": "Ijen readiness: health screening, gas mask, trekking poles",
+      "status": "to_create",
+      "used_by": [
+        "destination_ijen",
+        "inclusion_ijen_equipment",
+        "inclusion_ijen_health_screening_coordination",
+        "policy_ijen_health_screening",
+        "policy_ijen_monthly_closure"
+      ]
+    },
+    {
+      "asset_id": "ijen_staging_card",
+      "type": "image",
+      "topic": "staging",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/ijen_staging-en.jpg",
+      "alt_text": "ijen staging",
+      "status": "to_create",
+      "used_by": [
+        "staging_banyuwangi",
+        "staging_bondowoso_ijen"
+      ]
+    },
+    {
+      "asset_id": "madakaripura_card",
+      "type": "image",
+      "topic": "madakaripura",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/madakaripura-en.jpg",
+      "alt_text": "madakaripura",
+      "status": "to_create",
+      "used_by": [
+        "destination_madakaripura"
+      ]
+    },
+    {
+      "asset_id": "malang_staging_card",
+      "type": "image",
+      "topic": "staging",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/malang_staging-en.jpg",
+      "alt_text": "malang staging",
+      "status": "to_create",
+      "used_by": [
+        "staging_malang_batu"
+      ]
+    },
+    {
+      "asset_id": "papuma_card",
+      "type": "image",
+      "topic": "papuma",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/papuma-en.jpg",
+      "alt_text": "papuma",
+      "status": "to_create",
+      "used_by": [
+        "destination_papuma"
+      ]
+    },
+    {
+      "asset_id": "papuma_staging_card",
+      "type": "image",
+      "topic": "staging",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/papuma_staging-en.jpg",
+      "alt_text": "papuma staging",
+      "status": "to_create",
+      "used_by": [
+        "staging_papuma"
+      ]
+    },
+    {
+      "asset_id": "payment_safety_card",
+      "type": "image",
+      "topic": "payment",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 9,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/payment_safety-en.jpg",
+      "alt_text": "Official payment only — JVTO never asks for CVV or OTP",
+      "status": "to_create",
+      "used_by": [
+        "policy_anti_fraud",
+        "policy_payment_deposit"
+      ]
+    },
+    {
+      "asset_id": "police_escort_card",
+      "type": "image",
+      "topic": "groups",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/police_escort-en.jpg",
+      "alt_text": "police escort",
+      "status": "to_create",
+      "used_by": [
+        "policy_police_escort"
+      ]
+    },
+    {
+      "asset_id": "private_tour_card",
+      "type": "image",
+      "topic": "private_tour",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 3,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/private_tour-en.jpg",
+      "alt_text": "Private tour: your own driver and guide, no shared group",
+      "status": "to_create",
+      "used_by": [
+        "service_crew_language_standard",
+        "service_private_tour_standard"
+      ]
+    },
+    {
+      "asset_id": "rooming_options_card",
+      "type": "image",
+      "topic": "rooming",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 4,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/rooming_options-en.jpg",
+      "alt_text": "Twin, double, separate or extra rooms on request",
+      "status": "to_create",
+      "used_by": [
+        "service_standard_rooming"
+      ]
+    },
+    {
+      "asset_id": "student_pricing_card",
+      "type": "image",
+      "topic": "pricing",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/student_pricing-en.jpg",
+      "alt_text": "student pricing",
+      "status": "to_create",
+      "used_by": [
+        "policy_isic_student"
+      ]
+    },
+    {
+      "asset_id": "tumpak_sewu_card",
+      "type": "image",
+      "topic": "tumpak_sewu",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/tumpak_sewu-en.jpg",
+      "alt_text": "tumpak sewu",
+      "status": "to_create",
+      "used_by": [
+        "destination_tumpak_sewu"
+      ]
+    },
+    {
+      "asset_id": "tumpak_sewu_staging_card",
+      "type": "image",
+      "topic": "staging",
+      "language": "en",
+      "tier": "secondary_reusable",
+      "priority": null,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/tumpak_sewu_staging-en.jpg",
+      "alt_text": "tumpak sewu staging",
+      "status": "to_create",
+      "used_by": [
+        "staging_tumpak_sewu"
+      ]
+    },
+    {
+      "asset_id": "vehicle_by_pax_card",
+      "type": "image",
+      "topic": "vehicle",
+      "language": "en",
+      "tier": "master_reusable",
+      "priority": 2,
+      "url": null,
+      "proposed_url": "https://javavolcano-touroperator.com/assets/agent-cards/vehicle_by_pax-en.jpg",
+      "alt_text": "AC MPV for 1–3 guests and Hiace for 4–9 guests",
+      "status": "to_create",
+      "used_by": [
+        "service_vehicle_by_pax"
+      ]
+    }
+  ]
+}

@@ -18,6 +18,7 @@ from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_l
 from .meta_webhook import normalize_payload, verify_signature, verify_subscription
 from .monolith_catalog import catalog_root_for
 from .presentation_resolver import resolve_delivery_plan
+from .release_builder import local_catalog_root
 from .response_composer import compose_customer_response
 from .sales_intelligence import derive_response_plan, load_customer_sales_config
 from .validator import validate_release
@@ -140,12 +141,20 @@ def delivery_plan_from_decision_endpoint(request: DeliveryPlanFromDecisionReques
         raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
 
 
+class CustomerResponseRequest(BaseModel):
+    decision_envelope: dict[str, Any] = Field(..., description="An already-built DecisionEnvelope (from /v1/decisions)")
+    trip_brief: dict[str, Any] | None = None
+    query: str = ""
+    release_dir: str | None = Field(None, description="defaults to the committed local catalog (catalog/) — one checkout, no sibling repos")
+
+
 @app.post("/v1/customer-response")
-def customer_response_endpoint(request: DeliveryPlanFromDecisionRequest) -> dict[str, Any]:
-    # One customer-ready draft from a single compiled release: package facts + published
+def customer_response_endpoint(request: CustomerResponseRequest) -> dict[str, Any]:
+    # One customer-ready draft from a single compiled catalog: package facts + published
     # price + Core route/booking safety + sendable link, with all states preserved. Reads
     # both agent-catalog/ (presentation+route gate) and customer-sales/ (catalog+price).
-    release_dir = Path(request.release_dir)
+    # Defaults to the committed local catalog so a single checkout serves responses.
+    release_dir = Path(request.release_dir) if request.release_dir else local_catalog_root(_repo_root())
     _require_built_release(release_dir)
     if not (release_dir / "customer-sales" / "release-manifest.json").exists():
         raise HTTPException(status_code=404, detail="Customer Sales Release not found in release dir; rebuild the release with build-release")

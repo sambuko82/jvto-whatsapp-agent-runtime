@@ -1,0 +1,92 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/kawah-ijen",
+    "title": "Kawah Ijen",
+    "description": "Active East Java volcano known for its turquoise acidic crater lake, pre-dawn \"blue fire\", and active sulfur mining, reached by a guided night hike.",
+    "typical_schedule": "Hotel departure around midnight; the crater rim is reached near dawn for the blue fire and sunrise; finish mid-morning.",
+    "effort": "hard",
+    "access_requirements": [
+      "BBKSDA health screening and certificate when their regulations are in effect",
+      "gas mask and trekking poles (provided by JVTO)",
+      "licensed local guide"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/kawah-ijen.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/madakaripura",
+    "title": "Madakaripura Waterfall",
+    "description": "Java's tallest waterfall, in a narrow Probolinggo canyon near Bromo, reached by a short gorge walk where visitors get wet from the spray.",
+    "typical_schedule": "Late-morning visit, often paired same-day with Bromo; a roughly 1.5 km gorge walk to the falls.",
+    "effort": "moderate",
+    "access_requirements": [
+      "local guide",
+      "raincoat recommended (spray on the gorge walk)"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/madakaripura.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/mount-bromo",
+    "title": "Mount Bromo",
+    "description": "Active East Java volcano in the Tengger caldera \"Sea of Sand\", famous for its pre-dawn sunrise panorama reached by 4WD jeep.",
+    "typical_schedule": "Pre-dawn departure (around 03:00) by 4WD jeep for the sunrise viewpoint, then a crossing of the sand sea and a short ascent to the crater rim; finish mid-morning.",
+    "effort": "moderate",
+    "access_requirements": [
+      "TNBTS (Bromo Tengger Semeru National Park) ticket",
+      "4WD jeep for the sand sea"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/mount-bromo.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/papuma-beach",
+    "title": "Papuma Beach",
+    "description": "A white-sand beach with offshore rock formations and a headland viewpoint in Jember, East Java — the one coastal stop on JVTO's volcano circuits.",
+    "typical_schedule": "Flexible daytime stop; a short headland walk for the viewpoints, used as a change of pace between volcano and waterfall days.",
+    "effort": "easy",
+    "access_requirements": [
+      "none (no permits or health screening required)"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/papuma-beach.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "destinations/tumpak-sewu",
+    "title": "Tumpak Sewu Waterfall",
+    "description": "A wide multi-tiered \"curtain\" waterfall in Lumajang, East Java, often called \"Java's Niagara\", with an easy rim viewpoint and an optional steep canyon descent.",
+    "typical_schedule": "Morning visit; an easy rim viewpoint, then an optional steep canyon descent; finish around midday.",
+    "effort": "hard",
+    "access_requirements": [
+      "local guide",
+      "optional steep canyon descent with ropes (the guide assesses fitness; the descent decision stays with the guest)"
+    ],
+    "source_evidence": [
+      "knowledge:destinations/tumpak-sewu.md"
+    ],
+    "readiness": {
+      "destination_guidance": "available"
+    }
+  }
+]

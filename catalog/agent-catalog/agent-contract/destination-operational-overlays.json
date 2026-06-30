@@ -1,0 +1,238 @@
+[
+  {
+    "destination": "bromo",
+    "profile_ref": "destination_bromo_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": "bromo_area_sunrise_staging",
+      "best_previous_overnight": "Bromo Area",
+      "bad_previous_overnight": [
+        "Surabaya unless midnight tour",
+        "late airport arrival without rest"
+      ],
+      "required_prior_events": [],
+      "fatigue_score": 3,
+      "activity_window": {
+        "jeep_pickup": "02:30–03:30",
+        "sunrise": "04:30–06:00",
+        "crater_visit": "06:00–08:00",
+        "finish": "08:00–09:30"
+      },
+      "requires_live_check": [
+        "national_park_access",
+        "weather"
+      ],
+      "warning_rules": [
+        "late_surabaya_arrival_before_bromo"
+      ],
+      "difficulty_level": "moderate",
+      "physical_demand": 3
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "ijen",
+    "profile_ref": "destination_ijen_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": "bondowoso_ijen_staging",
+      "best_previous_overnight": "Bondowoso / Ijen Area",
+      "bad_previous_overnight": [
+        "late arrival after long transfer",
+        "no rest before midnight departure"
+      ],
+      "required_prior_events": [
+        "dinner",
+        "medical_check",
+        "guide_briefing",
+        "equipment_distribution"
+      ],
+      "fatigue_score": 5,
+      "activity_window": {
+        "hotel_departure": "00:00",
+        "trek_start": "02:00",
+        "sunrise_crater": "05:00–06:00",
+        "finish": "07:00–08:00"
+      },
+      "requires_live_check": [
+        "health_screening",
+        "monthly_closure",
+        "weather"
+      ],
+      "warning_rules": [
+        "late_arrival_before_ijen"
+      ],
+      "difficulty_level": "hard",
+      "physical_demand": 5
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "tumpak_sewu",
+    "profile_ref": "destination_tumpak_sewu_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": null,
+      "best_previous_overnight": null,
+      "bad_previous_overnight": [],
+      "required_prior_events": [],
+      "fatigue_score": 5,
+      "activity_window": {
+        "recommended_start": "07:00–08:00",
+        "finish": "11:00–13:00"
+      },
+      "requires_live_check": [
+        "waterfall_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "waterfall_access_road",
+        "airport_dropoff_cutoff_after_waterfall"
+      ],
+      "difficulty_level": "hard",
+      "physical_demand": 4
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "madakaripura",
+    "profile_ref": "destination_madakaripura_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": null,
+      "best_previous_overnight": null,
+      "bad_previous_overnight": [],
+      "required_prior_events": [],
+      "fatigue_score": 3,
+      "activity_window": {
+        "recommended_start": "08:00–12:00",
+        "finish": "11:00–15:00"
+      },
+      "requires_live_check": [
+        "waterfall_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "waterfall_access_road",
+        "airport_dropoff_cutoff_after_waterfall"
+      ],
+      "difficulty_level": "moderate",
+      "physical_demand": 3
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "papuma",
+    "profile_ref": "destination_papuma_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": null,
+      "best_previous_overnight": "Jember / Bondowoso corridor",
+      "bad_previous_overnight": [
+        "tight airport deadline",
+        "late long-haul transfer"
+      ],
+      "required_prior_events": [],
+      "fatigue_score": 2,
+      "activity_window": {
+        "recommended_start": "08:00-14:00",
+        "finish": "10:00-16:00"
+      },
+      "requires_live_check": [
+        "coastal_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "rain_sensitive_road"
+      ],
+      "difficulty_level": "easy",
+      "physical_demand": 1
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "malang_batu",
+    "profile_ref": "destination_malang_batu_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": null,
+      "best_previous_overnight": "Malang / Batu",
+      "bad_previous_overnight": [
+        "post-Ijen same day without rest"
+      ],
+      "required_prior_events": [],
+      "fatigue_score": 2,
+      "activity_window": {
+        "city_activity": "09:00-17:00",
+        "evening_activity": "18:00-21:00"
+      },
+      "requires_live_check": [],
+      "warning_rules": [
+        "weekend_congestion"
+      ],
+      "difficulty_level": null,
+      "physical_demand": null
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "surabaya_city",
+    "profile_ref": "destination_surabaya_city_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": null,
+      "best_previous_overnight": "Surabaya",
+      "bad_previous_overnight": [
+        "tight airport deadline after long transfer"
+      ],
+      "required_prior_events": [],
+      "fatigue_score": 1,
+      "activity_window": {
+        "city_activity": "09:00-17:00",
+        "airport_buffer_sensitive": "depends_on_departure_time"
+      },
+      "requires_live_check": [],
+      "warning_rules": [
+        "airport_dropoff_cutoff_after_waterfall"
+      ],
+      "difficulty_level": null,
+      "physical_demand": null
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  },
+  {
+    "destination": "bali_ketapang",
+    "profile_ref": "destination_bali_ketapang_activity_profile",
+    "operational_overlay": {
+      "requires_previous_overnight": "banyuwangi_staging",
+      "best_previous_overnight": "Banyuwangi / Ijen Area",
+      "bad_previous_overnight": [
+        "late Ijen finish with far Bali hotel deadline"
+      ],
+      "required_prior_events": [],
+      "fatigue_score": 2,
+      "activity_window": {
+        "ferry_connection": "24_hours_with_queue_variability",
+        "bali_transfer": "depends_on_hotel_area"
+      },
+      "requires_live_check": [
+        "ferry_crossing"
+      ],
+      "warning_rules": [
+        "harbor_dropoff_requires_ferry_buffer"
+      ],
+      "difficulty_level": null,
+      "physical_demand": null
+    },
+    "source_refs": [
+      "06-destination-activity-profiles.json"
+    ]
+  }
+]

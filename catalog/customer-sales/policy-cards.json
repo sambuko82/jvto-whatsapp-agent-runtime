@@ -1,0 +1,132 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/anti-fraud",
+    "title": "Booking Safety & Anti-Fraud",
+    "description": "Use only JVTO's official channels; JVTO never asks for full card numbers, CVV, banking passwords, or OTP codes.",
+    "body": "# Overview\n\nBook and pay only through JVTO's official channels — the website, the\nofficial WhatsApp number, the official email, and JVTO's listed payment\nlinks and accounts. JVTO never asks for your full card number, CVV, online\nbanking password, or one-time codes by chat or email. If an account number,\nlink, or contact looks different, pause and verify through an official\nchannel.\n\n# Related Concepts\n\n- [How to Book](/policies/booking-paths.md)",
+    "source_evidence": [
+      "knowledge:policies/anti-fraud.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/booking-paths",
+    "title": "How to Book",
+    "description": "JVTO's two official booking paths — website Instant Book and WhatsApp-assisted booking.",
+    "body": "# Overview\n\nJVTO offers two official ways to book:\n\n- **Website Instant Book** — choose a package, date, and number of travelers,\n  review the price, accept the terms, and pay.\n- **WhatsApp-assisted booking** — for custom routes or special requests; JVTO\n  confirms availability and price and sends a payment link.\n\nBook only through JVTO's official channels.\n\n# Related Concepts\n\n- [All tours](/tours/index.md)",
+    "source_evidence": [
+      "knowledge:policies/booking-paths.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/cancellation-travel-credit",
+    "title": "Cancellation & Lifetime Travel Credit",
+    "description": "How JVTO handles guest-initiated cancellations — Travel Credit instead of cash refunds, on a 48-hour cut-off.",
+    "body": "# Overview\n\nFor guest-initiated cancellations JVTO uses Travel Credit rather than cash\nrefunds. The binding terms are in the published Booking, Payment &\nCancellation policy; this is a summary — see that page for exact details.\n\n# The Rule\n\n- **48 hours or more before Day 1:** payments already made are not refunded\n  in cash, but 100% of what you have paid converts to JVTO Lifetime Travel\n  Credit (no expiry, transferable). One free reschedule may also be\n  requested in this window.\n- **Less than 48 hours before Day 1:** the booking may be forfeited up to\n  100%, and Travel Credit or cash refunds are generally not provided.\n\nCash refunds are not available for guest-initiated cancellations. Travel\nCredit can be applied to any JVTO package on a future date. Bookings\nnormally start with a 20% deposit.\n\n# Related Concepts\n\n- [3D2N Ijen, Bromo & Madakaripura tour](/tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md)",
+    "source_evidence": [
+      "knowledge:policies/cancellation-travel-credit.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/ijen-health-screening",
+    "title": "Ijen Health Screening",
+    "description": "For Ijen crater hikes, JVTO coordinates a health screening with licensed medical staff when BBKSDA regulations require it.",
+    "body": "# Overview\n\nWhen the East Java conservation authority (BBKSDA) requires it, crater\naccess at Kawah Ijen depends on a short health screening. For affected\ntours JVTO coordinates this screening with licensed medical staff, and a\nverified certificate is needed at the crater gate.\n\nWhere a guest is advised not to hike, the group can continue while that\nperson sits out. See the travel-guide page for the current requirement.\n\n# Related Concepts\n\n- [Kawah Ijen](/destinations/kawah-ijen.md)",
+    "source_evidence": [
+      "knowledge:policies/ijen-health-screening.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/ijen-rijik-monthly-closure",
+    "title": "Ijen Monthly Closure (Rijik Program)",
+    "description": "Kawah Ijen closes to all visitors on the first Friday of each month for the Rijik ecosystem-cleaning program; JVTO schedules tours around it so guests are unaffected.",
+    "body": "# Overview\n\nTourism Nature Park (TWA) Kawah Ijen closes completely to all tourism and\nmining activity on the **first Friday of every month** (00:00–23:59 WIB) for\nthe **Rijik** ecosystem-cleaning program, which has run since March 2019.\n\n# What Happens\n\nOn the closure day the conservation authority (BBKSDA/BKSDA), SAR, and HPWKI\njointly remove an estimated 100–150 kg of waste from Paltuding up to the crater\nrim and plant endemic Cemara Gunung (*Casuarina junghuhniana*) to stabilise the\ntrail slopes and limit erosion. The crater is not accessible to visitors that day.\n\n# Booking Impact\n\nJVTO schedules tours around the monthly closure, so an Ijen hike is never booked\non a Rijik day — guests booked through JVTO are not affected.\n\n# Related Concepts\n\n- [Kawah Ijen](/destinations/kawah-ijen.md)\n- [Weather and Closures](/travel-guides/weather-and-closures.md)\n- [HPWKI](/trust/partners/hpwki.md)",
+    "source_evidence": [
+      "knowledge:policies/ijen-rijik-monthly-closure.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/inclusions-exclusions",
+    "title": "What's Included",
+    "description": "JVTO tours are all-inclusive of transport, crew, entrance fees, water, and stated meals; flights, insurance, tips, and personal expenses are excluded.",
+    "body": "# Overview\n\nEvery JVTO package includes private transport, a dedicated driver and\nguide(s), all entrance fees and permits, drinking water, full pick-up to\ndrop-off assistance, and meals as stated (at least breakfast). Bromo tours\nadd the private 4WD jeep; Ijen tours add gas masks and trekking poles (and\nhealth-screening coordination where BBKSDA requires it); Bali-origin tours\nadd the ferry crossing.\n\nTypical exclusions: flights, visas, travel insurance, tips, and personal\nexpenses. See the inclusions/exclusions page for the full list.\n\n# Related Concepts\n\n- [All tours](/tours/index.md)",
+    "source_evidence": [
+      "knowledge:policies/inclusions-exclusions.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/isic-student",
+    "title": "ISIC Student Pricing",
+    "description": "JVTO is an official ISIC provider offering student pricing on selected packages to verified ISIC cardholders.",
+    "body": "# Overview\n\nJVTO is an official ISIC (International Student Identity Card) provider —\nprovider ID 259268, listed publicly on the ISIC website. Verified ISIC\ncardholders can receive student pricing on selected packages.\n\n# Related Concepts\n\n- [All tours](/tours/index.md)\n\n# Citations\n\n- https://www.isic.org/discounts/?providerId=259268",
+    "source_evidence": [
+      "knowledge:policies/isic-student.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/natural-phenomena",
+    "title": "Natural Phenomena Are Not Guaranteed",
+    "description": "JVTO cannot guarantee weather-dependent sights such as sunrise or Ijen's blue fire; itineraries are planned to maximise the chance.",
+    "body": "# Overview\n\nWeather-dependent sights — a clear sunrise, or Ijen's blue fire — cannot be\nguaranteed, because cloud, weather, and volcanic gas are outside any\noperator's control. JVTO plans timing and routes to maximise the chance of\ngood conditions, and may adjust timing or routing for safety.\n\n# Related Concepts\n\n- [Kawah Ijen](/destinations/kawah-ijen.md)",
+    "source_evidence": [
+      "knowledge:policies/natural-phenomena.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/payment-rules",
+    "title": "Payment & Deposit",
+    "description": "A deposit secures the booking, with the balance due before the tour; exact amounts and deadlines are on the booking page.",
+    "body": "# Overview\n\nA deposit (standard 20% of the booking value) secures a booking, with the\nbalance due before the tour starts; close-to-departure bookings may require\nfuller payment. Exact amounts, accepted methods, and deadlines are shown at\ncheckout and on the booking information page.\n\nPay only through JVTO's official payment links and listed accounts.\n\n# Related Concepts\n\n- [Cancellation & Lifetime Travel Credit](/policies/cancellation-travel-credit.md)",
+    "source_evidence": [
+      "knowledge:policies/payment-rules.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "id": "policies/police-escort",
+    "title": "Police Escort for Large Groups",
+    "description": "For large groups, JVTO can coordinate an official traffic-police escort on some road segments, subject to authority approval.",
+    "body": "# Overview\n\nFor large groups (typically around 18 or more travelers), JVTO can\ncoordinate an official traffic-police escort on certain road segments where\nthe relevant Traffic Police unit approves it. This is a coordination service\nsubject to authority approval, not a default inclusion. See the travel-guide\npage for how it works and any group incentives.\n\n# Related Concepts\n\n- [Police-led operations](/trust/claims/police-led.md)",
+    "source_evidence": [
+      "knowledge:policies/police-escort.md"
+    ],
+    "readiness": {
+      "policy": "available"
+    }
+  }
+]

@@ -1,0 +1,789 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": true,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 3800000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3550000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3350000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3050000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 2850000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": true,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 7500000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 3800000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3550000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3350000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3050000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 2850000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": true,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 9050000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4900000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4700000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4400000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 4100000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3625000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3475000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": true,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 5450000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 5250000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4950000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 4650000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 4250000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 4050000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 1550000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 4,
+        "idr_per_person": 1400000
+      },
+      {
+        "min_pax": 5,
+        "max_pax": 7,
+        "idr_per_person": 1250000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 1050000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 1000000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 2800000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 2550000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 2350000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 2150000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 1950000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 1750000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 6300000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 3570000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 3275000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 2850000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 2550000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 2450000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 2300000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 2200000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 2050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 1850000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 1650000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 1550000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 6300000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 3570000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 3275000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 2850000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 2550000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 2450000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 7550000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4450000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4250000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3950000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3650000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3175000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3025000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 5250000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 5050000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4750000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 4450000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3850000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 8050000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4550000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4350000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3750000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3275000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3125000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 9050000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 5050000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4850000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4550000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 4250000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3850000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3650000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 6050000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 5750000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 5550000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 5250000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 4950000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 4750000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4350000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4150000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 3950000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3750000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3550000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3450000
+      }
+    ],
+    "min_pax": 2,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "price_type": "published_standard",
+    "currency": "IDR",
+    "ferry_included": false,
+    "pax_tiers": [
+      {
+        "min_pax": 1,
+        "max_pax": 1,
+        "idr_per_person": 8050000
+      },
+      {
+        "min_pax": 2,
+        "max_pax": 2,
+        "idr_per_person": 4550000
+      },
+      {
+        "min_pax": 3,
+        "max_pax": 3,
+        "idr_per_person": 4350000
+      },
+      {
+        "min_pax": 4,
+        "max_pax": 5,
+        "idr_per_person": 4050000
+      },
+      {
+        "min_pax": 6,
+        "max_pax": 7,
+        "idr_per_person": 3750000
+      },
+      {
+        "min_pax": 8,
+        "max_pax": 10,
+        "idr_per_person": 3275000
+      },
+      {
+        "min_pax": 11,
+        "max_pax": null,
+        "idr_per_person": 3125000
+      }
+    ],
+    "min_pax": 1,
+    "availability": "needs_live_confirmation",
+    "source_evidence": [
+      "core:input/llm-wiki/package-readiness/package-pricing.json"
+    ],
+    "readiness": {
+      "standard_price": "available"
+    }
+  }
+]

@@ -1,0 +1,975 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "itinerary_core_package_id": "bali/bromo-ijen-3d2n",
+    "slug": "bromo-ijen-3d2n",
+    "title": "3 Day Bromo & Ijen Volcano Discovery from Bali",
+    "description": "A 3D2N private tour from Bali: 3 Day Bromo & Ijen Volcano Discovery from Bali.",
+    "origin": "Bali",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "bromo",
+      "ijen"
+    ],
+    "public_url": "/tours/from-bali/bromo-ijen-3d2n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Bali to the Bromo Side via East Java Crossing",
+        "meals": []
+      },
+      {
+        "day": 2,
+        "title": "Bromo Sunrise, Madakaripura, and Transfer to Bondowoso",
+        "meals": [
+          "B",
+          "D"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Ijen Climb and Return to Bali",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-bali/bromo-ijen-3d2n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "itinerary_core_package_id": "bali/ijen-bromo-madakaripura-3d2n",
+    "slug": "ijen-bromo-madakaripura-3d2n",
+    "title": "3 Day Ijen, Bromo & Madakaripura Waterfall Journey from Bali to Surabaya",
+    "description": "A 3D2N private tour from Bali: 3 Day Ijen, Bromo & Madakaripura Waterfall Journey from Bali to Surabaya.",
+    "origin": "Bali",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-bali/ijen-bromo-madakaripura-3d2n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Bali to Banyuwangi for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise, Madakaripura, and Finish in Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "itinerary_core_package_id": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "title": "4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Expedition from Bali to Surabaya",
+    "description": "A 4D3N private tour from Bali: 4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Expedition from Bali to Surabaya.",
+    "origin": "Bali",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Bali to Banyuwangi for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Papuma Transfer",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Tumpak Sewu Segment and Transfer Toward Bromo",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Bromo Sunrise and Finish in Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "itinerary_core_package_id": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "title": "5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Discovery from Bali to Surabaya",
+    "description": "A 5D4N private tour from Bali: 5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Discovery from Bali to Surabaya.",
+    "origin": "Bali",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Bali to Banyuwangi for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer to the Papuma Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Papuma Side to Tumpak Sewu Staging",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Tumpak Sewu and Transfer Toward Bromo",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Bromo Sunrise and Final Surabaya Handoff",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "itinerary_core_package_id": "bromo-1d1n",
+    "slug": "bromo-1d1n",
+    "title": "1 Day Bromo Midnight Experience from Surabaya",
+    "description": "A 1D1N private tour from Surabaya: 1 Day Bromo Midnight Experience from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "1D1N",
+    "day_count": 1,
+    "private": true,
+    "destination_tokens": [
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-1d1n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Midnight Departure from Surabaya for Bromo Sunrise",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "itinerary_core_package_id": "bromo-2d1n",
+    "slug": "bromo-2d1n",
+    "title": "2 Day Bromo Sunrise Adventure from Surabaya",
+    "description": "A 2D1N private tour from Surabaya: 2 Day Bromo Sunrise Adventure from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "2D1N",
+    "day_count": 2,
+    "private": true,
+    "destination_tokens": [
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-2d1n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to the Bromo Side for Overnight Staging",
+        "meals": []
+      },
+      {
+        "day": 2,
+        "title": "Bromo Sunrise, Madakaripura, and Return to Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-2d1n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "itinerary_core_package_id": "bromo-madakaripura-ijen-3d2n",
+    "slug": "bromo-madakaripura-ijen-3d2n",
+    "title": "3 Day Bromo, Madakaripura & Ijen Overland from Surabaya to Bali",
+    "description": "A 3D2N private tour from Surabaya: 3 Day Bromo, Madakaripura & Ijen Overland from Surabaya to Bali.",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "bromo",
+      "madakaripura",
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/bromo-madakaripura-ijen-3d2n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to the Bromo Side for Overnight Staging",
+        "meals": []
+      },
+      {
+        "day": 2,
+        "title": "Bromo Sunrise, Madakaripura, and Transfer Toward Ijen",
+        "meals": [
+          "B",
+          "D"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Ijen Climb and Forward Finish into Bali",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-madakaripura-ijen-3d2n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "itinerary_core_package_id": "ijen-2d1n",
+    "slug": "ijen-2d1n",
+    "title": "2 Day Ijen Blue Fire Expedition from Surabaya",
+    "description": "A 2D1N private tour from Surabaya: 2 Day Ijen Blue Fire Expedition from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "2D1N",
+    "day_count": 2,
+    "private": true,
+    "destination_tokens": [
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-2d1n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Return to Surabaya",
+        "meals": [
+          "B",
+          "L"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-2d1n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "itinerary_core_package_id": "ijen-bromo-madakaripura-3d2n",
+    "slug": "ijen-bromo-madakaripura-3d2n",
+    "title": "3 Day Ijen, Bromo & Madakaripura Waterfall Discovery from Surabaya",
+    "description": "A 3D2N private tour from Surabaya: 3 Day Ijen, Bromo & Madakaripura Waterfall Discovery from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-3d2n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise, Madakaripura, and Return to Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "itinerary_core_package_id": "ijen-bromo-madakaripura-4d3n",
+    "slug": "ijen-bromo-madakaripura-4d3n",
+    "title": "4 Day Ijen, Bromo & Madakaripura Waterfall Expedition from Surabaya",
+    "description": "A 4D3N private tour from Surabaya: 4 Day Ijen, Bromo & Madakaripura Waterfall Expedition from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-4d3n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise, Madakaripura, and Return to Surabaya City",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Surabaya Hotel Stay and Airport Transfer",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-4d3n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "itinerary_core_package_id": "ijen-bromo-madakaripura-malang-5d4n",
+    "slug": "ijen-bromo-madakaripura-malang-5d4n",
+    "title": "5 Day Ijen, Bromo, Madakaripura & Malang City Adventure from Surabaya",
+    "description": "A 5D4N private tour from Surabaya: 5 Day Ijen, Bromo, Madakaripura & Malang City Adventure from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "bromo",
+      "madakaripura",
+      "malang"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise, Madakaripura, and Continue to Malang",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Malang and Batu Exploration with Return Toward Surabaya",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Surabaya Hotel Finish and Airport Transfer",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "itinerary_core_package_id": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "title": "4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Journey from Surabaya",
+    "description": "A 4D3N private tour from Surabaya: 4 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Journey from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Continue to the Papuma Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Papuma Area to Tumpak Sewu Staging",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Tumpak Sewu, Bromo Sequence, and Return to Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "itinerary_core_package_id": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "title": "5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Nature Trip from Surabaya",
+    "description": "A 5D4N private tour from Surabaya: 5 Day Ijen, Papuma Beach, Tumpak Sewu & Bromo Nature Trip from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "5D4N",
+    "day_count": 5,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Transfer to the Papuma Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Papuma Side to Tumpak Sewu Staging",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Tumpak Sewu and Transfer Toward the Bromo Side",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Bromo Sunrise and Final Return",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "itinerary_core_package_id": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "slug": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "title": "6 Day Ijen, Papuma Beach, Tumpak Sewu, Bromo & Malang City Discovery from Surabaya",
+    "description": "A 6D5N private tour from Surabaya: 6 Day Ijen, Papuma Beach, Tumpak Sewu, Bromo & Malang City Discovery from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "6D5N",
+    "day_count": 6,
+    "private": true,
+    "destination_tokens": [
+      "ijen",
+      "papuma",
+      "tumpak",
+      "sewu",
+      "bromo",
+      "malang"
+    ],
+    "public_url": "/tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Bondowoso for Ijen Staging",
+        "meals": [
+          "D"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Ijen Climb and Continue to the Papuma Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Papuma Area to Tumpak Sewu Staging",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Tumpak Sewu and Transfer Toward the Bromo Side",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Bromo Sunrise and Continue to Malang",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Malang and Surabaya Departure Handoff",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "itinerary_core_package_id": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "slug": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "title": "3 Day Taman Safari Prigen, Bromo & Madakaripura from Surabaya",
+    "description": "A 3D2N private tour from Surabaya: 3 Day Taman Safari Prigen, Bromo & Madakaripura from Surabaya.",
+    "origin": "Surabaya",
+    "duration": "3D2N",
+    "day_count": 3,
+    "private": true,
+    "destination_tokens": [
+      "taman",
+      "safari",
+      "prigen",
+      "bromo",
+      "madakaripura"
+    ],
+    "public_url": "/tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to Taman Safari Prigen and Bromo Overnight",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Bromo Sunrise and Caldera Exploration",
+        "meals": [
+          "B"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Madakaripura Waterfall and Return to Surabaya",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "itinerary_core_package_id": "tumpak-sewu-bromo-ijen-4d3n",
+    "slug": "tumpak-sewu-bromo-ijen-4d3n",
+    "title": "4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali",
+    "description": "A 4D3N private tour from Surabaya: 4 Day Tumpak Sewu, Bromo & Ijen Adventure from Surabaya to Bali.",
+    "origin": "Surabaya",
+    "duration": "4D3N",
+    "day_count": 4,
+    "private": true,
+    "destination_tokens": [
+      "tumpak",
+      "sewu",
+      "bromo",
+      "ijen"
+    ],
+    "public_url": "/tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n",
+    "day_titles": [
+      {
+        "day": 1,
+        "title": "Surabaya to the Tumpak Sewu Side",
+        "meals": []
+      },
+      {
+        "day": 2,
+        "title": "Tumpak Sewu and Continue Toward the Bromo Side",
+        "meals": [
+          "B",
+          "L"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Bromo Sunrise and Transfer to the Ijen Side",
+        "meals": [
+          "B",
+          "D"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Ijen Climb and Finish into Bali",
+        "meals": [
+          "B"
+        ]
+      }
+    ],
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md",
+      "core:generated/itinerary-intelligence/package-catalog-index.json"
+    ],
+    "readiness": {
+      "package_overview": "available",
+      "standard_price": "unavailable",
+      "inclusions": "unavailable",
+      "endpoint_chain": "unavailable",
+      "rooming": "unavailable",
+      "vehicle_luggage": "unavailable",
+      "guide_support": "unavailable",
+      "policy": "unavailable",
+      "destination_guidance": "unavailable"
+    }
+  }
+]

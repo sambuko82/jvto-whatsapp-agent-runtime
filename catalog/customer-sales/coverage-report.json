@@ -1,0 +1,41 @@
+{
+  "release_id": "customer-sales-release-20260628-001",
+  "package_count": 16,
+  "object_counts": {
+    "package-profiles.json": 16,
+    "standard-price-tiers.json": 16,
+    "component-matrices.json": 16,
+    "endpoint-chains.json": 16,
+    "accommodation-rules.json": 16,
+    "vehicle-and-luggage-rules.json": 16,
+    "guide-support-rules.json": 16,
+    "policy-cards.json": 10,
+    "destination-guidance.json": 5,
+    "location-aliases.json": 9
+  },
+  "capability_packages_available": {
+    "package_overview": 16,
+    "standard_price": 16,
+    "inclusions": 16,
+    "endpoint_chain": 15,
+    "rooming": 15,
+    "vehicle_luggage": 16,
+    "guide_support": 16,
+    "policy": 10,
+    "destination_guidance": 5
+  },
+  "capability_readiness": {
+    "package_overview": "available",
+    "standard_price": "available",
+    "inclusions": "available",
+    "endpoint_chain": "available",
+    "rooming": "available",
+    "vehicle_luggage": "partial",
+    "guide_support": "available",
+    "policy": "available",
+    "destination_guidance": "available"
+  },
+  "notes": [
+    "luggage allowance is not published (vehicle class is); see gap-report.json"
+  ]
+}

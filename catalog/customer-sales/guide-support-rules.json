@@ -1,0 +1,194 @@
+[
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/bromo-ijen-3d2n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-bali/bromo-ijen-3d2n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-1d1n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-1d1n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-2d1n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-2d1n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "bromo-madakaripura-ijen-3d2n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/bromo-madakaripura-ijen-3d2n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-2d1n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-2d1n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-3d2n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-4d3n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-4d3n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  },
+  {
+    "release_id": "customer-sales-release-20260628-001",
+    "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+    "crew_roles": "private dedicated driver + guide (no shared groups)",
+    "language_note": "English-speaking driver/guide standard; other languages subject to confirmation",
+    "source_evidence": [
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+    ],
+    "readiness": {
+      "guide_support": "available"
+    }
+  }
+]

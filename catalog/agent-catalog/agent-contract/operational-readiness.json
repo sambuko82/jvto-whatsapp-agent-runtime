@@ -1,0 +1,95 @@
+{
+  "schema_version": "agent-contract-v1",
+  "source_mode": "source_connected",
+  "legacy_dataset_mode": "derived_source_backed",
+  "global_guardrails": [
+    "Static knowledge is never live truth: availability, closure, booking, payment, and hotel/vehicle/guide confirmation require a live tool.",
+    "Route order + legs are projected from the source-backed derived map; operator distances are seeds, re-verify at booking.",
+    "This agent-contract carries NO cost, vendor rate, margin, crew identity, or PII."
+  ],
+  "datasets": [
+    {
+      "dataset": "package_operational_composition",
+      "status": "covered",
+      "customer_usage": "structure_and_routing",
+      "requires_human_review_when": [
+        "route_integrity != clean",
+        "custom_route"
+      ],
+      "note": "14/16 packages have clean route integrity (confirmed order, all sold destinations routed, no ambiguous node). Source: derived package-route-map.json. Unresolved operational movements (hotel/transit labels) are surfaced per package as operational_movements_pending and handled by live tools, not the route gate.",
+      "gaps": [
+        {
+          "package_key": "bali/bromo-ijen-3d2n",
+          "integrity": "needs_review",
+          "flags": {
+            "off_sequence_legs": [
+              "bromo__to__madakaripura"
+            ]
+          }
+        },
+        {
+          "package_key": "bromo-2d1n",
+          "integrity": "needs_review",
+          "flags": {
+            "off_sequence_legs": [
+              "madakaripura__to__surabaya"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "route_validation_rules",
+      "status": "partial",
+      "customer_usage": "guardrail_only",
+      "requires_feasibility": true,
+      "requires_human_review_when": [
+        "custom_route",
+        "tight_connection",
+        "special_pickup"
+      ]
+    },
+    {
+      "dataset": "pickup_dropoff_requirements",
+      "status": "covered",
+      "customer_usage": "clarification_questions",
+      "requires_human_review_when": [
+        "custom_address",
+        "previous_tour_dropoff"
+      ],
+      "note": "Several buffers are manual_seed; confirm with ops."
+    },
+    {
+      "dataset": "destination_operational_overlays",
+      "status": "covered",
+      "customer_usage": "readiness_and_warnings",
+      "requires_live_confirmation_for": [
+        "ijen.health_screening",
+        "ijen.monthly_closure",
+        "blue_fire",
+        "weather",
+        "national_park_access"
+      ]
+    },
+    {
+      "dataset": "staging_logic",
+      "status": "partial",
+      "customer_usage": "explanation",
+      "requires_human_review_when": [
+        "tumpak_sewu_staging (llm-wiki only)",
+        "papuma_staging (llm-wiki only)",
+        "malang_batu_staging (llm-wiki only)"
+      ]
+    },
+    {
+      "dataset": "package_customization_boundaries",
+      "status": "covered",
+      "customer_usage": "handoff_decision"
+    }
+  ],
+  "source_refs": [
+    "package-route-map.json",
+    "route-leg-index.filled.json",
+    "data-readiness-report.json"
+  ]
+}

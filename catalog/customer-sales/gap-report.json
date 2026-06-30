@@ -1,0 +1,96 @@
+{
+  "release_id": "customer-sales-release-20260628-001",
+  "gap_count": 18,
+  "gaps": [
+    {
+      "package_key": "bali/bromo-ijen-3d2n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bali/ijen-bromo-madakaripura-3d2n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "capability": "endpoint_chain",
+      "reason": "no standard_dropoff_options in route map"
+    },
+    {
+      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bromo-1d1n",
+      "capability": "rooming",
+      "reason": "no named overnights (e.g. day-trip)"
+    },
+    {
+      "package_key": "bromo-1d1n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bromo-2d1n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "bromo-madakaripura-ijen-3d2n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-2d1n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-bromo-madakaripura-3d2n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-bromo-madakaripura-4d3n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    },
+    {
+      "package_key": "tumpak-sewu-bromo-ijen-4d3n",
+      "capability": "vehicle_luggage",
+      "reason": "luggage allowance not published (vehicle class available)"
+    }
+  ]
+}

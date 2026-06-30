@@ -1,0 +1,97 @@
+[
+  {
+    "rule_id": "late_arrival_before_ijen",
+    "trigger": {
+      "next_activity": "Ijen",
+      "hotel_arrival_after": "21:00"
+    },
+    "required_customer_fields": [
+      "arrival_time"
+    ],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "late_arrival_reduces_ijen_rest",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [
+      "reduced_rest_time",
+      "late_medical_screening",
+      "higher_fatigue",
+      "ijen_midnight_departure_risk"
+    ],
+    "source_refs": [
+      "03-time-window-rules.json"
+    ]
+  },
+  {
+    "rule_id": "late_surabaya_arrival_before_bromo",
+    "trigger": {
+      "pickup_area": "Surabaya",
+      "arrival_after": "17:00",
+      "next_activity": "Bromo Sunrise"
+    },
+    "required_customer_fields": [
+      "arrival_time"
+    ],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "late_arrival_possible_but_tiring",
+    "requires_feasibility": false,
+    "severity": "medium",
+    "impact": [
+      "late_checkin",
+      "reduced_sleep",
+      "higher_fatigue"
+    ],
+    "source_refs": [
+      "03-time-window-rules.json"
+    ]
+  },
+  {
+    "rule_id": "airport_dropoff_cutoff_after_waterfall",
+    "trigger": {
+      "dropoff_type": "airport",
+      "previous_activity": [
+        "Tumpak Sewu",
+        "Madakaripura"
+      ],
+      "minimum_flight_buffer_minutes": 180
+    },
+    "required_customer_fields": [
+      "flight_number",
+      "departure_time"
+    ],
+    "minimum_buffer_minutes": 180,
+    "customer_safe_message_key": "tight_connection_requires_validation",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [
+      "flight_miss_risk",
+      "activity_skip_may_be_needed"
+    ],
+    "source_refs": [
+      "03-time-window-rules.json"
+    ]
+  },
+  {
+    "rule_id": "connection_buffer_rule",
+    "trigger": {
+      "dropoff_type": [
+        "airport",
+        "train_station",
+        "harbor"
+      ]
+    },
+    "required_customer_fields": [
+      "departure_time"
+    ],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "ask_exact_departure_time",
+    "requires_feasibility": true,
+    "severity": "medium",
+    "impact": [
+      "missed_connection_risk"
+    ],
+    "source_refs": [
+      "02-dropoff-contexts.json"
+    ]
+  }
+]

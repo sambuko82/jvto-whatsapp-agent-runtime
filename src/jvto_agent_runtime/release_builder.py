@@ -301,6 +301,67 @@ def _vendor_agent_catalog(
     return manifest
 
 
+LOCAL_CATALOG_DIRNAME = "catalog"
+
+
+def local_catalog_root(repo_root: Path | str) -> Path:
+    """The committed compact catalog: the chat-time read path vendored into this repo so a
+    single checkout serves responses without the sibling upstream repositories."""
+    return Path(repo_root) / LOCAL_CATALOG_DIRNAME
+
+
+def build_local_catalog(
+    repo_root: Path,
+    knowledge_root: Path,
+    core_root: Path,
+    out_dir: Path | None = None,
+    web_root: Path | None = None,
+) -> Path:
+    """Regenerate the committed compact catalog (`<repo>/catalog/`) from the upstream repos.
+
+    It vendors ONLY the chat-time read path — `agent-catalog/` (module layer + Core
+    agent-contract + Web registries) and the published `customer-sales/` subtree — plus a
+    `provenance.json`. No knowledge.ndjson / retrieval index / crosswalks (those belong to a
+    full `build-release`). Deterministic + byte-stable (no timestamps) so re-running against
+    unchanged upstreams produces no diff. Run at maintenance time (sibling repos present);
+    the committed result needs no sibling repos to read.
+    """
+    config = load_upstream_config(repo_root)
+    out = Path(out_dir) if out_dir is not None else local_catalog_root(repo_root)
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+
+    agent_catalog = _vendor_agent_catalog(knowledge_root, core_root, web_root, config, out)
+    customer_sales = _project_customer_sales(knowledge_root, config, out)
+
+    kc = config["upstreams"]["knowledge_catalog"]
+    core_cfg = config["upstreams"]["itinerary_core"]
+    web_cfg = config["upstreams"].get("web_experience", {})
+    provenance = {
+        "schema_version": "local-catalog-provenance-v1",
+        "note": ("Compact committed catalog: the chat-time read path (agent-catalog/ + "
+                 "customer-sales/) vendored from upstreams so one checkout serves responses "
+                 "without sibling repos. Regenerate with `jvto-agent build-local-catalog`."),
+        "knowledge_catalog": {"repo": kc.get("repo"), "revision": git_revision(knowledge_root)},
+        "itinerary_core": {"repo": core_cfg.get("repo"), "revision": git_revision(core_root)},
+        "web_experience": {
+            "present": agent_catalog["web_experience"]["present"],
+            "repo": web_cfg.get("repo"),
+            "revision": git_revision(web_root) if web_root is not None else None,
+        },
+        "agent_catalog": {
+            "crosswalk_integrity": agent_catalog["crosswalk_integrity"]["status"],
+            "module_variations": agent_catalog["module_layer"]["package_variations"],
+            "core_boundaries": agent_catalog["core_agent_contract"]["boundary_count"],
+            "link_key_collisions": agent_catalog["web_experience"]["link_key_collisions"],
+        },
+        "customer_sales": {"present": customer_sales.get("present"), "object_count": customer_sales.get("object_count")},
+    }
+    write_json(out / "provenance.json", provenance)
+    return out
+
+
 def build_release(
     repo_root: Path,
     knowledge_root: Path,

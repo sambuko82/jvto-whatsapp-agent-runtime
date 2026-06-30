@@ -84,6 +84,37 @@ def test_quote_flag_handoff_blocks_price_and_booking():
     assert is_valid("customer-response-draft", d)
 
 
+def test_needs_information_does_not_surface_price():
+    # check_price with package + guests but the envelope is needs_information (e.g. missing
+    # travel_date): the seam stripped the price; the composer must NOT resurface it.
+    rel = _release()
+    d = compose_customer_response(
+        rel, _envelope(status="needs_information", entities={"package_key": CLEAN_PKG, "number_of_guests": 4}),
+        query="how much", config=CONFIG,
+    )
+    assert d["price"]["surfaced"] is False
+    assert not any("per person" in l for l in d["draft_lines"])
+    assert d["message_mode"] != "standard_price"
+    assert d["follow_up_question"]   # ask for the missing fields instead
+    assert is_valid("customer-response-draft", d)
+
+
+def test_draft_lines_within_budget():
+    # Across every shaped case, draft_lines must never exceed max_text_lines.
+    rel = _release()
+    cases = [
+        _envelope(entities={"package_key": CLEAN_PKG, "number_of_guests": 4}),
+        _envelope(entities={"package_key": MIN2_PKG, "number_of_guests": 1}),
+        _envelope(entities={"package_key": CLEAN_PKG, "pax": 2, "own_hotel": True}),
+        _envelope(status="needs_information", entities={"package_key": CLEAN_PKG, "number_of_guests": 4}),
+        _envelope(entities={"package_key": "does/not-exist", "number_of_guests": 2}),
+    ]
+    for env in cases:
+        d = compose_customer_response(rel, env, query="how much", config=CONFIG)
+        assert len(d["draft_lines"]) <= d["max_text_lines"], (env["entities"], d["draft_lines"])
+        assert is_valid("customer-response-draft", d)
+
+
 def test_correct_origin_link():
     rel = _release()
     d = compose_customer_response(

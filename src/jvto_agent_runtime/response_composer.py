@@ -77,7 +77,11 @@ def compose_customer_response(
 
     # 4) Disclosures: union of the plan's + the availability disclosure on a surfaced price.
     disclosures = list(plan.get("required_disclosures", []))
-    price_surfaced = (message_mode != "handoff") and pricing["status"] == "priced"
+    # A concrete price is committal: never surface one on handoff, and never while the
+    # envelope still needs information (the delivery plan already stripped it — mirror that
+    # here so the composer can't resurface a price before required fields are collected).
+    needs_information = decision_envelope.get("intent_status") == "needs_information"
+    price_surfaced = (message_mode != "handoff") and not needs_information and pricing["status"] == "priced"
     # A surfaced price always carries an availability disclosure — but the delivery plan
     # already adds one for price-topic answers, so only add ours if none is present.
     if price_surfaced and not any("availability" in d.lower() for d in disclosures):
@@ -86,7 +90,9 @@ def compose_customer_response(
     # 5) Route safety carries Core's authority (already on the plan).
     route_safety = plan.get("route_integrity")
 
-    # 6) Factual draft lines (assembled from resolved facts only — no marketing copy).
+    # 6) Factual message BODY lines (assembled from resolved facts only — no marketing copy).
+    #    Disclosures are NOT duplicated here; they stay in required_disclosures (the model
+    #    appends them), so the body honors max_text_lines like the delivery plan's short_facts.
     lines: list[str] = []
     if catalog["status"] == "resolved" and catalog.get("title"):
         lines.append(catalog["title"])
@@ -101,14 +107,16 @@ def compose_customer_response(
     primary = plan.get("resolved_primary_link")
     if primary and primary.get("sendable") and primary.get("url"):
         lines.append(f"Details: {primary['url']}")
-    for d in disclosures:
-        if d not in lines:
-            lines.append(d)
     if needs_handoff and not any("team member" in l.lower() for l in lines):
         lines.append("A team member will follow up to confirm the details.")
     follow_up = plan.get("follow_up_question")
     if follow_up and not needs_handoff:
         lines.append(follow_up)
+
+    # The composed draft's budget covers its actual body (never fewer lines than it has),
+    # floored at the plan's mode budget and capped at the contract maximum.
+    body_budget = _HANDOFF_MAX_LINES if message_mode == "handoff" else plan.get("max_text_lines", 4)
+    max_text_lines = min(8, max(body_budget, len(lines)))
 
     draft = {
         "schema_version": "customer-response-draft-v1",
@@ -132,7 +140,7 @@ def compose_customer_response(
         "handoff": {"required": needs_handoff, "reason": handoff_reason},
         "draft_lines": lines,
         "draft_text": "\n".join(lines),
-        "max_text_lines": _HANDOFF_MAX_LINES if message_mode == "handoff" else plan.get("max_text_lines", 4),
+        "max_text_lines": max_text_lines,
     }
     validate_or_raise(RESPONSE_DRAFT_CONTRACT, draft)
     return draft

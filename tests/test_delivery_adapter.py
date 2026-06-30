@@ -135,13 +135,26 @@ def test_seam_multiple_recommendations_not_auto_selected():
     assert plan["package_key"] is None
 
 
-def test_seam_trip_brief_package_takes_precedence():
+def test_seam_entity_package_takes_precedence_over_trip_brief():
+    # Per-message entity package wins over a previously-selected one (the customer named a
+    # different package this turn). Consistent with the entities-win context rule.
     release = _release()
     plan = delivery_plan_from_decision(
         release, _envelope("check_price", entities={"package_key": SBY_PKG, "pax": 2}),
         trip_brief={"selected_package_key": BALI_PKG}, query="how much", config=CONFIG,
     )
-    assert plan["package_key"] == BALI_PKG  # trip_brief wins over entities
+    assert plan["package_key"] == SBY_PKG  # this-turn entity wins
+    assert "from-surabaya" in plan["resolved_primary_link"]["url"]
+
+
+def test_seam_trip_brief_package_used_when_no_entity_package():
+    # No package named this turn -> fall back to the accumulated selected package.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release, _envelope("check_price", entities={"pax": 2}),
+        trip_brief={"selected_package_key": BALI_PKG}, query="how much", config=CONFIG,
+    )
+    assert plan["package_key"] == BALI_PKG
 
 
 def test_seam_entity_guest_count_preferred_over_tripbrief_pax_object():
@@ -182,6 +195,37 @@ def test_seam_handoff_floor_cleans_existing_handoff_plan():
     assert plan["handoff"]["reason"] == "low_intent_confidence"  # envelope reason takes precedence
     assert not any("price" in f.lower() for f in plan["short_facts"])  # no standard-price fact on handoff
     assert plan["secondary_link_intent"] is None
+    assert is_valid("delivery-plan", plan)
+
+
+def test_seam_needs_information_does_not_present_price_or_booking_cta():
+    # Envelope deliberately withheld a committal answer pending missing fields
+    # (intent_status=needs_information, handoff.required=False). The seam must NOT present a
+    # standard price or a booking CTA; it downgrades to a non-committal clarify.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release,
+        _envelope("check_price", status="needs_information",
+                  entities={"package_key": BALI_PKG}),  # no pax/date
+        query="how much", config=CONFIG,
+    )
+    assert plan["message_mode"] == "quick_answer"  # not standard_price
+    assert plan["secondary_link_intent"] is None and plan["resolved_secondary_link"] is None
+    assert not any("price" in f.lower() for f in plan["short_facts"])
+    assert plan["follow_up_question"]
+    assert plan["handoff"]["required"] is False  # needs_information is a clarify, not a handoff
+    assert is_valid("delivery-plan", plan)
+
+
+def test_seam_needs_information_keeps_informational_modes():
+    # A non-committal (informational) plan under needs_information is left as-is.
+    release = _release()
+    plan = delivery_plan_from_decision(
+        release,
+        _envelope("query_package_details", status="needs_information", entities={"package_key": BALI_PKG}),
+        query="what is included?", config=CONFIG,
+    )
+    assert plan["message_mode"] == "inclusion_explanation"  # not downgraded
     assert is_valid("delivery-plan", plan)
 
 

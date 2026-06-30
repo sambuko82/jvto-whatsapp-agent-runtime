@@ -4,9 +4,10 @@ Connects `/v1/decisions` (a DecisionEnvelope: routing + safety + handoff) to the
 presentation layer (`/v1/delivery-plan`: a DeliveryPlan) WITHOUT building full
 orchestration. It maps an already-built DecisionEnvelope (+ optional TripBrief) into
 the presentation inputs the resolver needs, builds a DeliveryPlan from the one local
-release, then honors the envelope's handoff as a hard floor (escalate only, never
-downgrade) — so the seam can never present a normal plan when the system already
-decided to hand off.
+release, then honors the envelope's routing state as a hard floor (escalate only, never
+downgrade) — handoff forces a handoff plan, and needs_information never presents a
+committal price/booking answer. So the seam can never present a normal plan when the
+system already decided to hand off or to collect missing fields first.
 
 Design rules (do not break):
 - The DecisionEnvelope stays the source of truth for routing/safety/handoff; this only
@@ -22,21 +23,30 @@ from pathlib import Path
 from typing import Any
 
 from .contracts import validate_or_raise
-from .presentation_resolver import DELIVERY_PLAN_CONTRACT, MODE_MAX_LINES, resolve_delivery_plan
+from .presentation_resolver import (
+    CUSTOM_QUOTE_FLAGS,
+    DELIVERY_PLAN_CONTRACT,
+    MODE_MAX_LINES,
+    resolve_delivery_plan,
+)
 from .sales_intelligence import derive_default_customer_job
 
-# customer_context keys the presentation resolver understands (quote-eligibility flags).
-# pax is handled separately. We never forward arbitrary entities into the plan.
-_CONTEXT_FLAGS = (
-    "own_hotel", "non_standard_rooming", "special_luggage", "custom_route",
-    "custom_addon", "non_standard_endpoint", "discount_exception",
-)
+# customer_context flags the presentation resolver understands (quote-eligibility flags).
+# Derived from the resolver's own set so the two can't drift; pax is handled separately.
+# We never forward arbitrary entities into the plan.
+_CONTEXT_FLAGS = tuple(CUSTOM_QUOTE_FLAGS)
 _ENVELOPE_HANDOFF_STATUSES = {"unsupported", "handoff_required"}
+# Modes that present a committal price/booking answer; never appropriate when the envelope
+# decided more information is needed first (intent_status=needs_information).
+_COMMITTAL_MODES = {"standard_price", "booking_start"}
 
 
 def _select_package_key(envelope: dict[str, Any], trip_brief: dict[str, Any] | None) -> str | None:
     tb = trip_brief or {}
-    for candidate in (tb.get("selected_package_key"), (envelope.get("entities") or {}).get("package_key")):
+    # Per-message entities take precedence over accumulated TripBrief state (consistent with
+    # _project_customer_context): if the customer names a package THIS turn, it wins over a
+    # previously-selected one.
+    for candidate in ((envelope.get("entities") or {}).get("package_key"), tb.get("selected_package_key")):
         if isinstance(candidate, str) and candidate:
             return candidate
     # Core's recommendation is only safe to auto-select when unambiguous (exactly one);
@@ -87,33 +97,52 @@ def _project_customer_context(envelope: dict[str, Any], trip_brief: dict[str, An
     return ctx
 
 
-def _apply_handoff_floor(plan: dict[str, Any], envelope: dict[str, Any]) -> dict[str, Any]:
-    """Honor the envelope's handoff as a hard floor (escalate only, never downgrade).
+def _apply_envelope_floor(plan: dict[str, Any], envelope: dict[str, Any]) -> dict[str, Any]:
+    """Honor the envelope's routing state on top of the resolver plan (escalate only, never
+    downgrade an existing handoff):
 
-    Applied whenever the envelope requires handoff — including when the resolver ALREADY
-    returned a handoff for another reason (e.g. custom quote): build_delivery_plan only
-    strips price facts for route gaps, so an already-handoff plan can still carry a
-    standard-price fact and the resolver's reason. We re-apply the cleanup unconditionally:
-    handoff mode, no booking CTA, no price facts, and the envelope's reason takes precedence
-    (falling back to the plan's existing reason). Re-validates the contract."""
+    - handoff (handoff.required, or intent_status unsupported/handoff_required): force handoff
+      mode, no booking CTA, no price facts; the envelope's reason takes precedence (falling
+      back to the plan's existing reason). Applied even when the resolver ALREADY handed off
+      for another reason, because build_delivery_plan only strips price facts for route gaps.
+    - needs_information: the envelope deliberately withheld a committal answer pending missing
+      fields, so never present a standard price / booking CTA — downgrade a committal
+      price/booking plan to a non-committal clarify with a follow-up.
+
+    Re-validates the contract after mutating the plan."""
     env_handoff = envelope.get("handoff") or {}
-    needs_handoff = bool(env_handoff.get("required")) or envelope.get("intent_status") in _ENVELOPE_HANDOFF_STATUSES
-    if not needs_handoff:
-        return plan
-    reason = (
-        (env_handoff.get("reasons") or [None])[0]
-        or (plan.get("handoff") or {}).get("reason")
-        or f"intent_{envelope.get('intent_status')}"
-    )
-    floored = dict(plan)
-    floored["message_mode"] = "handoff"
-    floored["handoff"] = {"required": True, "reason": reason}
-    floored["secondary_link_intent"] = None
-    floored["resolved_secondary_link"] = None
-    floored["short_facts"] = [f for f in plan.get("short_facts", []) if "price" not in f.lower()]
-    floored["max_text_lines"] = MODE_MAX_LINES["handoff"]
-    validate_or_raise(DELIVERY_PLAN_CONTRACT, floored)
-    return floored
+    status = envelope.get("intent_status")
+    needs_handoff = bool(env_handoff.get("required")) or status in _ENVELOPE_HANDOFF_STATUSES
+
+    if needs_handoff:
+        reason = (
+            (env_handoff.get("reasons") or [None])[0]
+            or (plan.get("handoff") or {}).get("reason")
+            or f"intent_{status}"
+        )
+        floored = dict(plan)
+        floored["message_mode"] = "handoff"
+        floored["handoff"] = {"required": True, "reason": reason}
+        floored["secondary_link_intent"] = None
+        floored["resolved_secondary_link"] = None
+        floored["short_facts"] = [f for f in plan.get("short_facts", []) if "price" not in f.lower()]
+        floored["max_text_lines"] = MODE_MAX_LINES["handoff"]
+        validate_or_raise(DELIVERY_PLAN_CONTRACT, floored)
+        return floored
+
+    if status == "needs_information" and plan["message_mode"] in _COMMITTAL_MODES:
+        floored = dict(plan)
+        floored["message_mode"] = "quick_answer"
+        floored["secondary_link_intent"] = None
+        floored["resolved_secondary_link"] = None
+        floored["short_facts"] = [f for f in plan.get("short_facts", []) if "price" not in f.lower()]
+        floored["max_text_lines"] = MODE_MAX_LINES["quick_answer"]
+        if not floored.get("follow_up_question"):
+            floored["follow_up_question"] = "Could you share the missing details (e.g. travel date and number of guests) so I can help?"
+        validate_or_raise(DELIVERY_PLAN_CONTRACT, floored)
+        return floored
+
+    return plan
 
 
 def delivery_plan_from_decision(
@@ -134,4 +163,4 @@ def delivery_plan_from_decision(
     plan = resolve_delivery_plan(
         release_dir, customer_job=job, query=query, package_key=package_key, customer_context=customer_context,
     )
-    return _apply_handoff_floor(plan, decision_envelope)
+    return _apply_envelope_floor(plan, decision_envelope)

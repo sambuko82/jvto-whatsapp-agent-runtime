@@ -1,5 +1,10 @@
 # JVTO WhatsApp Agent Runtime — Working Contract
 
+> **Start each milestone by reading [`docs/project-context.md`](docs/project-context.md)** —
+> the persistent milestone log, decisions, open items, and operating (completion) loop.
+> Update it at the end of each milestone. This file is the working contract (rules); that
+> file is the running context.
+
 This repository is a **governed integration/runtime boundary**. It does not author
 public knowledge, decide route truth, calculate prices, or store customer data. It
 builds a version-locked *agent release* from two upstream repos and turns an

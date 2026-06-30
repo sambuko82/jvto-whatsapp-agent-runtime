@@ -17,11 +17,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .asset_resolver import MediaRegistry, load_media_registry, resolve_first_sendable as resolve_asset_first
+from .asset_resolver import MediaRegistry, resolve_first_sendable as resolve_asset_first
 from .contracts import validate_or_raise
-from .link_resolver import LinkRegistry, load_link_registry, resolve_first_sendable as resolve_link_first, resolve_link
-from .module_resolver import ModuleLayer, ResolvedModules, load_module_layer, resolve_modules
-from .route_gate import RouteGate, load_route_gate
+from .link_resolver import LinkRegistry, resolve_first_sendable as resolve_link_first, resolve_link
+from .module_resolver import ModuleLayer, ResolvedModules, resolve_modules
+from .monolith_catalog import load_monolith_catalog
+from .route_gate import RouteGate
 
 DELIVERY_PLAN_CONTRACT = "delivery-plan"
 
@@ -178,15 +179,17 @@ def build_delivery_plan(
         mode = "package_option"
 
     primary_intent, secondary_intent = _link_intents(rm)
-    # resolve links: primary prefers the chosen intent, then any sendable module link
-    primary_link = resolve_link(link_registry, primary_intent) if primary_intent else None
+    # resolve links: primary prefers the chosen intent, then any sendable module link.
+    # package_key lets the resolver pick the correct origin's URL for a package page key
+    # that is shared across origins (otherwise it stays non-sendable — never wrong).
+    primary_link = resolve_link(link_registry, primary_intent, package_key) if primary_intent else None
     if primary_link is None or not primary_link.sendable:
-        alt = resolve_link_first(link_registry, [k for k in ([primary_intent] if primary_intent else []) + rm.link_keys if k])
+        alt = resolve_link_first(link_registry, [k for k in ([primary_intent] if primary_intent else []) + rm.link_keys if k], package_key)
         primary_link = alt or primary_link
     # On a custom-quote case, do NOT offer a direct booking CTA (acceptance criterion).
     if handoff_required:
         secondary_intent = None
-    secondary_link = resolve_link(link_registry, secondary_intent) if secondary_intent else None
+    secondary_link = resolve_link(link_registry, secondary_intent, package_key) if secondary_intent else None
 
     visual = resolve_asset_first(media_registry, rm.visual_keys)
 
@@ -257,25 +260,26 @@ def build_delivery_plan(
 
 
 def resolve_delivery_plan(
-    release_root: Path | str,
-    web_public_root: Path | str,
+    monolith_release_root: Path | str,
     *,
-    core_agent_contract_root: Path | str,
     customer_job: str | None = None,
     query: str = "",
     package_key: str | None = None,
     customer_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """End-to-end production path: load the module layer + registries + the Core route
-    gate from disk and build a plan.
+    """End-to-end production path: load ONE compiled release and build a plan.
 
-    The Core route gate is REQUIRED here (not optional): the P0 policy is to fail safe
-    rather than price/booking without Core's route authority. A caller that genuinely
-    wants the ungated planner should call build_delivery_plan() directly with
-    route_gate=None."""
-    layer = load_module_layer(release_root)
-    links = load_link_registry(web_public_root)
-    media = load_media_registry(web_public_root)
-    gate = load_route_gate(core_agent_contract_root)
-    return build_delivery_plan(layer, links, media, customer_job=customer_job, query=query,
-                               package_key=package_key, customer_context=customer_context, route_gate=gate)
+    PR-2 (Runtime Monolith): this reads only `<release>/agent-catalog/` — the module
+    layer, the Web link/media capability registries, and the Core route gate are all
+    vendored there by the build. No jvto-web or jvto-itinerary-core clone is touched
+    during a chat.
+
+    The Core route gate is always present in a built release (the P0 policy is to fail
+    safe rather than price/book without Core's route authority). A caller that wants the
+    ungated planner should call build_delivery_plan() directly with route_gate=None."""
+    ctx = load_monolith_catalog(monolith_release_root)
+    return build_delivery_plan(
+        ctx.module_layer, ctx.link_registry, ctx.media_registry,
+        customer_job=customer_job, query=query, package_key=package_key,
+        customer_context=customer_context, route_gate=ctx.route_gate,
+    )

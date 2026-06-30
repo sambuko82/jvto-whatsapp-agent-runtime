@@ -105,6 +105,47 @@ def test_unknown_link_key_is_not_sendable(links):
     assert r.status == "unknown" and not r.sendable and r.url is None
 
 
+def test_duplicate_link_key_without_package_context_is_not_sendable(links):
+    # package_ijen_bromo_madakaripura_3d2n exists for both /from-bali/ and /from-surabaya/
+    # under one key -> with NO package context it cannot be disambiguated -> ambiguous.
+    r = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n")
+    assert r.status == "ambiguous"
+    assert not r.sendable and r.url is None
+
+
+def test_duplicate_link_key_resolves_correct_origin_with_package_context(links):
+    # Known package context picks its own origin's URL — never the other origin's.
+    bali = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "bali/ijen-bromo-madakaripura-3d2n")
+    assert bali.sendable and "from-bali" in bali.url and "from-surabaya" not in bali.url
+    sby = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "ijen-bromo-madakaripura-3d2n")
+    assert sby.sendable and "from-surabaya" in sby.url and "from-bali" not in sby.url
+    # a package context that matches NO record for this key stays non-sendable
+    none = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "does/not-exist")
+    assert none.status == "ambiguous" and not none.sendable
+
+
+def test_collision_package_gets_correct_origin_link_via_context(layer, links, media, gate):
+    # A Bali customer asking about the colliding package now gets the /from-bali/ URL
+    # (restored capability), and never the /from-surabaya/ one.
+    bali = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="bali/ijen-bromo-madakaripura-3d2n", customer_context={"pax": 2}, route_gate=gate,
+    )
+    bpl = bali["resolved_primary_link"]
+    assert bpl is not None and bpl["sendable"] and "from-bali/ijen-bromo-madakaripura-3d2n" in bpl["url"]
+    assert "from-surabaya" not in bpl["url"]
+    assert is_valid("delivery-plan", bali)
+    # The Surabaya twin gets its own origin URL, not the Bali one.
+    sby = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="ijen-bromo-madakaripura-3d2n", customer_context={"pax": 2}, route_gate=gate,
+    )
+    spl = sby["resolved_primary_link"]
+    assert spl is not None and spl["sendable"] and "from-surabaya/ijen-bromo-madakaripura-3d2n" in spl["url"]
+    assert "from-bali" not in spl["url"]
+    assert is_valid("delivery-plan", sby)
+
+
 # --- asset resolver (never invent a visual) --------------------------------
 
 def test_all_assets_not_sendable_today(media):
@@ -270,10 +311,11 @@ def test_real_gate_needs_review_adds_validation_disclosure(layer, links, media, 
     assert is_valid("delivery-plan", plan)
 
 
-def test_resolve_delivery_plan_end_to_end_with_gate():
+def test_resolve_delivery_plan_end_to_end_single_root():
+    # PR-2: ONE root (the agent-catalog) carries module layer + web registries + route gate.
     plan = resolve_delivery_plan(
-        FIX, FIX, customer_job="J2_price_and_value", query="how much for 4 guests?",
-        package_key=BALI_PKG, customer_context={"pax": 4}, core_agent_contract_root=FIX,
+        FIX, customer_job="J2_price_and_value", query="how much for 4 guests?",
+        package_key=BALI_PKG, customer_context={"pax": 4},
     )
     assert is_valid("delivery-plan", plan)
     # BALI_PKG carries an off-sequence leg in the real contract -> needs_review
@@ -301,7 +343,9 @@ def test_plain_dict_gate_missing_key_fails_safe(layer, links, media):
     assert is_valid("delivery-plan", plan)
 
 
-def test_resolve_delivery_plan_requires_core_gate():
+def test_resolve_delivery_plan_takes_only_the_release_root():
+    # PR-2: the three-root signature is gone. Passing a second positional root (the old
+    # web_public_root) must now be a TypeError — proving no web/core root is accepted.
     import pytest as _pytest
     with _pytest.raises(TypeError):
         resolve_delivery_plan(FIX, FIX, customer_job="J2_price_and_value", query="x", package_key=BALI_PKG)  # type: ignore[call-arg]

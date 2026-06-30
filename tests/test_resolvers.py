@@ -105,25 +105,45 @@ def test_unknown_link_key_is_not_sendable(links):
     assert r.status == "unknown" and not r.sendable and r.url is None
 
 
-def test_duplicate_link_key_with_conflicting_url_is_not_sendable(links):
+def test_duplicate_link_key_without_package_context_is_not_sendable(links):
     # package_ijen_bromo_madakaripura_3d2n exists for both /from-bali/ and /from-surabaya/
-    # under one key -> cannot disambiguate by key alone -> ambiguous, never sent.
+    # under one key -> with NO package context it cannot be disambiguated -> ambiguous.
     r = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n")
     assert r.status == "ambiguous"
     assert not r.sendable and r.url is None
 
 
-def test_collision_packages_never_emit_a_wrong_origin_link(layer, links, media, gate):
-    # A Bali customer asking about the colliding package must NOT be handed the Surabaya
-    # URL; the primary link is simply omitted (non-sendable) rather than wrong.
-    plan = build_delivery_plan(
+def test_duplicate_link_key_resolves_correct_origin_with_package_context(links):
+    # Known package context picks its own origin's URL — never the other origin's.
+    bali = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "bali/ijen-bromo-madakaripura-3d2n")
+    assert bali.sendable and "from-bali" in bali.url and "from-surabaya" not in bali.url
+    sby = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "ijen-bromo-madakaripura-3d2n")
+    assert sby.sendable and "from-surabaya" in sby.url and "from-bali" not in sby.url
+    # a package context that matches NO record for this key stays non-sendable
+    none = resolve_link(links, "package_ijen_bromo_madakaripura_3d2n", "does/not-exist")
+    assert none.status == "ambiguous" and not none.sendable
+
+
+def test_collision_package_gets_correct_origin_link_via_context(layer, links, media, gate):
+    # A Bali customer asking about the colliding package now gets the /from-bali/ URL
+    # (restored capability), and never the /from-surabaya/ one.
+    bali = build_delivery_plan(
         layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
         package_key="bali/ijen-bromo-madakaripura-3d2n", customer_context={"pax": 2}, route_gate=gate,
     )
-    pl = plan["resolved_primary_link"]
-    if pl is not None and pl["url"] is not None:
-        assert "from-surabaya" not in pl["url"]
-    assert is_valid("delivery-plan", plan)
+    bpl = bali["resolved_primary_link"]
+    assert bpl is not None and bpl["sendable"] and "from-bali/ijen-bromo-madakaripura-3d2n" in bpl["url"]
+    assert "from-surabaya" not in bpl["url"]
+    assert is_valid("delivery-plan", bali)
+    # The Surabaya twin gets its own origin URL, not the Bali one.
+    sby = build_delivery_plan(
+        layer, links, media, customer_job="J2_price_and_value", query="how much for 2",
+        package_key="ijen-bromo-madakaripura-3d2n", customer_context={"pax": 2}, route_gate=gate,
+    )
+    spl = sby["resolved_primary_link"]
+    assert spl is not None and spl["sendable"] and "from-surabaya/ijen-bromo-madakaripura-3d2n" in spl["url"]
+    assert "from-bali" not in spl["url"]
+    assert is_valid("delivery-plan", sby)
 
 
 # --- asset resolver (never invent a visual) --------------------------------

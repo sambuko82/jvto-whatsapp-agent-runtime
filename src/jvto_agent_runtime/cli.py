@@ -9,6 +9,7 @@ from .decision_engine import build_decision
 from .deployment import create_approval, deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, execute_live_tool
+from .presentation_resolver import resolve_delivery_plan
 from .release_builder import build_release
 from .sales_intelligence import derive_response_plan, load_customer_sales_config, merge_trip_brief
 from .utils import read_json, utc_now, write_json
@@ -91,6 +92,14 @@ def main() -> None:
     std_price.add_argument("--package-key", required=True)
     std_price.add_argument("--pax", type=int, required=True)
     std_price.add_argument("--output")
+
+    delivery = sub.add_parser("delivery-plan")
+    delivery.add_argument("--release-dir", required=True)
+    delivery.add_argument("--customer-job")
+    delivery.add_argument("--query", default="")
+    delivery.add_argument("--package-key")
+    delivery.add_argument("--customer-context", default="{}", help="JSON object of presentation context, e.g. '{\"pax\": 4}'")
+    delivery.add_argument("--output")
 
     args = parser.parse_args()
     root = _repo_root()
@@ -180,6 +189,24 @@ def main() -> None:
     if args.command == "standard-price":
         executor = CustomerSalesExecutor(Path(args.release_dir))
         result = executor.standard_price_lookup(args.package_key, args.pax)
+        if args.output:
+            write_json(Path(args.output), result)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "delivery-plan":
+        try:
+            customer_context = json.loads(args.customer_context)
+        except json.JSONDecodeError as error:
+            raise SystemExit(f"--customer-context must be valid JSON: {error}") from error
+        if not isinstance(customer_context, dict):
+            raise SystemExit("--customer-context must be a JSON object, e.g. '{\"pax\": 4}'")
+        result = resolve_delivery_plan(
+            Path(args.release_dir),
+            customer_job=args.customer_job,
+            query=args.query,
+            package_key=args.package_key or None,
+            customer_context=customer_context,
+        )
         if args.output:
             write_json(Path(args.output), result)
         print(json.dumps(result, ensure_ascii=False, indent=2))

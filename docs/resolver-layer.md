@@ -71,6 +71,34 @@ the policy is to fail safe rather than price/booking without it: an unknown/mism
 `package_key` resolves to `integrity=unknown` → handoff. To use the ungated planner
 deliberately, call `build_delivery_plan(..., route_gate=None)` directly.
 
+### API + CLI surface
+
+The supported runtime path is `POST /v1/delivery-plan` (and `jvto-agent delivery-plan`
+for parity). Both read only the one local release's `agent-catalog/`.
+
+```http
+POST /v1/delivery-plan
+{
+  "release_dir": "dist/releases/<id>",
+  "customer_job": "J2_price_and_value",
+  "query": "How much for 4 guests?",
+  "package_key": "bali/bromo-ijen-3d2n",
+  "customer_context": {"pax": 4}
+}
+→ 200  a contract-valid DeliveryPlan (delivery-plan.schema.json)
+→ 404  release dir not found, or no agent-catalog module layer (not a built release)
+```
+
+```bash
+jvto-agent delivery-plan --release-dir dist/releases/<id> \
+  --customer-job J2_price_and_value --query "How much for 4 guests?" \
+  --package-key bali/bromo-ijen-3d2n --customer-context '{"pax": 4}'
+```
+
+The endpoint is a pure presentation read: it authors no copy, invents no URL/visual,
+sources no live truth, and stays separate from `/v1/decisions` (routing/safety →
+DecisionEnvelope) and `/v1/response-plan` (response requirements → ResponsePlan).
+
 Note: this layer adds presentation on top of the existing `ResponsePlan`/`DecisionEnvelope`;
 it does not replace system routing, which stays the DecisionEnvelope's job.
 

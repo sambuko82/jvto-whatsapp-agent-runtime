@@ -15,6 +15,8 @@ from .deployment import deployment_gate, verify_deployment_approval
 from .feasibility import NotConnectedEvaluator, evaluate_feasibility
 from .live_tools import NotConnectedLiveToolAdapter, UnknownToolError, execute_live_tool
 from .meta_webhook import normalize_payload, verify_signature, verify_subscription
+from .monolith_catalog import catalog_root_for
+from .presentation_resolver import resolve_delivery_plan
 from .sales_intelligence import derive_response_plan, load_customer_sales_config
 from .validator import validate_release
 
@@ -69,6 +71,41 @@ def response_plan(request: ResponsePlanRequest) -> dict[str, Any]:
     return derive_response_plan(
         request.decision_envelope, request.trip_brief, config, query=request.query, signals=request.signals
     )
+
+
+class DeliveryPlanRequest(BaseModel):
+    release_dir: str = Field(..., description="Local monolith release path (reads <release>/agent-catalog/ only)")
+    customer_job: str | None = Field(None, description="Optional ResponsePlan job, e.g. J2_price_and_value")
+    query: str = ""
+    package_key: str | None = None
+    customer_context: dict[str, Any] = Field(default_factory=dict)
+
+
+@app.post("/v1/delivery-plan")
+def delivery_plan(request: DeliveryPlanRequest) -> dict[str, Any]:
+    # Presentation read of ONE local monolith release: module layer + Web link/media
+    # registries + Core route gate, all from <release>/agent-catalog/. No upstream clone
+    # is touched. Authors nothing; never invents a URL/visual; never sources live truth.
+    # The existing safety rules hold (route-gap/unknown -> handoff; needs_review -> route
+    # validation disclosure; custom-quote -> no booking CTA; package-aware link origin).
+    release_dir = Path(request.release_dir)
+    if not release_dir.exists():
+        raise HTTPException(status_code=404, detail="Release directory not found")
+    if not (catalog_root_for(release_dir) / "general-modules.json").exists():
+        raise HTTPException(status_code=404, detail="Release has no agent-catalog module layer; rebuild the release with build-release")
+    try:
+        return resolve_delivery_plan(
+            release_dir,
+            customer_job=request.customer_job,
+            query=request.query,
+            package_key=request.package_key or None,  # normalize "" -> None (no-package)
+            customer_context=request.customer_context,
+        )
+    except FileNotFoundError as error:
+        # An incomplete agent-catalog (e.g. module layer present but package-variations,
+        # module-compatibility, or the Core agent-contract files missing) is a not-a-built-
+        # release condition: fail cleanly rather than surface a 500 from the loaders.
+        raise HTTPException(status_code=404, detail=f"Incomplete agent-catalog in release; rebuild the release with build-release ({error})") from error
 
 
 class ResolvedContextRequest(BaseModel):

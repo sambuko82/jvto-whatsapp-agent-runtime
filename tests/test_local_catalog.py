@@ -136,3 +136,28 @@ def test_staging_operational_notes_surface_on_a_hotel_question():
     assert is_valid("customer-response-draft", d)
     assert any("jeep pickup" in x or "cold-weather" in x for x in d["required_disclosures"])
     assert d["price"]["surfaced"] is False, "a hotel question must never surface a price"
+
+
+def test_blue_fire_topic_still_gets_the_ijen_access_risk_disclosure():
+    # module_resolver classifies "blue fire" queries as topic=blue_fire (not
+    # destination_readiness) even though both share the same presentation mode; the
+    # ijen_access_closure_risk disclosure must not be lost for this common phrasing.
+    d = compose_customer_response(
+        CATALOG, _env({"package_key": "tumpak-sewu-bromo-ijen-4d3n"}),
+        query="can we see blue fire at ijen?", config=CONFIG,
+    )
+    assert is_valid("customer-response-draft", d)
+    assert any("cannot be guaranteed" in x for x in d["required_disclosures"]), "existing natural-phenomena disclosure must survive"
+    assert any("visitor cap" in x for x in d["required_disclosures"]), "ijen_access_closure_risk must also surface on a blue_fire question"
+
+
+def test_staging_notes_do_not_explode_into_a_wall_of_disclosures_on_multi_stop_packages():
+    # ijen-papuma-tumpak-sewu-bromo-malang-6d5n has 18 operational_notes across 5 staging
+    # areas in the committed catalog; required_disclosures has no max_text_lines cap, so
+    # emitting every note verbatim would bury the actual overnight answer.
+    d = compose_customer_response(
+        CATALOG, _env({"package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n"}),
+        query="where do we stay, what hotel?", config=CONFIG,
+    )
+    assert is_valid("customer-response-draft", d)
+    assert len(d["required_disclosures"]) <= 5, f"hotel disclosures should be capped, got {len(d['required_disclosures'])}"

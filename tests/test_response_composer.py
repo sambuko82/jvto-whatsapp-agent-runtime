@@ -175,3 +175,64 @@ def test_real_build_route_review_case():
     assert review["price"]["status"] == "priced" and review["price"]["surfaced"] is True
     assert "from-bali/bromo-ijen-3d2n" in review["link"]["url"]
     assert is_valid("customer-response-draft", review)
+
+
+# --- topic-specific responses (against the committed catalog with real 16-pkg data) ---
+
+CATALOG = REPO / "catalog"
+
+
+def _compose(query, package_key=CLEAN_PKG, pax=4):
+    return compose_customer_response(
+        CATALOG, _envelope(intent="ask_question", entities={"package_key": package_key, "number_of_guests": pax}),
+        query=query, config=CONFIG,
+    )
+
+
+def test_vehicle_question_answers_vehicle_rule_and_no_price():
+    d = _compose("what vehicle do we get?")
+    assert d["package"]["status"] == "resolved"
+    assert any(l.startswith("Vehicle:") for l in d["draft_lines"]), d["draft_lines"]
+    # price is NOT price-relevant here: no price line, price not surfaced, no endpoint blob
+    assert d["price"]["surfaced"] is False
+    assert not any("per person" in l for l in d["draft_lines"])
+    assert not any("Standard finish" in l for l in d["draft_lines"])
+    assert is_valid("customer-response-draft", d)
+
+
+def test_hotel_question_answers_standard_overnights_no_price():
+    d = _compose("which hotel do we stay in overnight?")
+    assert any(l.startswith("Standard overnights:") for l in d["draft_lines"]), d["draft_lines"]
+    assert d["price"]["surfaced"] is False
+    assert not any("per person" in l for l in d["draft_lines"])
+    assert is_valid("customer-response-draft", d)
+
+
+def test_endpoint_question_answers_package_valid_endpoints():
+    # CLEAN_PKG (tumpak-sewu-bromo-ijen-4d3n) finishes at Ketapang (standard) with
+    # "Bali with additional transfer" as a LIVE arrangement, not a settled endpoint.
+    d = _compose("where do we finish / get dropped off?")
+    body = " ".join(d["draft_lines"])
+    assert "Pickup:" in body and "Standard finish:" in body, d["draft_lines"]
+    assert "Ketapang Harbor" in body
+    # the live_condition option must be a disclosure, never asserted as a standard endpoint
+    assert any("live arrangement" in disc.lower() for disc in d["required_disclosures"])
+    assert not any("Bali with additional transfer" in l for l in d["draft_lines"])
+    assert d["price"]["surfaced"] is False
+    assert is_valid("customer-response-draft", d)
+
+
+def test_endpoint_question_bali_origin_pickup_and_from_bali_boundary():
+    d = _compose("where is the pickup and dropoff?", package_key="bali/ijen-bromo-madakaripura-3d2n")
+    body = " ".join(d["draft_lines"])
+    assert "Bali hotel area pickup (origin)" in body, d["draft_lines"]
+    # Bali-origin crosses the boundary at the START and finishes in Surabaya (not "finish in Bali")
+    assert any("finishes in Surabaya" in disc for disc in d["required_disclosures"])
+    assert is_valid("customer-response-draft", d)
+
+
+def test_price_only_surfaces_for_price_topic():
+    priced = _compose("how much is it?")           # price topic
+    vehicle = _compose("what vehicle do we get?")  # non-price topic, same package+pax
+    assert priced["price"]["surfaced"] is True and any("per person" in l for l in priced["draft_lines"])
+    assert vehicle["price"]["surfaced"] is False and not any("per person" in l for l in vehicle["draft_lines"])

@@ -29,8 +29,10 @@
           "missing_data": {
             "field": "route_leg_ids: bromo__to__madakaripura",
             "affected": "bali/bromo-ijen-3d2n",
-            "required_source": "ops/llm-wiki confirmation of whether this package actually includes a Madakaripura stop, or jvto-web's packageDetailSnapshots.json TravelActions overstate the itinerary (package-catalog-index.json destination_tokens does not list madakaripura for this package)",
-            "current_fallback": "route_integrity stays needs_review; effective_instant_book_eligible is unaffected (needs_review does not gate instant-book, only 'gap' does) — the WhatsApp runtime adds a route-validation disclosure instead of blocking or asking for human review",
+            "adjudication": "owner_confirmed_2026-07-01: package DOES include Madakaripura; jvto-web itinerary is correct, llm-wiki destination_tokens under-lists the sold destination",
+            "required_source": "correction in llm-wiki output/products/package-readiness/package-registry.json: add 'madakaripura' to destination_tokens (and the itinerary sequence) for this package. destination_tokens + the derived route_sequence are generated upstream in llm-wiki, outside itinerary-core/knowledge-catalog/runtime, so this cannot be fixed in these three repos.",
+            "current_fallback": "route_integrity stays needs_review because the derived route_sequence (also from llm-wiki) omits Madakaripura while a leg reaches it; effective_instant_book_eligible is unaffected (needs_review warns, does not gate — only integrity=gap blocks). The WhatsApp runtime adds a route-validation disclosure rather than blocking.",
+            "propagation_recommendation": "llm-wiki source owner: add 'madakaripura' to this package's destination_tokens and itinerary sequence so the regenerated derived route_sequence includes it and route_integrity clears to clean on the next Core rebuild.",
             "gating": "warns"
           }
         },
@@ -45,8 +47,10 @@
           "missing_data": {
             "field": "route_leg_ids: madakaripura__to__surabaya",
             "affected": "bromo-2d1n",
-            "required_source": "ops/llm-wiki confirmation of whether this package actually includes a Madakaripura stop, or jvto-web's packageDetailSnapshots.json TravelActions overstate the itinerary (package-catalog-index.json destination_tokens does not list madakaripura for this package)",
-            "current_fallback": "route_integrity stays needs_review; effective_instant_book_eligible is unaffected (needs_review does not gate instant-book, only 'gap' does) — the WhatsApp runtime adds a route-validation disclosure instead of blocking or asking for human review",
+            "adjudication": "owner_confirmed_2026-07-01: package DOES include Madakaripura; jvto-web itinerary is correct, llm-wiki destination_tokens under-lists the sold destination",
+            "required_source": "correction in llm-wiki output/products/package-readiness/package-registry.json: add 'madakaripura' to destination_tokens (and the itinerary sequence) for this package. destination_tokens + the derived route_sequence are generated upstream in llm-wiki, outside itinerary-core/knowledge-catalog/runtime, so this cannot be fixed in these three repos.",
+            "current_fallback": "route_integrity stays needs_review because the derived route_sequence (also from llm-wiki) omits Madakaripura while a leg reaches it; effective_instant_book_eligible is unaffected (needs_review warns, does not gate — only integrity=gap blocks). The WhatsApp runtime adds a route-validation disclosure rather than blocking.",
+            "propagation_recommendation": "llm-wiki source owner: add 'madakaripura' to this package's destination_tokens and itinerary sequence so the regenerated derived route_sequence includes it and route_integrity clears to clean on the next Core rebuild.",
             "gating": "warns"
           }
         }
@@ -62,7 +66,7 @@
         "tight_connection",
         "special_pickup"
       ],
-      "note": "10 rules: 3 from 03-time-window-rules.json, 1 connection-buffer synthetic, and 6 package/route-level rules newly projected from 12-recommendation-rules.json (previously consumed only by the internal CLI scenario evaluator, never reaching this agent-safe contract). The 5 per-destination weather advisories from the same source are projected onto destination_operational_overlays / standard-route-truth.destinations[].weather_advisory instead."
+      "note": "10 rules, each carrying an applies_at consumption label derived from its own trigger: 4 are static_package_response (package-decidable — evaluated now in standard-route-truth.route_recommendations; ferry_bali_buffer_required + ijen_access_closure_risk are surfaced as runtime disclosures today) and 6 are live_feasibility_request (need customer arrival time / dropoff type / flight buffer, so they belong to the Phase-2 feasibility path and are NOT evaluable in the static customer-response flow). This is the honest split behind \"not all rules are actively used\": the 6 live rules are not unused-by-accident, they await the feasibility boundary. Source: 3 from 03-time-window-rules.json + 1 synthetic connection-buffer + 6 projected from 12-recommendation-rules.json; the 5 weather advisories go to destinations[].weather_advisory."
     },
     {
       "dataset": "pickup_dropoff_requirements",

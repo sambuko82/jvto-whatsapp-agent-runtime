@@ -5,22 +5,50 @@
     {
       "package_key": "bali/bromo-ijen-3d2n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bali/bromo-ijen-3d2n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bali/ijen-bromo-madakaripura-3d2n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bali/ijen-bromo-madakaripura-3d2n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bromo-1d1n",
@@ -30,62 +58,146 @@
     {
       "package_key": "bromo-1d1n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bromo-1d1n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bromo-2d1n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bromo-2d1n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "bromo-madakaripura-ijen-3d2n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "bromo-madakaripura-ijen-3d2n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-2d1n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-2d1n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-bromo-madakaripura-3d2n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-bromo-madakaripura-3d2n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-bromo-madakaripura-4d3n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-bromo-madakaripura-4d3n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-bromo-madakaripura-malang-5d4n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-bromo-madakaripura-malang-5d4n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-papuma-tumpak-sewu-bromo-4d3n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-papuma-tumpak-sewu-bromo-5d4n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "taman-safari-prigen-bromo-madakaripura-3d2n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     },
     {
       "package_key": "tumpak-sewu-bromo-ijen-4d3n",
       "capability": "vehicle_luggage",
-      "reason": "luggage allowance not published (vehicle class available)"
+      "reason": "luggage allowance not published (vehicle class available)",
+      "missing_data": {
+        "field": "luggage_rule (per-guest luggage allowance: pieces / weight by vehicle class)",
+        "affected": "tumpak-sewu-bromo-ijen-4d3n",
+        "required_source": "an ops-published luggage policy (e.g. 1 checked bag + 1 carry-on per guest, by AC MPV vs Hiace). No luggage-allowance figure exists in any connected source today — jvto-web packageDetailSnapshots mentions luggage only in prose, Core pickup contexts carry only luggage_loading / unclear_luggage_plan risk tags.",
+        "current_fallback": "vehicle_category IS published and answers the vehicle question; luggage_rule stays null; oversized/special luggage already routes to a live check via the runtime's vehicle disclosure. readiness.vehicle_luggage=partial (never 'available' while the allowance is unsourced).",
+        "gating": "optional"
+      }
     }
   ]
 }

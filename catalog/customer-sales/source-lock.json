@@ -1,16 +1,16 @@
 {
   "schema_version": "customer-sales-source-lock-v1",
   "release_id": "customer-sales-release-20260628-001",
-  "created_at": "2026-07-01T12:21:27+00:00",
+  "created_at": "2026-07-01T13:56:52+00:00",
   "knowledge_catalog": {
     "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
-    "revision": "d5f3b2df5e86d3fc1a36c07169e3072b53a7e4f4",
+    "revision": "5acd1c0d6852f245d62310dfd27a6eb87c144751",
     "catalog_path": "okf/bundles/jvto/catalog.json",
     "catalog_sha256": "9b45a6f051007f62a2d708951cbfdb7b98c61e12567107540845b42b38d79e58"
   },
   "itinerary_core": {
     "repo": "sambuko82/jvto-itinerary-core",
-    "revision": "9c668a13d45f90d9051a163ac1cccc0d3400e749",
+    "revision": "f0f534b1106a81bb82c65cb7533ca8d740682c11",
     "sources": {
       "input/llm-wiki/package-readiness/package-pricing.json": "fc7d08b80f00a1ec6b86a65cad75e742742b1b4a83b357ae89109d1998a58cdc",
       "generated/itinerary-intelligence/package-catalog-index.json": "333438fd2413970bf83e5ac8eda72e5c23f141b56537f7e2eafc1558046975d8",

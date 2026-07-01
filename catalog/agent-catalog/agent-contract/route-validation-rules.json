@@ -20,7 +20,9 @@
     ],
     "source_refs": [
       "03-time-window-rules.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "late_surabaya_arrival_before_bromo",
@@ -43,7 +45,9 @@
     ],
     "source_refs": [
       "03-time-window-rules.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "airport_dropoff_cutoff_after_waterfall",
@@ -69,7 +73,9 @@
     ],
     "source_refs": [
       "03-time-window-rules.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "connection_buffer_rule",
@@ -92,7 +98,9 @@
     ],
     "source_refs": [
       "02-dropoff-contexts.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
@@ -121,7 +129,9 @@
     "confidence": "manual_seed",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "static_package_response",
+    "consumed_by": "standard-route-truth.packages[].route_recommendations (package-decidable, evaluated at catalog build). Surfaced to customers today: ferry_bali_buffer_required + ijen_access_closure_risk as runtime disclosures; avoid_backtracking_ijen_bromo_ketapang only when a package's order is non-compliant (all current packages comply, so it confirms rather than warns); tight_multi_destination_short_days only when it fires (no current package has >=3 destinations in <=2 days)."
   },
   {
     "rule_id": "late_airport_arrival_requires_rest_warning",
@@ -148,7 +158,9 @@
     "confidence": "inferred",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "waterfall_before_airport_deadline_risk",
@@ -175,7 +187,9 @@
     "confidence": "manual_seed",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "live_feasibility_request",
+    "consumed_by": "feasibility / decision-envelope path (Phase 2 — scaffolded, not yet built). Requires live request context the static package response does not have (customer arrival time / chosen dropoff type / flight buffer), so it is intentionally NOT consumed by the runtime's static customer-response flow. Consumed today only by the CLI scenario evaluator (src/scenario/evaluateScenario.ts)."
   },
   {
     "rule_id": "ferry_bali_buffer_required",
@@ -201,7 +215,9 @@
     "confidence": "inferred",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "static_package_response",
+    "consumed_by": "standard-route-truth.packages[].route_recommendations (package-decidable, evaluated at catalog build). Surfaced to customers today: ferry_bali_buffer_required + ijen_access_closure_risk as runtime disclosures; avoid_backtracking_ijen_bromo_ketapang only when a package's order is non-compliant (all current packages comply, so it confirms rather than warns); tight_multi_destination_short_days only when it fires (no current package has >=3 destinations in <=2 days)."
   },
   {
     "rule_id": "ijen_access_closure_risk",
@@ -223,7 +239,9 @@
     "confidence": "inferred",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "static_package_response",
+    "consumed_by": "standard-route-truth.packages[].route_recommendations (package-decidable, evaluated at catalog build). Surfaced to customers today: ferry_bali_buffer_required + ijen_access_closure_risk as runtime disclosures; avoid_backtracking_ijen_bromo_ketapang only when a package's order is non-compliant (all current packages comply, so it confirms rather than warns); tight_multi_destination_short_days only when it fires (no current package has >=3 destinations in <=2 days)."
   },
   {
     "rule_id": "tight_multi_destination_short_days",
@@ -246,6 +264,8 @@
     "confidence": "manual_seed",
     "source_refs": [
       "12-recommendation-rules.json"
-    ]
+    ],
+    "applies_at": "static_package_response",
+    "consumed_by": "standard-route-truth.packages[].route_recommendations (package-decidable, evaluated at catalog build). Surfaced to customers today: ferry_bali_buffer_required + ijen_access_closure_risk as runtime disclosures; avoid_backtracking_ijen_bromo_ketapang only when a package's order is non-compliant (all current packages comply, so it confirms rather than warns); tight_multi_destination_short_days only when it fires (no current package has >=3 destinations in <=2 days)."
   }
 ]

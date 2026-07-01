@@ -161,6 +161,29 @@
       "source_refs": [
         "01-pickup-contexts.json"
       ]
+    },
+    {
+      "location_ref": "bali_hotel_pickup",
+      "label": "Bali hotel area pickup (origin)",
+      "type": "hotel",
+      "location_group": "Bali",
+      "required_fields": [
+        "hotel_area",
+        "pickup_time"
+      ],
+      "risk_factors": [
+        "late_checkout",
+        "luggage_loading",
+        "bali_traffic"
+      ],
+      "default_ready_buffer_minutes": 15,
+      "requires_feasibility_when": [
+        "arrival_time_late"
+      ],
+      "confidence": "manual_seed",
+      "source_refs": [
+        "01-pickup-contexts.json"
+      ]
     }
   ],
   "dropoffs": [

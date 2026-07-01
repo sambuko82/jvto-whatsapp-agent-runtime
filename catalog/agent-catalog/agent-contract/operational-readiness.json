@@ -25,6 +25,13 @@
             "off_sequence_legs": [
               "bromo__to__madakaripura"
             ]
+          },
+          "missing_data": {
+            "field": "route_leg_ids: bromo__to__madakaripura",
+            "affected": "bali/bromo-ijen-3d2n",
+            "required_source": "ops/llm-wiki confirmation of whether this package actually includes a Madakaripura stop, or jvto-web's packageDetailSnapshots.json TravelActions overstate the itinerary (package-catalog-index.json destination_tokens does not list madakaripura for this package)",
+            "current_fallback": "route_integrity stays needs_review; effective_instant_book_eligible is unaffected (needs_review does not gate instant-book, only 'gap' does) — the WhatsApp runtime adds a route-validation disclosure instead of blocking or asking for human review",
+            "gating": "warns"
           }
         },
         {
@@ -34,6 +41,13 @@
             "off_sequence_legs": [
               "madakaripura__to__surabaya"
             ]
+          },
+          "missing_data": {
+            "field": "route_leg_ids: madakaripura__to__surabaya",
+            "affected": "bromo-2d1n",
+            "required_source": "ops/llm-wiki confirmation of whether this package actually includes a Madakaripura stop, or jvto-web's packageDetailSnapshots.json TravelActions overstate the itinerary (package-catalog-index.json destination_tokens does not list madakaripura for this package)",
+            "current_fallback": "route_integrity stays needs_review; effective_instant_book_eligible is unaffected (needs_review does not gate instant-book, only 'gap' does) — the WhatsApp runtime adds a route-validation disclosure instead of blocking or asking for human review",
+            "gating": "warns"
           }
         }
       ]
@@ -47,7 +61,8 @@
         "custom_route",
         "tight_connection",
         "special_pickup"
-      ]
+      ],
+      "note": "10 rules: 3 from 03-time-window-rules.json, 1 connection-buffer synthetic, and 6 package/route-level rules newly projected from 12-recommendation-rules.json (previously consumed only by the internal CLI scenario evaluator, never reaching this agent-safe contract). The 5 per-destination weather advisories from the same source are projected onto destination_operational_overlays / standard-route-truth.destinations[].weather_advisory instead."
     },
     {
       "dataset": "pickup_dropoff_requirements",
@@ -85,11 +100,27 @@
       "dataset": "package_customization_boundaries",
       "status": "covered",
       "customer_usage": "handoff_decision"
+    },
+    {
+      "dataset": "legacy_route_leg_index",
+      "status": "partial",
+      "customer_usage": "internal_cli_scenario_tool_only",
+      "note": "04-route-leg-index.json (legacy) is consumed only by the CLI `scenario` command, not by this agent-contract or the WhatsApp runtime (which read route-leg-index.filled.json / package-route-map.json instead).",
+      "gaps": [
+        {
+          "field": "distance_km, duration_normal_minutes, duration_busy_minutes",
+          "affected": "leg bali_hotel_area_to_banyuwangi_ijen_area, used by bromo-ijen-3d2n-bali, ijen-bromo-madakaripura-3d2n-bali, ijen-papuma-tumpak-sewu-bromo-4d3n-bali, ijen-papuma-tumpak-sewu-bromo-5d4n-bali",
+          "required_source": "operator-timed multi-segment transfer (Bali hotel road + Gilimanuk->Ketapang ferry + Gilimanuk->Banyuwangi road + Banyuwangi->Ijen base); the Gilimanuk->Banyuwangi segment is currently only available from algorithmic sources, deliberately rejected as unreliable for this composite leg",
+          "current_fallback": "null in the legacy CLI dataset; the WhatsApp runtime path is unaffected because standard-route-truth.json's route_legs for these 4 packages already use the derived route-leg-index.filled.json leg 'bali__to__ijen', which has real mapbox timing (175.9km/186min/311min busy)",
+          "gating": "optional"
+        }
+      ]
     }
   ],
   "source_refs": [
     "package-route-map.json",
     "route-leg-index.filled.json",
+    "12-recommendation-rules.json",
     "data-readiness-report.json"
   ]
 }

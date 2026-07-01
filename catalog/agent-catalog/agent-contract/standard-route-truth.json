@@ -9,11 +9,11 @@
     "absent": "no source rule and no shared JVTO rule of same scope (recorded as a gap; surfaced as handoff, never invented)"
   },
   "classification_tally": {
-    "final_jvto_standard": 236,
+    "final_jvto_standard": 238,
     "source_backed_estimate": 182,
-    "live_condition": 66,
+    "live_condition": 131,
     "exception": 5,
-    "absent": 2
+    "absent": 4
   },
   "packages": [
     {
@@ -34,7 +34,7 @@
       },
       "valid_pickups": [
         {
-          "location_ref": null,
+          "location_ref": "bali_hotel_pickup",
           "label": "Bali hotel area pickup (origin)",
           "type": "hotel",
           "location_group": "Bali",
@@ -44,10 +44,8 @@
           ],
           "classification": "final_jvto_standard",
           "evidence": [
-            "package-route-map.json (route_sequence[0])",
-            "package-catalog-index.json (origin=Bali)"
-          ],
-          "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+            "01-pickup-contexts.json"
+          ]
         },
         {
           "location_ref": "custom_address_pickup",
@@ -226,6 +224,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -266,6 +299,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -274,6 +342,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -283,6 +361,18 @@
           "staging_ref": "banyuwangi_staging",
           "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
           "purpose": "overnight_after_bali_ferry_before_ijen",
+          "operational_notes": [
+            "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+            "ferry from Gilimanuk requires Ferizy pre-booking",
+            "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+            "medical check and briefing arranged at hotel",
+            "midnight departure to Ijen from here"
+          ],
+          "risk_if_arrival_late": [
+            "reduced rest before midnight Ijen departure",
+            "late medical check",
+            "higher fatigue at crater"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -301,6 +391,26 @@
           "note": "Bali-origin tours run the corridor in reverse of the standard Surabaya order; feasibility/staging follow the reversed sequence."
         }
       ],
+      "route_recommendations": [
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -315,6 +425,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -337,7 +448,7 @@
       },
       "valid_pickups": [
         {
-          "location_ref": null,
+          "location_ref": "bali_hotel_pickup",
           "label": "Bali hotel area pickup (origin)",
           "type": "hotel",
           "location_group": "Bali",
@@ -347,10 +458,8 @@
           ],
           "classification": "final_jvto_standard",
           "evidence": [
-            "package-route-map.json (route_sequence[0])",
-            "package-catalog-index.json (origin=Bali)"
-          ],
-          "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+            "01-pickup-contexts.json"
+          ]
         },
         {
           "location_ref": "custom_address_pickup",
@@ -536,6 +645,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -575,6 +719,41 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -613,6 +792,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -621,6 +829,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -630,6 +848,18 @@
           "staging_ref": "banyuwangi_staging",
           "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
           "purpose": "overnight_after_bali_ferry_before_ijen",
+          "operational_notes": [
+            "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+            "ferry from Gilimanuk requires Ferizy pre-booking",
+            "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+            "medical check and briefing arranged at hotel",
+            "midnight departure to Ijen from here"
+          ],
+          "risk_if_arrival_late": [
+            "reduced rest before midnight Ijen departure",
+            "late medical check",
+            "higher fatigue at crater"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -648,6 +878,26 @@
           "note": "Bali-origin tours run the corridor in reverse of the standard Surabaya order; feasibility/staging follow the reversed sequence."
         }
       ],
+      "route_recommendations": [
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -662,6 +912,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -685,7 +936,7 @@
       },
       "valid_pickups": [
         {
-          "location_ref": null,
+          "location_ref": "bali_hotel_pickup",
           "label": "Bali hotel area pickup (origin)",
           "type": "hotel",
           "location_group": "Bali",
@@ -695,10 +946,8 @@
           ],
           "classification": "final_jvto_standard",
           "evidence": [
-            "package-route-map.json (route_sequence[0])",
-            "package-catalog-index.json (origin=Bali)"
-          ],
-          "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+            "01-pickup-contexts.json"
+          ]
         },
         {
           "location_ref": "custom_address_pickup",
@@ -905,6 +1154,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -945,6 +1229,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -981,6 +1300,35 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Papuma Beach: difficulty easy (physical demand 1/5). Weather by season — Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents. Rainfall — Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month) Key risk (marine, medium): Swim only in designated safe areas. Follow lifeguard instructions if available.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents.",
+            "rainfall_intensity": "Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "marine",
+                "level": "medium",
+                "mitigation": "Swim only in designated safe areas. Follow lifeguard instructions if available.",
+                "description": "Strong currents and powerful waves"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear water shoes with good grip on rocky surfaces",
+                "description": "Slippery rocks when wet"
+              },
+              {
+                "type": "weather",
+                "level": "low",
+                "mitigation": "Use sunscreen, hat, and seek shade during peak hours",
+                "description": "Strong sun exposure"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -1019,6 +1367,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -1027,6 +1404,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1036,6 +1423,18 @@
           "staging_ref": "banyuwangi_staging",
           "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
           "purpose": "overnight_after_bali_ferry_before_ijen",
+          "operational_notes": [
+            "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+            "ferry from Gilimanuk requires Ferizy pre-booking",
+            "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+            "medical check and briefing arranged at hotel",
+            "midnight departure to Ijen from here"
+          ],
+          "risk_if_arrival_late": [
+            "reduced rest before midnight Ijen departure",
+            "late medical check",
+            "higher fatigue at crater"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1045,6 +1444,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1054,6 +1464,17 @@
           "staging_ref": "papuma_staging",
           "label": "Papuma / Jember staging overnight",
           "purpose": "overnight_before_papuma_beach",
+          "operational_notes": [
+            "Doho Homestay / Jember area is the closest base",
+            "Papuma best visited in morning before crowds",
+            "coastal road is rain-sensitive; check weather",
+            "not suitable before a tight airport or train deadline"
+          ],
+          "risk_if_arrival_late": [
+            "limited beach time",
+            "tired during coastal hike",
+            "tight next-day transfer"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1072,6 +1493,26 @@
           "note": "Bali-origin tours run the corridor in reverse of the standard Surabaya order; feasibility/staging follow the reversed sequence."
         }
       ],
+      "route_recommendations": [
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -1086,6 +1527,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -1109,7 +1551,7 @@
       },
       "valid_pickups": [
         {
-          "location_ref": null,
+          "location_ref": "bali_hotel_pickup",
           "label": "Bali hotel area pickup (origin)",
           "type": "hotel",
           "location_group": "Bali",
@@ -1119,10 +1561,8 @@
           ],
           "classification": "final_jvto_standard",
           "evidence": [
-            "package-route-map.json (route_sequence[0])",
-            "package-catalog-index.json (origin=Bali)"
-          ],
-          "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+            "01-pickup-contexts.json"
+          ]
         },
         {
           "location_ref": "custom_address_pickup",
@@ -1329,6 +1769,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -1369,6 +1844,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -1405,6 +1915,35 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Papuma Beach: difficulty easy (physical demand 1/5). Weather by season — Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents. Rainfall — Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month) Key risk (marine, medium): Swim only in designated safe areas. Follow lifeguard instructions if available.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents.",
+            "rainfall_intensity": "Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "marine",
+                "level": "medium",
+                "mitigation": "Swim only in designated safe areas. Follow lifeguard instructions if available.",
+                "description": "Strong currents and powerful waves"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear water shoes with good grip on rocky surfaces",
+                "description": "Slippery rocks when wet"
+              },
+              {
+                "type": "weather",
+                "level": "low",
+                "mitigation": "Use sunscreen, hat, and seek shade during peak hours",
+                "description": "Strong sun exposure"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -1443,6 +1982,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -1451,6 +2019,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1460,6 +2038,18 @@
           "staging_ref": "banyuwangi_staging",
           "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
           "purpose": "overnight_after_bali_ferry_before_ijen",
+          "operational_notes": [
+            "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+            "ferry from Gilimanuk requires Ferizy pre-booking",
+            "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+            "medical check and briefing arranged at hotel",
+            "midnight departure to Ijen from here"
+          ],
+          "risk_if_arrival_late": [
+            "reduced rest before midnight Ijen departure",
+            "late medical check",
+            "higher fatigue at crater"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1469,6 +2059,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1478,6 +2079,17 @@
           "staging_ref": "papuma_staging",
           "label": "Papuma / Jember staging overnight",
           "purpose": "overnight_before_papuma_beach",
+          "operational_notes": [
+            "Doho Homestay / Jember area is the closest base",
+            "Papuma best visited in morning before crowds",
+            "coastal road is rain-sensitive; check weather",
+            "not suitable before a tight airport or train deadline"
+          ],
+          "risk_if_arrival_late": [
+            "limited beach time",
+            "tired during coastal hike",
+            "tight next-day transfer"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1496,6 +2108,26 @@
           "note": "Bali-origin tours run the corridor in reverse of the standard Surabaya order; feasibility/staging follow the reversed sequence."
         }
       ],
+      "route_recommendations": [
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -1510,6 +2142,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -1729,6 +2362,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -1737,6 +2405,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1744,6 +2422,7 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -1758,6 +2437,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -1977,6 +2657,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -1985,6 +2700,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -1992,6 +2717,7 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -2006,6 +2732,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -2268,6 +2995,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -2308,6 +3070,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -2345,6 +3142,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -2353,6 +3179,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -2362,6 +3198,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -2369,6 +3215,35 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+          "classification": "final_jvto_standard",
+          "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [
           "Gilimanuk Harbor",
@@ -2391,6 +3266,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -2634,6 +3510,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -2642,6 +3553,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -2649,6 +3570,26 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [
           "Gilimanuk Harbor",
@@ -2671,6 +3612,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -2934,6 +3876,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -2974,6 +3951,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3011,6 +4023,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -3019,6 +4060,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3028,6 +4079,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3035,6 +4096,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -3049,6 +4121,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -3312,6 +4385,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3352,6 +4460,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3389,6 +4532,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -3397,6 +4569,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3406,6 +4588,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3413,6 +4605,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -3427,6 +4630,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -3705,6 +4909,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3745,6 +4984,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3782,6 +5056,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -3816,6 +5119,13 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": null,
+            "classification": "absent",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -3824,6 +5134,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3833,6 +5153,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3842,6 +5172,16 @@
           "staging_ref": "malang_batu_staging",
           "label": "Malang / Batu staging overnight (extended packages)",
           "purpose": "overnight_for_malang_batu_city_stop",
+          "operational_notes": [
+            "Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays",
+            "Malang city and Batu attractions accessible on day-use basis",
+            "suitable for leisure day after highland activities",
+            "Surabaya airport accessible 2–4h from Malang depending on traffic"
+          ],
+          "risk_if_arrival_late": [
+            "late checkout reduces city time",
+            "Surabaya airport deadline risk if traffic"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -3849,6 +5189,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -3863,6 +5214,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -4148,6 +5500,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -4188,6 +5575,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -4224,6 +5646,35 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Papuma Beach: difficulty easy (physical demand 1/5). Weather by season — Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents. Rainfall — Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month) Key risk (marine, medium): Swim only in designated safe areas. Follow lifeguard instructions if available.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents.",
+            "rainfall_intensity": "Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "marine",
+                "level": "medium",
+                "mitigation": "Swim only in designated safe areas. Follow lifeguard instructions if available.",
+                "description": "Strong currents and powerful waves"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear water shoes with good grip on rocky surfaces",
+                "description": "Slippery rocks when wet"
+              },
+              {
+                "type": "weather",
+                "level": "low",
+                "mitigation": "Use sunscreen, hat, and seek shade during peak hours",
+                "description": "Strong sun exposure"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -4262,6 +5713,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -4270,6 +5750,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4279,6 +5769,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4288,6 +5788,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4297,6 +5808,17 @@
           "staging_ref": "papuma_staging",
           "label": "Papuma / Jember staging overnight",
           "purpose": "overnight_before_papuma_beach",
+          "operational_notes": [
+            "Doho Homestay / Jember area is the closest base",
+            "Papuma best visited in morning before crowds",
+            "coastal road is rain-sensitive; check weather",
+            "not suitable before a tight airport or train deadline"
+          ],
+          "risk_if_arrival_late": [
+            "limited beach time",
+            "tired during coastal hike",
+            "tight next-day transfer"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4304,6 +5826,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -4318,6 +5851,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -4603,6 +6137,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -4643,6 +6212,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -4679,6 +6283,35 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Papuma Beach: difficulty easy (physical demand 1/5). Weather by season — Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents. Rainfall — Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month) Key risk (marine, medium): Swim only in designated safe areas. Follow lifeguard instructions if available.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents.",
+            "rainfall_intensity": "Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "marine",
+                "level": "medium",
+                "mitigation": "Swim only in designated safe areas. Follow lifeguard instructions if available.",
+                "description": "Strong currents and powerful waves"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear water shoes with good grip on rocky surfaces",
+                "description": "Slippery rocks when wet"
+              },
+              {
+                "type": "weather",
+                "level": "low",
+                "mitigation": "Use sunscreen, hat, and seek shade during peak hours",
+                "description": "Strong sun exposure"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -4717,6 +6350,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -4725,6 +6387,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4734,6 +6406,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4743,6 +6425,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4752,6 +6445,17 @@
           "staging_ref": "papuma_staging",
           "label": "Papuma / Jember staging overnight",
           "purpose": "overnight_before_papuma_beach",
+          "operational_notes": [
+            "Doho Homestay / Jember area is the closest base",
+            "Papuma best visited in morning before crowds",
+            "coastal road is rain-sensitive; check weather",
+            "not suitable before a tight airport or train deadline"
+          ],
+          "risk_if_arrival_late": [
+            "limited beach time",
+            "tired during coastal hike",
+            "tight next-day transfer"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -4759,6 +6463,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -4773,6 +6488,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -5073,6 +6789,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5113,6 +6864,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5149,6 +6935,35 @@
             "classification": "final_jvto_standard",
             "evidence": [
               "06-destination-activity-profiles.json"
+            ]
+          },
+          "weather_advisory": {
+            "value": "Papuma Beach: difficulty easy (physical demand 1/5). Weather by season — Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents. Rainfall — Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month) Key risk (marine, medium): Swim only in designated safe areas. Follow lifeguard instructions if available.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, calm waters, ideal for beach activities. Wet season (Nov-Mar): Higher waves, occasional rain, stronger currents.",
+            "rainfall_intensity": "Moderate during wet season (150-300mm/month), Low during dry season (30-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "marine",
+                "level": "medium",
+                "mitigation": "Swim only in designated safe areas. Follow lifeguard instructions if available.",
+                "description": "Strong currents and powerful waves"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear water shoes with good grip on rocky surfaces",
+                "description": "Slippery rocks when wet"
+              },
+              {
+                "type": "weather",
+                "level": "low",
+                "mitigation": "Use sunscreen, hat, and seek shade during peak hours",
+                "description": "Strong sun exposure"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
             ]
           }
         },
@@ -5187,6 +7002,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5221,6 +7065,13 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": null,
+            "classification": "absent",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -5229,6 +7080,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5238,6 +7099,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5247,6 +7118,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5256,6 +7138,17 @@
           "staging_ref": "papuma_staging",
           "label": "Papuma / Jember staging overnight",
           "purpose": "overnight_before_papuma_beach",
+          "operational_notes": [
+            "Doho Homestay / Jember area is the closest base",
+            "Papuma best visited in morning before crowds",
+            "coastal road is rain-sensitive; check weather",
+            "not suitable before a tight airport or train deadline"
+          ],
+          "risk_if_arrival_late": [
+            "limited beach time",
+            "tired during coastal hike",
+            "tight next-day transfer"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5265,6 +7158,16 @@
           "staging_ref": "malang_batu_staging",
           "label": "Malang / Batu staging overnight (extended packages)",
           "purpose": "overnight_for_malang_batu_city_stop",
+          "operational_notes": [
+            "Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays",
+            "Malang city and Batu attractions accessible on day-use basis",
+            "suitable for leisure day after highland activities",
+            "Surabaya airport accessible 2–4h from Malang depending on traffic"
+          ],
+          "risk_if_arrival_late": [
+            "late checkout reduces city time",
+            "Surabaya airport deadline risk if traffic"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5272,6 +7175,17 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -5286,6 +7200,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -5549,6 +7464,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5586,6 +7536,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Madakaripura Waterfall: difficulty moderate (physical demand 3/5). Weather by season — Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents. Rainfall — High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month) Key risk (weather, high): JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+            "weather_by_season": "Dry season (May-Oct): Optimal conditions with minimal rain, clear water flow. Wet season (Nov-Apr): Heavy rainfall increases flash flood risk, stronger water currents.",
+            "rainfall_intensity": "High during wet season (300-500mm/month), Moderate during dry season (50-150mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and may cancel visits during unsafe conditions. Guides are trained in river safety.",
+                "description": "Flash floods during heavy rainfall"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Proper footwear provided in JVTO packages. Guides assist with difficult sections.",
+                "description": "Slippery rocks and uneven riverbed"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Safety briefing provided. JVTO guides are trained in first aid and emergency response.",
+                "description": "Slips and falls on wet surfaces"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -5594,6 +7573,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5611,6 +7600,7 @@
           "note": "Specialty package: substitutes a standard volcano-first leg (e.g. Taman Safari) and does not follow the default destination set."
         }
       ],
+      "route_recommendations": [],
       "connection_rules": {
         "value": [],
         "classification": "live_condition",
@@ -5625,6 +7615,7 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     },
@@ -5876,6 +7867,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Mount Bromo: difficulty moderate (physical demand 3/5). Weather by season — Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude. Rainfall — Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month) Key risk (weather, medium): Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+            "weather_by_season": "Dry season (Apr-Sep): Clear skies, excellent sunrise visibility. Wet season (Oct-Mar): Frequent fog, rain, and limited visibility. Cold temperatures year-round at high altitude.",
+            "rainfall_intensity": "Moderate during wet season (100-200mm/month), Low during dry season (20-50mm/month)",
+            "risk_factors": [
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Wear multiple warm layers, gloves, and beanie. JVTO provides blankets and hot drinks.",
+                "description": "Extreme cold at sunrise viewpoints"
+              },
+              {
+                "type": "terrain",
+                "level": "low",
+                "mitigation": "Wear sturdy shoes and watch footing on stairs. JVTO guides assist with difficult sections.",
+                "description": "Volcanic ash and sand can be slippery"
+              },
+              {
+                "type": "health",
+                "level": "low",
+                "mitigation": "Take time to acclimatize, stay hydrated. JVTO plans gradual altitude exposure.",
+                "description": "Altitude effects for some visitors"
+              },
+              {
+                "type": "crowd",
+                "level": "medium",
+                "mitigation": "JVTO uses scheduled Jeep rotations and alternative viewpoints to avoid crowds",
+                "description": "High visitor density at sunrise viewpoints"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5916,6 +7942,41 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Ijen Crater: difficulty hard (physical demand 5/5). Weather by season — Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration. Rainfall — High during wet season (200-400mm/month), Low during dry season (50-100mm/month) Key risk (health, high): Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+            "weather_by_season": "Dry season (Apr-Oct): Clear skies, minimal fog. Wet season (Nov-Mar): Frequent rain, dense fog, higher gas concentration.",
+            "rainfall_intensity": "High during wet season (200-400mm/month), Low during dry season (50-100mm/month)",
+            "risk_factors": [
+              {
+                "type": "health",
+                "level": "high",
+                "mitigation": "Use provided gas masks, limit time near active vents, immediate descent if feeling unwell. JVTO provides professional equipment and health screening.",
+                "description": "Toxic sulfur gas exposure causing respiratory issues"
+              },
+              {
+                "type": "terrain",
+                "level": "medium",
+                "mitigation": "Use headlamps, trekking poles, and proper footwear. Follow guide closely. JVTO guides are trained in night navigation.",
+                "description": "Steep, slippery paths especially in darkness"
+              },
+              {
+                "type": "weather",
+                "level": "medium",
+                "mitigation": "Bring warm layers, rain jacket, and check weather forecast. JVTO monitors conditions and may adjust timing.",
+                "description": "Rapid weather changes and cold temperatures at night"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "JVTO conducts pre-ascent health screening. Guests must disclose relevant medical conditions.",
+                "description": "High altitude and physical exertion"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         },
         {
@@ -5953,6 +8014,35 @@
             "evidence": [
               "06-destination-activity-profiles.json"
             ]
+          },
+          "weather_advisory": {
+            "value": "Tumpak Sewu Waterfall: difficulty hard (physical demand 4/5). Weather by season — Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk. Rainfall — High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month) Key risk (terrain, high): JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+            "weather_by_season": "Dry season (May-Oct): Best conditions with minimal rain, clear skies. Wet season (Nov-Apr): Heavy rainfall increases water flow and flash flood risk.",
+            "rainfall_intensity": "High during wet season (300-600mm/month), Moderate during dry season (50-200mm/month)",
+            "risk_factors": [
+              {
+                "type": "terrain",
+                "level": "high",
+                "mitigation": "JVTO provides experienced guides and safety equipment. Descent is controlled and assisted.",
+                "description": "Steep and slippery descent with rope sections"
+              },
+              {
+                "type": "weather",
+                "level": "high",
+                "mitigation": "JVTO monitors weather conditions and cancels visits during unsafe conditions. Emergency evacuation plans in place.",
+                "description": "Flash floods during rainfall"
+              },
+              {
+                "type": "health",
+                "level": "medium",
+                "mitigation": "Safety briefing and physical assessment. JVTO guides are trained in wilderness first aid.",
+                "description": "Physical exertion and potential for slips/falls"
+              }
+            ],
+            "classification": "live_condition",
+            "evidence": [
+              "12-recommendation-rules.json"
+            ]
           }
         }
       ],
@@ -5961,6 +8051,16 @@
           "staging_ref": "bromo_area_sunrise_staging",
           "label": "Bromo area sunrise staging overnight",
           "purpose": "overnight_before_bromo_sunrise",
+          "operational_notes": [
+            "early jeep pickup",
+            "takeaway breakfast possible",
+            "cold-weather preparation"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before sunrise",
+            "late check-in",
+            "higher fatigue"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5970,6 +8070,16 @@
           "staging_ref": "bondowoso_ijen_staging",
           "label": "Bondowoso / Ijen staging overnight",
           "purpose": "overnight_before_ijen",
+          "operational_notes": [
+            "medical check can be arranged at hotel",
+            "dinner before Ijen preparation",
+            "midnight departure to Ijen"
+          ],
+          "risk_if_arrival_late": [
+            "less rest before Ijen",
+            "late dinner",
+            "late medical screening"
+          ],
           "classification": "final_jvto_standard",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5979,6 +8089,17 @@
           "staging_ref": "tumpak_sewu_staging",
           "label": "Tumpak Sewu / Lumajang staging overnight",
           "purpose": "overnight_before_tumpak_sewu",
+          "operational_notes": [
+            "Artha Cottage / Lumajang area is the closest base",
+            "early morning start recommended 07:00–08:00 for waterfall access",
+            "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+            "local guide mandatory"
+          ],
+          "risk_if_arrival_late": [
+            "delayed waterfall start",
+            "fatigue before descent",
+            "rain risk increases with later start"
+          ],
           "classification": "source_backed_estimate",
           "evidence": [
             "09-accommodation-logic.json"
@@ -5986,6 +8107,35 @@
         }
       ],
       "exceptions": [],
+      "route_recommendations": [
+        {
+          "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+          "classification": "final_jvto_standard",
+          "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ferry_bali_buffer_required",
+          "classification": "live_condition",
+          "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+          "severity": "high",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        },
+        {
+          "rule_id": "ijen_access_closure_risk",
+          "classification": "live_condition",
+          "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+          "severity": "medium",
+          "evidence": [
+            "12-recommendation-rules.json"
+          ]
+        }
+      ],
       "connection_rules": {
         "value": [
           "Gilimanuk Harbor",
@@ -6008,34 +8158,29 @@
         "route-leg-index.filled.json",
         "06-destination-activity-profiles.json",
         "09-accommodation-logic.json",
+        "12-recommendation-rules.json",
         "11-package-route-map.json (endpoints)"
       ]
     }
   ],
   "gaps": [
     {
-      "package_key": "bali/bromo-ijen-3d2n",
-      "field": "pickup_context",
+      "package_key": "ijen-bromo-madakaripura-malang-5d4n",
+      "field": "destinations[destination=malang_batu].difficulty_level",
       "classification": "absent",
-      "reason": "no bali_hotel_pickup context in 01-pickup-contexts.json for Bali-origin packages (pickup rule is origin-derived, not a structured context)"
+      "reason": "jvto-web has no destination-detail page for this destination; destination-crosswalk.ts targets a slug that does not exist in destinationDetailSnapshots.json",
+      "required_source": "a jvto-web destination-detail page for Malang/Batu (or a corrected crosswalk slug), or an llm-wiki-sourced difficulty rating",
+      "current_fallback": "difficulty_level/physical_demand/altitude/trail_details render as null; fatigue_score and activity_window remain populated from 06-destination-activity-profiles.json",
+      "gating": "optional"
     },
     {
-      "package_key": "bali/ijen-bromo-madakaripura-3d2n",
-      "field": "pickup_context",
+      "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
+      "field": "destinations[destination=malang_batu].difficulty_level",
       "classification": "absent",
-      "reason": "no bali_hotel_pickup context in 01-pickup-contexts.json for Bali-origin packages (pickup rule is origin-derived, not a structured context)"
-    },
-    {
-      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
-      "field": "pickup_context",
-      "classification": "absent",
-      "reason": "no bali_hotel_pickup context in 01-pickup-contexts.json for Bali-origin packages (pickup rule is origin-derived, not a structured context)"
-    },
-    {
-      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
-      "field": "pickup_context",
-      "classification": "absent",
-      "reason": "no bali_hotel_pickup context in 01-pickup-contexts.json for Bali-origin packages (pickup rule is origin-derived, not a structured context)"
+      "reason": "jvto-web has no destination-detail page for this destination; destination-crosswalk.ts targets a slug that does not exist in destinationDetailSnapshots.json",
+      "required_source": "a jvto-web destination-detail page for Malang/Batu (or a corrected crosswalk slug), or an llm-wiki-sourced difficulty rating",
+      "current_fallback": "difficulty_level/physical_demand/altitude/trail_details render as null; fatigue_score and activity_window remain populated from 06-destination-activity-profiles.json",
+      "gating": "optional"
     }
   ]
 }

@@ -93,5 +93,159 @@
     "source_refs": [
       "02-dropoff-contexts.json"
     ]
+  },
+  {
+    "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+    "trigger": {
+      "final_dropoff": [
+        "Ketapang Harbor",
+        "Bali"
+      ],
+      "route_contains_order": [
+        "Ijen",
+        "Bromo",
+        "Ketapang"
+      ]
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "avoid_backtracking_ijen_bromo_ketapang",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [],
+    "recommendation": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+    "alternatives": [
+      "Bromo → Madakaripura → Ijen → Ketapang",
+      "Add one night if adding Tumpak Sewu"
+    ],
+    "confidence": "manual_seed",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
+  },
+  {
+    "rule_id": "late_airport_arrival_requires_rest_warning",
+    "trigger": {
+      "pickup_type": "airport",
+      "arrival_after": "17:00",
+      "next_day_activity": [
+        "Bromo Sunrise",
+        "Ijen"
+      ]
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "late_airport_arrival_requires_rest_warning",
+    "requires_feasibility": false,
+    "severity": "medium",
+    "impact": [],
+    "recommendation": "Route may be possible but guest rest time is reduced. Recommend earlier arrival or add one night when possible.",
+    "alternatives": [
+      "start tour next morning",
+      "add overnight near pickup city",
+      "reduce destination count"
+    ],
+    "confidence": "inferred",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
+  },
+  {
+    "rule_id": "waterfall_before_airport_deadline_risk",
+    "trigger": {
+      "last_activity": [
+        "Tumpak Sewu",
+        "Madakaripura"
+      ],
+      "dropoff_type": "airport",
+      "flight_buffer_less_than_minutes": 180
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "waterfall_before_airport_deadline_risk",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [],
+    "recommendation": "Do not put waterfall activity before a tight airport dropoff. Skip waterfall or add one night.",
+    "alternatives": [
+      "move waterfall to previous day",
+      "drop at hotel instead of airport",
+      "choose later flight"
+    ],
+    "confidence": "manual_seed",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
+  },
+  {
+    "rule_id": "ferry_bali_buffer_required",
+    "trigger": {
+      "dropoff_includes": [
+        "Ketapang Harbor",
+        "Bali"
+      ],
+      "or_route_passes_through": "Ketapang Harbor"
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "ferry_bali_buffer_required",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [],
+    "recommendation": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+    "alternatives": [
+      "book Ferizy in advance",
+      "allow earlier departure from Ijen to hit ferry timing",
+      "use local Bali car handoff at Gilimanuk instead of vehicle crossing"
+    ],
+    "confidence": "inferred",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
+  },
+  {
+    "rule_id": "ijen_access_closure_risk",
+    "trigger": {
+      "destination_includes": "Ijen"
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "ijen_access_closure_risk",
+    "requires_feasibility": false,
+    "severity": "medium",
+    "impact": [],
+    "recommendation": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+    "alternatives": [
+      "book Ijen ticket ahead of tour date",
+      "keep alternate date flexible if quota is full",
+      "confirm eruption / access status with local guide 24h before"
+    ],
+    "confidence": "inferred",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
+  },
+  {
+    "rule_id": "tight_multi_destination_short_days",
+    "trigger": {
+      "destination_count_gte": 3,
+      "duration_days_lte": 2
+    },
+    "required_customer_fields": [],
+    "minimum_buffer_minutes": null,
+    "customer_safe_message_key": "tight_multi_destination_short_days",
+    "requires_feasibility": true,
+    "severity": "high",
+    "impact": [],
+    "recommendation": "Itinerary has more destination stops than the duration can support with adequate rest. Adding one or two nights significantly improves guest experience and lowers fatigue risk. Consider reducing destinations or extending tour length.",
+    "alternatives": [
+      "remove lowest-priority destination",
+      "extend by one night to allow full activity at each stop",
+      "prioritize Bromo or Ijen, not both, for very short trips"
+    ],
+    "confidence": "manual_seed",
+    "source_refs": [
+      "12-recommendation-rules.json"
+    ]
   }
 ]

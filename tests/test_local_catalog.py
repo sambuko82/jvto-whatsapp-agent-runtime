@@ -92,3 +92,47 @@ def test_bad_upstream_path_does_not_destroy_existing_catalog(tmp_path):
         build_local_catalog(REPO, tmp_path / "nonexistent-knowledge", _REAL[1], out_dir=out, web_root=_REAL[2])
     assert (out / "agent-catalog/package-variations.json").read_bytes() == before
     assert not (out.parent / (out.name + ".staging")).exists()
+
+
+# --- newly-connected Core facts (12-recommendation-rules.json + staging-logic.json) -------
+# Previously computed by Core but consumed only by its internal CLI scenario evaluator or
+# never projected downstream at all; now reach the customer response via the same existing
+# disclosure mechanism, drawn from the real committed catalog.
+
+def test_ferry_buffer_and_ijen_access_risk_surface_as_disclosures_not_a_price():
+    endpoint_q = compose_customer_response(
+        CATALOG, _env({"package_key": "tumpak-sewu-bromo-ijen-4d3n"}),
+        query="where do we finish, is there a ferry to bali?", config=CONFIG,
+    )
+    assert is_valid("customer-response-draft", endpoint_q)
+    assert any("Ferizy" in d or "queue buffer" in d for d in endpoint_q["required_disclosures"])
+    assert endpoint_q["price"]["surfaced"] is False, "an endpoint question must never surface a price"
+
+    readiness_q = compose_customer_response(
+        CATALOG, _env({"package_key": "tumpak-sewu-bromo-ijen-4d3n"}),
+        query="how hard is ijen, any access issues?", config=CONFIG,
+    )
+    assert is_valid("customer-response-draft", readiness_q)
+    assert any("visitor cap" in d for d in readiness_q["required_disclosures"])
+    assert not any("IDR" in d for d in readiness_q["required_disclosures"]), "no rate figure should ever reach the customer"
+    assert readiness_q["price"]["surfaced"] is False
+
+
+def test_a_surabaya_only_package_never_gets_the_ferry_or_ijen_disclosure():
+    d = compose_customer_response(
+        CATALOG, _env({"package_key": "bromo-1d1n"}),
+        query="where do we finish?", config=CONFIG,
+    )
+    assert not any("Ferizy" in x or "visitor cap" in x for x in d["required_disclosures"])
+
+
+def test_staging_operational_notes_surface_on_a_hotel_question():
+    # bromo-2d1n has a real named overnight (readiness.rooming=available); bromo-1d1n is a
+    # day-trip with no overnight, so its whole rooming object (incl. staging_notes) is None.
+    d = compose_customer_response(
+        CATALOG, _env({"package_key": "bromo-2d1n"}),
+        query="where do we stay, what hotel?", config=CONFIG,
+    )
+    assert is_valid("customer-response-draft", d)
+    assert any("jeep pickup" in x or "cold-weather" in x for x in d["required_disclosures"])
+    assert d["price"]["surfaced"] is False, "a hotel question must never surface a price"

@@ -1228,19 +1228,19 @@
       }
     ],
     "bali_transfer": {
-      "crosses_boundary": true,
-      "direction": "to_bali",
+      "crosses_boundary": false,
+      "direction": "none",
       "ferry_leg": null,
       "boundary_classification": "final_jvto_standard",
-      "onward_transfer_classification": "live_condition",
-      "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
       "evidence": [
         "package-route-map.json",
         "11-package-route-map.json",
         "02-dropoff-contexts.json"
       ]
     },
-    "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
       "core:generated/itinerary-intelligence/02-dropoff-contexts.json",

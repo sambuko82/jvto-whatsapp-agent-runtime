@@ -74,7 +74,28 @@ def _topic_fact(topic: str | None, catalog: dict[str, Any]) -> tuple[str | None,
         bt = ep.get("bali_transfer") or {}
         if bt.get("crosses_boundary") and bt.get("note"):
             disc.append(bt["note"])
+        # Package/route recommendations (Core's 12-recommendation-rules.json, condition-
+        # matched per package) — only the live_condition ones are endpoint-relevant here
+        # (e.g. the Ketapang/Bali ferry pre-booking + queue buffer); a final_jvto_standard
+        # entry just confirms the route already avoids a risk, nothing to disclose.
+        for rec in ep.get("route_recommendations") or []:
+            if rec.get("classification") == "live_condition" and rec.get("rule_id") == "ferry_bali_buffer_required":
+                disc.append(rec["note"])
         return ("; ".join(parts) if parts else None), disc
+
+    # blue_fire shares the destination_readiness presentation mode (TOPIC_TO_MODE /
+    # _disclosures_for both already treat them as equivalent) — a "can we see blue fire at
+    # Ijen?" query must not lose the Ijen access-risk disclosure just because module_resolver
+    # classified it as blue_fire before it could become destination_readiness.
+    if topic in ("destination_readiness", "blue_fire"):
+        # Ijen's live access/quota/closure risk (Core's ijen_access_closure_risk rule) was
+        # previously consumed only by the internal CLI scenario evaluator and never reached
+        # a customer-facing disclosure; it is already condition-matched per package on the
+        # same endpoint catalog fact this topic can read.
+        for rec in ep.get("route_recommendations") or []:
+            if rec.get("classification") == "live_condition" and rec.get("rule_id") == "ijen_access_closure_risk":
+                disc.append(rec["note"])
+        return None, disc
 
     if topic == "vehicle":
         veh = catalog.get("vehicle") or {}
@@ -84,6 +105,15 @@ def _topic_fact(topic: str | None, catalog: dict[str, Any]) -> tuple[str | None,
     if topic == "hotel":
         room = catalog.get("rooming") or {}
         overnights = room.get("overnights") or []
+        # Staging operational notes (why this overnight, what it prepares for) were
+        # previously computed by Core (agent-contract/staging-logic.json) but never reached
+        # a customer-facing disclosure; already classified per package on this same fact.
+        # required_disclosures has no max_text_lines cap (unlike the body), so a multi-stop
+        # package's full note list (e.g. 18 notes across 5 staging areas on a 6D5N package)
+        # would bury the actual overnight answer — surface only the single most relevant note
+        # per staging area, capped at 3 total.
+        staging_notes = [n for s in (room.get("staging_notes") or []) for n in (s.get("operational_notes") or [])[:1]]
+        disc.extend(staging_notes[:3])
         return ("Standard overnights: " + ", ".join(overnights) if overnights else None), disc
 
     if topic == "rooming":

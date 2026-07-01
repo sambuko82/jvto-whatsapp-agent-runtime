@@ -1,0 +1,21 @@
+name: Validate agent runtime
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # The runtime is self-contained: catalog/ is the committed compact catalog, so the
+      # chat-time read path is exercised without the sibling upstream repos. Tests that need
+      # the siblings skip gracefully (see tests/test_local_catalog.py).
+      - run: pip install -e '.[dev]'
+      - run: python -m pytest
+      - run: python -m jvto_agent_runtime validate-repo

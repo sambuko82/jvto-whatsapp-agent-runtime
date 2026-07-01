@@ -11,8 +11,20 @@
       "gas mask and trekking poles (provided by JVTO)",
       "licensed local guide"
     ],
+    "operational_overlay": {
+      "fatigue_score": 5,
+      "requires_live_check": [
+        "health_screening",
+        "monthly_closure",
+        "weather"
+      ],
+      "warning_rules": [
+        "late_arrival_before_ijen"
+      ]
+    },
     "source_evidence": [
-      "knowledge:destinations/kawah-ijen.md"
+      "knowledge:destinations/kawah-ijen.md",
+      "core:generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json"
     ],
     "readiness": {
       "destination_guidance": "available"
@@ -29,8 +41,20 @@
       "local guide",
       "raincoat recommended (spray on the gorge walk)"
     ],
+    "operational_overlay": {
+      "fatigue_score": 3,
+      "requires_live_check": [
+        "waterfall_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "waterfall_access_road",
+        "airport_dropoff_cutoff_after_waterfall"
+      ]
+    },
     "source_evidence": [
-      "knowledge:destinations/madakaripura.md"
+      "knowledge:destinations/madakaripura.md",
+      "core:generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json"
     ],
     "readiness": {
       "destination_guidance": "available"
@@ -47,8 +71,19 @@
       "TNBTS (Bromo Tengger Semeru National Park) ticket",
       "4WD jeep for the sand sea"
     ],
+    "operational_overlay": {
+      "fatigue_score": 3,
+      "requires_live_check": [
+        "national_park_access",
+        "weather"
+      ],
+      "warning_rules": [
+        "late_surabaya_arrival_before_bromo"
+      ]
+    },
     "source_evidence": [
-      "knowledge:destinations/mount-bromo.md"
+      "knowledge:destinations/mount-bromo.md",
+      "core:generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json"
     ],
     "readiness": {
       "destination_guidance": "available"
@@ -64,8 +99,19 @@
     "access_requirements": [
       "none (no permits or health screening required)"
     ],
+    "operational_overlay": {
+      "fatigue_score": 2,
+      "requires_live_check": [
+        "coastal_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "rain_sensitive_road"
+      ]
+    },
     "source_evidence": [
-      "knowledge:destinations/papuma-beach.md"
+      "knowledge:destinations/papuma-beach.md",
+      "core:generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json"
     ],
     "readiness": {
       "destination_guidance": "available"
@@ -82,8 +128,20 @@
       "local guide",
       "optional steep canyon descent with ropes (the guide assesses fitness; the descent decision stays with the guest)"
     ],
+    "operational_overlay": {
+      "fatigue_score": 5,
+      "requires_live_check": [
+        "waterfall_access_condition",
+        "weather"
+      ],
+      "warning_rules": [
+        "waterfall_access_road",
+        "airport_dropoff_cutoff_after_waterfall"
+      ]
+    },
     "source_evidence": [
-      "knowledge:destinations/tumpak-sewu.md"
+      "knowledge:destinations/tumpak-sewu.md",
+      "core:generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json"
     ],
     "readiness": {
       "destination_guidance": "available"

@@ -1,23 +1,24 @@
 {
   "schema_version": "customer-sales-source-lock-v1",
   "release_id": "customer-sales-release-20260628-001",
-  "created_at": "2026-07-01T10:48:53+00:00",
+  "created_at": "2026-07-01T14:00:16+00:00",
   "knowledge_catalog": {
     "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
-    "revision": "9ec299a55fbb5117c9ae8a520e940a63d719a610",
+    "revision": "cfaa36559a799fcd9083f951d6ab28f618cb83a5",
     "catalog_path": "okf/bundles/jvto/catalog.json",
     "catalog_sha256": "9b45a6f051007f62a2d708951cbfdb7b98c61e12567107540845b42b38d79e58"
   },
   "itinerary_core": {
     "repo": "sambuko82/jvto-itinerary-core",
-    "revision": "c43682a45c4131cf5c111fe5fcbc43e73ca154da",
+    "revision": "ebc3e1e4efd4165bba2ad5a34d1358aa28a3809e",
     "sources": {
       "input/llm-wiki/package-readiness/package-pricing.json": "fc7d08b80f00a1ec6b86a65cad75e742742b1b4a83b357ae89109d1998a58cdc",
       "generated/itinerary-intelligence/package-catalog-index.json": "333438fd2413970bf83e5ac8eda72e5c23f141b56537f7e2eafc1558046975d8",
       "generated/itinerary-intelligence/11-package-route-map.json": "70cb68c1978cdc2f0981b421cff33d33edeefaf339c6a55f6427b5ac3b66059e",
       "generated/itinerary-intelligence/02-dropoff-contexts.json": "99deca49e0e60ba69fa56baae0e5154524c8513a168e7af5ced0908a4a67ce6f",
       "generated/itinerary-intelligence/location-alias-registry.json": "2a13f8e45635bd0c01b6eed812de0461bf039956f512fb14f3f778aa7950f838",
-      "generated/itinerary-intelligence/agent-contract/standard-route-truth.json": "29e06ca348e80eebf303140f57dbe566377b6acbb6b8687e57605e1e5ca20da5"
+      "generated/itinerary-intelligence/agent-contract/standard-route-truth.json": "b3c3cc4368117d1fcabf5f0e7df62458c6aef3d0322048814ae3ebd68d6aa991",
+      "generated/itinerary-intelligence/agent-contract/destination-operational-overlays.json": "d574c476eae2adde6df8b3d2dec2ee9f4a91110b39702124fecd1e8074b45b08"
     }
   }
 }

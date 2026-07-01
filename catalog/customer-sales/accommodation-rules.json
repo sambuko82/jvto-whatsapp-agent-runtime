@@ -7,8 +7,51 @@
       "Riverside Homestay"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "banyuwangi_staging",
+        "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
+        "purpose": "overnight_after_bali_ferry_before_ijen",
+        "operational_notes": [
+          "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+          "ferry from Gilimanuk requires Ferizy pre-booking",
+          "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+          "medical check and briefing arranged at hotel",
+          "midnight departure to Ijen from here"
+        ],
+        "risk_if_arrival_late": [
+          "reduced rest before midnight Ijen departure",
+          "late medical check",
+          "higher fatigue at crater"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-bali/bromo-ijen-3d2n.md"
+      "knowledge:tours/from-bali/bromo-ijen-3d2n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -22,8 +65,51 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "banyuwangi_staging",
+        "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
+        "purpose": "overnight_after_bali_ferry_before_ijen",
+        "operational_notes": [
+          "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+          "ferry from Gilimanuk requires Ferizy pre-booking",
+          "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+          "medical check and briefing arranged at hotel",
+          "midnight departure to Ijen from here"
+        ],
+        "risk_if_arrival_late": [
+          "reduced rest before midnight Ijen departure",
+          "late medical check",
+          "higher fatigue at crater"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-bali/ijen-bromo-madakaripura-3d2n.md"
+      "knowledge:tours/from-bali/ijen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -38,8 +124,91 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "banyuwangi_staging",
+        "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
+        "purpose": "overnight_after_bali_ferry_before_ijen",
+        "operational_notes": [
+          "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+          "ferry from Gilimanuk requires Ferizy pre-booking",
+          "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+          "medical check and briefing arranged at hotel",
+          "midnight departure to Ijen from here"
+        ],
+        "risk_if_arrival_late": [
+          "reduced rest before midnight Ijen departure",
+          "late medical check",
+          "higher fatigue at crater"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "papuma_staging",
+        "label": "Papuma / Jember staging overnight",
+        "purpose": "overnight_before_papuma_beach",
+        "operational_notes": [
+          "Doho Homestay / Jember area is the closest base",
+          "Papuma best visited in morning before crowds",
+          "coastal road is rain-sensitive; check weather",
+          "not suitable before a tight airport or train deadline"
+        ],
+        "risk_if_arrival_late": [
+          "limited beach time",
+          "tired during coastal hike",
+          "tight next-day transfer"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-4d3n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -55,8 +224,91 @@
       "Holiday Inn Express Surabaya"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "banyuwangi_staging",
+        "label": "Banyuwangi staging overnight (Bali-origin Ijen packages)",
+        "purpose": "overnight_after_bali_ferry_before_ijen",
+        "operational_notes": [
+          "Luminor Hotel / Banyuwangi area used for Bali-origin packages",
+          "ferry from Gilimanuk requires Ferizy pre-booking",
+          "arrive Banyuwangi by 18:00–20:00 recommended for adequate Ijen rest",
+          "medical check and briefing arranged at hotel",
+          "midnight departure to Ijen from here"
+        ],
+        "risk_if_arrival_late": [
+          "reduced rest before midnight Ijen departure",
+          "late medical check",
+          "higher fatigue at crater"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "papuma_staging",
+        "label": "Papuma / Jember staging overnight",
+        "purpose": "overnight_before_papuma_beach",
+        "operational_notes": [
+          "Doho Homestay / Jember area is the closest base",
+          "Papuma best visited in morning before crowds",
+          "coastal road is rain-sensitive; check weather",
+          "not suitable before a tight airport or train deadline"
+        ],
+        "risk_if_arrival_late": [
+          "limited beach time",
+          "tired during coastal hike",
+          "tight next-day transfer"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+      "knowledge:tours/from-bali/ijen-papuma-tumpak-sewu-bromo-5d4n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -67,8 +319,30 @@
     "package_key": "bromo-1d1n",
     "overnights": [],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/bromo-1d1n.md"
+      "knowledge:tours/from-surabaya/bromo-1d1n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "unavailable"
@@ -81,8 +355,30 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/bromo-2d1n.md"
+      "knowledge:tours/from-surabaya/bromo-2d1n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -96,8 +392,49 @@
       "Riverside Homestay"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/bromo-madakaripura-ijen-3d2n.md"
+      "knowledge:tours/from-surabaya/bromo-madakaripura-ijen-3d2n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -110,8 +447,30 @@
       "Riverside Homestay"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-2d1n.md"
+      "knowledge:tours/from-surabaya/ijen-2d1n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -125,8 +484,49 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md"
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -141,8 +541,49 @@
       "Holiday Inn Express Surabaya"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-4d3n.md"
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-4d3n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -158,8 +599,68 @@
       "Holiday Inn Express Surabaya"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "malang_batu_staging",
+        "label": "Malang / Batu staging overnight (extended packages)",
+        "purpose": "overnight_for_malang_batu_city_stop",
+        "operational_notes": [
+          "Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays",
+          "Malang city and Batu attractions accessible on day-use basis",
+          "suitable for leisure day after highland activities",
+          "Surabaya airport accessible 2–4h from Malang depending on traffic"
+        ],
+        "risk_if_arrival_late": [
+          "late checkout reduces city time",
+          "Surabaya airport deadline risk if traffic"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n.md"
+      "knowledge:tours/from-surabaya/ijen-bromo-madakaripura-malang-5d4n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -174,8 +675,89 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "papuma_staging",
+        "label": "Papuma / Jember staging overnight",
+        "purpose": "overnight_before_papuma_beach",
+        "operational_notes": [
+          "Doho Homestay / Jember area is the closest base",
+          "Papuma best visited in morning before crowds",
+          "coastal road is rain-sensitive; check weather",
+          "not suitable before a tight airport or train deadline"
+        ],
+        "risk_if_arrival_late": [
+          "limited beach time",
+          "tired during coastal hike",
+          "tight next-day transfer"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n.md"
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-4d3n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -191,8 +773,89 @@
       "Holiday Inn Express Surabaya"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "papuma_staging",
+        "label": "Papuma / Jember staging overnight",
+        "purpose": "overnight_before_papuma_beach",
+        "operational_notes": [
+          "Doho Homestay / Jember area is the closest base",
+          "Papuma best visited in morning before crowds",
+          "coastal road is rain-sensitive; check weather",
+          "not suitable before a tight airport or train deadline"
+        ],
+        "risk_if_arrival_late": [
+          "limited beach time",
+          "tired during coastal hike",
+          "tight next-day transfer"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n.md"
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-5d4n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -209,8 +872,108 @@
       "Holiday Inn Express Surabaya"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "papuma_staging",
+        "label": "Papuma / Jember staging overnight",
+        "purpose": "overnight_before_papuma_beach",
+        "operational_notes": [
+          "Doho Homestay / Jember area is the closest base",
+          "Papuma best visited in morning before crowds",
+          "coastal road is rain-sensitive; check weather",
+          "not suitable before a tight airport or train deadline"
+        ],
+        "risk_if_arrival_late": [
+          "limited beach time",
+          "tired during coastal hike",
+          "tight next-day transfer"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "malang_batu_staging",
+        "label": "Malang / Batu staging overnight (extended packages)",
+        "purpose": "overnight_for_malang_batu_city_stop",
+        "operational_notes": [
+          "Whiz Prime Malang / Holiday Inn Express Surabaya used for city stays",
+          "Malang city and Batu attractions accessible on day-use basis",
+          "suitable for leisure day after highland activities",
+          "Surabaya airport accessible 2–4h from Malang depending on traffic"
+        ],
+        "risk_if_arrival_late": [
+          "late checkout reduces city time",
+          "Surabaya airport deadline risk if traffic"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n.md"
+      "knowledge:tours/from-surabaya/ijen-papuma-tumpak-sewu-bromo-malang-6d5n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -224,8 +987,30 @@
       "Joglo Kecombrang Bromo"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n.md"
+      "knowledge:tours/from-surabaya/taman-safari-prigen-bromo-madakaripura-3d2n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"
@@ -240,8 +1025,69 @@
       "Riverside Homestay"
     ],
     "rooming_assumption": "standard rooming per the package; twin/double or extra room on request (subject to confirmation)",
+    "staging_notes": [
+      {
+        "staging_ref": "bromo_area_sunrise_staging",
+        "label": "Bromo area sunrise staging overnight",
+        "purpose": "overnight_before_bromo_sunrise",
+        "operational_notes": [
+          "early jeep pickup",
+          "takeaway breakfast possible",
+          "cold-weather preparation"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before sunrise",
+          "late check-in",
+          "higher fatigue"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "bondowoso_ijen_staging",
+        "label": "Bondowoso / Ijen staging overnight",
+        "purpose": "overnight_before_ijen",
+        "operational_notes": [
+          "medical check can be arranged at hotel",
+          "dinner before Ijen preparation",
+          "midnight departure to Ijen"
+        ],
+        "risk_if_arrival_late": [
+          "less rest before Ijen",
+          "late dinner",
+          "late medical screening"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      },
+      {
+        "staging_ref": "tumpak_sewu_staging",
+        "label": "Tumpak Sewu / Lumajang staging overnight",
+        "purpose": "overnight_before_tumpak_sewu",
+        "operational_notes": [
+          "Artha Cottage / Lumajang area is the closest base",
+          "early morning start recommended 07:00–08:00 for waterfall access",
+          "waterfall descent takes 1–2h; weather-sensitive — plan around rain",
+          "local guide mandatory"
+        ],
+        "risk_if_arrival_late": [
+          "delayed waterfall start",
+          "fatigue before descent",
+          "rain risk increases with later start"
+        ],
+        "classification": "source_backed_estimate",
+        "evidence": [
+          "09-accommodation-logic.json"
+        ]
+      }
+    ],
     "source_evidence": [
-      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md"
+      "knowledge:tours/from-surabaya/tumpak-sewu-bromo-ijen-4d3n.md",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
       "rooming": "available"

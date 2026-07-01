@@ -10,7 +10,7 @@
     ],
     "pickup_details": [
       {
-        "location_ref": null,
+        "location_ref": "bali_hotel_pickup",
         "label": "Bali hotel area pickup (origin)",
         "type": "hotel",
         "location_group": "Bali",
@@ -20,10 +20,8 @@
         ],
         "classification": "final_jvto_standard",
         "evidence": [
-          "package-route-map.json (route_sequence[0])",
-          "package-catalog-index.json (origin=Bali)"
-        ],
-        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+          "01-pickup-contexts.json"
+        ]
       },
       {
         "location_ref": "custom_address_pickup",
@@ -134,6 +132,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "final_jvto_standard",
+        "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -156,7 +183,7 @@
     ],
     "pickup_details": [
       {
-        "location_ref": null,
+        "location_ref": "bali_hotel_pickup",
         "label": "Bali hotel area pickup (origin)",
         "type": "hotel",
         "location_group": "Bali",
@@ -166,10 +193,8 @@
         ],
         "classification": "final_jvto_standard",
         "evidence": [
-          "package-route-map.json (route_sequence[0])",
-          "package-catalog-index.json (origin=Bali)"
-        ],
-        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+          "01-pickup-contexts.json"
+        ]
       },
       {
         "location_ref": "custom_address_pickup",
@@ -256,6 +281,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -278,7 +332,7 @@
     ],
     "pickup_details": [
       {
-        "location_ref": null,
+        "location_ref": "bali_hotel_pickup",
         "label": "Bali hotel area pickup (origin)",
         "type": "hotel",
         "location_group": "Bali",
@@ -288,10 +342,8 @@
         ],
         "classification": "final_jvto_standard",
         "evidence": [
-          "package-route-map.json (route_sequence[0])",
-          "package-catalog-index.json (origin=Bali)"
-        ],
-        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+          "01-pickup-contexts.json"
+        ]
       },
       {
         "location_ref": "custom_address_pickup",
@@ -378,6 +430,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -400,7 +481,7 @@
     ],
     "pickup_details": [
       {
-        "location_ref": null,
+        "location_ref": "bali_hotel_pickup",
         "label": "Bali hotel area pickup (origin)",
         "type": "hotel",
         "location_group": "Bali",
@@ -410,10 +491,8 @@
         ],
         "classification": "final_jvto_standard",
         "evidence": [
-          "package-route-map.json (route_sequence[0])",
-          "package-catalog-index.json (origin=Bali)"
-        ],
-        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+          "01-pickup-contexts.json"
+        ]
       },
       {
         "location_ref": "custom_address_pickup",
@@ -500,6 +579,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -667,6 +775,7 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -834,6 +943,7 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1031,6 +1141,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "final_jvto_standard",
+        "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1240,6 +1379,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1407,6 +1557,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1574,6 +1735,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1765,6 +1937,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -1932,6 +2115,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -2099,6 +2293,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -2290,6 +2495,17 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -2457,6 +2673,7 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [],
     "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
@@ -2642,6 +2859,35 @@
         "02-dropoff-contexts.json"
       ]
     },
+    "route_recommendations": [
+      {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "final_jvto_standard",
+        "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ferry_bali_buffer_required",
+        "classification": "live_condition",
+        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
+        "rule_id": "ijen_access_closure_risk",
+        "classification": "live_condition",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "severity": "medium",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      }
+    ],
     "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",

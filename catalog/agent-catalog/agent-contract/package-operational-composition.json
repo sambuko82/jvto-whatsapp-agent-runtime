@@ -52,6 +52,12 @@
       ]
     },
     "operational_movements_pending": 4,
+    "operational_movements_pending_labels": [
+      "Bondowoso",
+      "Gilimanuk Harbor",
+      "Ketapang Harbor",
+      "Ketapang Port"
+    ],
     "composition_confidence": "needs_review",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -117,6 +123,12 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 4,
+    "operational_movements_pending_labels": [
+      "Banyuwangi Hotel",
+      "Bondowoso City",
+      "Gilimanuk Harbor",
+      "Ketapang Port"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -192,6 +204,15 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 7,
+    "operational_movements_pending_labels": [
+      "Airport / Hotel",
+      "Banyuwangi Hotel",
+      "Bondowoso City",
+      "Gilimanuk Harbor",
+      "Hotel in Jember",
+      "Jember",
+      "Ketapang Port"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -267,6 +288,17 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 9,
+    "operational_movements_pending_labels": [
+      "Airport / Hotel",
+      "Banyuwangi Hotel",
+      "Bondowoso City",
+      "Gilimanuk Harbor",
+      "Hotel",
+      "Hotel in Jember",
+      "Jember",
+      "Juanda Airport",
+      "Ketapang Port"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -315,6 +347,9 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 1,
+    "operational_movements_pending_labels": [
+      "Transit Point"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -367,6 +402,7 @@
       ]
     },
     "operational_movements_pending": 0,
+    "operational_movements_pending_labels": [],
     "composition_confidence": "needs_review",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -427,6 +463,12 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 4,
+    "operational_movements_pending_labels": [
+      "Bondowoso",
+      "Gilimanuk Harbor",
+      "Ketapang Harbor",
+      "Ketapang Port"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -476,6 +518,9 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 1,
+    "operational_movements_pending_labels": [
+      "Bondowoso"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -541,6 +586,10 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 2,
+    "operational_movements_pending_labels": [
+      "Bondowoso",
+      "Bondowoso City"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -606,6 +655,12 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 4,
+    "operational_movements_pending_labels": [
+      "Bondowoso",
+      "Bondowoso City",
+      "Hotel",
+      "Juanda Airport"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -675,6 +730,13 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 5,
+    "operational_movements_pending_labels": [
+      "Batu",
+      "Bondowoso",
+      "Bondowoso City",
+      "Hotel",
+      "Juanda Airport"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -750,6 +812,13 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 5,
+    "operational_movements_pending_labels": [
+      "Airport / Hotel",
+      "Bondowoso",
+      "Bondowoso City",
+      "Hotel in Jember",
+      "Jember"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -825,6 +894,15 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 7,
+    "operational_movements_pending_labels": [
+      "Airport / Hotel",
+      "Bondowoso",
+      "Bondowoso City",
+      "Hotel",
+      "Hotel in Jember",
+      "Jember",
+      "Juanda Airport"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -904,6 +982,15 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 7,
+    "operational_movements_pending_labels": [
+      "Batu",
+      "Bondowoso",
+      "Bondowoso City",
+      "Hotel",
+      "Hotel in Jember",
+      "Jember",
+      "Juanda Airport"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -967,6 +1054,9 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 1,
+    "operational_movements_pending_labels": [
+      "Prigen Safari Park"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [
@@ -1027,6 +1117,12 @@
     "route_integrity": "clean",
     "route_review_flags": {},
     "operational_movements_pending": 4,
+    "operational_movements_pending_labels": [
+      "Bondowoso",
+      "Gilimanuk Harbor",
+      "Ketapang Harbor",
+      "Ketapang Port"
+    ],
     "composition_confidence": "high",
     "route_source_strength": "confirmed",
     "source_refs": [

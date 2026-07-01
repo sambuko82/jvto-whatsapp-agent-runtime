@@ -19,7 +19,7 @@
   },
   "knowledge_catalog": {
     "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
-    "revision": "3c2e997d37aeda79114574fcb0db4d757616d6d4"
+    "revision": "9ec299a55fbb5117c9ae8a520e940a63d719a610"
   },
   "note": "Compact committed catalog: the chat-time read path (agent-catalog/ + customer-sales/) vendored from upstreams so one checkout serves responses without sibling repos. Regenerate with `jvto-agent build-local-catalog`.",
   "schema_version": "local-catalog-provenance-v1",

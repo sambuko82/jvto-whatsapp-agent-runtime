@@ -13,9 +13,9 @@
     "standard-route-truth.json": 16
   },
   "classification_tally": {
-    "final_jvto_standard": 238,
+    "final_jvto_standard": 239,
     "source_backed_estimate": 182,
-    "live_condition": 131,
+    "live_condition": 133,
     "exception": 5,
     "absent": 4
   },

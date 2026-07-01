@@ -134,6 +134,15 @@
     },
     "route_recommendations": [
       {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "final_jvto_standard",
+        "note": "Standard route already follows the recommended Bromo→Ijen→Ketapang/Bali order, avoiding the documented backtracking risk.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
         "rule_id": "ferry_bali_buffer_required",
         "classification": "live_condition",
         "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
@@ -145,7 +154,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -274,6 +283,15 @@
     },
     "route_recommendations": [
       {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
         "rule_id": "ferry_bali_buffer_required",
         "classification": "live_condition",
         "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
@@ -285,7 +303,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -414,6 +432,15 @@
     },
     "route_recommendations": [
       {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
         "rule_id": "ferry_bali_buffer_required",
         "classification": "live_condition",
         "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
@@ -425,7 +452,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -554,6 +581,15 @@
     },
     "route_recommendations": [
       {
+        "rule_id": "avoid_backtracking_ijen_bromo_ketapang",
+        "classification": "live_condition",
+        "note": "Use west-to-east route when ending in Ketapang/Bali: Surabaya → Bromo → Ijen → Ketapang.",
+        "severity": "high",
+        "evidence": [
+          "12-recommendation-rules.json"
+        ]
+      },
+      {
         "rule_id": "ferry_bali_buffer_required",
         "classification": "live_condition",
         "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
@@ -565,7 +601,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -1127,7 +1163,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -1345,18 +1381,9 @@
     },
     "route_recommendations": [
       {
-        "rule_id": "ferry_bali_buffer_required",
-        "classification": "live_condition",
-        "note": "Ferizy ticket must be pre-booked H-1 (geofence-gated 2.65km from Ketapang). Allow 2–3h harbor queue buffer especially during peak / holiday periods. Confirm vehicle-crossing or guest-only handoff preference before booking.",
-        "severity": "high",
-        "evidence": [
-          "12-recommendation-rules.json"
-        ]
-      },
-      {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -1534,7 +1561,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -1712,7 +1739,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -1914,7 +1941,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -2092,7 +2119,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -2270,7 +2297,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -2472,7 +2499,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"
@@ -2854,7 +2881,7 @@
       {
         "rule_id": "ijen_access_closure_risk",
         "classification": "live_condition",
-        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at tiket.bbksdajatim.org; QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
+        "note": "Ijen has a daily visitor cap (~2000/day). Online ticket required at QRIS-only cashless since Jan 2025. Access can close without notice for volcanic activity or authority decision. Gas mask and medical check are mandatory on-site. Confirm ticket availability before finalizing Ijen date.",
         "severity": "medium",
         "evidence": [
           "12-recommendation-rules.json"

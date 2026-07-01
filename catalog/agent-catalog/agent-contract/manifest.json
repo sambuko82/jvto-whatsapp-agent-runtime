@@ -9,7 +9,15 @@
     "destination-operational-overlays.json": 8,
     "staging-logic.json": 6,
     "package-customization-boundaries.json": 16,
-    "operational-readiness.json": 1
+    "operational-readiness.json": 1,
+    "standard-route-truth.json": 16
+  },
+  "classification_tally": {
+    "final_jvto_standard": 236,
+    "source_backed_estimate": 182,
+    "live_condition": 66,
+    "exception": 5,
+    "absent": 2
   },
   "route_integrity_summary": {
     "clean": 14,

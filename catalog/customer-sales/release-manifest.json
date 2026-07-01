@@ -1,7 +1,7 @@
 {
   "schema_version": "customer-sales-release-v1",
   "release_id": "customer-sales-release-20260628-001",
-  "created_at": "2026-06-28T07:41:07+00:00",
+  "created_at": "2026-07-01T04:30:05+00:00",
   "customer_traffic_ready": false,
   "package_count": 16,
   "object_counts": {
@@ -26,16 +26,6 @@
     "guide_support": "available",
     "policy": "available",
     "destination_guidance": "available"
-  },
-  "module_layer": {
-    "schema_version": "general-modules-v1",
-    "general-modules.json": 67,
-    "package-variations.json": 16,
-    "module-compatibility.json": 1,
-    "module-manifest.json": 1,
-    "note": "Reusable general modules + per-package variation projection derived from the existing release objects and the read-only jvto-itinerary-core intelligence layer. No new customer-facing facts authored; see module-manifest.json.",
-    "route_sequence_policy": "Customer-facing route_sequence is derived from the published itinerary (day_titles), not core's seeded route map. Operational route legs + feasibility are owned by jvto-itinerary-core and referenced via operational_route_ref; Bootstrap never asserts a directional route leg.",
-    "core_route_order_discrepancies_recorded_in": "module-manifest.json#core_route_order_discrepancies (core's operational map disagrees with the published order for some packages; the published order is authoritative for the customer)."
   },
   "price_published": true,
   "price_note": "Exact per-pax standard price tiers are published (business-approved). Availability still requires live confirmation.",

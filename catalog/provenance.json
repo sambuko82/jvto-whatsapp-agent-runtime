@@ -15,17 +15,17 @@
   },
   "itinerary_core": {
     "repo": "sambuko82/jvto-itinerary-core",
-    "revision": "e3efa02f6cde641c978bf140e787954aea2df40a"
+    "revision": "092bcca10265b83e11749efff0dde19291ea25a0"
   },
   "knowledge_catalog": {
     "repo": "sambuko82/knowledge-catalog-jvto-bootstrap",
-    "revision": "614e58586205556479b88bfe1a77e0c5e9a7d3dc"
+    "revision": "a6f008e120292abcad02a1690dad17e14d0a6208"
   },
   "note": "Compact committed catalog: the chat-time read path (agent-catalog/ + customer-sales/) vendored from upstreams so one checkout serves responses without sibling repos. Regenerate with `jvto-agent build-local-catalog`.",
   "schema_version": "local-catalog-provenance-v1",
   "web_experience": {
     "present": true,
     "repo": "jvto-devteam/jvto-web",
-    "revision": "ebabf97eb5fbf56e9f82de65c18bbc169d7698b6"
+    "revision": "b8009f7403eb0cf2fa5a43a1a6f2ea5e65481f87"
   }
 }

@@ -257,7 +257,10 @@
       "tumpak_sewu_staging",
       "papuma_staging"
     ],
-    "allowed_standard_endpoints": [],
+    "allowed_standard_endpoints": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
     "ijen_relevant": true,
     "visits_madakaripura": false,
     "is_specialty": false,

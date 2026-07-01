@@ -4,6 +4,43 @@
     "package_key": "bali/bromo-ijen-3d2n",
     "origin": "Bali",
     "ferry_included": true,
+    "standard_pickup_options": [
+      "Bali hotel area pickup (origin)",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": null,
+        "label": "Bali hotel area pickup (origin)",
+        "type": "hotel",
+        "location_group": "Bali",
+        "required_fields": [
+          "hotel_area",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "package-route-map.json (route_sequence[0])",
+          "package-catalog-index.json (origin=Bali)"
+        ],
+        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Airport",
       "Surabaya Hotel",
@@ -39,13 +76,73 @@
         ]
       }
     ],
-    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "endpoint_options": [
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Malang",
+        "location_ref": "malang_dropoff",
+        "type": "city_point",
+        "connects_to": [],
+        "required_fields": [
+          "dropoff_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "from_bali",
+      "ferry_leg": "bali__to__bromo",
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -53,6 +150,43 @@
     "package_key": "bali/ijen-bromo-madakaripura-3d2n",
     "origin": "Bali",
     "ferry_included": true,
+    "standard_pickup_options": [
+      "Bali hotel area pickup (origin)",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": null,
+        "label": "Bali hotel area pickup (origin)",
+        "type": "hotel",
+        "location_group": "Bali",
+        "required_fields": [
+          "hotel_area",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "package-route-map.json (route_sequence[0])",
+          "package-catalog-index.json (origin=Bali)"
+        ],
+        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Airport",
       "Surabaya Hotel"
@@ -78,13 +212,59 @@
         ]
       }
     ],
-    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "endpoint_options": [
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "from_bali",
+      "ferry_leg": "bali__to__ijen",
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -92,6 +272,43 @@
     "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
     "origin": "Bali",
     "ferry_included": true,
+    "standard_pickup_options": [
+      "Bali hotel area pickup (origin)",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": null,
+        "label": "Bali hotel area pickup (origin)",
+        "type": "hotel",
+        "location_group": "Bali",
+        "required_fields": [
+          "hotel_area",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "package-route-map.json (route_sequence[0])",
+          "package-catalog-index.json (origin=Bali)"
+        ],
+        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Airport",
       "Surabaya Hotel"
@@ -117,13 +334,59 @@
         ]
       }
     ],
-    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "endpoint_options": [
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "from_bali",
+      "ferry_leg": "bali__to__ijen",
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -131,15 +394,121 @@
     "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
     "origin": "Bali",
     "ferry_included": true,
-    "standard_dropoff_options": [],
-    "finish_details": [],
-    "note": "\"Finish in Bali\" means a Ketapang/ferry crossing and optional Bali transfer, not a direct hotel drop unless stated.",
+    "standard_pickup_options": [
+      "Bali hotel area pickup (origin)",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": null,
+        "label": "Bali hotel area pickup (origin)",
+        "type": "hotel",
+        "location_group": "Bali",
+        "required_fields": [
+          "hotel_area",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "package-route-map.json (route_sequence[0])",
+          "package-catalog-index.json (origin=Bali)"
+        ],
+        "note": "Origin-scoped standard: Bali-origin tours are picked up at the guest's Bali hotel. No structured 01-pickup-context exists for this yet."
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
+    "standard_dropoff_options": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "finish_details": [
+      {
+        "id": "surabaya_airport_dropoff",
+        "label": "Surabaya Airport dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_customer_fields": [
+          "flight_number",
+          "departure_time"
+        ]
+      },
+      {
+        "id": "surabaya_hotel_dropoff",
+        "label": "Surabaya hotel dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_customer_fields": [
+          "hotel_area"
+        ]
+      }
+    ],
+    "endpoint_options": [
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "from_bali",
+      "ferry_leg": "bali__to__ijen",
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Bali-origin: Gilimanuk→Ketapang sea crossing at the START; the tour then finishes in Surabaya (NOT a finish in Bali).",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "unavailable"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -147,6 +516,88 @@
     "package_key": "bromo-1d1n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -172,13 +623,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -186,6 +683,88 @@
     "package_key": "bromo-2d1n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -211,13 +790,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -225,6 +850,88 @@
     "package_key": "bromo-madakaripura-ijen-3d2n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Ketapang Harbor",
       "Bali with additional transfer",
@@ -260,13 +967,79 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Ketapang Harbor",
+        "location_ref": "ketapang_harbor_dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Bali with additional transfer",
+        "location_ref": "bali_hotel_dropoff",
+        "type": "bali_area",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_name",
+          "hotel_area"
+        ],
+        "classification": "live_condition",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya with route adjustment",
+        "location_ref": null,
+        "type": null,
+        "connects_to": [],
+        "required_fields": [],
+        "classification": "live_condition",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "to_bali",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -274,6 +1047,88 @@
     "package_key": "ijen-2d1n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport",
@@ -318,13 +1173,82 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Ketapang Harbor",
+        "location_ref": "ketapang_harbor_dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -332,6 +1256,88 @@
     "package_key": "ijen-bromo-madakaripura-3d2n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -357,13 +1363,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -371,6 +1423,88 @@
     "package_key": "ijen-bromo-madakaripura-4d3n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -396,13 +1530,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -410,6 +1590,88 @@
     "package_key": "ijen-bromo-madakaripura-malang-5d4n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Malang Hotel",
       "Surabaya Airport",
@@ -445,13 +1707,73 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Malang Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -459,6 +1781,88 @@
     "package_key": "ijen-papuma-tumpak-sewu-bromo-4d3n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -484,13 +1888,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -498,6 +1948,88 @@
     "package_key": "ijen-papuma-tumpak-sewu-bromo-5d4n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -523,13 +2055,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -537,6 +2115,88 @@
     "package_key": "ijen-papuma-tumpak-sewu-bromo-malang-6d5n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Malang Hotel",
       "Surabaya Airport",
@@ -572,13 +2232,73 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Malang Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -586,6 +2306,88 @@
     "package_key": "taman-safari-prigen-bromo-madakaripura-3d2n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Surabaya Hotel",
       "Surabaya Airport"
@@ -611,13 +2413,59 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Surabaya Hotel",
+        "location_ref": "surabaya_hotel_dropoff",
+        "type": "hotel",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_area"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Surabaya Airport",
+        "location_ref": "surabaya_airport_dropoff",
+        "type": "airport",
+        "connects_to": [],
+        "required_fields": [
+          "flight_number",
+          "departure_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": false,
+      "direction": "none",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": null,
+      "note": "Route stays within East Java; no Bali sea crossing.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Route stays within East Java; no Bali sea crossing.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   },
   {
@@ -625,6 +2473,88 @@
     "package_key": "tumpak-sewu-bromo-ijen-4d3n",
     "origin": "Surabaya",
     "ferry_included": false,
+    "standard_pickup_options": [
+      "Surabaya Airport pickup",
+      "Surabaya hotel pickup",
+      "Surabaya train station pickup",
+      "Surabaya city point pickup",
+      "Custom address pickup"
+    ],
+    "pickup_details": [
+      {
+        "location_ref": "surabaya_airport_pickup",
+        "label": "Surabaya Airport pickup",
+        "type": "airport",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "flight_number",
+          "arrival_time",
+          "origin_city"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_hotel_pickup",
+        "label": "Surabaya hotel pickup",
+        "type": "hotel",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "hotel_name",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_train_station_pickup",
+        "label": "Surabaya train station pickup",
+        "type": "train_station",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "train_number",
+          "arrival_time",
+          "station_name"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "surabaya_city_point_pickup",
+        "label": "Surabaya city point pickup",
+        "type": "city_point",
+        "location_group": "Surabaya",
+        "required_fields": [
+          "meeting_point",
+          "pickup_time"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      },
+      {
+        "location_ref": "custom_address_pickup",
+        "label": "Custom address pickup",
+        "type": "custom_address",
+        "location_group": "Custom",
+        "required_fields": [
+          "address_area",
+          "pickup_time",
+          "vehicle_access_note"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "01-pickup-contexts.json"
+        ]
+      }
+    ],
     "standard_dropoff_options": [
       "Ketapang Harbor",
       "Bali with additional transfer"
@@ -659,13 +2589,68 @@
         ]
       }
     ],
-    "note": null,
+    "endpoint_options": [
+      {
+        "option": "Ketapang Harbor",
+        "location_ref": "ketapang_harbor_dropoff",
+        "type": "harbor",
+        "connects_to": [
+          "Gilimanuk Harbor",
+          "Pemuteran",
+          "Lovina",
+          "Ubud",
+          "Canggu",
+          "Seminyak",
+          "Denpasar Airport"
+        ],
+        "required_fields": [
+          "next_destination",
+          "ferry_or_bali_transfer_preference"
+        ],
+        "classification": "final_jvto_standard",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      },
+      {
+        "option": "Bali with additional transfer",
+        "location_ref": "bali_hotel_dropoff",
+        "type": "bali_area",
+        "connects_to": [],
+        "required_fields": [
+          "hotel_name",
+          "hotel_area"
+        ],
+        "classification": "live_condition",
+        "evidence": [
+          "11-package-route-map.json (standard_dropoff_options)",
+          "02-dropoff-contexts.json"
+        ]
+      }
+    ],
+    "bali_transfer": {
+      "crosses_boundary": true,
+      "direction": "to_bali",
+      "ferry_leg": null,
+      "boundary_classification": "final_jvto_standard",
+      "onward_transfer_classification": "live_condition",
+      "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
+      "evidence": [
+        "package-route-map.json",
+        "11-package-route-map.json",
+        "02-dropoff-contexts.json"
+      ]
+    },
+    "note": "Finishes toward Bali via a Ketapang/Gilimanuk ferry crossing; the onward Bali hotel transfer is a live arrangement, not a direct hotel drop unless stated.",
     "source_evidence": [
       "core:generated/itinerary-intelligence/11-package-route-map.json",
-      "core:generated/itinerary-intelligence/02-dropoff-contexts.json"
+      "core:generated/itinerary-intelligence/02-dropoff-contexts.json",
+      "core:generated/itinerary-intelligence/agent-contract/standard-route-truth.json"
     ],
     "readiness": {
-      "endpoint_chain": "available"
+      "endpoint_chain": "available",
+      "pickup_options": "available"
     }
   }
 ]

@@ -1,6 +1,6 @@
 {
   "release_id": "customer-sales-release-20260628-001",
-  "gap_count": 18,
+  "gap_count": 17,
   "gaps": [
     {
       "package_key": "bali/bromo-ijen-3d2n",
@@ -16,11 +16,6 @@
       "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-4d3n",
       "capability": "vehicle_luggage",
       "reason": "luggage allowance not published (vehicle class available)"
-    },
-    {
-      "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",
-      "capability": "endpoint_chain",
-      "reason": "no standard_dropoff_options in route map"
     },
     {
       "package_key": "bali/ijen-papuma-tumpak-sewu-bromo-5d4n",

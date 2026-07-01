@@ -79,7 +79,6 @@
       "Surabaya Hotel"
     ],
     "documented_customizations": [
-      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
       "Malang dropoff"
     ],
     "handoff_or_quote_triggers": [
@@ -104,11 +103,16 @@
     "instant_book_eligible": true,
     "whatsapp_assisted_eligible": true,
     "route_integrity": "clean",
-    "composition_blocks_instant_book": true,
-    "effective_instant_book_eligible": false,
-    "instant_book_gated_reason": "no_standard_endpoints",
-    "standard_endpoints": [],
-    "documented_customizations": [],
+    "composition_blocks_instant_book": false,
+    "effective_instant_book_eligible": true,
+    "instant_book_gated_reason": null,
+    "standard_endpoints": [
+      "Surabaya Airport",
+      "Surabaya Hotel"
+    ],
+    "documented_customizations": [
+      "Malang dropoff"
+    ],
     "handoff_or_quote_triggers": [
       "own_hotel",
       "non_standard_rooming",
@@ -374,7 +378,6 @@
       "Surabaya Airport"
     ],
     "documented_customizations": [
-      "Papuma beach stop between Ijen and Tumpak Sewu; requires dedicated Papuma leg not yet in index",
       "skip Papuma for cleaner 4D route"
     ],
     "handoff_or_quote_triggers": [
@@ -407,7 +410,6 @@
       "Surabaya Airport"
     ],
     "documented_customizations": [
-      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
       "Malang city stop on return"
     ],
     "handoff_or_quote_triggers": [
@@ -441,7 +443,6 @@
       "Surabaya Hotel"
     ],
     "documented_customizations": [
-      "Papuma stop between Ijen and Tumpak Sewu; requires dedicated leg",
       "Malang dropoff instead of Surabaya return"
     ],
     "handoff_or_quote_triggers": [

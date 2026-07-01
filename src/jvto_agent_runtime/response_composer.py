@@ -40,6 +40,67 @@ def _money(currency: str | None, amount: int) -> str:
     return f"{currency or 'IDR'} {amount:,}"
 
 
+# Topics for which a concrete price may be surfaced. Every other topic answers from its
+# own scoped rule and never carries a price line ("price only for price-relevant inquiries").
+PRICE_RELEVANT_TOPICS = {"price", "booking"}
+
+
+def _topic_fact(topic: str | None, catalog: dict[str, Any]) -> tuple[str | None, list[str]]:
+    """One topic-scoped body line + any live-condition disclosures, drawn only from
+    resolved catalog facts. A vehicle question answers vehicle rules, a hotel question
+    answers standard overnights, an endpoint question answers package-valid endpoint
+    options — never a generic blob. Returns (line, disclosures). Never invents: a field
+    with no resolved value yields no line."""
+    if catalog.get("status") != "resolved":
+        return None, []
+    disc: list[str] = []
+    ep = catalog.get("endpoint") or {}
+
+    if topic == "route_endpoint":
+        parts: list[str] = []
+        pickups = ep.get("standard_pickup_options") or []
+        if pickups:
+            parts.append("Pickup: " + ", ".join(pickups))
+        # split classified endpoint options: settled standards vs live-arrangement ones
+        opts = ep.get("endpoint_options") or []
+        standard = [o["option"] for o in opts if o.get("classification") == "final_jvto_standard"]
+        live = [o["option"] for o in opts if o.get("classification") == "live_condition"]
+        if not standard:
+            standard = ep.get("standard_dropoff_options") or []
+        if standard:
+            parts.append("Standard finish: " + ", ".join(standard))
+        for opt in live:
+            disc.append(f"{opt} is a live arrangement confirmed before booking, not a standard endpoint.")
+        bt = ep.get("bali_transfer") or {}
+        if bt.get("crosses_boundary") and bt.get("note"):
+            disc.append(bt["note"])
+        return ("; ".join(parts) if parts else None), disc
+
+    if topic == "vehicle":
+        veh = catalog.get("vehicle") or {}
+        cat = veh.get("vehicle_category")
+        return (f"Vehicle: {cat}" if cat else None), disc
+
+    if topic == "hotel":
+        room = catalog.get("rooming") or {}
+        overnights = room.get("overnights") or []
+        return ("Standard overnights: " + ", ".join(overnights) if overnights else None), disc
+
+    if topic == "rooming":
+        room = catalog.get("rooming") or {}
+        return (room.get("rooming_assumption"), disc)
+
+    if topic == "private_tour":
+        gd = catalog.get("guide_support") or {}
+        return (gd.get("crew_roles"), disc)
+
+    if topic == "inclusions":
+        inc = (catalog.get("inclusions") or {}).get("included") or []
+        return ("Includes: " + ", ".join(inc[:4]) if inc else None, disc)
+
+    return None, disc
+
+
 def compose_customer_response(
     release_dir: Path | str,
     decision_envelope: dict[str, Any],
@@ -63,8 +124,13 @@ def compose_customer_response(
 
     # 3) Unify state (escalate only): the delivery plan already handed off for route/quote/
     #    needs_information; add the catalog/price states it cannot see.
+    #    Price is topic-scoped: only a price-relevant inquiry may surface a price OR escalate
+    #    because of a price constraint (a vehicle/hotel/endpoint question must not hand off
+    #    just because pax is below the price minimum).
+    topic = plan.get("topic")
+    price_relevant = topic in PRICE_RELEVANT_TOPICS
     plan_handoff = plan["handoff"]["required"]
-    price_forces_handoff = pricing["status"] == "custom_quote_required"
+    price_forces_handoff = price_relevant and pricing["status"] == "custom_quote_required"
     catalog_forces_handoff = catalog["status"] == "not_found"
     needs_handoff = plan_handoff or price_forces_handoff or catalog_forces_handoff
 
@@ -81,7 +147,7 @@ def compose_customer_response(
     # envelope still needs information (the delivery plan already stripped it — mirror that
     # here so the composer can't resurface a price before required fields are collected).
     needs_information = decision_envelope.get("intent_status") == "needs_information"
-    price_surfaced = (message_mode != "handoff") and not needs_information and pricing["status"] == "priced"
+    price_surfaced = price_relevant and (message_mode != "handoff") and not needs_information and pricing["status"] == "priced"
     # A surfaced price always carries an availability disclosure — but the delivery plan
     # already adds one for price-topic answers, so only add ours if none is present.
     if price_surfaced and not any("availability" in d.lower() for d in disclosures):
@@ -96,13 +162,22 @@ def compose_customer_response(
     lines: list[str] = []
     if catalog["status"] == "resolved" and catalog.get("title"):
         lines.append(catalog["title"])
+    # Topic-scoped fact: answer the actual question (vehicle rules, standard overnights,
+    # package-valid endpoints, …) from resolved catalog facts, with any live-condition
+    # disclosures kept in required_disclosures (never asserted as settled fact).
+    topic_line, topic_disclosures = _topic_fact(topic, catalog)
+    for d in topic_disclosures:
+        if d not in disclosures:
+            disclosures.append(d)
+    if topic_line and not needs_handoff:
+        lines.append(topic_line)
     if price_surfaced:
         lines.append(
             f"From {_money(pricing.get('currency'), pricing['per_person'])} per person"
             + (f" for {pricing['pax']} guests (group total {_money(pricing.get('currency'), pricing['group_total'])})" if pricing.get("group_total") else "")
             + " — published standard price."
         )
-    elif pricing["status"] == "custom_quote_required":
+    elif price_relevant and pricing["status"] == "custom_quote_required":
         lines.append("This request needs a custom quote; a team member will confirm price and availability.")
     primary = plan.get("resolved_primary_link")
     if primary and primary.get("sendable") and primary.get("url"):

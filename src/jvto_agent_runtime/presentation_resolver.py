@@ -197,7 +197,7 @@ def build_delivery_plan(
     if mode == "handoff":
         follow_up = None
     elif rm.topic == "route_endpoint" and rm.variation:
-        follow_up = "Where would you like to finish (airport, hotel area, or Bali side)?"
+        follow_up = "Which finish point would you prefer from the options above?"
     elif not package_key and rm.topic in ("price", "general"):
         follow_up = "Which package and how many guests?"
 

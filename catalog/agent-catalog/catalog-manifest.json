@@ -9,7 +9,8 @@
       "package-operational-composition.json",
       "pickup-dropoff-requirements.json",
       "route-validation-rules.json",
-      "staging-logic.json"
+      "staging-logic.json",
+      "standard-route-truth.json"
     ],
     "present": true
   },
